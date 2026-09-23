@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estudio</title>
+<style>
+:root{ --bg:#f4f6fb; --card:#ffffff; --ink:#1c2333; --muted:#6b7790; --line:#dfe4ef; --accent:#3d5afe; --accent2:#7c4dff; --ok:#1f9d55; --bad:#e5484d; --soft:#eef1fb; --gold:#b46a00; }
+*{ box-sizing:border-box; }
+body{ margin:0; font-family:Segoe UI,system-ui,-apple-system,Arial,sans-serif; background:var(--bg); color:var(--ink); }
+header{ background:linear-gradient(120deg,#3d5afe,#7c4dff); color:#fff; padding:12px 18px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:20; }
+header h1{ font-size:18px; margin:0; font-weight:700; }
+header button{ background:rgba(255,255,255,.18); color:#fff; border:0; border-radius:8px; padding:8px 12px; font-size:13px; cursor:pointer; }
+main{ max-width:820px; margin:0 auto; padding:16px; }
+.card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; margin-bottom:14px; }
+h2{ font-size:20px; margin:0 0 4px; }
+h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
+.sub{ color:var(--muted); font-size:13px; margin:0 0 12px; }
+.temas{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.tema{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; cursor:pointer; transition:.15s; }
+.tema:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.tema b{ display:block; font-size:15px; margin-bottom:6px; }
+.tema ul{ margin:0; padding-left:16px; font-size:12.5px; color:var(--muted); }
+.tabs{ display:flex; gap:8px; flex-wrap:wrap; margin:12px 0; }
+.tabs button{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:9px 14px; font-size:13.5px; cursor:pointer; color:var(--ink); }
+.tabs button.on{ background:var(--accent); border-color:var(--accent); color:#fff; }
+.texto p{ line-height:1.7; margin:0 0 12px; font-size:15px; }
+.hl{ background:var(--accent); color:#fff; border-radius:4px; padding:0 3px; cursor:pointer; white-space:nowrap; }
+.sec{ font-size:12.5px; color:var(--muted); display:inline-block; background:var(--soft); border:1px solid var(--line); border-radius:20px; padding:3px 10px; margin:0 4px 6px 0; cursor:pointer; }
+.bigbtn{ background:var(--accent); border:0; color:#fff; border-radius:10px; padding:11px 15px; font-size:14.5px; cursor:pointer; }
+.bigbtn:disabled{ opacity:.45; cursor:default; }
+.ghost{ background:var(--card); border:1px solid var(--line); color:var(--ink); }
+.okbtn{ background:var(--ok); }
+.badbtn{ background:var(--bad); }
+.flip{ perspective:1000px; cursor:pointer; }
+.flip .inner{ position:relative; transition:transform .4s; transform-style:preserve-3d; }
+.flip.flipped .inner{ transform:rotateX(180deg); }
+.flip .face{ backface-visibility:hidden; background:var(--soft); border:1px solid var(--line); border-radius:14px; padding:26px 18px; min-height:170px; display:flex; align-items:center; justify-content:center; text-align:center; font-size:18px; }
+.flip .back{ position:absolute; inset:0; transform:rotateX(180deg); background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; }
+.flip .back small{ display:block; font-size:12px; opacity:.85; margin-bottom:10px; }
+.qbtn{ display:block; width:100%; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:11px 13px; margin:7px 0; font-size:14px; cursor:pointer; }
+.qbtn.sel-ok{ border-color:var(--ok); background:#e7f6ec; }
+.qbtn.sel-bad{ border-color:var(--bad); background:#fdeeee; }
+.fdb{ font-size:13.5px; margin:8px 0; }
+.inBlank{ display:inline-block; width:180px; max-width:70%; border:1px solid var(--accent); border-bottom:2px solid var(--accent); background:#fff; padding:5px 8px; font-size:15px; margin:0 4px; color:var(--ink); border-radius:8px; outline:none; }
+.inBlank:disabled{ opacity:.6; }
+.expl{ background:var(--soft); border-left:3px solid var(--accent); border-radius:6px; padding:8px 10px; font-size:13px; margin:8px 0; }
+.tl{ position:relative; margin-left:8px; padding-left:22px; border-left:2px solid var(--line); }
+.tl div{ position:relative; margin-bottom:12px; padding:8px 10px; border-radius:10px; background:var(--card); border:1px solid var(--line); cursor:pointer; }
+.tl div::before{ content:''; position:absolute; left:-27px; top:13px; width:10px; height:10px; border-radius:50%; background:var(--accent); }
+.tl b{ color:var(--accent); font-size:14px; }
+.tl p{ margin:3px 0 0; font-size:14px; line-height:1.5; filter:blur(7px); transition:.25s; user-select:none; }
+.tl div.abierta p{ filter:none; user-select:text; }
+.tl .pista{ font-size:11.5px; color:var(--muted); margin:0 0 3px; }
+.prog{ height:8px; background:var(--line); border-radius:6px; overflow:hidden; margin:10px 0; }
+.prog i{ display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); width:0; border-radius:6px; transition:.3s; }
+.row{ display:flex; gap:8px; flex-wrap:wrap; }
+.note{ font-size:12.5px; color:var(--muted); }
+.msg{ background:#fff8e6; border:1px solid #f0ddb0; border-radius:10px; padding:10px 12px; font-size:13px; margin-bottom:12px; }
+.in{ width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:14px; margin-bottom:12px; }
+.lista-card{ border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; background:var(--soft); }
+.lista-card b{ color:var(--accent); }
+.ficha{ position:fixed; left:0; right:0; bottom:0; background:var(--card); border-top:3px solid var(--accent); padding:16px 18px 18px; z-index:30; box-shadow:0 -6px 24px rgba(0,0,0,.12); }
+.ficha b{ color:var(--accent); font-size:15px; }
+.ficha p{ margin:6px 0 12px; font-size:14px; line-height:1.5; }
+.rates{ display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; margin-top:12px; }
+.rates button{ border:0; border-radius:9px; padding:9px 4px; font-size:12.5px; cursor:pointer; color:#fff; }
+@media(max-width:560px){ .temas{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="hdTitle">Estudio</h1>
+  <button onclick="home()">Inicio</button>
+</header>
+<main id="view"></main>
+<div class="ficha" id="ficha" style="display:none"><b id="fT"></b><p id="fD"></p><div class="row"><button class="ghost bigbtn" onclick="cerrarFicha()">Cerrar</button></div></div>
+<script>
+var CONTENIDO = {
+  titulo: "Estudio · Historia Argentina",
+  nota: "Historia Argentina (prof. Eugenia Rossi): UD 1 Luchas por la Emancipación · Clase 3 de UD 2 (Guerra del Brasil y Obligado) · UD 3 Guerra de la Triple Alianza. Criminalística: ejemplo.",
+  temas: [
+    {
+      id: "historia",
+      nombre: "Historia · Clase 3 UD 2",
+      secciones: [
+        {
+          titulo: "Presentación de la clase",
+          parrafos: [
+            "La clase estudia las acciones bélicas contra potencias extranjeras previas a la consolidación del Estado Nacional: la Guerra del Brasil (1825-1828) y el Conflicto Anglo-Francés (1845-1849), cuyo episodio central fue el Combate de la Vuelta de Obligado (20/11/1845).",
+            "En ambos conflictos, las Provincias Unidas y luego la Confederación enfrentaron a potencias con superioridad naval y material, por el control estratégico de la cuenca del Plata: un factor que marcó todo el período y condicionó la construcción del Estado."
+          ]
+        },
+        {
+          titulo: "Guerra del Brasil · origen y antecedentes",
+          parrafos: [
+            "La Guerra del Brasil fue un conflicto armado entre las Provincias Unidas del Río de la Plata y el Imperio del Brasil, originado en el levantamiento de la Provincia Oriental contra la dominación brasileña y en la posterior incorporación de ese territorio a las Provincias Unidas. Se desarrolló en los ámbitos terrestre, fluvial y marítimo, y concluyó en 1828 con una solución diplomática que dio origen a la República Oriental del Uruguay.",
+            "Constituyó un conflicto regional en el que confluyeron tres cuestiones: la cuestión oriental, la construcción de la autoridad política en las Provincias Unidas y la disputa por el control estratégico del Río de la Plata.",
+            "Los antecedentes eran geopolíticos: desde la época colonial el espacio rioplatense fue zona de competencia entre las coronas española y portuguesa. La Banda Oriental interesaba a Portugal y a Brasil por su posición frente al Río de la Plata, el control de las comunicaciones fluviales y terrestres, la seguridad de la frontera meridional brasileña y sus recursos ganaderos.",
+            "De la intervención portuguesa a la Provincia Cisplatina: 1808 traslado de la corte portuguesa a Río de Janeiro; 1811 intervención en la Banda Oriental; 1816 invasión luso-brasileña y derrota del proyecto artiguista; 1817 ocupación de Montevideo; 1821 incorporación de la Banda Oriental como Provincia Cisplatina; 1822 independencia de Brasil, quedando la provincia bajo el nuevo Imperio."
+          ]
+        },
+        {
+          titulo: "1825 · de la cuestión oriental a la guerra",
+          parrafos: [
+            "El 19 de abril de 1825 desembarcaron los Treinta y Tres Orientales, expedición encabezada por Juan Antonio Lavalleja; en los meses siguientes el movimiento se extendió por la campaña oriental y enfrentó a las fuerzas imperiales.",
+            "El 25 de agosto la Asamblea de la Florida declaró la independencia de la Provincia Oriental respecto del Imperio del Brasil y manifestó su voluntad de incorporarse a las Provincias Unidas. El 25 de octubre el Congreso Constituyente aceptó la incorporación: ese fue el casus belli. El 10 de diciembre de 1825 el Imperio del Brasil declaró la guerra a las Provincias Unidas.",
+            "Ante la declaración, Brasil empleó su superioridad naval para bloquear los principales puertos, en especial Buenos Aires: el objetivo era aislar económicamente a las Provincias Unidas, interrumpir su comercio exterior y dificultar el abastecimiento y la capacidad de sostener la guerra."
+          ]
+        },
+        {
+          titulo: "Un Estado en construcción y un ejército por organizar",
+          parrafos: [
+            "En 1825 las Provincias Unidas NO constituían un Estado nacional consolidado: cada provincia conservaba su autonomía política, administrativa y fiscal. Esta etapa, conocida como período de las autonomías provinciales, comenzó con la disolución del poder central tras la batalla de Cepeda (1820) y duró hasta la organización constitucional de 1853.",
+            "La declaración de guerra exigió crear una fuerza nacional a partir de estructuras fragmentadas. La Ley de Creación de un Ejército Nacional (31/05/1825) fijó 7.600 efectivos, con aportes por provincia (Buenos Aires 1.600; Córdoba 1.200; Santa Fe 200), sobre la base de los restos del Regimiento Río de la Plata, el Ejército Auxiliar del Perú y el Batallón de Cazadores de Salta; se designó general en jefe a Martín Rodríguez. El reclutamiento forzoso, la falta de presupuesto y la crisis del bloqueo provocaron fuerte resistencia social.",
+            "En 1826 el Congreso Constituyente creó un Poder Ejecutivo nacional y Bernardino Rivadavia fue elegido presidente para unificar la dirección del esfuerzo de guerra, sin una Constitución formalmente consolidada. Comandaban el esfuerzo: Carlos María de Alvear al frente del ejército republicano y Guillermo Brown al mando de la escuadra. Del lado imperial, comandaban el ejército el Marqués de Barbacena, mientras el emperador era Pedro I.",
+            "El plan republicano consistía en una marcha de aproximación de más de 400 km hasta Bagé y luego una maniobra por líneas interiores: batir fraccionadamente al enemigo, atacando primero a una agrupación y, consolidada la victoria, incidir sobre la otra.",
+            "El camino fue durísimo: en 30 días se recorrieron los 400 km venciendo el calor, la falta de agua y alimentos; hubo un saqueo vergonzoso de Bagé; las lluvias convirtieron la zona en una ciénaga y obligaron a detenerse 5 días, tiempo que aprovechó el enemigo para reunir su ejército. Barbacena eligió las sierras de Camacuá, pedregosas y quebradas, para neutralizar la caballería argentina, mayor fortaleza republicana."
+          ]
+        },
+        {
+          titulo: "Batalla de Ituzaingó · 20/02/1827",
+          parrafos: [
+            "Fuerzas enfrentadas: el Ejército Republicano contaba con unos 7.700 hombres bajo el mando de Alvear, con Lavalleja en la vanguardia y división de caballería clave a cargo de Brandsen, Lavalle, Olazábal, Iriarte y Soler. El Ejército Imperial sumaba 8.500 a 9.000 efectivos, con contingentes veteranos de línea y mercenarios europeos, comandados por el Marqués de Barbacena. Los republicanos tenían preponderancia de caballería; el Imperio, mejores pertrechos, apoyo logístico e infantería regular.",
+            "Barbacena calculó erróneamente que los republicanos se retiraban y ordenó avanzar en la madrugada del 20 de febrero. Alvear, advertido del terreno desventajoso (a orillas del crecido río Santa María), adelantó tropas para ocupar las alturas dominantes del Morro de las Calaveras y ganó tiempo para desplegar el grueso del ejército. Un zanjón transversal frenó a la infantería brasileña, que quedó inmovilizada.",
+            "Las cargas: Lavalleja cargó sobre la izquierda brasileña y, aunque fue rechazado, obligó a los imperiales a formar en cuadro, perdiendo movilidad. La heroica carga de Brandsen, ordenada por Alvear contra el zanjón y la infantería enemiga, costó la muerte del coronel pero quebró la resistencia. Sucesivas cargas de Paz, Lavalle y Pacheco y la lúcida maniobra de Olavarría desorganizaron a la caballería imperial; la infantería en cuadro terminó desbordada por los flancos y Barbacena debió retirarse en desorden, con su parque amenazado por un incendio.",
+            "Bajas y resultados: imperiales entre 300 y 400 muertos y heridos, más prisioneros, el archivo del ejército y la casaca roja de Barbacena (que Alvear llevó como trofeo); además se capturó la partitura de la marcha que pasó a ser la Marcha de Ituzaingó. Bajas republicanas: alrededor de 150. PERO no se pudo explotar la ventaja militar, porque la tropa estaba agotada, sin raciones y los caballos al límite.",
+            "¿Fue una batalla decisiva? No: para ser decisiva debe alterar de forma permanente el curso de la guerra, destruir el centro de gravedad enemigo y obligar al adversario a cambiar su concepción estratégica. Conclusiones de la campaña: la maniobra transformó una situación táctica desfavorable (río a la espalda, terreno bajo) en victoria mediante la ocupación de puntos llave y armas combinadas; preponderancia de la caballería; aproximación indirecta; y problemas de mando, ya que el resistido liderazgo de Alvear fue compensado por la iniciativa de sus coroneles."
+          ]
+        },
+        {
+          titulo: "Combate de Carmen de Patagones · 07/03/1827",
+          parrafos: [
+            "Ante el bloqueo de Buenos Aires, Carmen de Patagones se transformó en refugio y apostadero de los corsarios de las Provincias Unidas, por lo que se volvió un objetivo imperial. La expedición invasora, dirigida en el terreno por el capitán de fragata inglés James Shepherd, reunió 4 buques de guerra (Duqueza de Goiás, Itaparica, Escudeiro y Constanza), 52 piezas de artillería y más de 600 hombres.",
+            "La guerra de corso fue clave: el Estado autoriza a particulares a armar buques para hostigar el comercio enemigo, regulados por la Patente de Corso, con presas validadas por un Tribunal de Presas; el corsario es combatiente legítimo, no pirata. Multiplicó la capacidad de fuego de las Provincias Unidas, dificultó el comercio imperial y obligó a la Armada brasileña a dispersarse.",
+            "La defensa local, sin apoyo del gobierno y sin caballos, fue organizada por el comandante Martín Lacarra con 330 hombres: tropas del fuerte, infantería de negros libertos, marinos de los buques corsarios (Bella Flor, Oriental Argentino, los balleneros Hijo de Mayo e Hijo de Julio, las goletas Emperatriz y Chiquita) y milicias de gauchos y vecinos. Como estratagema, se vistió a mujeres y ancianos con uniformes y gorros rojos en el fuerte para simular una gran reserva.",
+            "El río Negro y sus bancos de arena jugaron un papel decisivo: Bynnon desplegó los corsarios aislando la flota imperial; la Duqueza de Goiás encalló y se destruyó, y la Itaparica quedó severamente dañada. Shepherd desembarcó 400 infantes en la medianoche del 6 de marzo, pero fueron emboscados en el Cerro de la Caballada con fuego combinado de los buques y las fuerzas terrestres; el capitán murió en los primeros intercambios. A media mañana las naves restantes se rindieron y por la tarde capituló la Itaparica. Una victoria táctica asimétrica que neutralizó la expedición anfibia brasileña."
+          ]
+        },
+        {
+          titulo: "Fin de la guerra y consecuencias políticas",
+          parrafos: [
+            "La guerra entró en un punto muerto por el impacto económico del bloqueo y el agotamiento financiero de ambas naciones. La diplomacia británica, mediada por Lord John Ponsonby, impulsó la paz para destrabar el comercio y asegurar la libre navegación del estuario.",
+            "En 1827 Rivadavia envió a Río de Janeiro al ministro Manuel García, pero la Misión García implicaba renunciar a la soberanía sobre la Provincia Oriental y desmovilizar: su contenido fue rechazado en Buenos Aires como una claudicación, la 'paz deshonrosa', frente a las victorias obtenidas. El repudio aceleró la renuncia de Rivadavia y la disolución de los poderes nacionales y del Congreso Constituyente.",
+            "Restituida la autonomía provincial, la Legislatura bonaerense eligió gobernador al coronel Manuel Dorrego, que quedó a cargo de las relaciones exteriores. Obligado por la falta de recursos, firmó en agosto de 1828 la Convención Preliminar de Paz, que consagró la independencia de la Provincia Oriental como mal menor: nacía la República Oriental del Uruguay. El descontento del ejército, parte del cual era de tendencia unitaria, llevó a que el 1 de diciembre de 1828 Dorrego fuera derrocado; tras ofrecer resistencia armada, fue fusilado en Navarro el 13 de diciembre por el coronel Juan Lavalle.",
+            "Los debates del Congreso giraron en torno a dónde residía la soberanía: se diferenciaron dos bloques. Los unitarios sostenían un poder central fuerte y que la soberanía reside originariamente en la Nación. Los federales defendían la soberanía y preexistencia de las provincias, que delegan solo atribuciones limitadas en un gobierno nacional pactado. Con la disolución del Congreso y la crisis por la forma de resolver la guerra, esa polarización dio paso a la guerra civil entre unitarios y federales."
+          ]
+        },
+        {
+          titulo: "Conflicto Anglo-Francés y Vuelta de Obligado · 1845",
+          parrafos: [
+            "En 1845 Gran Bretaña y Francia, las dos mayores potencias industriales y navales del mundo, intervinieron militarmente en el Río de la Plata contra la Confederación Argentina, que aún no tenía Poder Ejecutivo ni Constitución nacional: desde el Pacto Federal (1831), el manejo de las relaciones exteriores estaba en manos del gobernador de Buenos Aires, Juan Manuel de Rosas (segundo mandato, 1835-1852).",
+            "Objetivos de la alianza: romper el proteccionismo aduanero impuesto por Rosas desde 1836 y abrir a la libre navegación los ríos interiores (Paraná y Uruguay); geopoliticamente, inclinar la guerra civil uruguaya a favor de los colorados (aliados de unitarios y franceses), levantar el sitio de Montevideo, y hasta fragmentar el poder central separando las provincias del Litoral en una supuesta 'República de la Mesopotamia'. El 26 de septiembre de 1845 la escuadra bloquó Buenos Aires y ocupó la Isla Martín García.",
+            "Los buques de guerra a vapor permitieron prescindir de los vientos, internarse contra la corriente y escoltar un convoy de casi 100 barcos mercantes. Rosas designó al general Lucio Norberto Mansilla para organizar la defensa.",
+            "Mansilla eligió la Vuelta de Obligado, al norte de San Pedro, donde el río se angosta (hasta unos mil metros) y describe una doble curva con zonas abarrancadas que dificulta la maniobra naval. Desplegó de costa a costa tres cadenas de hierro sobre 24 barcazas o pontones anclados, unos 2.200 soldados y baterías de artillería de diversos calibres, inferiores en alcance y potencia a los cañones europeos.",
+            "La escuadra anglo-francesa sumaba 11 buques de guerra (2 corbetas, 6 bergantines y 3 vapores de casco de metal) más unos 90 mercantes. El 20 de noviembre de 1845 forzaron el paso: pese al devastador fuego naval, las baterías resistieron hasta la caída de la tarde, cuando desembarcó la infantería de marina, tomó las posiciones y cortó las cadenas. Los defensores sufrieron 250 bajas y los aliados unas 50.",
+            "Mansilla nunca buscó ganar en un duelo simétrico: su objetivo era provocar un desgaste insostenible, una victoria pírrica para el enemigo. Y el castigo continuó tras Obligado: en el viaje hacia Corrientes y en el regreso, los convoyes fueron hostigados en El Tonelero, San Lorenzo y, sobre todo, en la Batalla de Angostura del Quebracho, donde se destruyeron 6 mercantes (a uno las baterías y cuatro quemados por sus propias tripulaciones). Una victoria pírrica es aquella que se consigue con pérdidas tan devastadoras que equivale a una derrota; el término viene de Pirro de Epiro, que al vencer en la Batalla de Ásculo (279 a.C.) dijo: 'Otra victoria como esta, y estoy perdido'.",
+            "El resultado fue el fracaso comercial de la expedición: aunque los buques llegaron a Corrientes y Paraguay, el mercado estaba empobrecido y sin circulante, y nada se vendió. El 24 de noviembre de 1849 Gran Bretaña (tratado Arana-Southern) y Francia (Arana-Lépredour) firmaron la paz, reconociendo la soberanía argentina sobre los ríos interiores y devolviendo la flota capturada. El impacto fue enorme: Brasil y Chile moderaron su hostilidad, unitarios como el coronel Martiniano Chilavert se sumaron a la defensa, y desde su exilio José de San Martín escribió a Tomás Guido destacando que los argentinos 'no son empanadas que se comen sin más trabajo que abrir la boca'."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "Guerra del Brasil", d: "Conflicto armado (1825-1828) entre las Provincias Unidas y el Imperio del Brasil por la Provincia Oriental y el control estratégico del Río de la Plata. Terminó con la independencia de la República Oriental del Uruguay."},
+        {t: "Provincia Cisplatina", d: "Nombre que recibió la Banda Oriental al pasar a dominio portugués (1821) y luego al Imperio brasileño (1822)."},
+        {t: "Casus belli", d: "El 25/10/1825 el Congreso aceptó la incorporación de la Provincia Oriental a las Provincias Unidas; el Imperio lo consideró un acto de guerra y declaró la guerra el 10/12/1825."},
+        {t: "Treinta y Tres Orientales", d: "Expedición encabezada por Juan Antonio Lavalleja que desembarcó en la Playa de la Agraciada el 19/04/1825 para liberar la Provincia Oriental."},
+        {t: "Asamblea de la Florida", d: "Reunión del 25/08/1825 que declaró la independencia de la Provincia Oriental respecto del Imperio y su voluntad de incorporarse a las Provincias Unidas."},
+        {t: "Bloqueo del Río de la Plata", d: "Operación naval brasileña para aislar económicamente a las Provincias Unidas: bloquear puertos, cortar el comercio exterior y el abastecimiento."},
+        {t: "Autonomías provinciales", d: "Etapa entre la batalla de Cepeda (1820) y la organización constitucional (1853): cada provincia mantuvo su autonomía política, sin una autoridad nacional efectiva."},
+        {t: "Ley de Creación de un Ejército Nacional", d: "Sancionada el 31/05/1825: fijó 7.600 efectivos con aporte por provincia (Buenos Aires 1.600, Córdoba 1.200, Santa Fe 200); general en jefe Martín Rodríguez."},
+        {t: "Maniobra por líneas interiores", d: "Estrategia de batir fraccionadamente al enemigo: atacar primero a una agrupación y, consolidada la victoria, incidir sobre la otra."},
+        {t: "Morro de las Calaveras", d: "Alturas dominantes que separaban a ambos ejércitos: ocuparlas rápidamente le dio a Alvear el tiempo de desplegar el grueso antes de Ituzaingó."},
+        {t: "Batalla de Ituzaingó", d: "Combate del 20/02/1827 entre Alvear y Barbacena. Victoria táctica republicana lograda con el esfuerzo concentrado de la caballería, incluida la heroica carga de Brandsen, que murió cumpliendo la orden. Bajas: unas 150 republicanas frente a 300-400 imperiales; no se pudo explotar la victoria."},
+        {t: "Guerra de corso", d: "Estrategia naval en la que el Estado autoriza a particulares a armar buques para hostigar el comercio y los intereses del enemigo, con Patente de Corso y presas validadas por un Tribunal de Presas; el corsario es combatiente legítimo, no pirata."},
+        {t: "Combate de Carmen de Patagones", d: "Acción del 07/03/1827: la escuadrilla corsaria y la defensa local, organizada por Martín Lacarra, destruyeron la expedición imperial de Shepherd. Victoria táctica asimétrica."},
+        {t: "Victoria pírrica", d: "Victoria obtenida con pérdidas tan devastadoras para el vencedor que equivale a una derrota. Proviene de Pirro, rey de Epiro (Batalla de Ásculo, 279 a.C.)."},
+        {t: "Vuelta de Obligado", d: "Combate del 20/11/1845: Mansilla defendió el paso del Paraná con tres cadenas sobre 24 pontones, unos 2.200 soldados y baterías de artillería, contra la escuadra anglo-francesa. Victoria pírrica para el enemigo."},
+        {t: "Batalla de Angostura del Quebracho", d: "Hostigamiento posterior a Obligado (1845): la flota anglo-francesa perdió 6 mercantes, el colofón que volvió pírrica su expedición."},
+        {t: "Convención Preliminar de Paz", d: "Tratado firmado por Dorrego en agosto de 1828: consagró la independencia de la Provincia Oriental (República Oriental del Uruguay) como mal menor."},
+        {t: "Unitarios vs. Federales", d: "Unitarios: soberanía en la Nación como todo indivisible y poder central fuerte. Federales: soberanía originaria de las provincias, que delegan solo atribuciones limitadas en un gobierno pactado."}
+      ],
+      cronologia: [
+        {fecha: "1816", dato: "Invasión luso-brasileña y derrota del proyecto artiguista en la Banda Oriental."},
+        {fecha: "1821", dato: "La Banda Oriental es incorporada como Provincia Cisplatina."},
+        {fecha: "1822", dato: "Independencia de Brasil; la Cisplatina queda bajo el nuevo Imperio."},
+        {fecha: "19/04/1825", dato: "Desembarco de los Treinta y Tres Orientales (Juan Antonio Lavalleja)."},
+        {fecha: "25/08/1825", dato: "Asamblea de la Florida: independencia de la Provincia Oriental e incorporación a las Provincias Unidas."},
+        {fecha: "25/10/1825", dato: "El Congreso acepta la incorporación: casus belli."},
+        {fecha: "10/12/1825", dato: "El Imperio del Brasil declara la guerra a las Provincias Unidas."},
+        {fecha: "29/07-30/07/1826", dato: "Combate de Quilmes: victoria naval republicana de la escuadra de Brown."},
+        {fecha: "20/02/1827", dato: "Batalla de Ituzaingó: victoria táctica republicana de Alvear sobre Barbacena."},
+        {fecha: "07/03/1827", dato: "Combate de Carmen de Patagones: derrota de la expedición imperial de Shepherd."},
+        {fecha: "08/1828", dato: "Convención Preliminar de Paz (Dorrego): nace la República Oriental del Uruguay."},
+        {fecha: "13/12/1828", dato: "Fusilamiento de Manuel Dorrego en Navarro por orden de Juan Lavalle."},
+        {fecha: "26/09/1845", dato: "Bloqueo anglo-francés del puerto de Buenos Aires y ocupación de la Isla Martín García."},
+        {fecha: "20/11/1845", dato: "Combate de la Vuelta de Obligado: Mansilla defiende el Paraná ante la escuadra anglo-francesa."},
+        {fecha: "28/11/1845", dato: "Batalla de Angostura del Quebracho: se destruyen 6 mercantes anglo-franceses."},
+        {fecha: "24/11/1849", dato: "Paz con Gran Bretaña (Arana-Southern) y Francia (Arana-Lépredour): soberanía argentina sobre los ríos interiores."}
+      ],
+      preguntas: [
+        {p: "¿Qué conflicto terminó en 1828 con la independencia del Uruguay?", o: ["La Guerra del Brasil (1825-1828)", "El conflicto Anglo-francés (1845-1849)", "La Guerra de la Triple Alianza", "La guerra civil unitarios-federales"], c: 0, e: "La Guerra del Brasil concluyó con la Convención Preliminar de Paz (1828) y la creación de la República Oriental del Uruguay."},
+        {p: "¿Qué fue la Provincia Cisplatina?", o: ["Una provincia autónoma argentina", "La Banda Oriental bajo dominio portugués y luego brasileño", "Una colonia inglesa en el estuario", "El nombre de Montevideo antes de 1810"], c: 1, e: "Desde 1821 la Banda Oriental se llamó Provincia Cisplatina, primero bajo Portugal y desde 1822 bajo el Imperio brasileño."},
+        {p: "¿Cuál fue el casus belli para el Imperio del Brasil?", o: ["El desembarco de los Treinta y Tres", "La incorporación de la Provincia Oriental a las Provincias Unidas (25/10/1825)", "La Batalla de Ituzaingó", "El bloqueo del Río de la Plata"], c: 1, e: "Al aceptar el Congreso la incorporación, Brasil la consideró un acto de guerra y declaró la guerra el 10/12/1825."},
+        {p: "¿Quién encabezó el desembarco de los Treinta y Tres Orientales?", o: ["Manuel Dorrego", "José Gervasio Artigas", "Juan Antonio Lavalleja", "Juan Bautista Thorne"], c: 2, e: "Lavalleja comandó la expedición que desembarcó en la Playa de la Agraciada el 19/04/1825."},
+        {p: "¿Qué declaró la Asamblea de la Florida (25/08/1825)?", o: ["La independencia de la Provincia Oriental y su incorporación a las Provincias Unidas", "La creación del Virreinato del Plata", "La elección de Rivadavia como presidente", "La abolición del comercio con el Brasil"], c: 0, e: "Fue el acto político que inició el camino hacia la guerra con el Imperio."},
+        {p: "¿Quién comandó el ejército republicano en la Batalla de Ituzaingó?", o: ["Guillermo Brown", "Marqués de Barbacena", "Carlos María de Alvear", "Cornelio Saavedra"], c: 2, e: "Alvear fue el comandante en jefe; Brown mandaba la escuadra y Barbacena el ejército imperial."},
+        {p: "¿Quién fue presidente de las Provincias Unidas durante la guerra contra el Brasil?", o: ["Manuel Dorrego", "Juan Manuel de Rosas", "Bernardino Rivadavia", "Mariano Moreno"], c: 2, e: "Elegido en 1826 por el Congreso para unificar el esfuerzo de guerra; renunció tras el rechazo a la Misión García."},
+        {p: "¿En qué fecha se libró la Batalla de Ituzaingó?", o: ["20/02/1827", "07/03/1827", "12/10/1825", "10/12/1825"], c: 0, e: "Ituzaingó fue el 20/02/1827; Patagones, el 07/03/1827."},
+        {p: "¿Qué es la guerra de corso?", o: ["El bloqueo de un puerto propio", "Una guerra defensiva en tierra", "Autorización estatal a particulares para armar buques y hostigar el comercio enemigo", "Un tratado de paz firmado en un barco"], c: 2, e: "El Estado autoriza con la Patente de Corso; el corsario es combatiente legítimo y sus presas se validan en un Tribunal de Presas."},
+        {p: "¿Qué es una victoria pírrica?", o: ["Una victoria inmediata y total", "Una victoria lograda solo por la diplomacia", "Un empate en el campo de batalla", "Una victoria con pérdidas tan devastadoras que equivale a una derrota"], c: 3, e: "Del rey Pirro de Epiro: 'Otra victoria como esta, y estoy perdido'. Fue el concepto que guió a Mansilla en Obligado."},
+        {p: "¿Dónde organizó Mansilla la defensa contra la escuadra anglo-francesa?", o: ["Carmen de Patagones", "Angostura del Quebracho", "Vuelta de Obligado", "Paso El Tonelero"], c: 2, e: "En Vuelta de Obligado, donde el río se angosta y hace doble curva; atrás quedó el Quebracho, donde se destruyeron 6 mercantes."},
+        {p: "¿Qué reconoció la paz firmada en 1849?", o: ["La independencia de Montevideo", "El libre comercio sin restricciones de los ríos", "La soberanía argentina sobre los ríos interiores", "La anulación de la aduana de Buenos Aires"], c: 2, e: "Los tratados Arana-Southern y Arana-Lépredour reconocieron la soberanía argentina sobre los ríos interiores."},
+        {p: "¿Cómo impactó la Batalla de Ituzaingó?", o: ["Fue la derrota definitiva del Brasil", "Terminó la guerra en 1827", "Obligó a Dorrego a renunciar", "Victoria táctica que no se pudo explotar por el desgaste de recursos"], c: 3, e: "Fue una victoria táctica clara, pero la falta de recursos impidió explotar el éxito militar."},
+        {p: "¿Quién organizó la defensa de Carmen de Patagones?", o: ["Guillermo Brown", "Rodrigo Pinto Guedes", "James Shepherd", "Martín Lacarra"], c: 3, e: "Martín Lacarra organizó la defensa con corsarios, tropas del fuerte, milicias de gauchos y la estratagema de las mujeres uniformadas."},
+        {p: "¿Qué consecuencias tuvo el conflicto anglo-francés para el comercio?", o: ["Fue un gran negocio para los europeos", "Las mercaderías no se vendieron y la expedición fracasó económicamente", "Se abrió la libre navegación sin condiciones", "Rosas quedó en bancarrota total"], c: 1, e: "El mercado estaba empobrecido y sin circulante: pese a forzar el paso, el comercio fracasó y la victoria fue pírrica."},
+        {p: "¿Qué esperaba lograr Mansilla con la defensa de Obligado?", o: ["Vencer a la flota en un combate frontal", "Forzar un desgaste insostenible en el enemigo (victoria pírrica)", "Retirarse sin combatir", "Negociar directamente con los ingleses"], c: 1, e: "Consciente de la superioridad naval enemiga, buscó hacer fracasar el negocio comercial por los costos."},
+        {tipo: "vf", p: "La Guerra del Brasil finalizó con la anexión de la Provincia Oriental al Imperio del Brasil.", v: false, e: "Terminó con la Convención Preliminar de Paz (1828), que consagró la independencia de la Provincia Oriental como República Oriental del Uruguay."},
+        {tipo: "vf", p: "El bloqueo del Río de la Plata fue una operación naval brasileña para aislar económicamente a las Provincias Unidas.", v: true, e: "El objetivo era bloquear puertos, cortar el comercio exterior y dificultar el abastecimiento."},
+        {tipo: "vf", p: "En la Vuelta de Obligado, Mansilla buscaba ganar en un duelo simétrico contra la escuadra anglo-francesa.", v: false, e: "Buscaba provocar un desgaste insostenible en el enemigo: una victoria pírrica."},
+        {tipo: "vf", p: "La paz de 1849 reconoció la soberanía argentina sobre los ríos interiores.", v: true, e: "Los tratados Arana-Southern y Arana-Lépredour reconocieron esa soberanía y devolvieron la flota capturada."},
+        {tipo: "vf", p: "Los federales sostenían que la soberanía reside originariamente en la Nación como un todo indivisible.", v: false, e: "Esa era la posición unitaria. Los federales defendían la soberanía originaria de las provincias, que delegan solo atribuciones limitadas."},
+        {tipo: "vf", p: "La Misión García implicaba renunciar a la soberanía sobre la Provincia Oriental.", v: true, e: "Su contenido fue rechazado en Buenos Aires como claudicación y aceleró la renuncia de Rivadavia."},
+        {tipo: "completar", p: "La Ley de Creación de un Ejército Nacional se sancionó el 31 de mayo de ____.", o: ["1825"], e: "La ley fijó 7.600 efectivos con aportes por provincia."},
+        {tipo: "completar", p: "La Batalla de Ituzaingó se libró el 20 de febrero de ____.", o: ["1827"], e: "Victoria táctica republicana de Alvear sobre Barbacena, que no se pudo explotar por el desgaste."},
+        {tipo: "completar", p: "El general ____ organizó la defensa de la Vuelta de Obligado.", o: ["mansilla", "lucio norberto mansilla"], e: "Lucio Norberto Mansilla, designado por Rosas, eligió esa vuelta del Paraná para frenar a la escuadra."},
+        {tipo: "completar", p: "En 1816 la invasión ____ derrotó el proyecto artiguista en la Banda Oriental.", o: ["luso brasileña", "portuguesa"], e: "La intervención luso-brasileña puso fin al proyecto artiguista en la Banda Oriental."},
+        {tipo: "completar", p: "El Combate de la Vuelta de Obligado tuvo lugar el ____ de noviembre de 1845.", o: ["20"], e: "El 20/11/1845 las cadenas sobre pontones defendieron el paso del Paraná."}
+      ]
+    },
+    {
+      id: "criminalistica",
+      nombre: "Criminalística (ejemplo)",
+      secciones: [
+        {
+          titulo: "Qué es la criminalística",
+          parrafos: [
+            "La criminalística es la disciplina encargada de descubrir, explicar y probar cómo ocurrió un delito, aplicando el método científico a la escena del hecho. Su objetivo no es decidir culpabilidades (eso lo hace el derecho), sino aportar evidencias objetivas: qué pasó, con qué, cómo y quién intervino.",
+            "Todo parte de la escena protegida: se la preserva para evitar la contaminación, se la registra y recién después se realiza el relevamiento y la recolección de evidencias, siempre manteniendo la cadena de custodia. Cada indicio se analiza en un laboratorio especializado y el perito vuelca los resultados en un informe pericial."
+          ]
+        },
+        {
+          titulo: "Ramas y técnicas",
+          parrafos: [
+            "La dactiloscopía identifica personas por las huellas dactilares (únicas, inmutables y perdurables). La balística forense estudia armas, proyectiles y vainas para reconstruir un disparo. La documentología y el análisis de ADN completan el arsenal de la criminalística moderna."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "Criminalística", d: "Ciencia que descubre y prueba cómo se cometió un delito, mediante el método científico y las evidencias de la escena."},
+        {t: "Criminología", d: "Estudia las CAUSAS del delito y el comportamiento del delincuente (el porqué), no la escena."},
+        {t: "Indicio", d: "Todo objeto, huella o rastro que en la escena puede vincularse con el hecho o con su autor."},
+        {t: "Cadena de custodia", d: "Registro estricto de quién manipula cada evidencia, desde la escena hasta el juicio, para garantizar que no se altere."},
+        {t: "Dactiloscopía", d: "Ciencia que identifica personas por las huellas dactilares (son únicas, inmutables y perdurables)."},
+        {t: "Balística forense", d: "Estudia las armas de fuego, proyectiles y vainas para reconstruir el disparo y vincularlos con el hecho."},
+        {t: "Perito", d: "Especialista designado que analiza las evidencias y presenta un informe pericial como prueba."},
+        {t: "Escena protegida", d: "Lugar del hecho preservado para que los indicios no se contaminen, muevan ni destruyan antes del relevamiento."}
+      ],
+      cronologia: [
+        {fecha: "1879", dato: "Alphonse Bertillon crea la antropometría: identifica personas midiendo el cuerpo."},
+        {fecha: "1880", dato: "Henry Faulds propone el uso de las huellas dactilares para identificar delincuentes."},
+        {fecha: "1893", dato: "Hans Gross publica el 'Manual del juez': nace la criminalística moderna."},
+        {fecha: "1901", dato: "Scotland Yard adopta la clasificación de huellas dactilares de Edward Henry."},
+        {fecha: "1984", dato: "Alec Jeffreys desarrolla la huella genética (ADN), clave para la criminalística actual."}
+      ],
+      preguntas: [
+        {p: "¿Cuál es el objetivo de la criminalística?", o: ["Descubrir y probar cómo se cometió un delito", "Castigar al culpable", "Estudiar las causas del delito", "Aplicar la ley en el juicio"], c: 0, e: "Se ocupa del cómo y el qué, no de aplicar penas ni de estudiar causas."},
+        {p: "¿Para qué sirve la cadena de custodia?", o: ["Para embellecer el expediente", "Para garantizar que la evidencia no se altere ni contamine", "Para guardar las armas", "Para proteger al testigo"], c: 1, e: "Registra cada manipulación de la evidencia desde la escena hasta el juicio."},
+        {p: "¿Qué diferencia a la criminología de la criminalística?", o: ["Ninguna, son sinónimos", "Una estudia la escena y la otra la identidad", "La criminología estudia las causas y el comportamiento del delito", "La criminología solo usa huellas"], c: 2, e: "La criminología busca el porqué; la criminalística, probar el cómo."},
+        {p: "¿Qué ciencia identifica personas por las huellas dactilares?", o: ["Balística", "Antropometría", "Dactiloscopía", "Documentología"], c: 2, e: "La dactiloscopía aprovecha el carácter único, inmutable y perdurable de las huellas."},
+        {p: "¿Quién es considerado fundador de la criminalística moderna?", o: ["Alphonse Bertillon", "Hans Gross", "Alec Jeffreys", "Henry Faulds"], c: 1, e: "Hans Gross publicó en 1893 el 'Manual del juez', obra fundacional de la disciplina."},
+        {tipo: "vf", p: "La criminología estudia las causas del delito; la criminalística busca probar cómo se cometió.", v: true, e: "La criminología busca el porqué; la criminalística, el cómo y el qué."},
+        {tipo: "vf", p: "Las huellas dactilares pueden cambiar con el paso de los años.", v: false, e: "Son únicas, inmutables y perdurables: por eso sirven para identificar personas."},
+        {tipo: "vf", p: "La cadena de custodia registra quién manipula cada evidencia desde la escena hasta el juicio.", v: true, e: "Garantiza que la evidencia no se altere ni contamine."},
+        {tipo: "vf", p: "El perito decide la culpabilidad del imputado.", v: false, e: "El perito analiza evidencias y presenta un informe; la culpabilidad la decide el derecho."},
+        {tipo: "completar", p: "La ____ se encarga de descubrir y probar cómo ocurrió un delito aplicando el método científico.", o: ["criminalistica"], e: "La criminalística aporta evidencias objetivas a la investigación."},
+        {tipo: "completar", p: "La ____ estudia armas de fuego, proyectiles y vainas para reconstruir un disparo.", o: ["balistica forense", "balistica"], e: "La balística forense es una de las ramas de la criminalística."},
+        {tipo: "completar", p: "Alphonse Bertillon creó en 1879 la ____ para identificar personas midiendo el cuerpo.", o: ["antropometria"], e: "Aunque luego fue superada por las huellas, fue el primer sistema de identificación."}
+      ]
+    },
+    {
+      id: "historia_ud1",
+      nombre: "Historia · UD 1 Emancipación",
+      secciones: [
+        {
+          titulo: "El Día del Ejército Argentino",
+          parrafos: [
+            "El 29 de mayo de 1810 se conmemora el Día del Ejército Argentino: ese día la Primera Junta de Gobierno reconoció oficialmente a las fuerzas militares que habían respaldado la Revolución de Mayo, elevó los batallones de milicias al rango de regimientos y reorganizó las tropas. Ese gesto se considera el nacimiento formal del Ejército Argentino.",
+            "Las luchas por la emancipación enfrentaron a patriotas y realistas en tres grandes teatros: el norte (Expediciones Auxiliadoras al Alto Perú y Guerra Gaucha), el litoral (Combate de San Lorenzo) y el Pacífico (Plan Continental, Chile y Perú)."
+          ]
+        },
+        {
+          titulo: "Expediciones Auxiliadoras al Alto Perú",
+          parrafos: [
+            "El objetivo de las Expediciones Auxiliadoras al Alto Perú era extender y asegurar la Revolución de Mayo hacia el norte, impedir el avance realista desde el Perú, apoyar a los pueblos favorables a la causa revolucionaria y neutralizar el principal foco militar español en el Alto Perú.",
+            "La Primera Campaña Auxiliadora (1810-1811) comenzó con el coronel Francisco Ortiz de Ocampo; luego el mando militar efectivo pasó a Antonio González Balcarce, con Juan José Castelli como delegado político de la Junta. Acciones principales: Cotagaita (27/10/1810), derrota patriota; Suipacha (7/11/1810), primera gran victoria patria; y Huaqui (20/06/1811), derrota decisiva.",
+            "Final: tras Huaqui el ejército se desorganizó y se retiró hacia Potosí, Jujuy y Salta; se perdió el control del Alto Perú."
+          ]
+        },
+        {
+          titulo: "Segunda campaña: Belgrano y el Ejército del Norte",
+          parrafos: [
+            "La Segunda Campaña Auxiliadora fue comandada por el general Manuel Belgrano a partir de marzo de 1812.",
+            "Belgrano desobedeció la orden del gobierno central de retirarse hasta Córdoba y frenó el repliegue en Tucumán: consideró que abandonar la provincia dejaría desprotegido todo el norte y contaba con un fuerte apoyo de la población tucumana para reorganizar y reforzar sus fuerzas.",
+            "El Éxodo Jujeño (23/08/1812) fue la retirada general de la población de Jujuy junto con el Ejército del Norte, aplicando una política de tierra arrasada: se retiraron personas, alimentos, ganado y bienes útiles y se destruyó lo que no podía transportarse. El objetivo era negar recursos al ejército realista y debilitar su avance."
+          ]
+        },
+        {
+          titulo: "Las grandes batallas",
+          parrafos: [
+            "Combate de Las Piedras (3/09/1812): acción de retaguardia con contraataque ofensivo. La retaguardia patriota al mando de Eustoquio Díaz Vélez rechazó y venció a la vanguardia realista, frenó la presión enemiga y elevó la moral del Ejército del Norte.",
+            "Batalla de Tucumán (24/09/1812): victoria trascendental. Belgrano contaba con unos 2.000 hombres (infantería en el centro y caballería en las alas, destacada la caballería tucumana en la derecha) frente a los más de 3.000 de Pío Tristán. Maniobra ofensiva: Belgrano modificó el frente de su dispositivo y la carga de la caballería del ala derecha golpeó con fuerza el flanco realista. Tristán no pudo tomar Tucumán y se retiró a Salta.",
+            "Batalla de Salta (20/02/1813): victoria completa. Belgrano evitó el camino previsible y realizó un movimiento envolvente por la quebrada de Chachapoyas hasta Castañares: atacó por el norte y la retaguardia, obligando a Tristán a invertir su frente, y luego generalizó el ataque empleando reservas. Tristán capituló: sus tropas entregaron armas y banderas y juraron no volver a combatir contra las Provincias Unidas hasta el Desaguadero.",
+            "Batalla de Vilcapugio (1/10/1813): derrota patriota. Aunque la derecha y parte del centro tuvieron ventaja inicial, un toque confuso de reunión o retirada sembró pánico y desorden; la caballería realista de Saturnino Castro golpeó el flanco y la retaguardia, y Joaquín de la Pezuela reorganizó y contraatacó.",
+            "Combate de Tambo Nuevo (octubre de 1813): acción exitosa de reconocimiento y sorpresa. En una misión posterior a Vilcapugio, los soldados José Mariano Gómez, Santiago Albarracín y Juan Bautista Salazar sorprendieron de noche a una guardia realista superior en número y tomaron prisioneros; Belgrano los ascendió a sargentos: son los Tres Sargentos de Tambo Nuevo.",
+            "Batalla de Ayohuma (14/11/1813): derrota. Belgrano (unos 3.000-3.400 hombres y 8 piezas de artillería) esperaba que el enemigo descendiera a la llanura para atacarlo con rapidez, pero Pezuela (unos 3.500 hombres y 18 cañones) maniobró sobre el flanco patriota y quebró su línea con superioridad de infantería y artillería.",
+            "Balance de la Segunda Campaña: Tucumán y Salta salvaron el norte y frenaron la ofensiva realista, pero las derrotas de Vilcapugio y Ayohuma impidieron consolidar el control del Alto Perú; la campaña terminó con el Ejército del Norte a la defensiva."
+          ]
+        },
+        {
+          titulo: "La Guerra Gaucha",
+          parrafos: [
+            "La Guerra Gaucha fue la lucha irregular desarrollada principalmente en Salta y Jujuy contra las sucesivas invasiones realistas, liderada por Martín Miguel de Güemes. Su objetivo: defender la frontera norte, desgastar al enemigo e impedir su avance hacia el interior, mientras San Martín preparaba y ejecutaba su Plan Continental sin amenazas en la retaguardia.",
+            "Cómo operaban: en pequeñas partidas montadas, con emboscadas, ataques sorpresivos, hostigamiento constante, reconocimiento, corte de líneas de comunicación y negación de recursos (tierra arrasada). Tras el golpe se dispersaban velozmente, aprovechando su profundo conocimiento del terreno.",
+            "Virtudes de Güemes: audacia, valentía, iniciativa, capacidad de adaptación, conocimiento del terreno, perseverancia y gran ascendiente sobre sus hombres: supo convertir recursos limitados en una defensa eficaz."
+          ]
+        },
+        {
+          titulo: "San Lorenzo y los Granaderos a Caballo",
+          parrafos: [
+            "San Martín organizó el Regimiento de Granaderos a Caballo, creado el 16/03/1812, con selección rigurosa del personal, disciplina estricta, entrenamiento intensivo, fuerte espíritu de cuerpo y preparación para el combate montado.",
+            "Su bautismo de fuego fue el Combate de San Lorenzo (3/02/1813), en el Campo de la Gloria junto al Convento de San Carlos (Santa Fe). El motivo: detener los desembarcos y saqueos de la flotilla realista que operaba sobre el río Paraná y proteger la costa.",
+            "San Martín dispuso unos 120 granaderos en dos columnas (una bajo su mando directo y otra con Justo Bermúdez) ocultos tras el convento; al desembarcar unos 250 realistas de Antonio Zabala, ejecutó una doble carga de caballería con intención envolvente que los rechazó y obligó a reembarcar.",
+            "Hecho heroico: el caballo de San Martín cayó y lo aprisionó; Juan Bautista Cabral lo liberó y fue herido de muerte, secundado por Juan Bautista Baigorria, que lo protegió frente a un atacante realista."
+          ]
+        },
+        {
+          titulo: "Plan Continental, Cruce de los Andes y Chacabuco",
+          parrafos: [
+            "El Plan Continental descartaba el camino directo por el Alto Perú por sus inmensas dificultades geográficas y militares: cruzar la Cordillera de los Andes, liberar Chile y, desde allí, emprender una campaña marítima para atacar el bastión realista de Lima. Para ello San Martín organizó en Cuyo el Ejército de los Andes.",
+            "El Cruce de los Andes se realizó en seis columnas simultáneas para dispersar la atención realista: esfuerzo principal por Los Patos y Uspallata, complementados por Comecaballos, Guana, Portillo y Planchón.",
+            "Batalla de Chacabuco (12/02/1817): ataque combinado y envolvente. O'Higgins debía fijar de frente a los realistas de Maroto mientras Soler envolvía por el flanco y la retaguardia. O'Higgins cargó antes de tiempo y San Martín intervino acelerando la maniobra; la llegada de Soler completó el envolvimiento y quedó abierto el camino a Santiago."
+          ]
+        },
+        {
+          titulo: "Las mujeres en la independencia",
+          parrafos: [
+            "Juana Azurduy combatió en el Alto Perú, organizó milicias y se destacó por su capacidad de mando y valentía.",
+            "María Remedios del Valle acompañó al Ejército del Norte, combatió y asistió a heridos; es recordada como Madre de la Patria.",
+            "Macacha Güemes cumplió tareas de inteligencia, enlace, logística y apoyo político durante la Guerra Gaucha. Además, miles de mujeres anónimas participaron como enfermeras, cocineras, lavanderas, mensajeras, espías y colaboradoras de los ejércitos patriotas."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "Día del Ejército Argentino", d: "29/05/1810: la Primera Junta reconoció a las fuerzas que apoyaron la Revolución de Mayo, elevó batallones a regimientos y reorganizó las tropas. Se considera el nacimiento formal del Ejército Argentino."},
+        {t: "Expediciones Auxiliadoras al Alto Perú", d: "Extender la revolución al norte, impedir el avance realista desde el Perú, apoyar a los pueblos y neutralizar el foco militar español en el Alto Perú."},
+        {t: "Primera Campaña Auxiliadora", d: "1810-1811. Ocampo al inicio; luego Balcarce (mando militar) y Castelli (delegado político). Cotagaita (derrota), Suipacha (primera victoria), Huaqui (derrota decisiva)."},
+        {t: "Batalla de Suipacha", d: "7/11/1810: primera gran victoria patriota en el Alto Perú."},
+        {t: "Batalla de Huaqui", d: "20/06/1811: derrota decisiva; el ejército se desorganizó, se retiró a Potosí, Jujuy y Salta y se perdió el control del Alto Perú."},
+        {t: "Segunda Campaña Auxiliadora", d: "Comandada por Belgrano desde marzo de 1812. Victorias: Las Piedras, Tucumán y Salta. Derrotas: Vilcapugio y Ayohuma."},
+        {t: "Éxodo Jujeño", d: "23/08/1812: retirada general de la población de Jujuy junto al Ejército del Norte, negando recursos al enemigo (tierra arrasada)."},
+        {t: "Tierra arrasada", d: "Política de retirar o destruir todo lo útil al enemigo: personas, alimentos, ganado y bienes no transportables."},
+        {t: "Combate de Las Piedras", d: "3/09/1812: acción de retaguardia con contraataque ofensivo de Eustoquio Díaz Vélez que rechazó a la vanguardia realista."},
+        {t: "Batalla de Tucumán", d: "24/09/1812: Belgrano (unos 2.000 hombres) venció a Tristán (más de 3.000) con la carga de la caballería del ala derecha sobre el flanco realista."},
+        {t: "Batalla de Salta", d: "20/02/1813: movimiento envolvente por la quebrada de Chachapoyas; Tristán capituló y entregó armas y banderas."},
+        {t: "Batalla de Vilcapugio", d: "1/10/1813: derrota. Un toque confuso de reunión o retirada y la caballería de Saturnino Castro desarmaron a los patriotas."},
+        {t: "Tres Sargentos de Tambo Nuevo", d: "Octubre de 1813: Gómez, Albarracín y Salazar sorprendieron de noche a una guardia realista superior; Belgrano los ascendió a sargentos."},
+        {t: "Batalla de Ayohuma", d: "14/11/1813: derrota. Pezuela maniobró sobre el flanco y quebró la línea de Belgrano con superioridad de infantería y artillería."},
+        {t: "Guerra Gaucha", d: "Lucha irregular en Salta y Jujuy liderada por Güemes contra las invasiones realistas, para desgastar al enemigo y cubrir el Plan Continental."},
+        {t: "Regimiento de Granaderos a Caballo", d: "Creado por San Martín el 16/03/1812: selección rigurosa, disciplina estricta y entrenamiento intensivo para el combate montado."},
+        {t: "Combate de San Lorenzo", d: "3/02/1813, Campo de la Gloria: bautismo de fuego de los Granaderos; doble carga envolvente contra la flotilla realista de Zabala."},
+        {t: "Plan Continental", d: "Descarta el camino por el Alto Perú: cruzar los Andes, liberar Chile y atacar por mar el poder realista en Lima."},
+        {t: "Cruce de los Andes", d: "Seis columnas por Los Patos (esfuerzo principal), Uspallata, Comecaballos, Guana, Portillo y Planchón."},
+        {t: "Batalla de Chacabuco", d: "12/02/1817: O'Higgins fijó al enemigo de frente y Soler completó el envolvimiento; quedó abierto el camino a Santiago."},
+        {t: "Ejército de los Andes", d: "Fuerza organizada por San Martín en Cuyo para llevar adelante el Plan Continental."}
+      ],
+      cronologia: [
+        {fecha: "25/05/1810", dato: "Revolución de Mayo."},
+        {fecha: "29/05/1810", dato: "La Primera Junta reorganiza las milicias: Día del Ejército Argentino."},
+        {fecha: "27/10/1810", dato: "Cotagaita: derrota patriota."},
+        {fecha: "07/11/1810", dato: "Suipacha: primera gran victoria patria."},
+        {fecha: "20/06/1811", dato: "Huaqui: derrota decisiva; fin de la primera campaña."},
+        {fecha: "16/03/1812", dato: "Creación del Regimiento de Granaderos a Caballo."},
+        {fecha: "23/08/1812", dato: "Éxodo Jujeño: retirada con tierra arrasada."},
+        {fecha: "03/09/1812", dato: "Combate de Las Piedras: victoria patriota."},
+        {fecha: "24/09/1812", dato: "Batalla de Tucumán: victoria patriota."},
+        {fecha: "03/02/1813", dato: "Combate de San Lorenzo: bautismo de fuego de los Granaderos."},
+        {fecha: "20/02/1813", dato: "Batalla de Salta: victoria completa; capitula Tristán."},
+        {fecha: "01/10/1813", dato: "Batalla de Vilcapugio: derrota patriota."},
+        {fecha: "10/1813", dato: "Tambo Nuevo: hazaña de los Tres Sargentos."},
+        {fecha: "14/11/1813", dato: "Batalla de Ayohuma: derrota patriota."},
+        {fecha: "12/02/1817", dato: "Batalla de Chacabuco: victoria patriota; camino a Santiago."}
+      ],
+      preguntas: [
+        {p: "¿Por qué se conmemora el 29 de mayo el Día del Ejército Argentino?", o: ["Porque la Primera Junta reconoció a las fuerzas que apoyaron la Revolución, elevando batallones a regimientos", "Porque ese día se libró la primera batalla", "Porque nació San Martín", "Porque se creó la Escuela Militar"], c: 0, e: "Ese día de 1810 la Primera Junta reorganizó las tropas: se considera el nacimiento formal del Ejército Argentino."},
+        {p: "¿Cuál era el objetivo de las Expediciones Auxiliadoras al Alto Perú?", o: ["Extender la revolución al norte, frenar el avance realista y neutralizar el foco militar español", "Controlar el comercio del Pacífico", "Liberar Chile por mar", "Conquistar el Perú por el litoral"], c: 0, e: "También apoyar a los pueblos favorables a la causa revolucionaria."},
+        {p: "¿Cuál fue la primera gran victoria patriota en el Alto Perú?", o: ["Cotagaita", "Suipacha", "Huaqui", "Tucumán"], c: 1, e: "Suipacha, el 7/11/1810: la primera victoria patria."},
+        {p: "¿Qué significó la Batalla de Huaqui (20/06/1811)?", o: ["La consolidación del Alto Perú", "Una derrota decisiva que hizo perder el control del Alto Perú", "La rendición de Tristán", "La capitulación de Pezuela"], c: 1, e: "Tras Huaqui el ejército se desorganizó y se retiró hacia Potosí, Jujuy y Salta."},
+        {p: "¿Qué decidió Belgrano al llegar a Tucumán en 1812?", o: ["Cumplir la orden de retirarse hasta Córdoba", "Desobedecer la orden y presentar batalla", "Entregar el mando a Díaz Vélez", "Embarcarse hacia Buenos Aires"], c: 1, e: "Consideró que abandonar la provincia dejaría libre el norte y contaba con el apoyo de la población tucumana."},
+        {p: "¿Qué fue el Éxodo Jujeño?", o: ["Un desfile cívico-militar", "La retirada de la población de Jujuy con política de tierra arrasada", "La evacuación de Buenos Aires", "Una fiesta religiosa"], c: 1, e: "Se retiraron personas, alimentos, ganado y bienes; el objetivo era negar recursos al enemigo."},
+        {p: "¿Cómo se describe militarmente el Combate de Las Piedras?", o: ["Acción de retaguardia con contraataque ofensivo", "Carga de caballería frontal", "Sitio prolongado", "Desembarco anfibio"], c: 0, e: "Eustoquio Díaz Vélez rechazó a la vanguardia realista el 3/09/1812."},
+        {p: "¿Cuál fue la maniobra clave en la Batalla de Tucumán?", o: ["La carga de la caballería del ala derecha sobre el flanco realista", "Un bombardeo naval", "El ataque frontal de la infantería de línea", "La retirada ordenada"], c: 0, e: "Belgrano modificó el frente de su dispositivo para que la caballería tucumana golpeara el flanco realista."},
+        {p: "¿Qué maniobra llevó a la victoria en Salta?", o: ["Cargar de frente por el camino esperado", "Un movimiento envolvente por la quebrada de Chachapoyas", "Retroceder a Tucumán", "Rendir la ciudad"], c: 1, e: "Atacó por el norte y la retaguardia, obligando a Tristán a invertir su frente."},
+        {p: "¿Cómo finalizó la Batalla de Salta?", o: ["Tristán capituló y entregó armas y banderas", "Los realistas tomaron la ciudad", "Hubo un empate", "Belgrano se retiró a Jujuy"], c: 0, e: "Tristán juró no volver a combatir contra las Provincias Unidas hasta el Desaguadero."},
+        {p: "¿Qué provocó la derrota en Vilcapugio?", o: ["La falta de caballería patriota", "Un toque confuso de reunión o retirada y la caballería de Saturnino Castro", "Una tormenta", "La superioridad aérea enemiga"], c: 1, e: "El pánico y el desorden permitieron a Pezuela reorganizarse y contraatacar."},
+        {p: "¿En qué consistió la hazaña de los Tres Sargentos de Tambo Nuevo?", o: ["Sorprender de noche y capturar a una guardia realista superior en número", "Tomar un convoy de artillería", "Cruzar la cordillera", "Negociar una tregua"], c: 0, e: "Gómez, Albarracín y Salazar fueron ascendidos a sargentos por Belgrano."},
+        {p: "¿Por qué fracasó el plan de Belgrano en Ayohuma?", o: ["Atacó de frente como esperaba enemigo", "Pezuela maniobró sobre el flanco y quebró la línea patriota", "Faltó artillería a ambos ejércitos", "Los realistas se rindieron"], c: 1, e: "Pezuela aprovechó su superioridad de infantería y artillería: 18 cañones frente a 8."},
+        {p: "¿Quién lideró la Guerra Gaucha?", o: ["Martín Miguel de Güemes", "José de San Martín", "Eustoquio Díaz Vélez", "Juan Bautista Cabral"], c: 0, e: "La Guerra Gaucha fue liderada por Güemes en Salta y Jujuy."},
+        {p: "¿Cómo operaban los gauchos de Güemes?", o: ["En pequeñas partidas montadas con emboscadas y hostigamiento", "En grandes formaciones de línea", "Como artillería fija", "Por vía marítima"], c: 0, e: "Tras el ataque se dispersaban velozmente, aprovechando el conocimiento del terreno."},
+        {p: "¿Cuál fue el bautismo de fuego del Regimiento de Granaderos a Caballo?", o: ["Chacabuco", "San Lorenzo", "Tucumán", "Huaqui"], c: 1, e: "San Lorenzo, el 3/02/1813, en el Campo de la Gloria."},
+        {p: "¿Qué hecho heroico ocurrió durante el Combate de San Lorenzo?", o: ["Cabral liberó a San Martín de su caballo caído y murió", "San Martín capturó un buque enemigo", "Zabala se rindió sin combatir", "Los granaderos defendieron un puente"], c: 0, e: "Juan Bautista Cabral fue secundado por Juan Bautista Baigorria."},
+        {p: "¿En qué consistía el Plan Continental de San Martín?", o: ["Cruzar los Andes, liberar Chile y atacar por mar Lima", "Conquistar el Alto Perú", "Invadir Brasil", "Defender únicamente Buenos Aires"], c: 0, e: "Descarta el camino directo por el Alto Perú por sus enormes dificultades."},
+        {p: "¿Cuáles fueron los pasos principales del Cruce de los Andes?", o: ["Los Patos y Uspallata", "Camacuá y Cevallos", "Quebracho y Tonelero", "Desaguadero y Vilcapugio"], c: 0, e: "Esfuerzo principal por Los Patos y Uspallata, con cuatro pasos complementarios."},
+        {p: "¿Qué ocurrió en la Batalla de Chacabuco (12/02/1817)?", o: ["Victoria patriota: Soler completó el envolvimiento y se abrió el camino a Santiago", "Derrota patriota", "Empate con tregua", "Captura de Lima"], c: 0, e: "O'Higgins cargó antes de tiempo, pero la llegada de Soler completó el envolvimiento."},
+        {p: "¿Qué mujeres se destacaron en la Guerra de la Independencia?", o: ["Juana Azurduy, María Remedios del Valle y Macacha Güemes", "Manuela Pedraza y Eva Duarte", "Las hermanas Irigoyen", "Ninguna"], c: 0, e: "Azurduy combatió en el Alto Perú; Remedios del Valle es la Madre de la Patria; Macacha Güemes hizo inteligencia y enlace."},
+        {tipo: "vf", p: "La Primera Campaña Auxiliadora terminó con el control total del Alto Perú.", v: false, e: "Tras Huaqui se perdió el control del Alto Perú y el ejército se retiró hacia Potosí, Jujuy y Salta."},
+        {tipo: "vf", p: "Suipacha fue la primera gran victoria patriota en el Alto Perú.", v: true, e: "El 7/11/1810, tras la derrota de Cotagaita."},
+        {tipo: "vf", p: "Belgrano obedeció la orden de replegarse hasta Córdoba.", v: false, e: "La desobedeció y frenó el repliegue en Tucumán, donde presentó batalla."},
+        {tipo: "vf", p: "El Éxodo Jujeño buscaba negar recursos al ejército realista.", v: true, e: "Se retiraron personas, alimentos, ganado y bienes y se destruyó lo no transportable."},
+        {tipo: "vf", p: "Los Tres Sargentos de Tambo Nuevo capturaron de noche a una guardia realista superior en número.", v: true, e: "Gómez, Albarracín y Salazar realizaron esa hazaña y fueron ascendidos por Belgrano."},
+        {tipo: "vf", p: "El Regimiento de Granaderos a Caballo fue creado por San Martín en 1812.", v: true, e: "Fue creado el 16/03/1812 con selección rigurosa y entrenamiento intensivo."},
+        {tipo: "vf", p: "En Salta, Tristán obtuvo una victoria y tomó la ciudad.", v: false, e: "Fue victoria completa patriota: Tristán capituló y entregó armas y banderas."},
+        {tipo: "vf", p: "La Guerra Gaucha fue una lucha regular en formaciones de línea.", v: false, e: "Fue una lucha irregular en pequeñas partidas montadas, liderada por Güemes."},
+        {tipo: "completar", p: "El Éxodo Jujeño comenzó el 23 de agosto de ____, junto con el Ejército del Norte.", o: ["1812"], e: "Belgrano aplicó allí una política de tierra arrasada."},
+        {tipo: "completar", p: "La Batalla de Tucumán se libró el 24 de septiembre de ____.", o: ["1812"], e: "La caballería tucumana golpeó el flanco realista y Tristán se retiró a Salta."},
+        {tipo: "completar", p: "La Batalla de Salta tuvo lugar el 20 de febrero de ____.", o: ["1813"], e: "Belgrano envolvió por la quebrada de Chachapoyas y Tristán capituló."},
+        {tipo: "completar", p: "El general ____ lideró la Guerra Gaucha en Salta y Jujuy.", o: ["guemes", "martin miguel de guemes"], e: "Martín Miguel de Güemes defendió la frontera norte con partidas montadas."},
+        {tipo: "completar", p: "El Regimiento de Granaderos a Caballo tuvo su bautismo de fuego en el Combate de ____.", o: ["san lorenzo"], e: "El 3/02/1813 en el Campo de la Gloria (Santa Fe)."},
+        {tipo: "completar", p: "El Plan Continental buscaba atacar por mar el poder realista en ____.", o: ["lima"], e: "Tras cruzar los Andes y liberar Chile, la campaña marítima iba contra Lima."}
+      ]
+    },
+    {
+      id: "historia_ud3",
+      nombre: "Historia · UD 3 Triple Alianza",
+      secciones: [
+        {
+          titulo: "Orígenes del conflicto",
+          parrafos: [
+            "Hacia 1864, cuestiones limítrofes, la navegación del Paraná y los asuntos internos de la República Oriental del Uruguay contribuyeron a un conflicto regional que involucró a Brasil, Uruguay y Paraguay. La Argentina sostuvo inicialmente una posición de neutralidad.",
+            "La guerra se inscribió en un proceso de modernización militar sudamericano: se usaron trincheras, acorazados de la marina brasileña, fusiles de retrocarga, ametralladoras Gatling y globos cautivos de observación aérea.",
+            "Situación militar inicial: la Argentina estaba en plena Organización Nacional, con unos 6.000 oficiales y soldados y prácticamente sin escuadra; Brasil tenía un ejército de unos 30.000 hombres y una marina respetable con acorazados; Paraguay contaba con un ejército numeroso de unos 20.000 hombres y algunas fábricas de armamento; Uruguay tenía fuerzas reducidas."
+          ]
+        },
+        {
+          titulo: "De la crisis uruguaya a la invasión de Corrientes",
+          parrafos: [
+            "19/04/1863: Venancio Flores inició la Cruzada Libertadora contra el presidente uruguayo Bernardo Berro. Brasil apoyó a Flores y buscó aumentar su influencia; Paraguay, bajo Francisco Solano López, vio con alarma la creciente influencia argentina y brasileña.",
+            "14/09/1864: invasión brasileña al Uruguay. 12/11/1864: López ordenó apresar el buque brasileño Marqués de Olinda; luego Paraguay invadió Matto Grosso.",
+            "Brasil y Paraguay necesitaban utilizar territorio argentino para operar hacia sus objetivos. Mitre negó el libre tránsito a ambos invocando la neutralidad; López decidió avanzar de todos modos y el Congreso paraguayo declaró la guerra el 17/03/1865.",
+            "13/04/1865: cinco buques paraguayos capturaron en Corrientes a los buques argentinos Gualeguay y 25 de Mayo. 14/04: una columna al mando de Wenceslao Robles tomó la capital correntina. El gobernador Manuel Lagraña organizó la resistencia mediante la Vanguardia Correntina.",
+            "1/05/1865: Argentina, Brasil y Uruguay firmaron el Tratado de la Triple Alianza y se comprometieron a llevar la guerra contra el gobierno de Francisco Solano López."
+          ]
+        },
+        {
+          titulo: "Organización del Ejército Nacional",
+          parrafos: [
+            "Tras Pavón, Bartolomé Mitre impulsó la construcción de un Ejército Nacional como instrumento del nuevo Estado: buscaba un instrumento nacional de orden, disciplina y obediencia. Hasta entonces, reclutar, equipar y conducir fuerzas había sido una responsabilidad compartida entre el poder central y las provincias.",
+            "Problemas iniciales: falta de profesionalismo, dificultades de reclutamiento, ausencia de reglamentos uniformes, heterogeneidad del armamento, escasas posibilidades de formación profesional de los oficiales, exceso y desigual distribución de jefes y oficiales, y la necesidad de atender simultáneamente fronteras, rebeliones internas y luego la guerra exterior.",
+            "Medidas organizativas: decreto del 22/01/1864 que redujo el ejército permanente a 6.000 hombres (un regimiento de artillería, seis batallones de infantería y ocho regimientos de caballería de 400 plazas); decreto del 19/04/1865 que ordenó a las provincias aportar voluntarios, destinados y enganchados; y en junio de 1865 la ley de enrolamiento en la Guardia Nacional para hombres de 17 a 45 años, con determinadas excepciones.",
+            "Apoyo y logística: Comisaría de Guerra (paga, vestuario, equipo y racionamiento), Parque de Artillería (adquisición, reparación y distribución de material de guerra), Cuerpo Médico en Campaña (organización sanitaria, hospitales y evacuación), Corrientes como gran depósito de campaña y compras urgentes de uniformes, armamento y efectos en Europa. Un oficial como Lucio V. Mansilla reclamaba colegios de oficiales y libros militares: faltaba profesionalización."
+          ]
+        },
+        {
+          titulo: "Innovaciones y modernización",
+          parrafos: [
+            "La guerra fue un laboratorio de modernización militar: empleo de trincheras; acorazados de la marina imperial brasileña; fusiles de retrocarga de mayor velocidad y alcance; ametralladoras Gatling; y observación aérea mediante globos cautivos.",
+            "Mayor proporcionalidad entre las armas respecto de conflictos anteriores, aunque la movilización apresurada volvió a generar grandes masas de caballería. En artillería coexistieron piezas antiguas y modernas con cañones rayados y la Gatling modelo 1865."
+          ]
+        },
+        {
+          titulo: "Antesala: Riachuelo y el repliegue paraguayo",
+          parrafos: [
+            "11/06/1865: batalla naval de Riachuelo. La derrota de la escuadra paraguaya dejó al Paraguay más aislado.",
+            "Uruguayana y otros fracasos obligaron a López a abandonar su concepción ofensiva inicial y adoptar una defensa del territorio paraguayo. En abril de 1866 unos 60.000 aliados invadieron Paraguay por Paso de la Patria; el 2/05/1866 un reconocimiento ofensivo paraguayo en Estero Bellaco fue rechazado.",
+            "López resolvió buscar una gran batalla para empujar a los aliados hasta el Paraná y obligarlos a replegarse: así se llegó a Tuyutí."
+          ]
+        },
+        {
+          titulo: "Batalla de Tuyutí · 24/05/1866",
+          parrafos: [
+            "Plan paraguayo: ataque coordinado de tres grandes columnas sobre derecha, centro e izquierda, más una cuarta columna en el extremo derecho que debía cruzar el Monte del Sauce y aparecer sorpresivamente sobre la retaguardia aliada en Potrero Piris.",
+            "Desarrollo: una columna paraguaya logró un éxito inicial contra fuerzas uruguayas pero fue rechazada por batallones brasileños apoyados por 26 piezas de artillería; la agrupación del centro fue detenida con graves pérdidas; la caballería paraguaya chocó con posiciones preparadas, fosos, artillería y formaciones en cuadro.",
+            "Infantería argentina: tuvo tiempo de cerrar filas, fortificar su dispositivo y rechazar el ataque; los batallones 1, 2, 3, 4 y 6 de línea y el Regimiento San Martín de la Guardia Nacional se destacaron por su resistencia bajo fuerte presión. El material menciona a Manuel Fraga, José Miguel Arredondo, Luis María Campos, Francisco Borges, Felipe Aldecoa y Benjamín Basavilvaso.",
+            "Resultado: a las 16:30, tras unas cinco horas de lucha, las fuerzas paraguayas se retiraron: un desastre que destruyó sus mejores unidades de línea. Mitre no avanzó hacia Paso Pucú porque desconocía el verdadero grado de desgaste enemigo: los aliados no explotaron plenamente su victoria."
+          ]
+        },
+        {
+          titulo: "Batalla de Curupaytí · 22/09/1866",
+          parrafos: [
+            "Posición defensiva: luego de la ocupación aliada de Curuzú, López reforzó Curupaytí con un foso con agua de lluvia de casi 2 m de profundidad y 3 m de ancho, abatíes (troncos espinosos con raíces orientadas hacia el atacante), trincheras y el terreno convertido en pantano por las lluvias.",
+            "Tres factores favorecieron la defensa: el tiempo adicional logrado tras la entrevista de Yataytí Corá, los cinco días de demora por lluvia y la transformación del terreno en un gran pantano.",
+            "Plan aliado: ataque en cuatro columnas escalonadas en líneas (dos brasileñas al oeste y dos argentinas al este), precedido por un fuerte bombardeo naval previo y con un envolvimiento apenas esbozado por un terreno casi impracticable; se contempló también un desembarco anfibio de apoyo.",
+            "Desarrollo: a las 08:00 comenzó el bombardeo naval, que se prolongó unas cuatro horas y produjo efectos limitados aunque pareció neutralizar la posición. Al mediodía se inició el asalto terrestre: el fuego paraguayo, el barro, los malezales, los fosos y los abatíes frenaron rápidamente el ataque; la segunda columna encontró una laguna crecida y una línea de abatíes, y el giro para sortearla expuso a la tropa al fuego defensivo. Mitre ordenó la retirada: fracaso aliado. La lección: una posición fortificada y el terreno pueden neutralizar un asalto frontal aun después de un bombardeo."
+          ]
+        },
+        {
+          titulo: "Fortaleza de Humaitá y fin de la campaña",
+          parrafos: [
+            "El objetivo siguiente fue dominar el territorio alrededor de Humaitá, impedir el reabastecimiento por el río Paraguay y afectar las instalaciones industriales paraguayas.",
+            "Sistema defensivo: Batería Londres (18 piezas), Batería de Cadenas (18 piezas), Batería de Carbones (8 piezas), minas flotantes en sectores estratégicos, cadenas remachadas de costa a costa y puestos de observación a lo largo del río.",
+            "19/02/1868: la escuadra brasileña del almirante José Joaquín Ignacio, vizconde de Inhauma, bombardeó Humaitá y logró franquear el paso. 25/07/1868: Humaitá fue evacuada por los paraguayos y la defensa quedó a cargo del coronel Francisco Martínez; la fuerza quedó rodeada y sitiada en la Isla de Poi.",
+            "5/08/1868: rendición tras diez días de sitio, hambre, sed y enfermedades. Con ella finalizó la campaña de Humaitá o del Cuadrilátero, iniciada con la invasión aliada del 16/04/1866."
+          ]
+        },
+        {
+          titulo: "Luis María Campos: el soldado argentino",
+          parrafos: [
+            "Luis María Campos (1838-1907) es presentado por el material como arquetipo del soldado argentino: ejemplo de valor, disciplina y formación profesional.",
+            "Trayectoria: 1859 ingreso en la Guardia Nacional; 1861 bautismo de fuego en Pavón, donde se distinguió al capturar una bandera enemiga; 1863 campaña contra Ángel Chacho Peñaloza; 1865-1870 Guerra de la Triple Alianza en Uruguayana, Estero Bellaco, Tuyutí y Curupaytí. En Tuyutí su desempeño contribuyó a su ascenso a teniente coronel y a la obtención de Cordones de Oro.",
+            "Participó luego en campañas internas contra caudillos federales, fue ministro de Guerra en tres oportunidades e impulsó la creación de la Escuela Superior de Guerra bajo el lema Estudiar es progresar. Valores asociados: coraje, honor, patriotismo, disciplina, tenacidad y vocación de estudio y perfeccionamiento."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "Tratado de la Triple Alianza", d: "Firmado el 1/05/1865 por Argentina, Brasil y Uruguay para llevar la guerra contra el gobierno de Francisco Solano López."},
+        {t: "Invasión de Corrientes", d: "13-14/04/1865: captura de los buques Gualeguay y 25 de Mayo y toma de la capital correntina; determinó el ingreso argentino a la guerra."},
+        {t: "Cruzada Libertadora", d: "19/04/1863: campaña de Venancio Flores contra el presidente uruguayo Bernardo Berro."},
+        {t: "Marqués de Olinda", d: "Buque brasileño apresado por orden de López el 12/11/1864, poco después de la invasión brasileña al Uruguay."},
+        {t: "Vanguardia Correntina", d: "Resistencia organizada por el gobernador Manuel Lagraña tras la ocupación de Corrientes."},
+        {t: "Ejército de Línea de 1864", d: "Decreto del 22/01/1864: ejército permanente reducido a 6.000 hombres (1 regimiento de artillería, 6 batallones de infantería y 8 regimientos de caballería)."},
+        {t: "Guardia Nacional", d: "Ley de enrolamiento de 1865 para hombres de 17 a 45 años, con excepciones; esencial para ampliar los efectivos."},
+        {t: "Comisaría de Guerra", d: "Logística de paga, vestuario, equipo y racionamiento."},
+        {t: "Parque de Artillería", d: "Adquisición, reparación y distribución de material de guerra, munición y equipo."},
+        {t: "Cuerpo Médico en Campaña", d: "Organización sanitaria: hospitales, depósitos de drogas y evacuación."},
+        {t: "Batalla naval de Riachuelo", d: "11/06/1865: derrota de la escuadra paraguaya; Paraguay quedó más aislado."},
+        {t: "Batalla de Tuyutí", d: "24/05/1866: gran derrota paraguaya; sus mejores unidades de línea fueron destruidas."},
+        {t: "Formaciones en cuadro", d: "Táctica de la infantería argentina que frustró la carga de la caballería paraguaya en Tuyutí."},
+        {t: "Batalla de Curupaytí", d: "22/09/1866: fracaso aliado; el asalto frontal se detuvo en pantanos, fosos y abatíes y Mitre ordenó la retirada."},
+        {t: "Abatíes", d: "Troncos espinosos con raíces orientadas hacia el atacante; obstáculo de la defensa paraguaya."},
+        {t: "Yataytí Corá", d: "Entrevista que dio tiempo adicional a la defensa paraguaya antes de Curupaytí."},
+        {t: "Fortaleza de Humaitá", d: "Bastión sobre el río Paraguay: baterías, minas flotantes y cadenas de costa a costa; controlaba el acceso a la capital."},
+        {t: "Campaña del Cuadrilátero", d: "Campaña iniciada con la invasión aliada del 16/04/1866 y finalizada con la rendición en la Isla de Poi (5/08/1868)."},
+        {t: "Luis María Campos", d: "Arquetipo del soldado argentino: bautismo en Pavón, Tuyutí, Cordones de Oro, ministro de Guerra en tres oportunidades e impulsor de la Escuela Superior de Guerra."},
+        {t: "Escuela Superior de Guerra", d: "Creación impulsada por Luis María Campos bajo el lema Estudiar es progresar."}
+      ],
+      cronologia: [
+        {fecha: "19/04/1863", dato: "Cruzada Libertadora de Venancio Flores en Uruguay."},
+        {fecha: "14/09/1864", dato: "Invasión brasileña al Uruguay."},
+        {fecha: "12/11/1864", dato: "Captura del Marqués de Olinda por Paraguay."},
+        {fecha: "17/03/1865", dato: "El Congreso paraguayo declara la guerra a la Argentina."},
+        {fecha: "13-14/04/1865", dato: "Captura de buques argentinos e invasión de Corrientes."},
+        {fecha: "01/05/1865", dato: "Tratado de la Triple Alianza."},
+        {fecha: "11/06/1865", dato: "Batalla naval de Riachuelo: Paraguay más aislado."},
+        {fecha: "16/04/1866", dato: "Invasión aliada del Paraguay por Paso de la Patria."},
+        {fecha: "02/05/1866", dato: "Reconocimiento ofensivo paraguayo en Estero Bellaco, rechazado."},
+        {fecha: "24/05/1866", dato: "Batalla de Tuyutí: gran derrota paraguaya."},
+        {fecha: "02/09/1866", dato: "Ocupación aliada de Curuzú."},
+        {fecha: "22/09/1866", dato: "Batalla de Curupaytí: fracaso aliado."},
+        {fecha: "19/02/1868", dato: "Paso naval de Humaitá por la escuadra de Inhauma."},
+        {fecha: "25/07/1868", dato: "Evacuación paraguaya de Humaitá."},
+        {fecha: "05/08/1868", dato: "Rendición en Isla de Poi: fin de la campaña de Humaitá."}
+      ],
+      preguntas: [
+        {p: "¿Qué hecho provocó el ingreso directo de la Argentina a la guerra?", o: ["La batalla de Tuyutí", "La invasión paraguaya de Corrientes", "La ocupación de Curuzú", "El paso de Humaitá"], c: 1, e: "La invasión de Corrientes (1865) determinó la entrada argentina al conflicto."},
+        {p: "¿Cuándo se firmó el Tratado de la Triple Alianza?", o: ["24 de mayo de 1866", "17 de marzo de 1865", "1 de mayo de 1865", "22 de septiembre de 1866"], c: 2, e: "El 1/05/1865 lo firmaron Argentina, Brasil y Uruguay."},
+        {p: "Según el material, ¿cuál NO es una innovación militar de la guerra?", o: ["Acorazados", "Fusiles de retrocarga", "Misiles guiados", "Globos cautivos"], c: 2, e: "El material menciona trincheras, acorazados, retrocarga, Gatling y globos cautivos; no menciona misiles."},
+        {p: "¿Qué buscaba Mitre al organizar el Ejército Nacional tras Pavón?", o: ["Mantener ejércitos provinciales independientes", "Construir un instrumento nacional de orden, disciplina y obediencia", "Eliminar por completo la Guardia Nacional", "Reemplazar la infantería por caballería"], c: 1, e: "El Ejército Nacional debía ser el instrumento del nuevo Estado."},
+        {p: "¿Cuántos hombres estableció el decreto del 22/01/1864 para el ejército permanente?", o: ["6.000", "25.000", "60.000", "20.000"], c: 0, e: "Un regimiento de artillería, seis batallones de infantería y ocho de caballería de 400 plazas."},
+        {p: "¿A quiénes comprendió la ley de enrolamiento de la Guardia Nacional de 1865?", o: ["Hombres de 17 a 45 años, con excepciones", "Solo voluntarios mayores de 30 años", "Todos los hombres de 14 a 60 sin excepciones", "Únicamente habitantes de Buenos Aires"], c: 0, e: "El Congreso aprobó la ley en junio de 1865."},
+        {p: "¿Qué batalla naval dejó más aislado al Paraguay?", o: ["Riachuelo", "Curupaytí", "Tuyutí", "Paso de la Patria"], c: 0, e: "El 11/06/1865 la escuadra paraguaya fue derrotada."},
+        {p: "¿Cuál era el objetivo de López en Tuyutí?", o: ["Retirarse hacia Asunción sin combatir", "Empujar a los aliados hasta el Paraná", "Capturar Buenos Aires", "Destruir la marina brasileña"], c: 1, e: "Buscaba una gran batalla para obligar a los aliados a replegarse."},
+        {p: "¿Qué problema afectó el plan paraguayo en Tuyutí?", o: ["Falta total de caballería", "Retrasos y descoordinación provocados por el terreno", "Ausencia de artillería aliada", "Un desembarco anfibio argentino"], c: 1, e: "El terreno y las demoras redujeron el efecto de sorpresa del ataque."},
+        {p: "¿Qué resultado tuvo Tuyutí según el material?", o: ["Victoria paraguaya decisiva", "Retirada aliada al Paraná", "Gran derrota paraguaya y pérdida de sus mejores unidades de línea", "Combate sin resultado"], c: 2, e: "Tras unas cinco horas de lucha las fuerzas paraguayas se retiraron como un desastre."},
+        {p: "¿Qué elemento NO corresponde a la defensa de Curupaytí?", o: ["Fosos", "Abatíes", "Trincheras", "Campos de minas antitanque modernos"], c: 3, e: "El material describe fosos, abatíes, trincheras y el terreno en pantano; no menciona minas modernas."},
+        {p: "¿Qué factor mejoró la posición defensiva paraguaya antes de Curupaytí?", o: ["Las lluvias que transformaron el terreno en pantano", "La retirada de toda la artillería paraguaya", "La ausencia de obstáculos naturales", "La superioridad aérea aliada"], c: 0, e: "Los cinco días de lluvia y el tiempo de Yataytí Corá favorecieron la defensa."},
+        {p: "¿Cómo estaba organizado el ataque aliado en Curupaytí?", o: ["Una sola columna sin reservas", "Cuatro columnas de ataque escalonadas en líneas", "Solo un ataque naval", "Una retirada escalonada"], c: 1, e: "Dos columnas brasileñas al oeste y dos argentinas al este, con bombardeo naval previo."},
+        {p: "¿Qué función cumplía la Fortaleza de Humaitá?", o: ["Bastión que controlaba el paso del río Paraguay y protegía el acceso a la capital", "Un depósito de caballería", "Un puerto argentino", "Una base naval uruguaya"], c: 0, e: "Con baterías, minas flotantes y cadenas de costa a costa."},
+        {p: "¿Cuándo se produjo la evacuación paraguaya de Humaitá?", o: ["25 de julio de 1868", "24 de mayo de 1866", "1 de mayo de 1865", "22 de septiembre de 1866"], c: 0, e: "El 25/07/1868; la rendición final fue el 5/08/1868 en la Isla de Poi."},
+        {p: "¿Qué militar es presentado como modelo de soldado e impulsor de la Escuela Superior de Guerra?", o: ["Luis María Campos", "Wenceslao Paunero", "Venancio Flores", "Francisco Solano López"], c: 0, e: "Campos fue ministro de Guerra en tres oportunidades y promovió la Escuela Superior de Guerra."},
+        {p: "¿Qué lema impulsó Luis María Campos?", o: ["Estudiar es progresar", "Orden y progreso", "Paz y justicia", "Vencer o morir"], c: 0, e: "Ese fue el lema de la Escuela Superior de Guerra."},
+        {tipo: "vf", p: "La Argentina contaba al inicio del conflicto con una gran escuadra moderna.", v: false, e: "Tenía unos 6.000 oficiales y soldados y prácticamente sin escuadra."},
+        {tipo: "vf", p: "Brasil tenía una marina respetable con acorazados.", v: true, e: "Era una de las claves de la superioridad aliada en el río."},
+        {tipo: "vf", p: "Paraguay contaba con algunas fábricas de armamento.", v: true, e: "El material lo presenta como un estado ordenado, aislado y con fábricas."},
+        {tipo: "vf", p: "Uruguay tenía las fuerzas más numerosas de la alianza.", v: false, e: "Uruguay tenía fuerzas reducidas: algunos cuerpos de infantería y caballería."},
+        {tipo: "vf", p: "El bombardeo naval en Curupaytí destruyó completamente la defensa paraguaya.", v: false, e: "Produjo efectos limitados aunque pareció neutralizar la posición."},
+        {tipo: "vf", p: "En Tuyutí, la caballería paraguaya enfrentó formaciones en cuadro de la infantería argentina.", v: true, e: "La infantería de línea y la Guardia Nacional se destacaron en esa táctica."},
+        {tipo: "vf", p: "En Curupaytí, Mitre terminó ordenando la retirada.", v: true, e: "Fracasado el asalto, Mitre ordenó la retirada aliada."},
+        {tipo: "vf", p: "Luis María Campos fue ministro de Guerra en tres oportunidades.", v: true, e: "También impulsó la Escuela Superior de Guerra con el lema Estudiar es progresar."},
+        {tipo: "completar", p: "El Tratado de la Triple Alianza se firmó el 1 de mayo de ____.", o: ["1865"], e: "Lo firmaron Argentina, Brasil y Uruguay."},
+        {tipo: "completar", p: "La Batalla de Tuyutí se libró el 24 de mayo de ____.", o: ["1866"], e: "Gran derrota paraguaya con pérdida de sus mejores unidades de línea."},
+        {tipo: "completar", p: "La Batalla de Curupaytí se libró el 22 de septiembre de ____.", o: ["1866"], e: "Fracaso aliado y retirada ordenada por Mitre."},
+        {tipo: "completar", p: "La fortaleza de ____ controlaba el paso del río Paraguay y defendía el acceso a la capital.", o: ["humaita"], e: "Con baterías, minas flotantes y cadenas de costa a costa."},
+        {tipo: "completar", p: "Tras el sitio, la rendición paraguaya se produjo en la Isla de ____.", o: ["poi"], e: "El 5/08/1868, tras diez días de sitio, hambre, sed y enfermedades."},
+        {tipo: "completar", p: "El militar ____ impulsó la Escuela Superior de Guerra bajo el lema Estudiar es progresar.", o: ["luis maria campos", "campos"], e: "Además fue ministro de Guerra en tres oportunidades."},
+        {tipo: "completar", p: "La invasión paraguaya de ____ en 1865 determinó el ingreso directo de la Argentina a la guerra.", o: ["corrientes"], e: "Ese fue el casus belli para la Argentina."},
+        {tipo: "completar", p: "En Tuyutí, la infantería argentina usó formaciones en ____ para frenar a la caballería paraguaya.", o: ["cuadro"], e: "Junto con la artillería brasileña, ahogaron la carga paraguaya."}
+      ]
+    }
+  ]
+};
+
+var LS = {
+  get: function(k, d){ try{ var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set: function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+var KEYQ = function(id){ return 'est_quiz_' + id; };
+var KEYR = function(id){ return 'est_repaso_' + id; };
+
+function home(){
+  document.getElementById('hdTitle').textContent = CONTENIDO.titulo;
+  var h = '<h2>¿Qué querés estudiar hoy?</h2>' + (CONTENIDO.nota ? '<p class="sub">' + CONTENIDO.nota + '</p>' : '');
+  h += '<div class="msg">Cómo funciona: abrí un tema → <b>Leer</b> (resumen con términos táctiles) · <b>Conceptos</b> (tarjetas y lista con buscador) · <b>Cronología</b> (tocás cada fecha para revelar) · <b>Examen</b> (auto-evaluación con opción múltiple, verdadero/falso y completar frases, y nota final al terminar). Tu progreso se guarda solo en este navegador.</div>';
+  h += '<div class="temas">' + CONTENIDO.temas.map(function(t){
+    var q = LS.get(KEYQ(t.id), null);
+    var r = LS.get(KEYR(t.id), [0,0,0,0]);
+    var rn = r[0] + r[1] + r[2] + r[3];
+    return '<div class="tema" onclick="abrirTema(\'' + t.id + '\')"><b>' + t.nombre + '</b>' +
+      '<ul><li>' + t.secciones.length + ' secciones</li><li>' + t.conceptos.length + ' conceptos</li><li>' + t.cronologia.length + ' fechas</li><li>' + t.preguntas.length + ' preguntas</li></ul>' +
+      '<div class="prog"><i style="width:' + Math.min(66, (q || 0) + (rn ? 6 : 0)) + '%"></i></div>' +
+      (q !== null || rn ? '<span class="note">' + (q !== null ? 'Quiz: ' + Math.round(q) + '%' : '') + (rn ? ' · repaso: ' + rn : '') + '</span>' : '<span class="note">Sin empezar</span>') +
+      '</div>';
+  }).join('') + '</div>';
+  document.getElementById('view').innerHTML = h;
+}
+
+function abrirTema(id){
+  var t = getTema(id); if (!t) return home();
+  document.getElementById('hdTitle').textContent = t.nombre;
+  var v = document.getElementById('view');
+  v.innerHTML = '<h2>' + t.nombre + '</h2>' +
+    '<div class="tabs">' +
+    '<button class="on" data-v="leer" onclick="vista(\'' + id + '\',\'leer\',this)">Leer</button>' +
+    '<button data-v="conceptos" onclick="vista(\'' + id + '\',\'conceptos\',this)">Conceptos</button>' +
+    '<button data-v="crono" onclick="vista(\'' + id + '\',\'crono\',this)">Cronología</button>' +
+    '<button data-v="quiz" onclick="vista(\'' + id + '\',\'quiz\',this)">Examen</button></div>' +
+    '<div id="bodyVista"></div>';
+  vista(id, 'leer');
+}
+function getTema(id){ return CONTENIDO.temas.find(function(x){ return x.id === id; }); }
+function vista(id, v, btn){
+  var t = getTema(id);
+  if (btn){ document.querySelectorAll('.tabs button').forEach(function(b){ b.classList.toggle('on', b === btn); }); }
+  var body = document.getElementById('bodyVista');
+  if (v === 'leer') leer(t, body);
+  else if (v === 'conceptos') conceptos(t, body);
+  else if (v === 'crono') crono(t, body);
+  else quiz(t, body);
+  window.scrollTo(0, 0);
+}
+
+function resaltar(texto, t){
+  var lista = t.conceptos.slice().sort(function(a, b){ return b.t.length - a.t.length; })
+    .map(function(c){ return c.t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); });
+  if (!lista.length) return texto;
+  var re = new RegExp('(?<![A-Za-zÀ-ÿ0-9])(' + lista.join('|') + ')(?![A-Za-zÀ-ÿ0-9])', 'gi');
+  return texto.replace(re, function(m){
+    return '<span class="hl" onclick="ficha(\'' + t.id + '\',this)">' + m + '</span>';
+  });
+}
+function leer(t, body){
+  var chips = t.secciones.map(function(s, i){
+    return '<span class="sec" onclick="irSec(' + i + ')">' + (i + 1) + ') ' + s.titulo + '</span>';
+  }).join('');
+  body.innerHTML = '<div class="card"><div class="sub">Secciones de la clase (tocá para ir directo):</div>' + chips + '</div>' +
+    '<div id="secs">' + t.secciones.map(function(s){
+      return '<div class="card sec-blk"><h3>' + s.titulo + '</h3>' +
+        s.parrafos.map(function(p){ return '<p>' + resaltar(p, t) + '</p>'; }).join('') + '</div>';
+    }).join('') + '</div>' +
+    '<div class="row" style="justify-content:center"><button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Ir a Conceptos →</button></div>';
+}
+function irSec(i){
+  var el = document.querySelectorAll('.sec-blk')[i];
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function ficha(tid, el){
+  var t = getTema(tid);
+  var term = el.textContent;
+  var c = t.conceptos.find(function(x){ return x.t.toLowerCase() === term.toLowerCase(); });
+  if (!c) return;
+  document.getElementById('fT').textContent = c.t;
+  document.getElementById('fD').textContent = c.d;
+  document.getElementById('ficha').style.display = 'block';
+}
+function cerrarFicha(){ document.getElementById('ficha').style.display = 'none'; }
+
+function crono(t, body){
+  body.innerHTML = '<div class="card"><div class="sub">Tocá cada fecha para revelar el dato. Podés autoevaluarte: tapá mentalmente la fecha antes de revelar.</div>' +
+    '<div class="row" style="justify-content:flex-end"><button class="ghost bigbtn" onclick="revelarTodas()">Revelar todas</button></div></div>' +
+    '<div id="tlWrap"><div class="tl">' + t.cronologia.map(function(c){
+      return '<div onclick="this.classList.toggle(\'abierta\')"><b>' + c.fecha + '</b><p class="pista">tocá para revelar</p><p>' + c.dato + '</p></div>';
+    }).join('') + '</div></div>';
+}
+function revelarTodas(){
+  document.querySelectorAll('#tlWrap .tl div').forEach(function(d){ d.classList.add('abierta'); });
+}
+
+function barajar(a){
+  var b = a.slice();
+  for (var i = b.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var x = b[i]; b[i] = b[j]; b[j] = x; }
+  return b;
+}
+
+function conceptos(t, body){
+  var modo = LS.get('est_modo_' + t.id, 'cards');
+  body.innerHTML = '<div class="card"><input class="in" id="cBus" placeholder="Buscar concepto..." oninput="renderConceptos(\'' + t.id + '\')">' +
+    '<div class="row" style="justify-content:space-between">' +
+    '<div class="row"><button class="' + (modo === 'cards' ? 'bigbtn' : 'ghost bigbtn') + '" onclick="setModo(\'' + t.id + '\',\'cards\')">Tarjetas</button>' +
+    '<button class="' + (modo === 'lista' ? 'bigbtn' : 'ghost bigbtn') + '" onclick="setModo(\'' + t.id + '\',\'lista\')">Lista</button></div>' +
+    '<button class="ghost bigbtn" onclick="barajeo(\'' + t.id + '\')">Mezclar</button></div></div>' +
+    '<div id="cBody"></div>';
+  renderConceptos(t.id);
+}
+function setModo(id, m){
+  LS.set('est_modo_' + id, m);
+  conceptos(getTema(id), document.getElementById('bodyVista'));
+}
+function renderConceptos(id){
+  var t = getTema(id);
+  var q = (document.getElementById('cBus').value || '').toLowerCase();
+  var lista = t.conceptos.filter(function(c){ return !q || (c.t + ' ' + c.d).toLowerCase().indexOf(q) !== -1; });
+  var modo = LS.get('est_modo_' + id, 'cards');
+  var body = document.getElementById('cBody');
+  if (modo === 'lista'){
+    body.innerHTML = lista.map(function(c){
+      return '<div class="lista-card"><b>' + c.t + '</b><div>' + c.d + '</div></div>';
+    }).join('') || '<p class="sub">Sin resultados.</p>';
+  } else {
+    var html = lista.map(function(c, i){
+      return '<div class="card" style="cursor:pointer" onclick="flipCard(this)"><div class="inner2"><div><b style="color:var(--accent)">' + c.t + '</b><div style="color:var(--muted);font-size:12px;margin-top:4px">tocá para ver definición</div></div><div style="display:none;margin-top:8px;font-size:14px;line-height:1.5">' + c.d + '</div></div></div>';
+    }).join('') || '<p class="sub">Sin resultados.</p>';
+    if (lista.length > 1) html += '<div class="row" style="justify-content:center"><button class="ghost bigbtn" onclick="mostrarTodas(\'' + id + '\')">Mostrar todas</button></div>';
+    body.innerHTML = html;
+  }
+}
+function flipCard(el){ var d = el.querySelector('.inner2>div:last-child'); d.style.display = d.style.display === 'none' ? 'block' : 'none'; }
+function mostrarTodas(id){ document.querySelectorAll('#cBody .card .inner2>div:last-child').forEach(function(d){ d.style.display = 'block'; }); }
+function barajeo(id){
+  var t = getTema(id);
+  t.conceptos = barajar(t.conceptos);
+  renderConceptos(id);
+  var b = LS.get(KEYR(id), [0,0,0,0]);
+  LS.set(KEYR(id), [0,0,0,0]);
+}
+
+function repaso(t, body, cards){
+  cards = cards || t.conceptos.slice();
+  var i = 0, actual = null;
+  var rate = LS.get(KEYR(t.id), [0,0,0,0]);
+  var duros = LS.get('est_duros_' + t.id, []);
+  function pintar(){
+    if (i >= cards.length){
+      var total = rate[0] + rate[1] + rate[2] + rate[3];
+      body.innerHTML = '<div class="card"><h2>¡Repaso terminado!</h2>' +
+        '<p class="sub">Otra vez: ' + rate[0] + ' · Difícil: ' + rate[1] + ' · Bien: ' + rate[2] + ' · Fácil: ' + rate[3] + '</p>' +
+        (rate[0] + rate[1] > 0 ? '<div class="msg">Quedaron ' + (rate[0] + rate[1]) + ' conceptos difíciles. Tocá para repasarlos solo.</div>' : '<div class="msg">¡Impecable!</div>') +
+        '<div class="row"><button class="bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Terminar</button>' +
+        (rate[0] + rate[1] > 0 ? '<button class="badbtn bigbtn" onclick="repasarDificiles(\'' + t.id + '\')">Repasar difíciles</button>' : '') +
+        '</div></div>';
+      return;
+    }
+    var c = cards[i];
+    actual = c;
+    var pct = Math.round((i / cards.length) * 100);
+    body.innerHTML = '<div class="card"><div class="prog"><i style="width:' + pct + '%"></i></div>' +
+      '<div class="note" id="repasoInfo">' + (i + 1) + ' de ' + cards.length + '</div>' +
+      '<div class="flip" id="flash" onclick="this.classList.toggle(\'flipped\')"><div class="inner">' +
+      '<div class="face">' + c.t + '</div><div class="face back"><small>tocá para ver</small>' + c.d + '</div>' +
+      '</div></div>' +
+      '<div class="rates">' +
+      '<button class="badbtn" onclick="rate(0)">Otra vez</button>' +
+      '<button style="background:#e58e00" onclick="rate(1)">Difícil</button>' +
+      '<button class="okbtn" onclick="rate(2)">Bien</button>' +
+      '<button style="background:var(--accent2)" onclick="rate(3)">Fácil</button></div>' +
+      '<div class="row" style="justify-content:space-between;margin-top:10px">' +
+      '<button class="ghost bigbtn" onclick="atras()">← Atrás</button>' +
+      '<button class="bigbtn" onclick="sig()">Siguiente →</button></div></div>';
+    document.getElementById('repasoInfo').textContent = 'Concepto ' + (i + 1) + ' de ' + cards.length;
+  }
+  window.atras = function(){ if (i > 0) i--; paintInner(); };
+  window.sig = function(){ i++; pintar(); };
+  window.rate = function(k){
+    rate[k]++;
+    if (k <= 1 && actual && duros.indexOf(actual.t) === -1) duros.push(actual.t);
+    LS.set(KEYR(t.id), rate);
+    LS.set('est_duros_' + t.id, duros);
+    i++;
+    pintar();
+  };
+  function paintInner(){ pintar(); }
+  pintar();
+}
+function repasarDificiles(id){
+  var t = getTema(id);
+  var duros = LS.get('est_duros_' + id, []);
+  var lista = t.conceptos.filter(function(c){ return duros.indexOf(c.t) !== -1; });
+  if (!lista.length) lista = barajar(t.conceptos).slice(0, 5);
+  repaso(t, document.getElementById('bodyVista'), barajar(lista));
+}
+
+function norm(s){
+  var a = 'áàäâãéèëêíìïîóòöôõúùüûñç', b = 'aaaaaeeeeiiiiooooouuuunc', out = '';
+  s = (s || '').toLowerCase().trim();
+  for (var i = 0; i < s.length; i++){ var j = a.indexOf(s[i]); out += j >= 0 ? b[j] : s[i]; }
+  return out.replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+function esc(s){ return (s || '').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function tipoLabel(q){
+  if (q.tipo === 'vf') return 'Verdadero / Falso';
+  if (q.tipo === 'completar') return 'Completar frase';
+  return 'Opción múltiple';
+}
+function respuestaCorrecta(q){
+  if (q.tipo === 'vf') return q.v ? 'Verdadero' : 'Falso';
+  if (q.tipo === 'completar') return q.o.join(' / ');
+  return q.o[q.c];
+}
+function textoNota(pct){
+  if (pct >= 90) return 'Excelente';
+  if (pct >= 70) return 'Muy bien';
+  if (pct >= 50) return 'Aprobado';
+  return 'A estudiar más';
+}
+function fraseConInput(p){
+  var partes = p.split('____');
+  if (partes.length === 1) return p + '<input class="inBlank" id="qBlank" placeholder="respuesta">';
+  var html = '';
+  for (var i = 0; i < partes.length; i++){
+    html += partes[i];
+    if (i < partes.length - 1) html += '<input class="inBlank" id="qBlank" placeholder="respuesta">';
+  }
+  return html;
+}
+
+function quiz(t, body){
+  var idx = 0, ok = 0, done = false, fallos = [];
+  var totTipo = { mc: 0, vf: 0, completar: 0 }, okTipo = { mc: 0, vf: 0, completar: 0 };
+  var preguntas = barajar(t.preguntas);
+  preguntas.forEach(function(q){ totTipo[q.tipo || 'mc']++; });
+  function prepPregunta(q){
+    var tipo = q.tipo || 'mc';
+    if (tipo === 'mc'){
+      var orden = barajar(q.o.map(function(txt, oi){ return { t: txt, i: oi }; }));
+      return { q: q, tipo: tipo, orden: orden, correcta: orden.findIndex(function(x){ return x.i === q.c; }) };
+    }
+    if (tipo === 'vf') return { q: q, tipo: tipo, correcta: q.v ? 0 : 1 };
+    return { q: q, tipo: tipo, correcta: -1 };
+  }
+  var cola = preguntas.map(prepPregunta);
+  function pintar(){
+    if (done){
+      var mejor = LS.get(KEYQ(t.id), null);
+      var pct = Math.round((ok / t.preguntas.length) * 100);
+      var nuevo = mejor === null || pct > mejor;
+      if (nuevo) LS.set(KEYQ(t.id), pct);
+      var detalle = ['mc', 'vf', 'completar'].map(function(k){
+        return '<span style="margin-right:10px">' + (k === 'mc' ? 'Múltiple' : k === 'vf' ? 'V/F' : 'Completar') + ': ' + okTipo[k] + '/' + totTipo[k] + '</span>';
+      }).join('');
+      var recap = fallos.length ? '<div class="card"><h3>Para repasar</h3>' + fallos.map(function(f){
+        return '<div class="lista-card"><b>' + esc(f.q.p).replace(/____/g, '…') + '</b>' +
+          '<div class="note">Tu respuesta: ' + esc(f.mal) + '</div>' +
+          '<div class="note" style="color:var(--ok)">Correcta: ' + esc(respuestaCorrecta(f.q)) + '</div>' +
+          (f.q.e ? '<div class="expl" style="margin-top:6px">' + f.q.e + '</div>' : '') + '</div>';
+      }).join('') + '</div>' : '<div class="msg">¡Perfecto, sin errores!</div>';
+      body.innerHTML = '<div class="card"><h2>Nota final</h2>' +
+        '<div style="font-size:46px;font-weight:800;color:var(--accent);margin:4px 0">' + pct + '<span style="font-size:20px">%</span></div>' +
+        '<p class="sub">' + textoNota(pct) + ' · Respondiste bien ' + ok + ' de ' + t.preguntas.length + ' preguntas.</p>' +
+        '<div class="prog"><i style="width:' + pct + '%"></i></div>' +
+        '<p class="sub">' + detalle + '</p>' +
+        (nuevo ? '<p class="sub" style="color:var(--ok)">¡Nuevo mejor resultado en este navegador!</p>' : (mejor !== null ? '<p class="sub">Mejor resultado guardado: ' + mejor + '%</p>' : '')) +
+        '<div class="row"><button class="bigbtn" onclick="vista(\'' + t.id + '\',\'quiz\')">Repetir examen</button>' +
+        '<button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Repasar conceptos</button></div></div>' + recap;
+      return;
+    }
+    var c = cola[idx], q = c.q, tipo = c.tipo, i = idx;
+    var html = '<div class="card"><div class="sub">Pregunta ' + (i + 1) + ' de ' + cola.length + ' · ' + tipoLabel(q) + '</div>' +
+      '<div class="prog"><i style="width:' + Math.round((i / cola.length) * 100) + '%"></i></div>';
+    if (tipo === 'mc'){
+      html += '<h2 style="font-size:17px;line-height:1.5">' + q.p + '</h2>' +
+        c.orden.map(function(op, oi){ return '<button class="qbtn" data-v="' + oi + '">' + String.fromCharCode(65 + oi) + ') ' + esc(op.t) + '</button>'; }).join('');
+    } else if (tipo === 'vf'){
+      html += '<h2 style="font-size:17px;line-height:1.5">' + q.p + '</h2>' +
+        '<button class="qbtn" data-v="0">Verdadero</button><button class="qbtn" data-v="1">Falso</button>';
+    } else {
+      html += '<div class="sub" style="margin-bottom:8px">Completá la frase:</div>' +
+        '<div style="font-size:15.5px;line-height:2;margin:6px 0 12px">' + fraseConInput(q.p) + '</div>' +
+        '<button class="bigbtn" id="qOkReal">Responder</button>';
+    }
+    html += '<div class="fdb" id="qFdb"></div><div class="expl" id="qExpl" style="display:none"></div></div>';
+    body.innerHTML = html;
+    function terminar(sel, correcto, mal){
+      body.querySelectorAll('.qbtn').forEach(function(x){ x.dataset.resolved = '1'; x.disabled = true; });
+      if (correcto){ ok++; okTipo[tipo]++; } else { fallos.push({ q: q, mal: mal || '(sin responder)' }); }
+      if (tipo === 'completar'){
+        var inp = document.getElementById('qBlank');
+        if (inp){ inp.disabled = true; inp.style.borderColor = correcto ? 'var(--ok)' : 'var(--bad)'; }
+      } else {
+        var right = body.querySelector('.qbtn[data-v="' + c.correcta + '"]');
+        if (right) right.classList.add('sel-ok');
+        if (!correcto){ var selB = body.querySelector('.qbtn[data-v="' + sel + '"]'); if (selB) selB.classList.add('sel-bad'); }
+      }
+      var e = document.getElementById('qExpl');
+      var f = document.getElementById('qFdb');
+      f.innerHTML = correcto ? '<b>¡Correcto!</b>' : '<b>Incorrecto.</b> Correcta: ' + esc(respuestaCorrecta(q));
+      f.style.cssText = 'color:' + (correcto ? 'var(--ok)' : 'var(--bad)');
+      if (q.e){ e.innerHTML = '<b>Explicación:</b> ' + q.e; e.style.display = 'block'; }
+      setTimeout(function(){ idx++; pintar(); }, correcto ? 1500 : 3000);
+    }
+    if (tipo === 'completar'){
+      var btn = document.getElementById('qOkReal');
+      btn.onclick = function(){
+        if (btn.dataset.resolved) return;
+        btn.dataset.resolved = '1';
+        btn.disabled = true;
+        var inp = document.getElementById('qBlank');
+        var val = inp ? inp.value : '';
+        var normVal = norm(val);
+        var hit = normVal !== '' && q.o.some(function(palabra){ return norm(palabra) === normVal; });
+        terminar(-1, hit, val || '(en blanco)');
+      };
+      var inp = document.getElementById('qBlank');
+      if (inp) inp.onkeydown = function(ev){ if (ev.key === 'Enter' && !btn.disabled) btn.click(); };
+    } else {
+      body.querySelectorAll('.qbtn').forEach(function(b){
+        b.onclick = function(){
+          if (b.dataset.resolved) return;
+          var sel = Number(b.dataset.v);
+          b.dataset.resolved = '1';
+          var mal = tipo === 'vf' ? (sel === 0 ? 'Verdadero' : 'Falso') : c.orden[sel].t;
+          terminar(sel, sel === c.correcta, mal);
+        };
+      });
+    }
+  }
+  pintar();
+}
+
+home();
+</script>
+</body>
+</html>
