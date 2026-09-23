@@ -4,8 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Estudio</title>
+<meta name="theme-color" content="#3d5afe">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Estudio">
 <style>
-:root{ --bg:#f4f6fb; --card:#ffffff; --ink:#1c2333; --muted:#6b7790; --line:#dfe4ef; --accent:#3d5afe; --accent2:#7c4dff; --ok:#1f9d55; --bad:#e5484d; --soft:#eef1fb; --gold:#b46a00; }
+:root{ --bg:#f4f6fb; --card:#ffffff; --ink:#1c2333; --muted:#6b7790; --line:#dfe4ef; --accent:#3d5afe; --accent2:#7c4dff; --ok:#1f9d55; --bad:#e5484d; --soft:#eef1fb; --gold:#b46a00; --inp:#ffffff; }
+html.dark{ --bg:#11141d; --card:#1a2030; --ink:#e6eaf5; --muted:#98a4bd; --line:#2b3347; --accent:#7d92ff; --accent2:#a06bff; --ok:#34c76b; --bad:#ff6b6e; --soft:#232a3d; --gold:#ffc25a; --inp:#232a3d; }
+html.dark .msg{ background:#2a2414; border-color:#4a3f1f; }
+html.dark .qbtn.sel-ok{ background:#10301f; }
+html.dark .qbtn.sel-bad{ background:#3a1517; }
+html.dark .correc{ background:#3a1517; border-color:rgba(255,107,110,.4); }
+html.dark .ficha{ box-shadow:0 -6px 24px rgba(0,0,0,.5); }
+html.dark header{ background:linear-gradient(120deg,#2d43c9,#5b32c9); }
 *{ box-sizing:border-box; }
 body{ margin:0; font-family:Segoe UI,system-ui,-apple-system,Arial,sans-serif; background:var(--bg); color:var(--ink); }
 header{ background:linear-gradient(120deg,#3d5afe,#7c4dff); color:#fff; padding:12px 18px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:20; }
@@ -49,7 +62,7 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .fdb{ font-size:14px; margin:8px 0; font-weight:700; }
 .correc{ background:#fdeeee; border:1px solid rgba(186,41,41,.35); border-left:3px solid var(--bad); border-radius:8px; padding:8px 10px; font-size:13.5px; margin:6px 0; color:var(--ink); }
 .correc .note{ margin-top:4px; font-size:13px; }
-.inBlank{ display:inline-block; width:180px; max-width:70%; border:1px solid var(--accent); border-bottom:2px solid var(--accent); background:#fff; padding:5px 8px; font-size:15px; margin:0 4px; color:var(--ink); border-radius:8px; outline:none; }
+.inBlank{ display:inline-block; width:180px; max-width:70%; border:1px solid var(--accent); border-bottom:2px solid var(--accent); background:var(--inp); padding:5px 8px; font-size:15px; margin:0 4px; color:var(--ink); border-radius:8px; outline:none; }
 .inBlank:disabled{ opacity:.6; }
 .expl{ background:var(--soft); border-left:3px solid var(--accent); border-radius:6px; padding:8px 10px; font-size:13px; margin:8px 0; }
 .tl{ position:relative; margin-left:8px; padding-left:22px; border-left:2px solid var(--line); }
@@ -73,12 +86,25 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .rates{ display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; margin-top:12px; }
 .rates button{ border:0; border-radius:9px; padding:9px 4px; font-size:12.5px; cursor:pointer; color:#fff; }
 @media(max-width:560px){ .temas{ grid-template-columns:1fr; } .grupo .subtemas{ grid-template-columns:1fr; } }
+.login{ max-width:430px; margin:6vh auto 0; }
+.chip{ background:rgba(255,255,255,.18); color:#fff; border:0; border-radius:8px; padding:8px 12px; font-size:13px; cursor:pointer; margin-left:6px; }
+.hbtn{ display:block; width:100%; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin:7px 0; font-size:14.5px; cursor:pointer; color:var(--ink); }
+.pin{ letter-spacing:7px; text-align:center; font-size:17px; font-weight:700; }
+.timer{ display:inline-block; background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:4px 11px; font-size:13px; font-weight:700; margin-bottom:8px; }
+.timer.tick{ background:var(--bad); border-color:var(--bad); color:#fff; }
+.mini{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.mini .der{ display:flex; gap:6px; }
+.mini .x{ background:var(--bad); border:0; border-radius:7px; color:#fff; padding:6px 9px; font-size:12px; cursor:pointer; }
 </style>
 </head>
 <body>
 <header>
   <h1 id="hdTitle">Estudio</h1>
-  <button onclick="home()">Inicio</button>
+  <div>
+    <button id="btnTema" onclick="alternarTema()" title="Claro / oscuro">🌙</button>
+    <button id="btnUser" onclick="pantallaLogin()" title="Cambiar de usuario">👤</button>
+    <button onclick="home()">Inicio</button>
+  </div>
 </header>
 <main id="view"></main>
 <div class="ficha" id="ficha" style="display:none"><b id="fT"></b><p id="fD"></p><div class="row"><button class="ghost bigbtn" onclick="cerrarFicha()">Cerrar</button></div></div>
@@ -858,10 +884,110 @@ var CONTENIDO = {
 
 var LS = {
   get: function(k, d){ try{ var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } },
-  set: function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+  set: function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
+  del: function(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
-var KEYQ = function(id){ return 'est_quiz_' + id; };
-var KEYR = function(id){ return 'est_repaso_' + id; };
+function estUsuarios(){ return LS.get('est_usuarios', []); }
+function estUid(){ return LS.get('est_uid', ''); }
+function estUsuario(){ var u = estUid(); if (!u) return null; var r = estUsuarios().filter(function(x){ return x.id === u; }); return r.length ? r[0] : null; }
+function estGuardarUsuarios(list){ LS.set('est_usuarios', list); }
+function KEYU(){ var u = estUid(); return u ? 'u' + u + '_' : ''; }
+var KEYQ = function(id){ return 'est_' + KEYU() + 'quiz_' + id; };
+var KEYR = function(id){ return 'est_' + KEYU() + 'repaso_' + id; };
+var KEYF = function(id){ return 'est_' + KEYU() + 'fallos_' + id; };
+function fallosTema(id){ return LS.get(KEYF(id), {}); }
+function hashP(p){ var s = String(p).toLowerCase(); var h = 0; for (var i = 0; i < s.length; i++){ h = ((h << 5) - h) + s.charCodeAt(i); h |= 0; } return (h >>> 0).toString(36); }
+function sumarFallo(id, p){ var f = fallosTema(id); var k = hashP(p); f[k] = (f[k] || 0) + 1; LS.set(KEYF(id), f); }
+function restarFallo(id, p){ var f = fallosTema(id); var k = hashP(p); if (f[k] > 0){ f[k]--; } LS.set(KEYF(id), f); }
+function aplicarTema(){
+  var d = LS.get('est_tema', 'claro');
+  var html = document.documentElement;
+  var btnT = document.getElementById('btnTema');
+  if (d === 'oscuro'){ html.classList.add('dark'); if (btnT) btnT.textContent = '☀️'; var m = document.querySelector('meta[name=theme-color]'); if (m) m.setAttribute('content', '#11141d'); }
+  else { html.classList.remove('dark'); if (btnT) btnT.textContent = '🌙'; var m2 = document.querySelector('meta[name=theme-color]'); if (m2) m2.setAttribute('content', '#3d5afe'); }
+}
+function alternarTema(){ LS.set('est_tema', document.documentElement.classList.contains('dark') ? 'claro' : 'oscuro'); aplicarTema(); }
+function pintarLogin(){
+  document.getElementById('hdTitle').textContent = 'Estudio · Acceso';
+  var bU = document.getElementById('btnUser'); if (bU) bU.textContent = '👤';
+  var us = estUsuarios();
+  var h = '<div class="login"><div class="card"><h2>¿Quién está estudiando?</h2>' +
+    '<p class="sub">Cada persona tiene su propio progreso y su repaso inteligente. Elegí tu nombre y poné tu clave.</p>';
+  h += us.map(function(u){
+    return '<div class="mini"><button class="hbtn" onclick="elegirUsuario(\'' + u.id + '\')"><b>' + esc(u.nombre) + '</b><span class="note" style="float:right">tocar para entrar</span></button>' +
+      '<button class="x" onclick="borrarUsuario(\'' + u.id + '\')" title="Borrar estudiante">✕</button></div>';
+  }).join('');
+  h += '<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><h3>Agregar una persona</h3>' +
+    '<input class="in" id="nuevoNom" placeholder="Nombre (ej: Valentina)">' +
+    '<input class="in pin" id="nuevoPin" type="password" inputmode="numeric" maxlength="6" placeholder="Clave (mínimo 3 dígitos)">' +
+    '<button class="bigbtn" onclick="crearUsuario()">Crear y entrar</button>' +
+    '<p class="note" style="margin-top:10px">La clave la decidís vos: se la ponés a cada estudiante y esa persona la tiene que saber para entrar.</p>' +
+    '</div></div>';
+  document.getElementById('view').innerHTML = h;
+}
+function elegirUsuario(id){
+  var u = estUsuarios().filter(function(x){ return x.id === id; })[0];
+  if (!u) return pintarLogin();
+  var pin = prompt('Clave para ' + u.nombre + ':');
+  if (pin === null) return;
+  if (String(pin).trim() !== u.clave){ alert('Clave incorrecta. Pedile la clave a quien administra la app.'); return; }
+  entrarUsuario(id);
+}
+function crearUsuario(){
+  var nom = (document.getElementById('nuevoNom') || {}).value || '';
+  var pin = (document.getElementById('nuevoPin') || {}).value || '';
+  nom = nom.trim(); pin = String(pin).trim();
+  if (!nom || pin.length < 3){ alert('Poné un nombre y una clave de al menos 3 caracteres.'); return; }
+  var list = estUsuarios();
+  if (list.some(function(x){ return x.nombre.toLowerCase() === nom.toLowerCase(); })){ alert('Ya existe un estudiante con ese nombre.'); return; }
+  var id = 'u' + Date.now().toString(36);
+  list.push({ id: id, nombre: nom, clave: pin });
+  estGuardarUsuarios(list);
+  entrarUsuario(id);
+}
+function borrarUsuario(id){
+  if (!confirm('¿Borrar a esta persona y todo su progreso? Esta acción no se puede deshacer.')) return;
+  var list = estUsuarios().filter(function(x){ return x.id !== id; });
+  estGuardarUsuarios(list);
+  if (estUid() === id) LS.set('est_uid', '');
+  pintarLogin();
+}
+function entrarUsuario(id){
+  LS.set('est_uid', id);
+  var u = estUsuario();
+  var bU = document.getElementById('btnUser');
+  if (bU) bU.textContent = u ? u.nombre.charAt(0).toUpperCase() : '👤';
+(function iniciar(){
+  aplicarTema();
+  if ('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(function(){}); }
+  if (estUsuario()){ home(); } else { pintarLogin(); }
+})();
+}
+function pantallaLogin(){ pintarLogin(); }
+function compartirNota(pct, tema){
+  var texto = '📚 Sac\u00e9 ' + pct + '% en "' + tema + '" con la app de Estudio. ¿Lo super\u00e1s?';
+  var url = 'https://flavioleonardovillarroel-boop.github.io/estudio/';
+  function mostrar(txt){
+    var e = document.getElementById('shareMsg');
+    if (e) e.innerHTML = txt;
+  }
+  function copiar(){
+    var tx = document.createElement('textarea');
+    tx.value = texto + ' ' + url;
+    tx.style.position = 'fixed'; tx.style.opacity = '0';
+    document.body.appendChild(tx); tx.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(err){}
+    tx.remove();
+    mostrar(ok ? '<b style="color:var(--ok)">Copiado al portapapeles: pegalo donde quieras (WhatsApp, nota...).</b>' +
+      ' También pod\u00e9s <a href="https://wa.me/?text=' + encodeURIComponent(texto + ' ' + url) + '" target="_blank" style="color:var(--accent)">abrir WhatsApp</a>.' :
+      'Ac\u00e1 va tu resultado: ' + texto + ' ' + url);
+  }
+  if (navigator.share){ navigator.share({ text: texto, url: url }).catch(function(){}); }
+  else if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(texto + ' ' + url).then(function(){ mostrar('<b style="color:var(--ok)">Copiado al portapapeles: pegalo donde quieras (WhatsApp, nota...).</b>'); }, copiar);
+  } else { copiar(); }
+}
 
 function tarjetaTema(t){
   var q = LS.get(KEYQ(t.id), null);
@@ -1104,6 +1230,7 @@ function quiz(t, body){
   var totTipo = { mc: 0, vf: 0, completar: 0 }, okTipo = { mc: 0, vf: 0, completar: 0 };
   var barajadas = barajar(t.preguntas);
   var cola = [];
+  var timerActivo = false, timerIv = null;
   function prepPregunta(q){
     var tipo = q.tipo || 'mc';
     if (tipo === 'mc'){
@@ -1113,27 +1240,44 @@ function quiz(t, body){
     if (tipo === 'vf') return { q: q, tipo: tipo, correcta: q.v ? 0 : 1 };
     return { q: q, tipo: tipo, correcta: -1 };
   }
-  function montar(cant){
-    var sel = cant === 'todas' ? barajadas : barajadas.slice(0, cant);
-    cola = sel.map(prepPregunta);
+  function montar(cant, repaso){
+    var f = fallosTema(t.id);
+    var base;
+    if (repaso){
+      var con = t.preguntas.filter(function(q){ return (f[hashP(q.p)] || 0) > 0; });
+      con.sort(function(a, b){ return (f[hashP(b.p)] || 0) - (f[hashP(a.p)] || 0); });
+      base = con.length ? con : barajadas;
+    } else {
+      base = cant === 'todas' ? barajadas : barajadas.slice(0, cant);
+    }
+    cola = base.map(prepPregunta);
     totTipo = { mc: 0, vf: 0, completar: 0 };
     okTipo = { mc: 0, vf: 0, completar: 0 };
     cola.forEach(function(c){ totTipo[c.tipo]++; });
     idx = 0; ok = 0; fallos = []; iniciado = true;
   }
   function pintar(){
+    if (timerIv){ clearInterval(timerIv); timerIv = null; }
     if (!iniciado){
+      var f = fallosTema(t.id);
+      var nFallos = 0; for (var k in f){ if (f[k] > 0) nFallos++; }
       var opts = [['corta', 5], ['media', 10], ['larga', 15], ['completa', 20], ['todas', barajadas.length]];
       body.innerHTML = '<div class="card"><h2>Examen · ' + t.nombre + '</h2>' +
         '<p class="sub">Hay ' + barajadas.length + ' preguntas cargadas. ¿Cuántas querés responder?</p>' +
         '<div class="row" id="qOpts">' + opts.map(function(o){
           return '<button class="bigbtn" data-cant="' + o[0] + '">' + (o[0] === 'todas' ? 'Todas (' + o[1] + ')' : o[1]) + ' preguntas</button>';
-        }).join('') + '</div><div class="expl">Podés elegir un examen corto, mediano o el completo. Al terminar verás tu nota y la corrección.</div></div>';
+        }).join('') +
+        (nFallos ? '<button class="bigbtn okbtn" data-cant="todas" data-repaso="1">🎯 Repaso inteligente (' + nFallos + ' con errores)</button>' : '') +
+        '</div>' +
+        '<label style="display:flex;gap:9px;align-items:center;margin-top:14px;font-size:14px;cursor:pointer"><input type="checkbox" id="qTimerChk"> Temporizador: 1 minuto por pregunta</label>' +
+        '<div class="expl">El repaso inteligente prioriza las preguntas que más fallaste. El temporizador es opcional.</div></div>';
       var btns = document.getElementById('qOpts').querySelectorAll('.bigbtn');
       btns.forEach(function(b){
         b.onclick = function(){
           btns.forEach(function(x){ x.disabled = true; });
-          montar(b.dataset.cant);
+          var chk = document.getElementById('qTimerChk');
+          timerActivo = !!chk && chk.checked;
+          montar(b.dataset.cant, b.getAttribute('data-repaso') === '1');
           pintar();
         };
       });
@@ -1147,12 +1291,13 @@ function quiz(t, body){
       var detalle = ['mc', 'vf', 'completar'].map(function(k){
         return '<span style="margin-right:10px">' + (k === 'mc' ? 'Múltiple' : k === 'vf' ? 'V/F' : 'Completar') + ': ' + okTipo[k] + '/' + totTipo[k] + '</span>';
       }).join('');
-      var recap = fallos.length ? '<div class="card"><h3>Para repasar</h3>' + fallos.map(function(f){
-        return '<div class="lista-card"><b>' + esc(f.q.p).replace(/____/g, '…') + '</b>' +
-          '<div class="note">Tu respuesta: ' + esc(f.mal) + '</div>' +
-          '<div class="note" style="color:var(--ok)">Correcta: ' + esc(respuestaCorrecta(f.q)) + '</div>' +
-          (f.q.e ? '<div class="expl" style="margin-top:6px">' + f.q.e + '</div>' : '') + '</div>';
+      var recap = fallos.length ? '<div class="card"><h3>Para repasar</h3>' + fallos.map(function(fx){
+        return '<div class="lista-card"><b>' + esc(fx.q.p).replace(/____/g, '…') + '</b>' +
+          '<div class="note">Tu respuesta: ' + esc(fx.mal) + '</div>' +
+          '<div class="note" style="color:var(--ok)">Correcta: ' + esc(respuestaCorrecta(fx.q)) + '</div>' +
+          (fx.q.e ? '<div class="expl" style="margin-top:6px">' + fx.q.e + '</div>' : '') + '</div>';
       }).join('') + '</div>' : '<div class="msg">¡Perfecto, sin errores!</div>';
+      var nomSeguro = t.nombre.replace(/["\\]/g, '');
       body.innerHTML = '<div class="card"><h2>Nota final</h2>' +
         '<div style="font-size:46px;font-weight:800;color:var(--accent);margin:4px 0">' + pct + '<span style="font-size:20px">%</span></div>' +
         '<p class="sub">' + textoNota(pct) + ' · Respondiste bien ' + ok + ' de ' + cola.length + ' preguntas.</p>' +
@@ -1160,12 +1305,15 @@ function quiz(t, body){
         '<p class="sub">' + detalle + '</p>' +
         (nuevo ? '<p class="sub" style="color:var(--ok)">¡Nuevo mejor resultado en este navegador!</p>' : (mejor !== null ? '<p class="sub">Mejor resultado guardado: ' + mejor + '%</p>' : '')) +
         '<div class="row"><button class="bigbtn" onclick="vista(\'' + t.id + '\',\'quiz\')">Repetir examen</button>' +
-        '<button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Repasar conceptos</button></div></div>' + recap;
+        '<button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Repasar conceptos</button>' +
+        '<button class="bigbtn okbtn" onclick="compartirNota(' + pct + ',\'' + nomSeguro + '\')">📤 Compartir nota</button></div>' +
+        '<div id="shareMsg" style="margin-top:8px"></div></div>' + recap;
       return;
     }
-    var c = cola[idx], q = c.q, tipo = c.tipo, i = idx;
+    var c = cola[idx], q = c.q, tipo = c.tipo, i = idx, respondida = false;
     var html = '<div class="card"><div class="sub">Pregunta ' + (i + 1) + ' de ' + cola.length + ' · ' + tipoLabel(q) + '</div>' +
-      '<div class="prog"><i style="width:' + Math.round((i / cola.length) * 100) + '%"></i></div>';
+      '<div class="prog"><i style="width:' + Math.round((i / cola.length) * 100) + '%"></i></div>' +
+      (timerActivo ? '<div class="timer" id="qTimer">⏱ 60s</div>' : '');
     if (tipo === 'mc'){
       html += '<h2 style="font-size:17px;line-height:1.5">' + q.p + '</h2>' +
         c.orden.map(function(op, oi){ return '<button class="qbtn" data-v="' + oi + '">' + String.fromCharCode(65 + oi) + ') ' + esc(op.t) + '</button>'; }).join('');
@@ -1182,8 +1330,13 @@ function quiz(t, body){
       '<div class="row" style="margin-top:4px"><button class="bigbtn" id="qNext" style="display:none">Siguiente pregunta →</button></div>';
     body.innerHTML = html;
     function terminar(sel, correcto, mal){
+      if (respondida) return;
+      respondida = true;
+      if (timerIv){ clearInterval(timerIv); timerIv = null; }
       body.querySelectorAll('.qbtn').forEach(function(x){ x.dataset.resolved = '1'; x.disabled = true; });
-      if (correcto){ ok++; okTipo[tipo]++; } else { fallos.push({ q: q, mal: mal || '(sin responder)' }); }
+      var rb = document.getElementById('qOkReal'); if (rb) rb.disabled = true;
+      if (correcto){ ok++; okTipo[tipo]++; restarFallo(t.id, q.p); }
+      else { fallos.push({ q: q, mal: mal || '(sin responder)' }); sumarFallo(t.id, q.p); }
       if (tipo === 'completar'){
         var inp = document.getElementById('qBlank');
         if (inp){ inp.disabled = true; inp.style.borderColor = correcto ? 'var(--ok)' : 'var(--bad)'; }
@@ -1211,6 +1364,22 @@ function quiz(t, body){
         if (ultima){ done = true; } else { idx++; }
         pintar();
       };
+    }
+    if (timerActivo){
+      var tt = document.getElementById('qTimer');
+      if (tt){
+        var seg = 60;
+        timerIv = setInterval(function(){
+          seg--;
+          if (seg <= 0){
+            if (timerIv){ clearInterval(timerIv); timerIv = null; }
+            if (tt){ tt.textContent = '⏱ 0s'; tt.classList.add('tick'); }
+            terminar(-1, false, '(tiempo agotado)');
+            return;
+          }
+          if (tt){ tt.textContent = '⏱ ' + seg + 's'; tt.classList.toggle('tick', seg <= 10); }
+        }, 1000);
+      }
     }
     if (tipo === 'completar'){
       var btn = document.getElementById('qOkReal');
