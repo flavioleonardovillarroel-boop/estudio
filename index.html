@@ -30,6 +30,13 @@ h2{ font-size:20px; margin:0 0 4px; }
 h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .sub{ color:var(--muted); font-size:13px; margin:0 0 12px; }
 .temas{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.materias{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.materia{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; cursor:pointer; transition:.15s; position:relative; overflow:hidden; }
+.materia:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.materia::after{ content:''; position:absolute; inset:0 0 auto 0; height:4px; background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+.materia .ico{ font-size:32px; margin-bottom:8px; }
+.materia b{ display:block; font-size:16px; margin-bottom:4px; }
+.materia .mDesc{ font-size:12.5px; color:var(--muted); line-height:1.5; }
 .grupo{ margin:0 0 22px; }
 .grupo h3{ margin:0 0 2px; color:var(--accent); }
 .grupo .sub{ margin:2px 0 10px; }
@@ -85,7 +92,7 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .ficha p{ margin:6px 0 12px; font-size:14px; line-height:1.5; }
 .rates{ display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; margin-top:12px; }
 .rates button{ border:0; border-radius:9px; padding:9px 4px; font-size:12.5px; cursor:pointer; color:#fff; }
-@media(max-width:560px){ .temas{ grid-template-columns:1fr; } .grupo .subtemas{ grid-template-columns:1fr; } }
+@media(max-width:560px){ .temas{ grid-template-columns:1fr; } .grupo .subtemas{ grid-template-columns:1fr; } .materias{ grid-template-columns:1fr; } }
 .login{ max-width:430px; margin:6vh auto 0; }
 .chip{ background:rgba(255,255,255,.18); color:#fff; border:0; border-radius:8px; padding:8px 12px; font-size:13px; cursor:pointer; margin-left:6px; }
 .hbtn{ display:block; width:100%; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin:7px 0; font-size:14.5px; cursor:pointer; color:var(--ink); }
@@ -111,7 +118,7 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 <script>
 var CONTENIDO = {
   titulo: "Estudio · Historia y Especialidad",
-  nota: "Historia Argentina (prof. Eugenia Rossi) en 3 unidades. Táctica de la Especialidad (ROB 00-01) y Técnica de la Especialidad (ROP 19-01): exámenes finales el 24 y 25/09/2026.",
+  nota: "Materias cargadas: Historia (3 unidades), Táctica de la Especialidad (ROB 00-01) y Técnica de la Especialidad (ROP 19-01). Exámenes finales el 24 y 25/09/2026.",
   temas: [
     {
       id: "historia",
@@ -877,8 +884,10 @@ var CONTENIDO = {
       ]
     }
   ],
-  grupos: [
-    { id: "g_historia", nombre: "Historia Argentina", descripcion: "Las tres unidades del programa, ordenadas cronológicamente. Tocá una unidad para abrirla y estudiar: leer, conceptos, cronología o examen.", unidades: ["historia_ud1", "historia", "historia_ud3"] }
+  materias: [
+    { id: "m_historia", nombre: "Historia", icono: "📖", descripcion: "Las tres unidades del programa, ordenadas cronológicamente: Emancipación, Guerra del Brasil (Clase 3) y la Triple Alianza.", unidades: ["historia_ud1", "historia", "historia_ud3"] },
+    { id: "m_tactica", nombre: "Táctica de la Especialidad", icono: "⚔️", descripcion: "Conducción para las Fuerzas Terrestres (ROB 00-01): medios del Ejército, unidades y operaciones militares. Examen final el 24/09.", unidades: ["tac_esp"] },
+    { id: "m_tecnica", nombre: "Técnica de la Especialidad", icono: "🔧", descripcion: "Conducción de las Subunidades de Servicios (ROP 19-01): trenes, abastecimiento y mantenimiento. Examen final el 25/09.", unidades: ["tec_esp"] }
   ]
 };
 
@@ -989,6 +998,29 @@ function compartirNota(pct, tema){
   } else { copiar(); }
 }
 
+function tarjetaMateria(m){
+  var ids = new Set(m.unidades);
+  var temas = CONTENIDO.temas.filter(function(t){ return ids.has(t.id); });
+  var preg = temas.reduce(function(a, t){ return a + t.preguntas.length; }, 0);
+  var qs = temas.filter(function(t){ return LS.get(KEYQ(t.id), null) !== null; }).length;
+  return '<div class="materia" onclick="abrirMateria(\'' + m.id + '\')"><div class="ico">' + (m.icono || '📚') + '</div>' +
+    '<b>' + m.nombre + '</b>' +
+    '<div class="mDesc">' + m.descripcion + '</div>' +
+    '<div class="row note" style="margin-top:10px;gap:14px"><span>📚 ' + temas.length + ' ' + (temas.length === 1 ? 'unidad' : 'unidades') + '</span><span>❓ ' + preg + ' preguntas</span>' +
+    (qs ? '<span style="color:var(--ok)">✓ ' + qs + ' con quiz</span>' : '') + '</div></div>';
+}
+function abrirMateria(id){
+  var m = (CONTENIDO.materias || []).filter(function(x){ return x.id === id; })[0];
+  if (!m) return home();
+  document.getElementById('hdTitle').textContent = m.nombre;
+  var v = document.getElementById('view');
+  var temas = CONTENIDO.temas.filter(function(t){ return m.unidades.indexOf(t.id) !== -1; });
+  var h = '<div class="row" style="margin-bottom:10px"><button class="bigbtn ghost" onclick="home()">← Materias</button></div>' +
+    '<div class="card"><div class="mH" style="display:flex;align-items:center;gap:12px"><div class="ico" style="font-size:30px">' + (m.icono || '📚') + '</div>' +
+    '<div><h2 style="margin:0">' + m.nombre + '</h2>' + (m.descripcion ? '<p class="sub" style="margin:2px 0 0">' + m.descripcion + '</p>' : '') + '</div></div></div>' +
+    '<div class="temas">' + temas.map(tarjetaTema).join('') + '</div>';
+  v.innerHTML = h;
+}
 function tarjetaTema(t){
   var q = LS.get(KEYQ(t.id), null);
   var r = LS.get(KEYR(t.id), [0,0,0,0]);
@@ -1003,16 +1035,13 @@ function tarjetaTema(t){
 function home(){
   document.getElementById('hdTitle').textContent = CONTENIDO.titulo;
   var h = '<h2>¿Qué querés estudiar hoy?</h2>' + (CONTENIDO.nota ? '<p class="sub">' + CONTENIDO.nota + '</p>' : '');
-  h += '<div class="msg">Cómo funciona: abrí un tema → <b>Leer</b> (resumen con términos táctiles) · <b>Conceptos</b> (tarjetas y lista con buscador) · <b>Cronología</b> (tocás cada fecha para revelar) · <b>Examen</b> (auto-evaluación con opción múltiple, verdadero/falso y completar frases, y nota final al terminar). Tu progreso se guarda solo en este navegador.</div>';
-  var grupos = CONTENIDO.grupos || [];
-  var agrupado = {};
-  grupos.forEach(function(g){ g.unidades.forEach(function(id){ agrupado[id] = true; }); });
-  grupos.forEach(function(g){
-    var card = g.unidades.map(function(id){ var t = getTema(id); return t ? tarjetaTema(t) : ''; }).join('');
-    if (card) h += '<div class="grupo"><h3>' + g.nombre + '</h3>' + (g.descripcion ? '<p class="sub">' + g.descripcion + '</p>' : '') + '<div class="subtemas">' + card + '</div></div>';
-  });
-  var sueltos = CONTENIDO.temas.filter(function(t){ return !agrupado[t.id]; });
-  if (sueltos.length) h += '<div class="temas">' + sueltos.map(tarjetaTema).join('') + '</div>';
+  h += '<div class="msg">Elegí una materia y adentro vas a ver las unidades. En cada unidad: <b>Leer</b> (resumen con términos táctiles) · <b>Conceptos</b> (tarjetas y lista con buscador) · <b>Cronología</b> (tocás cada fecha para revelar) · <b>Examen</b> (auto-evaluación con opción múltiple, verdadero/falso y completar frases, y nota final al terminar). Tu progreso se guarda por persona y en este navegador.</div>';
+  var materias = CONTENIDO.materias || [];
+  var enMateria = {};
+  materias.forEach(function(m){ m.unidades.forEach(function(id){ enMateria[id] = true; }); });
+  h += '<div class="materias">' + materias.map(tarjetaMateria).join('') + '</div>';
+  var sueltos = CONTENIDO.temas.filter(function(t){ return !enMateria[t.id]; });
+  if (sueltos.length) h += '<h3 style="margin-top:20px">Otras unidades</h3><div class="temas">' + sueltos.map(tarjetaTema).join('') + '</div>';
   document.getElementById('view').innerHTML = h;
 }
 
