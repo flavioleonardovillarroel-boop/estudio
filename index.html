@@ -17,6 +17,11 @@ h2{ font-size:20px; margin:0 0 4px; }
 h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .sub{ color:var(--muted); font-size:13px; margin:0 0 12px; }
 .temas{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.grupo{ margin:0 0 22px; }
+.grupo h3{ margin:0 0 2px; color:var(--accent); }
+.grupo .sub{ margin:2px 0 10px; }
+.grupo .subtemas{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.tDesc{ font-size:12.5px; color:var(--muted); margin-bottom:8px; line-height:1.45; }
 .tema{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; cursor:pointer; transition:.15s; }
 .tema:hover{ border-color:var(--accent); transform:translateY(-2px); }
 .tema b{ display:block; font-size:15px; margin-bottom:6px; }
@@ -67,7 +72,7 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .ficha p{ margin:6px 0 12px; font-size:14px; line-height:1.5; }
 .rates{ display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; margin-top:12px; }
 .rates button{ border:0; border-radius:9px; padding:9px 4px; font-size:12.5px; cursor:pointer; color:#fff; }
-@media(max-width:560px){ .temas{ grid-template-columns:1fr; } }
+@media(max-width:560px){ .temas{ grid-template-columns:1fr; } .grupo .subtemas{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -79,12 +84,13 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 <div class="ficha" id="ficha" style="display:none"><b id="fT"></b><p id="fD"></p><div class="row"><button class="ghost bigbtn" onclick="cerrarFicha()">Cerrar</button></div></div>
 <script>
 var CONTENIDO = {
-  titulo: "Estudio · Historia Argentina",
-  nota: "Historia Argentina (prof. Eugenia Rossi): UD 1 Emancipación · Clase 3 de UD 2 (Guerra del Brasil y Obligado) · UD 3 Triple Alianza · Exámenes finales 24-25/09/2026: Táctica de la Especialidad (ROB 00-01) y Técnica de la Especialidad (ROP 19-01). Criminalística: ejemplo.",
+  titulo: "Estudio · Historia y Especialidad",
+  nota: "Historia Argentina (prof. Eugenia Rossi) en 3 unidades. Táctica de la Especialidad (ROB 00-01) y Técnica de la Especialidad (ROP 19-01): exámenes finales el 24 y 25/09/2026.",
   temas: [
     {
       id: "historia",
-      nombre: "Historia · Clase 3 UD 2",
+      nombre: "UD 2 (Clase 3) · Guerra del Brasil y Obligado",
+      desc: "Guerra del Brasil (1825-1828): Ituzaingó y Carmen de Patagones, consecuencias políticas, y el conflicto anglo-francés con la Vuelta de Obligado (1845).",
       secciones: [
         {
           titulo: "Presentación de la clase",
@@ -238,66 +244,9 @@ var CONTENIDO = {
       ]
     },
     {
-      id: "criminalistica",
-      nombre: "Criminalística (ejemplo)",
-      secciones: [
-        {
-          titulo: "Qué es la criminalística",
-          parrafos: [
-            "La criminalística es la disciplina encargada de descubrir, explicar y probar cómo ocurrió un delito, aplicando el método científico a la escena del hecho. Su objetivo no es decidir culpabilidades (eso lo hace el derecho), sino aportar evidencias objetivas: qué pasó, con qué, cómo y quién intervino.",
-            "Todo parte de la escena protegida: se la preserva para evitar la contaminación, se la registra y recién después se realiza el relevamiento y la recolección de evidencias, siempre manteniendo la cadena de custodia. Cada indicio se analiza en un laboratorio especializado y el perito vuelca los resultados en un informe pericial."
-          ]
-        },
-        {
-          titulo: "Ramas y técnicas",
-          parrafos: [
-            "La dactiloscopía identifica personas por las huellas dactilares (únicas, inmutables y perdurables). La balística forense estudia armas, proyectiles y vainas para reconstruir un disparo. La documentología y el análisis de ADN completan el arsenal de la criminalística moderna."
-          ]
-        }
-      ],
-      conceptos: [
-        {t: "Criminalística", d: "Ciencia que descubre y prueba cómo se cometió un delito, mediante el método científico y las evidencias de la escena."},
-        {t: "Criminología", d: "Estudia las CAUSAS del delito y el comportamiento del delincuente (el porqué), no la escena."},
-        {t: "Indicio", d: "Todo objeto, huella o rastro que en la escena puede vincularse con el hecho o con su autor."},
-        {t: "Cadena de custodia", d: "Registro estricto de quién manipula cada evidencia, desde la escena hasta el juicio, para garantizar que no se altere."},
-        {t: "Dactiloscopía", d: "Ciencia que identifica personas por las huellas dactilares (son únicas, inmutables y perdurables)."},
-        {t: "Balística forense", d: "Estudia las armas de fuego, proyectiles y vainas para reconstruir el disparo y vincularlos con el hecho."},
-        {t: "Perito", d: "Especialista designado que analiza las evidencias y presenta un informe pericial como prueba."},
-        {t: "Escena protegida", d: "Lugar del hecho preservado para que los indicios no se contaminen, muevan ni destruyan antes del relevamiento."}
-      ],
-      cronologia: [
-        {fecha: "1879", dato: "Alphonse Bertillon crea la antropometría: identifica personas midiendo el cuerpo."},
-        {fecha: "1880", dato: "Henry Faulds propone el uso de las huellas dactilares para identificar delincuentes."},
-        {fecha: "1893", dato: "Hans Gross publica el 'Manual del juez': nace la criminalística moderna."},
-        {fecha: "1901", dato: "Scotland Yard adopta la clasificación de huellas dactilares de Edward Henry."},
-        {fecha: "1984", dato: "Alec Jeffreys desarrolla la huella genética (ADN), clave para la criminalística actual."}
-      ],
-      preguntas: [
-        {p: "¿Qué principio garantiza que las huellas dactilares sirven para identificar a una persona?", o: ["Unicidad, inmutabilidad y perdurabilidad", "Que siempre están visibles a simple vista", "Que son idénticas en los gemelos", "Que no requieren análisis pericial"], c: 0, e: "Por eso la dactiloscopía es un método confiable de identificación."},
-        {p: "¿Qué especialidad de la criminalística estudia papeles, firmas y escrituras?", o: ["Documentología", "Balística", "Fotografía forense", "Dactiloscopía"], c: 0, e: "La documentología analiza documentos, escrituras y firmas para detectar falsificaciones."},
-        {p: "¿Qué se registra en la cadena de custodia?", o: ["Cada manipulación de la evidencia desde la escena hasta el juicio", "Solo el nombre del juez", "El resultado del juicio", "Los antecedentes del imputado"], c: 0, e: "Garantiza que la evidencia no se altere, sustituya ni contamine."},
-        {tipo: "vf", p: "Manipular la evidencia con guantes evita contaminar la escena del crimen.", v: true, e: "La recolección respeta el protocolo para no alterar las pruebas."},
-        {tipo: "vf", p: "Es el jefe de la policía quien determina la culpabilidad del imputado.", v: false, e: "La culpabilidad la decide el derecho; los peritos solo analizan evidencias."},
-        {tipo: "vf", p: "La criminalística se aplica siguiendo el método científico.", v: true, e: "Observación, hipótesis, experimentación y verificación para probar el cómo."},
-        {tipo: "completar", p: "La ____ estudia armas de fuego, proyectiles y vainas para vincular un arma con un disparo.", o: ["balistica forense", "balistica"], e: "Es una de las ramas de la criminalística."},
-        {tipo: "completar", p: "El principio de ____ de las huellas indica que dos personas nunca tienen la misma.", o: ["unicidad"], e: "Junto con la inmutabilidad y la perdurabilidad, fundamentan la dactiloscopía."},
-        {p: "¿Cuál es el objetivo de la criminalística?", o: ["Descubrir y probar cómo se cometió un delito", "Castigar al culpable", "Estudiar las causas del delito", "Aplicar la ley en el juicio"], c: 0, e: "Se ocupa del cómo y el qué, no de aplicar penas ni de estudiar causas."},
-        {p: "¿Para qué sirve la cadena de custodia?", o: ["Para embellecer el expediente", "Para garantizar que la evidencia no se altere ni contamine", "Para guardar las armas", "Para proteger al testigo"], c: 1, e: "Registra cada manipulación de la evidencia desde la escena hasta el juicio."},
-        {p: "¿Qué diferencia a la criminología de la criminalística?", o: ["Ninguna, son sinónimos", "Una estudia la escena y la otra la identidad", "La criminología estudia las causas y el comportamiento del delito", "La criminología solo usa huellas"], c: 2, e: "La criminología busca el porqué; la criminalística, probar el cómo."},
-        {p: "¿Qué ciencia identifica personas por las huellas dactilares?", o: ["Balística", "Antropometría", "Dactiloscopía", "Documentología"], c: 2, e: "La dactiloscopía aprovecha el carácter único, inmutable y perdurable de las huellas."},
-        {p: "¿Quién es considerado fundador de la criminalística moderna?", o: ["Alphonse Bertillon", "Hans Gross", "Alec Jeffreys", "Henry Faulds"], c: 1, e: "Hans Gross publicó en 1893 el 'Manual del juez', obra fundacional de la disciplina."},
-        {tipo: "vf", p: "La criminología estudia las causas del delito; la criminalística busca probar cómo se cometió.", v: true, e: "La criminología busca el porqué; la criminalística, el cómo y el qué."},
-        {tipo: "vf", p: "Las huellas dactilares pueden cambiar con el paso de los años.", v: false, e: "Son únicas, inmutables y perdurables: por eso sirven para identificar personas."},
-        {tipo: "vf", p: "La cadena de custodia registra quién manipula cada evidencia desde la escena hasta el juicio.", v: true, e: "Garantiza que la evidencia no se altere ni contamine."},
-        {tipo: "vf", p: "El perito decide la culpabilidad del imputado.", v: false, e: "El perito analiza evidencias y presenta un informe; la culpabilidad la decide el derecho."},
-        {tipo: "completar", p: "La ____ se encarga de descubrir y probar cómo ocurrió un delito aplicando el método científico.", o: ["criminalistica"], e: "La criminalística aporta evidencias objetivas a la investigación."},
-        {tipo: "completar", p: "La ____ estudia armas de fuego, proyectiles y vainas para reconstruir un disparo.", o: ["balistica forense", "balistica"], e: "La balística forense es una de las ramas de la criminalística."},
-        {tipo: "completar", p: "Alphonse Bertillon creó en 1879 la ____ para identificar personas midiendo el cuerpo.", o: ["antropometria"], e: "Aunque luego fue superada por las huellas, fue el primer sistema de identificación."}
-      ]
-    },
-    {
       id: "historia_ud1",
-      nombre: "Historia · UD 1 Emancipación",
+      nombre: "UD 1 · Emancipación",
+      desc: "Revolución de Mayo, Expediciones Auxiliadoras al Alto Perú, Belgrano y el Ejército del Norte, la Guerra Gaucha, San Lorenzo y el Plan Continental (1810-1820).",
       secciones: [
         {
           titulo: "El Día del Ejército Argentino",
@@ -458,7 +407,8 @@ var CONTENIDO = {
     },
     {
       id: "historia_ud3",
-      nombre: "Historia · UD 3 Triple Alianza",
+      nombre: "UD 3 · Triple Alianza",
+      desc: "Guerra de la Triple Alianza (1864-1870): orígenes, organización del Ejército Nacional, Riachuelo, Tuyutí, Curupaytí, Humaitá y Luis María Campos.",
       secciones: [
         {
           titulo: "Orígenes del conflicto",
@@ -627,6 +577,7 @@ var CONTENIDO = {
     {
       id: "tac_esp",
       nombre: "Táctica · Especialidad (ROB 00-01)",
+      desc: "Conducción para las Fuerzas Terrestres (ROB 00-01): medios del Ejército, unidades y operaciones militares. Examen final: 24/09/2026.",
       secciones: [
         {
           titulo: "Los medios que integran el Ejército",
@@ -762,6 +713,7 @@ var CONTENIDO = {
     {
       id: "tec_esp",
       nombre: "Técnica · Especialidad (ROP 19-01)",
+      desc: "Conducción de las Subunidades de Servicios (ROP 19-01): trenes, sistemas de abastecimiento y mantenimiento. Examen final: 25/09/2026.",
       secciones: [
         {
           titulo: "Empleo de la Subunidad Servicios",
@@ -898,6 +850,9 @@ var CONTENIDO = {
         {tipo: "completar", p: "El jefe de la Sección ____ comanda normalmente el Tren de Combate.", o: ["arsenales"], e: "En cambio, el Tren de Campaña depende del jefe de la Sección Intendencia."}
       ]
     }
+  ],
+  grupos: [
+    { id: "g_historia", nombre: "Historia Argentina", descripcion: "Las tres unidades del programa, ordenadas cronológicamente. Tocá una unidad para abrirla y estudiar: leer, conceptos, cronología o examen.", unidades: ["historia_ud1", "historia", "historia_ud3"] }
   ]
 };
 
@@ -908,20 +863,30 @@ var LS = {
 var KEYQ = function(id){ return 'est_quiz_' + id; };
 var KEYR = function(id){ return 'est_repaso_' + id; };
 
+function tarjetaTema(t){
+  var q = LS.get(KEYQ(t.id), null);
+  var r = LS.get(KEYR(t.id), [0,0,0,0]);
+  var rn = r[0] + r[1] + r[2] + r[3];
+  return '<div class="tema" onclick="abrirTema(\'' + t.id + '\')"><b>' + t.nombre + '</b>' +
+    (t.desc ? '<div class="tDesc">' + t.desc + '</div>' : '') +
+    '<ul><li>' + t.secciones.length + ' secciones</li><li>' + t.conceptos.length + ' conceptos</li><li>' + t.preguntas.length + ' preguntas</li></ul>' +
+    '<div class="prog"><i style="width:' + Math.min(66, (q || 0) + (rn ? 6 : 0)) + '%"></i></div>' +
+    (q !== null || rn ? '<span class="note">' + (q !== null ? 'Quiz: ' + Math.round(q) + '%' : '') + (rn ? ' · repaso: ' + rn : '') + '</span>' : '<span class="note">Sin empezar</span>') +
+    '</div>';
+}
 function home(){
   document.getElementById('hdTitle').textContent = CONTENIDO.titulo;
   var h = '<h2>¿Qué querés estudiar hoy?</h2>' + (CONTENIDO.nota ? '<p class="sub">' + CONTENIDO.nota + '</p>' : '');
   h += '<div class="msg">Cómo funciona: abrí un tema → <b>Leer</b> (resumen con términos táctiles) · <b>Conceptos</b> (tarjetas y lista con buscador) · <b>Cronología</b> (tocás cada fecha para revelar) · <b>Examen</b> (auto-evaluación con opción múltiple, verdadero/falso y completar frases, y nota final al terminar). Tu progreso se guarda solo en este navegador.</div>';
-  h += '<div class="temas">' + CONTENIDO.temas.map(function(t){
-    var q = LS.get(KEYQ(t.id), null);
-    var r = LS.get(KEYR(t.id), [0,0,0,0]);
-    var rn = r[0] + r[1] + r[2] + r[3];
-    return '<div class="tema" onclick="abrirTema(\'' + t.id + '\')"><b>' + t.nombre + '</b>' +
-      '<ul><li>' + t.secciones.length + ' secciones</li><li>' + t.conceptos.length + ' conceptos</li><li>' + t.cronologia.length + ' fechas</li><li>' + t.preguntas.length + ' preguntas</li></ul>' +
-      '<div class="prog"><i style="width:' + Math.min(66, (q || 0) + (rn ? 6 : 0)) + '%"></i></div>' +
-      (q !== null || rn ? '<span class="note">' + (q !== null ? 'Quiz: ' + Math.round(q) + '%' : '') + (rn ? ' · repaso: ' + rn : '') + '</span>' : '<span class="note">Sin empezar</span>') +
-      '</div>';
-  }).join('') + '</div>';
+  var grupos = CONTENIDO.grupos || [];
+  var agrupado = {};
+  grupos.forEach(function(g){ g.unidades.forEach(function(id){ agrupado[id] = true; }); });
+  grupos.forEach(function(g){
+    var card = g.unidades.map(function(id){ var t = getTema(id); return t ? tarjetaTema(t) : ''; }).join('');
+    if (card) h += '<div class="grupo"><h3>' + g.nombre + '</h3>' + (g.descripcion ? '<p class="sub">' + g.descripcion + '</p>' : '') + '<div class="subtemas">' + card + '</div></div>';
+  });
+  var sueltos = CONTENIDO.temas.filter(function(t){ return !agrupado[t.id]; });
+  if (sueltos.length) h += '<div class="temas">' + sueltos.map(tarjetaTema).join('') + '</div>';
   document.getElementById('view').innerHTML = h;
 }
 
