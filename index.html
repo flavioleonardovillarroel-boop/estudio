@@ -41,7 +41,9 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .qbtn{ display:block; width:100%; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:11px 13px; margin:7px 0; font-size:14px; cursor:pointer; }
 .qbtn.sel-ok{ border-color:var(--ok); background:#e7f6ec; }
 .qbtn.sel-bad{ border-color:var(--bad); background:#fdeeee; }
-.fdb{ font-size:13.5px; margin:8px 0; }
+.fdb{ font-size:14px; margin:8px 0; font-weight:700; }
+.correc{ background:#fdeeee; border:1px solid rgba(186,41,41,.35); border-left:3px solid var(--bad); border-radius:8px; padding:8px 10px; font-size:13.5px; margin:6px 0; color:var(--ink); }
+.correc .note{ margin-top:4px; font-size:13px; }
 .inBlank{ display:inline-block; width:180px; max-width:70%; border:1px solid var(--accent); border-bottom:2px solid var(--accent); background:#fff; padding:5px 8px; font-size:15px; margin:0 4px; color:var(--ink); border-radius:8px; outline:none; }
 .inBlank:disabled{ opacity:.6; }
 .expl{ background:var(--soft); border-left:3px solid var(--accent); border-radius:6px; padding:8px 10px; font-size:13px; margin:8px 0; }
@@ -198,6 +200,14 @@ var CONTENIDO = {
         {fecha: "24/11/1849", dato: "Paz con Gran Bretaña (Arana-Southern) y Francia (Arana-Lépredour): soberanía argentina sobre los ríos interiores."}
       ],
       preguntas: [
+        {p: "¿Quién dirigió la defensa naval de las Provincias Unidas en la guerra contra el Brasil?", o: ["Guillermo Brown", "Carlos María de Alvear", "Marqués de Barbacena", "Lucio Norberto Mansilla"], c: 0, e: "Brown comandaba la escuadra republicana mientras Alvear dirigía el ejército en tierra."},
+        {p: "¿Qué victoria naval evitó la caída de un puerto del litoral patagónico?", o: ["Carmen de Patagones (07/03/1827)", "San Nicolás", "Valparaíso", "Barrancas del Paraná"], c: 0, e: "Patagones exaltó un heroísmo equivalente al de Malvinas en 1982: derrotó a la escuadra brasileña que se proponía sitiar el puerto."},
+        {p: "¿Qué tipo de victoria buscó Mansilla en la defensa de Vuelta de Obligado?", o: ["Una victoria pírrica", "Una victoria total en mar abierto", "Un empate sin combate", "Una rendición negociada"], c: 0, e: "Como Pirro: agotar al enemigo aunque no se ganara el combate, para desgastar su voluntad de someter a la Confederación."},
+        {tipo: "vf", p: "La Convención Preliminar de Paz de 1828 creó la República Oriental del Uruguay.", v: true, e: "Puso fin a la guerra y reconoció la independencia de la Banda Oriental."},
+        {tipo: "vf", p: "La Patente de Corso convertía al corsario en un pirata sin protección legal.", v: false, e: "El corsario es un combatiente legítimo autorizado por el Estado; sus presas se validan en un Tribunal de Presas."},
+        {tipo: "vf", p: "Rivadavia fue elegido presidente para unificar el esfuerzo de guerra contra el Brasil.", v: true, e: "Elegido en 1826; renunció tras el rechazo de la Misión García."},
+        {tipo: "completar", p: "El desembarco de los Treinta y Tres se produjo en la playa de la ____ (19/04/1825).", o: ["agraciada"], e: "Lavalleja comandó la expedición que desembarcó en la Playa de la Agraciada."},
+        {tipo: "completar", p: "En ____ (20/02/1827) el ejército de Alvear venció al Imperio del Brasil.", o: ["ituzaingo"], e: "La batalla principal de la guerra en el litoral."},
         {p: "¿Qué conflicto terminó en 1828 con la independencia del Uruguay?", o: ["La Guerra del Brasil (1825-1828)", "El conflicto Anglo-francés (1845-1849)", "La Guerra de la Triple Alianza", "La guerra civil unitarios-federales"], c: 0, e: "La Guerra del Brasil concluyó con la Convención Preliminar de Paz (1828) y la creación de la República Oriental del Uruguay."},
         {p: "¿Qué fue la Provincia Cisplatina?", o: ["Una provincia autónoma argentina", "La Banda Oriental bajo dominio portugués y luego brasileño", "Una colonia inglesa en el estuario", "El nombre de Montevideo antes de 1810"], c: 1, e: "Desde 1821 la Banda Oriental se llamó Provincia Cisplatina, primero bajo Portugal y desde 1822 bajo el Imperio brasileño."},
         {p: "¿Cuál fue el casus belli para el Imperio del Brasil?", o: ["El desembarco de los Treinta y Tres", "La incorporación de la Provincia Oriental a las Provincias Unidas (25/10/1825)", "La Batalla de Ituzaingó", "El bloqueo del Río de la Plata"], c: 1, e: "Al aceptar el Congreso la incorporación, Brasil la consideró un acto de guerra y declaró la guerra el 10/12/1825."},
@@ -263,6 +273,14 @@ var CONTENIDO = {
         {fecha: "1984", dato: "Alec Jeffreys desarrolla la huella genética (ADN), clave para la criminalística actual."}
       ],
       preguntas: [
+        {p: "¿Qué principio garantiza que las huellas dactilares sirven para identificar a una persona?", o: ["Unicidad, inmutabilidad y perdurabilidad", "Que siempre están visibles a simple vista", "Que son idénticas en los gemelos", "Que no requieren análisis pericial"], c: 0, e: "Por eso la dactiloscopía es un método confiable de identificación."},
+        {p: "¿Qué especialidad de la criminalística estudia papeles, firmas y escrituras?", o: ["Documentología", "Balística", "Fotografía forense", "Dactiloscopía"], c: 0, e: "La documentología analiza documentos, escrituras y firmas para detectar falsificaciones."},
+        {p: "¿Qué se registra en la cadena de custodia?", o: ["Cada manipulación de la evidencia desde la escena hasta el juicio", "Solo el nombre del juez", "El resultado del juicio", "Los antecedentes del imputado"], c: 0, e: "Garantiza que la evidencia no se altere, sustituya ni contamine."},
+        {tipo: "vf", p: "Manipular la evidencia con guantes evita contaminar la escena del crimen.", v: true, e: "La recolección respeta el protocolo para no alterar las pruebas."},
+        {tipo: "vf", p: "Es el jefe de la policía quien determina la culpabilidad del imputado.", v: false, e: "La culpabilidad la decide el derecho; los peritos solo analizan evidencias."},
+        {tipo: "vf", p: "La criminalística se aplica siguiendo el método científico.", v: true, e: "Observación, hipótesis, experimentación y verificación para probar el cómo."},
+        {tipo: "completar", p: "La ____ estudia armas de fuego, proyectiles y vainas para vincular un arma con un disparo.", o: ["balistica forense", "balistica"], e: "Es una de las ramas de la criminalística."},
+        {tipo: "completar", p: "El principio de ____ de las huellas indica que dos personas nunca tienen la misma.", o: ["unicidad"], e: "Junto con la inmutabilidad y la perdurabilidad, fundamentan la dactiloscopía."},
         {p: "¿Cuál es el objetivo de la criminalística?", o: ["Descubrir y probar cómo se cometió un delito", "Castigar al culpable", "Estudiar las causas del delito", "Aplicar la ley en el juicio"], c: 0, e: "Se ocupa del cómo y el qué, no de aplicar penas ni de estudiar causas."},
         {p: "¿Para qué sirve la cadena de custodia?", o: ["Para embellecer el expediente", "Para garantizar que la evidencia no se altere ni contamine", "Para guardar las armas", "Para proteger al testigo"], c: 1, e: "Registra cada manipulación de la evidencia desde la escena hasta el juicio."},
         {p: "¿Qué diferencia a la criminología de la criminalística?", o: ["Ninguna, son sinónimos", "Una estudia la escena y la otra la identidad", "La criminología estudia las causas y el comportamiento del delito", "La criminología solo usa huellas"], c: 2, e: "La criminología busca el porqué; la criminalística, probar el cómo."},
@@ -391,6 +409,16 @@ var CONTENIDO = {
         {fecha: "12/02/1817", dato: "Batalla de Chacabuco: victoria patriota; camino a Santiago."}
       ],
       preguntas: [
+        {p: "¿Qué medida de resistencia implementó la población de Jujuy durante la retirada?", o: ["Tierra arrasada: negar recursos al enemigo", "Fortificación de la ciudad", "Negociación de un armisticio", "Evacuación naval"], c: 0, e: "Se retiraron personas, alimentos, ganado y bienes para negar todo recurso al enemigo."},
+        {p: "¿Qué hizo Belgrano al llegar a Tucumán en 1812, desobedeciendo una orden?", o: ["Presentar batalla", "Retirarse hasta Córdoba", "Rendir la provincia", "Entregar el mando a Díaz Vélez"], c: 0, e: "Consideró que abandonar la provincia dejaría libre el norte y contaba con el apoyo de la población."},
+        {p: "¿Quién era el jefe realista en la Batalla de Salta?", o: ["Pío Tristán", "Pezuela", "Goyeneche", "Antonio Barrado"], c: 0, e: "Tristán capituló, entregó armas y banderas, y juró no volver a combatir hasta el Desaguadero."},
+        {tipo: "vf", p: "En la Batalla de Tucumán, la caballería del ala derecha cargó sobre el flanco realista.", v: true, e: "Belgrano modificó el frente de su dispositivo para que la caballería tucumana golpeara el flanco enemigo."},
+        {tipo: "vf", p: "La primera gran victoria patriota en el Alto Perú fue Suipacha, el 7/11/1810.", v: true, e: "Fue la primera victoria patria en el Alto Perú."},
+        {tipo: "vf", p: "Huaqui fue una victoria patriota que consolidó el control del Alto Perú.", v: false, e: "Fue una derrota decisiva que hizo perder el control del Alto Perú."},
+        {tipo: "vf", p: "Tristán capituló tras la Batalla de Salta y entregó armas y banderas.", v: true, e: "Juró además no volver a combatir contra las Provincias Unidas."},
+        {tipo: "completar", p: "El combate de las ____ (3/09/1812) frenó a la vanguardia realista.", o: ["piedras"], e: "Acción de retaguardia con contraataque ofensivo de Díaz Vélez."},
+        {tipo: "completar", p: "La Batalla de ____ (20/06/1811) hizo perder el control del Alto Perú.", o: ["huaqui"], e: "Tras la derrota el ejército se desorganizó y se retiró hacia Potosí, Jujuy y Salta."},
+        {tipo: "completar", p: "La Batalla de ____ se resolvió con un movimiento envolvente por la quebrada de Chachapoyas.", o: ["salta"], e: "Atacando por el norte y la retaguardia obligó a Tristán a invertir su frente."},
         {p: "¿Por qué se conmemora el 29 de mayo el Día del Ejército Argentino?", o: ["Porque la Primera Junta reconoció a las fuerzas que apoyaron la Revolución, elevando batallones a regimientos", "Porque ese día se libró la primera batalla", "Porque nació San Martín", "Porque se creó la Escuela Militar"], c: 0, e: "Ese día de 1810 la Primera Junta reorganizó las tropas: se considera el nacimiento formal del Ejército Argentino."},
         {p: "¿Cuál era el objetivo de las Expediciones Auxiliadoras al Alto Perú?", o: ["Extender la revolución al norte, frenar el avance realista y neutralizar el foco militar español", "Controlar el comercio del Pacífico", "Liberar Chile por mar", "Conquistar el Perú por el litoral"], c: 0, e: "También apoyar a los pueblos favorables a la causa revolucionaria."},
         {p: "¿Cuál fue la primera gran victoria patriota en el Alto Perú?", o: ["Cotagaita", "Suipacha", "Huaqui", "Tucumán"], c: 1, e: "Suipacha, el 7/11/1810: la primera victoria patria."},
@@ -550,6 +578,17 @@ var CONTENIDO = {
         {fecha: "05/08/1868", dato: "Rendición en Isla de Poi: fin de la campaña de Humaitá."}
       ],
       preguntas: [
+        {p: "¿Quién impulsó la invasión paraguaya de Corrientes en 1865?", o: ["Francisco Solano López", "Mitre", "Venancio Flores", "Tamandaré"], c: 0, e: "López quiso abrir un frente occidental y obligar a los aliados a dividir sus fuerzas."},
+        {p: "¿Qué batalla naval del 11/06/1865 dejó aislado a Paraguay?", o: ["Riachuelo", "Curupaytí", "Tuyutí", "Humaitá"], c: 0, e: "La escuadra paraguaya fue derrotada y Paraguay quedó aislado por agua."},
+        {p: "¿Cómo se llamó la fortaleza que defendía el acceso a la capital paraguaya?", o: ["Humaitá", "Curupaytí", "Paso de la Patria", "Itapirú"], c: 0, e: "Con baterías, minas flotantes y cadenas de costa a costa controlaba el paso del río."},
+        {p: "¿Qué sistema usó la infantería argentina en Tuyutí para frenar la caballería paraguaya?", o: ["Formaciones en cuadro", "Trincheras de tierra", "Alambre de púas", "Artillería costera"], c: 0, e: "El cuadro, junto con la artillería brasileña, ahogó la carga paraguaya."},
+        {tipo: "vf", p: "El Tratado de la Triple Alianza se firmó el 1 de mayo de 1865.", v: true, e: "Lo firmaron Argentina, Brasil y Uruguay."},
+        {tipo: "vf", p: "La Batalla del Riachuelo fue una victoria naval paraguaya.", v: false, e: "Fue una derrota: la escuadra paraguaya fue derrotada y el Paraguay quedó aislado."},
+        {tipo: "vf", p: "La ley de enrolamiento de la Guardia Nacional de 1865 comprendía a los hombres de 17 a 45 años.", v: true, e: "El Congreso la aprobó en junio de 1865, en plena preparación de la guerra."},
+        {tipo: "vf", p: "Tuyutí se libró el 24 de mayo de 1866.", v: true, e: "Fue la mayor batalla campal de Sudamérica; terminó con una gran derrota paraguaya."},
+        {tipo: "completar", p: "El decreto del 22/01/1864 estableció un ejército permanente de ____ hombres.", o: ["6000", "seis mil"], e: "Un regimiento de artillería, seis batallones de infantería y ocho de caballería de 400 plazas."},
+        {tipo: "completar", p: "La rendición paraguaya se produjo en la Isla de ____ el 5/08/1868.", o: ["poi"], e: "Tras diez días de sitio, con hambre, sed y enfermedades."},
+        {tipo: "completar", p: "La fortaleza paraguaya que controlaba el paso del río Paraguay era ____.", o: ["humaita"], e: "Defendía la capital con baterías, minas y cadenas de costa a costa."},
         {p: "¿Qué hecho provocó el ingreso directo de la Argentina a la guerra?", o: ["La batalla de Tuyutí", "La invasión paraguaya de Corrientes", "La ocupación de Curuzú", "El paso de Humaitá"], c: 1, e: "La invasión de Corrientes (1865) determinó la entrada argentina al conflicto."},
         {p: "¿Cuándo se firmó el Tratado de la Triple Alianza?", o: ["24 de mayo de 1866", "17 de marzo de 1865", "1 de mayo de 1865", "22 de septiembre de 1866"], c: 2, e: "El 1/05/1865 lo firmaron Argentina, Brasil y Uruguay."},
         {p: "Según el material, ¿cuál NO es una innovación militar de la guerra?", o: ["Acorazados", "Fusiles de retrocarga", "Misiles guiados", "Globos cautivos"], c: 2, e: "El material menciona trincheras, acorazados, retrocarga, Gatling y globos cautivos; no menciona misiles."},
@@ -680,6 +719,17 @@ var CONTENIDO = {
         {fecha: "24/09/2026", dato: "Oportunidad del examen final de Táctica de la Especialidad."}
       ],
       preguntas: [
+        {p: "¿Cuál es la mayor unidad táctica orgánica de los elementos de apoyo de combate o de los servicios?", o: ["Batallón", "Regimiento", "Grupo", "Destacamento"], c: 0, e: "Batallón (apoyo de combate y servicios); Regimiento (básicos de combate); Grupo (artillería)."},
+        {p: "¿Qué es el Destacamento?", o: ["Agrupamiento orgánico permanente de distintas armas bajo comando único, para un ambiente geográfico particular", "Una fuerza de tarea de nivel operacional", "Una agrupación de una sola arma", "Un batallón completo"], c: 0, e: "De nivel inferior a brigada, para un ambiente geográfico particular."},
+        {p: "¿Sobre qué se organiza la Fuerza de Tarea?", o: ["Una unidad táctica completa o disminuida reforzada", "Una subunidad siempre", "Una sección de tiradores", "Un grupo de artillería"], c: 0, e: "El Equipo de Combate se organiza sobre una subunidad."},
+        {p: "¿Cuál de estas es una operación de combate complementaria?", o: ["Relevo", "Ataque", "Defensa móvil", "Explotación"], c: 0, e: "Relevo es complementaria; Ataque, Defensa móvil y Explotación son básicas."},
+        {p: "¿Qué nombre recibe la mayor unidad táctica orgánica de los elementos de apoyo de fuego de Artillería?", o: ["Grupo", "Regimiento", "Batallón", "Batería"], c: 0, e: "La Batería es una subunidad; el Grupo es la unidad táctica de artillería."},
+        {tipo: "vf", p: "El Escuadrón es la subunidad característica de la Caballería.", v: true, e: "Compañía (infantería), Escuadrón (caballería) y Batería (artillería)."},
+        {tipo: "vf", p: "La Banda integra los servicios de personal, junto con Sanidad y Religioso.", v: true, e: "Servicios de personal: Religioso, Sanidad, Jurídico, Banda, Bienestar y Postal."},
+        {tipo: "vf", p: "Una Agrupación puede estar compuesta por elementos de varias armas distintas.", v: false, e: "Es de una misma arma, tropa técnica, TOE o servicio, de magnitud inferior a brigada."},
+        {tipo: "vf", p: "Los medios operacionales del art. 2.014 incluyen los elementos de apoyo logístico.", v: true, e: "Comando / combate / apoyo logístico."},
+        {tipo: "completar", p: "Las subunidades ____ no dependen orgánicamente de una unidad táctica.", o: ["independientes"], e: "Son compañías, escuadrones o baterías que dependen de la gran unidad."},
+        {tipo: "completar", p: "Las operaciones subsidiarias de seguridad interior previstas por la Ley 24.059 son OALSI y ____.", o: ["oprojumil"], e: "Operaciones de apoyo a la seguridad interior y de protección judicial del personal militar."},
         {p: "¿Cuáles son los cuatro grandes grupos en que el Ejército estructura sus medios?", o: ["Armas, tropas técnicas, servicios y tropas para operaciones especiales", "Comando, combate, logística y reserva", "Regimientos, batallones, grupos y brigadas", "Tácticas, subsidiarias, movimientos y descanso"], c: 0, e: "Es la clasificación del Cap II, Sec III (arts. 2.012-2.013)."},
         {p: "¿Cómo clasifica el art. 2.014 a los medios operacionales?", o: ["Elementos de comando, de combate y de apoyo logístico", "Armas, tropas técnicas, servicios y TOE", "Grandes unidades, unidades y subunidades", "Ofensivos, defensivos y complementarios"], c: 0, e: "Cambia el enfoque: de familias de medios al papel en la organización operacional."},
         {p: "¿Cuál es la mayor unidad táctica orgánica de los elementos básicos de combate de Infantería o Caballería?", o: ["Regimiento", "Batallón", "Grupo", "Equipo de combate"], c: 0, e: "El Regimiento es la mayor unidad táctica de los elementos básicos de combate."},
@@ -807,6 +857,18 @@ var CONTENIDO = {
         {fecha: "25/09/2026", dato: "Oportunidad del examen final de Técnica de la Especialidad."}
       ],
       preguntas: [
+        {p: "¿Dónde se emplaza normalmente el Tren de Subunidad?", o: ["A retaguardia de la subunidad o reunido con el Tren de Combate", "Siempre en la zona de reunión de la brigada", "En el Batallón Logístico", "En la primera línea de combate"], c: 0, e: "Según la situación: a retaguardia de la subunidad o reunido con el Tren de Combate."},
+        {p: "¿Quién apoya directamente al Tren de Campaña?", o: ["El Batallón Logístico de Brigada", "El Tren de Subunidad", "El Escalón Logístico", "La Compañía de Comando"], c: 0, e: "El Tren de Campaña recibe apoyo del Batallón Logístico de Brigada."},
+        {p: "¿Qué prevalece en caso de conflicto entre la necesidad táctica y la solución técnica?", o: ["La situación táctica", "La solución técnica", "El criterio del funcionario financiero", "El plan de abastecimiento prefijado"], c: 0, e: "La necesidad táctica prevalece sobre la solución técnica ideal."},
+        {p: "¿Quién emplaza normalmente el Tren de Combate?", o: ["El S4", "El jefe de Sanidad", "El encargado de subunidad", "El G4 de la brigada"], c: 0, e: "Lo emplaza el S4, normalmente próximo al puesto de comando del jefe de la unidad."},
+        {p: "¿Qué apoya fundamentalmente el Tren de Subunidad?", o: ["La subunidad o los elementos segregados", "A toda la brigada", "Al Batallón Logístico", "Solo a los vehículos pesados"], c: 0, e: "Es el primer apoyo inmediato y limitado a la subunidad."},
+        {tipo: "vf", p: "La masa de repuestos permanece en el Tren de Campaña.", v: true, e: "Solo una cantidad menor acompaña al Tren de Combate para el mantenimiento liviano."},
+        {tipo: "vf", p: "El Tren de Combate puede servir como puesto de comando alternativo.", v: true, e: "Normalmente se emplaza próximo al puesto de comando del jefe de la unidad."},
+        {tipo: "vf", p: "La distribución de unidad es normalmente la menos conveniente.", v: false, e: "Por el contrario, evita entorpecer las operaciones: los efectos van hacia los elementos."},
+        {tipo: "vf", p: "Los requerimientos de abastecimiento se tramitan por el canal correspondiente y se distribuyen según prioridades.", v: true, e: "El nivel de unidad los reúne y eleva al escalón superior."},
+        {tipo: "completar", p: "El sistema ____ combina la distribución de unidad y la por lugar de distribución.", o: ["mixto"], e: "Con preeminencia normalmente de la distribución de unidad."},
+        {tipo: "completar", p: "El ____ es el punto focal de las operaciones logísticas de la unidad.", o: ["tren de campana", "tren campana"], e: "Apoya al Tren de Combate y a la unidad como un todo."},
+        {tipo: "completar", p: "Un vehículo que no puede repararse se evacúa al Tren de ____ para su recuperación.", o: ["campana"], e: "O se solicita la evacuación al escalón superior."},
         {p: "¿Qué describe mejor el empleo de la Subunidad Servicios?", o: ["Proporciona apoyo logístico a la unidad y a los elementos agregados mediante sus secciones de servicio", "Se dedica exclusivamente al transporte", "Solo actúa en guarnición", "Depende siempre del escalón superior para toda ejecución técnica"], c: 0, e: "Sus secciones son arsenales, intendencia, sanidad y, cuando corresponda, veterinaria y transporte."},
         {p: "¿Por qué elementos están constituidos normalmente los Trenes de Unidad?", o: ["Tren de Combate y Tren de Campaña", "Tren de Subunidad y reserva", "Puesto de comando y Tren de Subunidad", "Tren de Brigada y Tren de División"], c: 0, e: "Ambos agrupamientos constituyen los Trenes de Unidad en operaciones tácticas."},
         {p: "¿Cuál es el elemento logístico más adelantado?", o: ["Tren de Campaña", "Tren de Combate", "Tren de Subunidad / Escalón Logístico", "Batallón Logístico de Brigada"], c: 2, e: "Es el primer elemento que brinda apoyo inmediato y limitado a la subunidad."},
@@ -1073,10 +1135,10 @@ function fraseConInput(p){
 }
 
 function quiz(t, body){
-  var idx = 0, ok = 0, done = false, fallos = [];
+  var idx = 0, ok = 0, done = false, iniciado = false, fallos = [];
   var totTipo = { mc: 0, vf: 0, completar: 0 }, okTipo = { mc: 0, vf: 0, completar: 0 };
-  var preguntas = barajar(t.preguntas);
-  preguntas.forEach(function(q){ totTipo[q.tipo || 'mc']++; });
+  var barajadas = barajar(t.preguntas);
+  var cola = [];
   function prepPregunta(q){
     var tipo = q.tipo || 'mc';
     if (tipo === 'mc'){
@@ -1086,11 +1148,35 @@ function quiz(t, body){
     if (tipo === 'vf') return { q: q, tipo: tipo, correcta: q.v ? 0 : 1 };
     return { q: q, tipo: tipo, correcta: -1 };
   }
-  var cola = preguntas.map(prepPregunta);
+  function montar(cant){
+    var sel = cant === 'todas' ? barajadas : barajadas.slice(0, cant);
+    cola = sel.map(prepPregunta);
+    totTipo = { mc: 0, vf: 0, completar: 0 };
+    okTipo = { mc: 0, vf: 0, completar: 0 };
+    cola.forEach(function(c){ totTipo[c.tipo]++; });
+    idx = 0; ok = 0; fallos = []; iniciado = true;
+  }
   function pintar(){
+    if (!iniciado){
+      var opts = [['corta', 5], ['media', 10], ['larga', 15], ['completa', 20], ['todas', barajadas.length]];
+      body.innerHTML = '<div class="card"><h2>Examen · ' + t.nombre + '</h2>' +
+        '<p class="sub">Hay ' + barajadas.length + ' preguntas cargadas. ¿Cuántas querés responder?</p>' +
+        '<div class="row" id="qOpts">' + opts.map(function(o){
+          return '<button class="bigbtn" data-cant="' + o[0] + '">' + (o[0] === 'todas' ? 'Todas (' + o[1] + ')' : o[1]) + ' preguntas</button>';
+        }).join('') + '</div><div class="expl">Podés elegir un examen corto, mediano o el completo. Al terminar verás tu nota y la corrección.</div></div>';
+      var btns = document.getElementById('qOpts').querySelectorAll('.bigbtn');
+      btns.forEach(function(b){
+        b.onclick = function(){
+          btns.forEach(function(x){ x.disabled = true; });
+          montar(b.dataset.cant);
+          pintar();
+        };
+      });
+      return;
+    }
     if (done){
       var mejor = LS.get(KEYQ(t.id), null);
-      var pct = Math.round((ok / t.preguntas.length) * 100);
+      var pct = Math.round((ok / cola.length) * 100);
       var nuevo = mejor === null || pct > mejor;
       if (nuevo) LS.set(KEYQ(t.id), pct);
       var detalle = ['mc', 'vf', 'completar'].map(function(k){
@@ -1104,7 +1190,7 @@ function quiz(t, body){
       }).join('') + '</div>' : '<div class="msg">¡Perfecto, sin errores!</div>';
       body.innerHTML = '<div class="card"><h2>Nota final</h2>' +
         '<div style="font-size:46px;font-weight:800;color:var(--accent);margin:4px 0">' + pct + '<span style="font-size:20px">%</span></div>' +
-        '<p class="sub">' + textoNota(pct) + ' · Respondiste bien ' + ok + ' de ' + t.preguntas.length + ' preguntas.</p>' +
+        '<p class="sub">' + textoNota(pct) + ' · Respondiste bien ' + ok + ' de ' + cola.length + ' preguntas.</p>' +
         '<div class="prog"><i style="width:' + pct + '%"></i></div>' +
         '<p class="sub">' + detalle + '</p>' +
         (nuevo ? '<p class="sub" style="color:var(--ok)">¡Nuevo mejor resultado en este navegador!</p>' : (mejor !== null ? '<p class="sub">Mejor resultado guardado: ' + mejor + '%</p>' : '')) +
@@ -1126,7 +1212,9 @@ function quiz(t, body){
         '<div style="font-size:15.5px;line-height:2;margin:6px 0 12px">' + fraseConInput(q.p) + '</div>' +
         '<button class="bigbtn" id="qOkReal">Responder</button>';
     }
-    html += '<div class="fdb" id="qFdb"></div><div class="expl" id="qExpl" style="display:none"></div></div>';
+    html += '<div class="fdb" id="qFdb"></div><div class="correc" id="qCorrec" style="display:none"></div>' +
+      '<div class="expl" id="qExpl" style="display:none"></div></div>' +
+      '<div class="row" style="margin-top:4px"><button class="bigbtn" id="qNext" style="display:none">Siguiente pregunta →</button></div>';
     body.innerHTML = html;
     function terminar(sel, correcto, mal){
       body.querySelectorAll('.qbtn').forEach(function(x){ x.dataset.resolved = '1'; x.disabled = true; });
@@ -1140,11 +1228,24 @@ function quiz(t, body){
         if (!correcto){ var selB = body.querySelector('.qbtn[data-v="' + sel + '"]'); if (selB) selB.classList.add('sel-bad'); }
       }
       var e = document.getElementById('qExpl');
+      var cor = document.getElementById('qCorrec');
       var f = document.getElementById('qFdb');
-      f.innerHTML = correcto ? '<b>¡Correcto!</b>' : '<b>Incorrecto.</b> Correcta: ' + esc(respuestaCorrecta(q));
+      f.innerHTML = correcto ? '<b>¡Correcto!</b>' : '<b>Incorrecto</b>';
       f.style.cssText = 'color:' + (correcto ? 'var(--ok)' : 'var(--bad)');
+      if (!correcto){
+        cor.innerHTML = 'Respuesta correcta: <b>' + esc(respuestaCorrecta(q)) + '</b>' +
+          (mal ? '<div class="note">Tu respuesta: ' + esc(mal) + '</div>' : '');
+        cor.style.display = 'block';
+      }
       if (q.e){ e.innerHTML = '<b>Explicación:</b> ' + q.e; e.style.display = 'block'; }
-      setTimeout(function(){ idx++; pintar(); }, correcto ? 1500 : 3000);
+      var next = document.getElementById('qNext');
+      var ultima = idx >= cola.length - 1;
+      next.textContent = ultima ? 'Ver mi nota final ▶' : 'Siguiente pregunta →';
+      next.style.display = 'inline-block';
+      next.onclick = function(){
+        if (ultima){ done = true; } else { idx++; }
+        pintar();
+      };
     }
     if (tipo === 'completar'){
       var btn = document.getElementById('qOkReal');
