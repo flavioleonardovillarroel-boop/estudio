@@ -118,7 +118,7 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 <script>
 var CONTENIDO = {
   titulo: "Estudio · Historia y Especialidad",
-  nota: "Materias cargadas: Historia (3 unidades), Táctica de la Especialidad (ROB 00-01) y Técnica de la Especialidad (ROP 19-01). Exámenes finales el 24 y 25/09/2026.",
+  nota: "Materias cargadas: Historia (3 unidades), Táctica de la Especialidad (ROB 00-01), Técnica de la Especialidad (ROP 19-01) y Didáctica Especial Militar (RFD 51-03, 5 capítulos). Exámenes finales el 24 y 25/09/2026.",
   temas: [
     {
       id: "historia",
@@ -882,12 +882,382 @@ var CONTENIDO = {
         {tipo: "completar", p: "La Clase ____ de abastecimiento corresponde a combustible y lubricantes.", o: ["iii"], e: "Y la Clase I corresponde a raciones y agua."},
         {tipo: "completar", p: "El jefe de la Sección ____ comanda normalmente el Tren de Combate.", o: ["arsenales"], e: "En cambio, el Tren de Campaña depende del jefe de la Sección Intendencia."}
       ]
+    },
+    {
+      id: "dem_c1",
+      nombre: "DEM · Capítulo I · Fundamentos de la educación militar",
+      desc: "RFD 51-03 (arts. 1.001 a 1.022): educación por competencias, principios didácticos, fases educativas, áreas de actuación y comunicación entre educador y educando.",
+      secciones: [
+        {
+          titulo: "Sección I · Conceptos generales",
+          parrafos: [
+            "La educación militar es parte del sistema educativo del Ejército y no se limita a transmitir información: busca formar personas capaces de actuar correctamente en situaciones concretas.",
+            "Una competencia integra conocimientos (saber), habilidades (saber hacer) y actitudes y valores (saber ser). Las capacidades son componentes específicos que posibilitan el desempeño; los estándares fijan el nivel mínimo exigible y los indicadores de logro son evidencias observables del avance.",
+            "Las tres fases del proceso educativo forman un ciclo: planeamiento, ejecución y evaluación. Se decide qué enseñar, se desarrolla la actividad y luego se comprueba el aprendizaje para mejorar."
+          ]
+        },
+        {
+          titulo: "Sección II · Áreas de actuación educativas",
+          parrafos: [
+            "El tipo de actividad educativa depende del ámbito y de la finalidad, no solamente del tema. Las áreas son: educación obligatoria; formación de cadetes y aspirantes; educación operacional de los cuadros; educación operacional de la tropa; adiestramiento operacional de los conjuntos; y educación operacional de las reservas.",
+            "La formación inicial construye bases profesionales, éticas y militares. La educación operacional prepara para funciones y tareas; el adiestramiento integra personas, fracciones y organizaciones para actuar en conjunto."
+          ]
+        },
+        {
+          titulo: "Sección III · La evolución del acto educativo",
+          parrafos: [
+            "La enseñanza evoluciona desde modelos centrados en la exposición hacia enfoques que asignan mayor protagonismo al educando: él interpreta, practica, toma decisiones y construye aprendizajes.",
+            "El educador organiza situaciones de aprendizaje, orienta, observa, corrige y retroalimenta. La comunicación educativa debe ser clara, oportuna y adaptada al nivel, a los conocimientos previos y a la situación del grupo.",
+            "La tecnología transforma el acto educativo: amplía el acceso a la información y desplaza al educador desde la mera exposición hacia la orientación y el diseño de experiencias, sin confundir el medio con la finalidad pedagógica."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "Educación militar", d: "Proceso formativo que desarrolla competencias acordes con los perfiles y necesidades de la Institución."},
+        {t: "Competencia", d: "Capacidad compleja de actuar eficazmente, integrando saber, saber hacer, saber ser y el contexto."},
+        {t: "Capacidades", d: "Componentes específicos de una competencia; al desarrollarlas y articularlas se alcanza el desempeño completo."},
+        {t: "Estándar", d: "Nivel mínimo y esencial de dominio que se considera aceptable para una competencia o capacidad."},
+        {t: "Indicador de logro", d: "Medida o evidencia observable que muestra el avance y la consecución de competencias y capacidades."},
+        {t: "Didáctica Especial Militar", d: "Rama de la didáctica general que estudia y orienta el proceso de enseñanza-aprendizaje en el ámbito militar."},
+        {t: "Principios didácticos", d: "Actividad, motivación, realismo, progresión, finalidad y óptima relación eficacia-costo."},
+        {t: "Fases educativas", d: "Planeamiento, ejecución y evaluación, relacionadas en un ciclo continuo."},
+        {t: "Instrucción", d: "Actividades esencialmente técnico-militares que capacitan al individuo para su rol o función."},
+        {t: "Adiestramiento operacional", d: "Actividades eminentemente aplicativas al combate que desarrollan la eficacia táctica y técnica del conjunto."},
+        {t: "Comunicación educativa", d: "Intercambio intencional de mensajes entre educador y educandos para orientar y retroalimentar el aprendizaje."}
+      ],
+      cronologia: [
+        {fecha: "Arts. 1.001-1.011", dato: "Sección I · conceptos generales: educación por competencias y fases del proceso."},
+        {fecha: "Arts. 1.012-1.018", dato: "Sección II · áreas de actuación educativas."},
+        {fecha: "Arts. 1.019-1.022", dato: "Sección III · evolución del acto educativo, tecnología y comunicación."}
+      ],
+      preguntas: [
+        {p: "¿Qué elementos integran una competencia?", o: ["Conocimientos, habilidades, actitudes y valores", "Solo conocimientos teóricos", "Únicamente destrezas técnicas", "Información memorizada"], c: 0, e: "La competencia integra saber, saber hacer y saber ser para una actuación profesional eficaz."},
+        {p: "¿Cuáles son las fases del proceso educativo?", o: ["Planeamiento, ejecución y evaluación", "Inicio, desarrollo y final", "Análisis, decisión y preparación", "Diagnóstico, medición y calificación"], c: 0, e: "Forman un ciclo: se decide qué enseñar, se desarrolla la actividad y se comprueba el aprendizaje para mejorar."},
+        {p: "¿Cuál de estas es un área de actuación educativa del Capítulo I?", o: ["Adiestramiento operacional de los conjuntos", "Pedagogía del nivel inicial", "Capacitación civil privada", "Relaciones exteriores"], c: 0, e: "También integran las áreas: educación obligatoria, formación de cadetes y aspirantes, educación operacional de cuadros y tropa, y educación de las reservas."},
+        {p: "¿Qué principio didáctico sostiene que se aprende mediante la acción?", o: ["Actividad", "Motivación", "Realismo", "Finalidad"], c: 0, e: "El educando debe participar en tareas, prácticas y problemas para desarrollar y demostrar competencias."},
+        {p: "¿Qué establece el principio de realismo?", o: ["Cuanto más fieles sean las situaciones de aprendizaje al ámbito profesional, más eficaz será el aprendizaje", "Solo se aprende dentro del aula", "Conviene alejarse de los contextos reales", "El escenario no influye en el aprendizaje"], c: 0, e: "Se concreta con escenarios y problemas actuales que exijan decisiones comparables al desempeño real."},
+        {p: "¿Qué es una capacidad respecto de la competencia?", o: ["Un componente específico que hace posible el desempeño", "Una calificación", "Un instrumento de evaluación", "Un requisito administrativo"], c: 0, e: "La competencia integra y coordina varias capacidades para responder a una situación profesional."},
+        {p: "¿Qué fijan los estándares en la educación por competencias?", o: ["El nivel mínimo de desempeño exigible para una competencia o capacidad", "Un objetivo deseado y optativo", "Una nota promedio", "Un requisito de vestuario"], c: 0, e: "Sirven como referencia común para planificar, evaluar, detectar brechas y decidir si el desempeño es aceptable."},
+        {p: "¿Qué son los indicadores de logro?", o: ["Evidencias observables que muestran el avance y la consecución de competencias", "Notas de los parciales", "Lista de asistencia", "Objetivos de la clase"], c: 0, e: "Deben describir conductas esenciales verificables, de modo que la evaluación sea objetiva."},
+        {p: "¿Qué es la Didáctica Especial Militar (DEM)?", o: ["La rama de la didáctica general que estudia y orienta el proceso de enseñanza-aprendizaje en el ámbito militar", "Un sinónimo de instrucción de tropa", "El reglamento de combate", "Una técnica de simulación"], c: 0, e: "Es el campo de trabajo metodológico de instructores, subinstructores, profesores militares y docentes civiles."},
+        {p: "¿Cuántos principios didácticos reconoce el Ejército Argentino?", o: ["Seis", "Tres", "Cuatro", "Diez"], c: 0, e: "Actividad, motivación, realismo, progresión, finalidad y óptima relación eficacia-costo."},
+        {p: "¿Qué significa la óptima relación eficacia-costo?", o: ["Alcanzar el estándar con el método y los medios adecuados, sin gastos que no agreguen valor", "Comprar siempre lo más económico", "Eliminar todos los recursos didácticos", "Reducir al mínimo las horas de clase"], c: 0, e: "Valora los beneficios educativos frente a los esfuerzos y recursos involucrados."},
+        {p: "¿Qué es la instrucción según el reglamento?", o: ["El conjunto de actividades esencialmente técnico-militares que capacitan al individuo para desempeñarse eficientemente", "La educación de los cuadros", "El adiestramiento de conjuntos", "La evaluación final de una materia"], c: 0, e: "Ubica la capacitación en el plano individual y la enlaza con el adiestramiento de la organización."},
+        {p: "¿Qué es el adiestramiento operacional?", o: ["Actividades eminentemente aplicativas al combate que desarrollan la eficacia táctica y técnica del conjunto", "La capacitación individual del soldado", "Un examen final", "La formación de cadetes"], c: 0, e: "Su educando es la organización o conjunto; integra personas, procedimientos, medios y conducción."},
+        {p: "¿Cuál es la finalidad de los cursos?", o: ["Acrecentar, promocionar o adquirir competencias para la formación y el perfeccionamiento", "Reemplazar la instrucción", "Solo evaluar", "Determinar la antigüedad"], c: 0, e: "La capacitación debe contribuir al desempeño requerido por la Fuerza."},
+        {p: "¿Qué es la comunicación educativa?", o: ["El intercambio intencional de mensajes entre educador y educandos para orientar y retroalimentar el aprendizaje", "Una orden de mando", "Una nota en el pizarrón", "Un mensaje institucional"], c: 0, e: "Su eficacia depende del diálogo, el respeto, la motivación y una predisposición favorable."},
+        {tipo: "vf", p: "La educación militar busca formar personas capaces de actuar correctamente en situaciones concretas.", v: true, e: "No se limita a transmitir información: busca el desempeño eficaz."},
+        {tipo: "vf", p: "Una competencia se limita a los conocimientos teóricos.", v: false, e: "Integra conocimientos, habilidades y actitudes o valores."},
+        {tipo: "vf", p: "La formación de cadetes y aspirantes es una de las áreas de actuación educativa.", v: true, e: "Sumada a educación obligatoria, educación operacional de cuadros y tropa, adiestramiento de conjuntos y reservas."},
+        {tipo: "vf", p: "En el enfoque por competencias el educando es un sujeto pasivo que solo escucha.", v: false, e: "Es un sujeto activo: interpreta, practica, decide y construye aprendizajes."},
+        {tipo: "vf", p: "Los indicadores de logro deben describir conductas esenciales verificables.", v: true, e: "Así la evaluación es objetiva y útil para mejorar el proceso."},
+        {tipo: "completar", p: "Las tres fases educativas son planeamiento, ejecución y ____.", o: ["evaluacion"], e: "Forman un ciclo continuo de planear, ejecutar, evaluar y ajustar."},
+        {tipo: "completar", p: "El principio de ____ sostiene que se aprende mediante la acción.", o: ["actividad"], e: "El educando participa en tareas y prácticas que desarrollan competencias."},
+        {tipo: "completar", p: "Los indicadores de ____ son evidencias observables del avance.", o: ["logro"], e: "Muestran la consecución de competencias y capacidades."},
+        {tipo: "completar", p: "La Didáctica Especial Militar se aplica al ámbito ____.", o: ["militar"], e: "Adapta principios didácticos generales a las características de la educación militar."},
+        {tipo: "completar", p: "La óptima relación ____-costo orienta el uso responsable de los recursos.", o: ["eficacia"], e: "Se elige el método que alcanza el estándar sin gastos que no agreguen valor."}
+      ]
+    },
+    {
+      id: "dem_c2",
+      nombre: "DEM · Capítulo II · Planeamiento de la instrucción",
+      desc: "RFD 51-03 (arts. 2.001 a 2.020): método de planeamiento del educador y documentos del proceso enseñanza-aprendizaje (plan de clase, plan de instrucción, PES, PET/PEP, registro de aula).",
+      secciones: [
+        {
+          titulo: "Secciones I y II · Conceptos y método del planeamiento",
+          parrafos: [
+            "El planeamiento es un proceso racional y continuo que evita improvisaciones y orienta el esfuerzo hacia un resultado verificable. La tarea del educador se origina en documentos superiores: la competencia proviene del proyecto curricular, la programación, el plan, la tabla o la directiva correspondiente, y no debe inventarse.",
+            "Antes de diseñar una clase o instrucción debe conocerse la competencia, los estándares, los contenidos, el tiempo, el escenario, los educandos y los medios disponibles.",
+            "El método de planeamiento del educador es una secuencia de análisis, decisión y preparación: analizar comprende la tarea y los factores que la condicionan; decidir implica elegir actividades, métodos, secuencia, evaluación y medios coherentes; preparar incluye producir documentos, reunir materiales, coordinar apoyos y ensayar. La conversación educativa permite coordinar, orientar y enriquecer la preparación."
+          ]
+        },
+        {
+          titulo: "Sección III · Documentos del proceso enseñanza-aprendizaje",
+          parrafos: [
+            "Los documentos que concretan el planeamiento son: proyecto de cátedra, programación de materia, programación en educación operacional, plan de instrucción y plan de clase. Cada uno tiene distinto alcance y deriva de un nivel superior: el proyecto y la programación organizan períodos más amplios; el plan concreta el acto educativo.",
+            "El plan de clase se emplea normalmente en educación obligatoria y cursos, integrado a una materia. El plan de instrucción corresponde a instrucción, adiestramiento o práctica preprofesional y exige una preparación operativa más explícita."
+          ]
+        },
+        {
+          titulo: "Sección IV · Otros documentos de organización y seguimiento",
+          parrafos: [
+            "El PET o PEP distribuye la educación a lo largo de un tramo o período. El PES (Programa de Educación Semanal) organiza actividades semanales con tiempo y lugar.",
+            "El mapa conceptual representa relaciones entre contenidos. El registro de aula deja constancia de lo ejecutado y de las horas cumplidas, y el cómputo de horas permite dar seguimiento al cumplimiento.",
+            "La programación indica qué debe desarrollarse; el PES ubica la actividad en tiempo y lugar; el plan describe cómo se realizará; el registro documenta lo efectivamente ejecutado."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "Planeamiento didáctico", d: "Proceso racional, sistemático y permanente que organiza las actividades del proceso de enseñanza-aprendizaje."},
+        {t: "Método de planeamiento del educador", d: "Secuencia de análisis, decisión y preparación, enriquecida por la conversación educativa."},
+        {t: "Proyecto de cátedra", d: "Documento que organiza una materia para un período amplio."},
+        {t: "Programación de materia", d: "Distribuye los contenidos y actividades de una materia según el planeamiento superior."},
+        {t: "Plan de clase", d: "Documento de ejecución para una clase o actividad de materia en educación obligatoria o cursos."},
+        {t: "Plan de instrucción", d: "Documento para instrucción, adiestramiento o práctica preprofesional, con preparación y coordinación más detalladas."},
+        {t: "PET/PEP", d: "Distribuyen la educación a lo largo de un tramo o período."},
+        {t: "PES", d: "Programa de Educación Semanal que distribuye las actividades con tiempo y lugar."},
+        {t: "Mapa conceptual", d: "Representa relaciones entre contenidos."},
+        {t: "Registro de aula", d: "Deja constancia de lo ejecutado y de las horas cumplidas."}
+      ],
+      cronologia: [
+        {fecha: "Arts. 2.001-2.004", dato: "Sección I · el planeamiento como proceso racional y continuo."},
+        {fecha: "Arts. 2.005-2.009", dato: "Sección II · método de planeamiento del educador: analizar, decidir, preparar."},
+        {fecha: "Arts. 2.010-2.015", dato: "Sección III · documentos del proceso enseñanza-aprendizaje."},
+        {fecha: "Arts. 2.016-2.020", dato: "Sección IV · PET/PEP, PES, mapa conceptual, registro de aula y cómputo de horas."}
+      ],
+      preguntas: [
+        {p: "¿De qué documentos se origina la tarea del educador?", o: ["Del proyecto curricular, la programación, el plan, la tabla o la directiva correspondiente", "De la improvisación del profesor", "De las sugerencias de los educandos", "De la disponibilidad de recursos"], c: 0, e: "La competencia no debe inventarse: se toma del planeamiento superior."},
+        {p: "¿Qué es el planeamiento didáctico?", o: ["La previsión racional, sistemática y permanente de las actividades del proceso de enseñanza-aprendizaje", "Una lista de temas por enseñar", "El registro de asistencia", "El acta de examen"], c: 0, e: "Agrupa competencias, estándares, contenidos, tiempo, escenario, educandos y medios."},
+        {p: "¿Cuáles son los pasos del método de planeamiento del educador?", o: ["Analizar, decidir y preparar", "Inicio, desarrollo y final", "Planear, ejecutar y evaluar", "Observar, registrar y certificar"], c: 0, e: "Analizar la tarea, decidir el modo de acción y preparar las condiciones necesarias."},
+        {p: "¿Cuándo corresponde un plan de clase?", o: ["En educación obligatoria y cursos, integrado a una materia", "Siempre en el adiestramiento", "Únicamente en prácticas de terreno", "Solo en educación a distancia"], c: 0, e: "El plan de instrucción, en cambio, se usa para instrucción, adiestramiento o práctica preprofesional."},
+        {p: "¿A qué corresponde el plan de instrucción?", o: ["A instrucción, adiestramiento o práctica preprofesional, con preparación operativa más explícita", "A toda clase teórica", "Solo a materias de historia", "A las evaluaciones escritas"], c: 0, e: "Exige una preparación operativa con coordinación, seguridad y medios específicos."},
+        {p: "¿Qué es el PES?", o: ["El Programa de Educación Semanal que distribuye las actividades en tiempo y lugar", "El Plan de Evaluación Secundaria", "El Programa de Estrategia", "El Plan de Estadística"], c: 0, e: "Organiza la actividad educativa semanal de cada nivel."},
+        {p: "¿Qué es el mapa conceptual?", o: ["Una representación de las relaciones entre contenidos", "Un mapa geográfico", "Una carta de navegación", "Un organigrama institucional"], c: 0, e: "Ayuda a visualizar cómo se relacionan los contenidos de una unidad."},
+        {p: "¿Qué registra el registro de aula?", o: ["Lo ejecutado y las horas cumplidas", "Solo las notas de los parciales", "Los datos fiscales", "Las vacaciones"], c: 0, e: "Documenta lo efectivamente ejecutado y el cumplimiento horario."},
+        {p: "¿Qué función cumplen el PET o el PEP?", o: ["Distribuyen la educación a lo largo de un tramo o período", "Evalúan al docente", "Se usan solo en combate", "Son aplicaciones informáticas"], c: 0, e: "Organizan la educación en el tiempo: qué debe desarrollarse y cuándo."},
+        {p: "¿Por qué la competencia no debe inventarse?", o: ["Porque proviene del proyecto curricular, la programación, el plan, la tabla o la directiva correspondiente", "Porque es muy difícil redactarla", "Porque no se evalúa", "Porque la define el educando"], c: 0, e: "El educador la transforma en decisiones didácticas concretas."},
+        {tipo: "vf", p: "El planeamiento evita improvisaciones y orienta el esfuerzo hacia un resultado verificable.", v: true, e: "Es un proceso racional y continuo."},
+        {tipo: "vf", p: "El plan de clase y el plan de instrucción son documentos equivalentes.", v: false, e: "El plan de instrucción corresponde a instrucción o adiestramiento y exige preparación operativa más detallada."},
+        {tipo: "vf", p: "El PES organiza las actividades semanales con tiempo y lugar.", v: true, e: "Distribuye la educación semanal de cada nivel."},
+        {tipo: "vf", p: "La conversación educativa permite coordinar, orientar y enriquecer la preparación.", v: true, e: "Forma parte del método de planeamiento del educador."},
+        {tipo: "vf", p: "El registro de aula deja constancia de lo ejecutado y de las horas cumplidas.", v: true, e: "Complementa la cadena programación-PES-plan-registro."},
+        {tipo: "completar", p: "El documento que deja constancia de lo ejecutado es el registro de ____.", o: ["aula"], e: "Documenta la actividad efectivamente desarrollada."},
+        {tipo: "completar", p: "El PES es el Programa de Educación ____.", o: ["semanal"], e: "Distribuye las actividades con tiempo y lugar."},
+        {tipo: "completar", p: "El ____ de cátedra organiza una materia para un período amplio.", o: ["proyecto"], e: "Es el nivel más abarcativo de la documentación de planeamiento."},
+        {tipo: "completar", p: "El plan de ____ se emplea en educación obligatoria y cursos.", o: ["clase"], e: "Está integrado a una materia."},
+        {tipo: "completar", p: "El plan de ____ corresponde a la instrucción y el adiestramiento.", o: ["instruccion"], e: "Exige preparación y coordinación operativas más detalladas."}
+      ]
+    },
+    {
+      id: "dem_c3",
+      nombre: "DEM · Capítulo III · Ejecución de la instrucción",
+      desc: "RFD 51-03 (arts. 3.001 a 3.034): los tres pasos de la ejecución, materias de instrucción, educación operacional de cuadros y tropa, adiestramiento de conjuntos, reservas y modalidades.",
+      secciones: [
+        {
+          titulo: "Secciones I y II · Conceptos y pasos de la ejecución",
+          parrafos: [
+            "La ejecución es la fase en la que se concreta lo planeado: el plan deja de ser una previsión escrita y se transforma en conductas del instructor y de los educandos. Destaca la flexibilidad, la conducción, la observación y la adaptación, con controles previos sobre personal, lugar, medios, seguridad y organización.",
+            "Toda instrucción se organiza en tres pasos. El Inicio dispone al educando, presenta la finalidad, motiva y recupera saberes previos. El Desarrollo concentra la enseñanza, la demostración, la práctica y la aplicación; es el centro de gravedad porque allí se produce la mayor parte de la actividad del educando y se construye la competencia. El Final integra, comprueba el aprendizaje, corrige errores, retroalimenta y proyecta lo aprendido."
+          ]
+        },
+        {
+          titulo: "Sección III · Materias de instrucción y adiestramiento",
+          parrafos: [
+            "Cada materia exige métodos, escenarios, riesgos y evidencias acordes con su naturaleza, pero conserva pautas comunes: finalidad concreta, progresión didáctica, actividad del educando, realismo compatible con la seguridad y comprobación mediante evidencias observables.",
+            "La Formación Ética requiere reflexión guiada, análisis de casos y coherencia entre contenidos y conducta del educador. La Formación Social Militar se adecua a la categoría: en tropa prioriza hábitos y disciplina; en suboficiales, conducción cercana; en oficiales, liderazgo y conducción de organizaciones.",
+            "El Combate exige realismo creciente y seguridad prioritaria: se detiene la actividad ante una condición insegura. El Tiro controla armas y munición y corrige un error por vez. La instrucción de Adiestramiento Físico Militar se estructura en entrada en calor, parte principal y vuelta a la calma. El Orden Cerrado forma hábitos de disciplina, precisión y actuación coordinada."
+          ]
+        },
+        {
+          titulo: "Secciones IV a VI · EOC, EOT y AOC",
+          parrafos: [
+            "La Educación Operacional de los Cuadros (EOC) mantiene y perfecciona la aptitud profesional de oficiales y suboficiales: en oficiales se enfatizan conducción, planeamiento y decisión; en suboficiales, dominio técnico, supervisión y conducción directa del personal. La Escuela de Regimiento organiza la capacitación continua del elemento, y el aprendizaje autónomo complementa la actualización personal.",
+            "La Educación Operacional de la Tropa (EOT) forma al soldado para cumplir con seguridad, disciplina y eficacia su rol en la fracción; progresa por ciclos (formación básica, rol, perfeccionamiento) y se registra mediante Tablas de Instrucción (TTI).",
+            "El Adiestramiento Operacional de Conjuntos (AOC) integra fracciones y organizaciones: las Tablas de Adiestramiento Operacional (TTAO) fijan tareas colectivas, condiciones, estándares e indicadores, y las Prácticas de Conjunto, los Ejercicios de Adiestramiento y las TTAO forman una progresión desde la coordinación básica hasta el desempeño operacional integrado."
+          ]
+        },
+        {
+          titulo: "Secciones VII y VIII · Reservas y otras modalidades",
+          parrafos: [
+            "La educación de las reservas prevé la heterogeneidad de edades, experiencias y condición física, y facilita la rápida integración de los reservistas a sus organizaciones.",
+            "El aprendizaje autónomo se concreta con consignas, materiales, plazos y productos verificables, dentro de una orientación institucional. La Educación a Distancia exige consignas precisas, comunicación regular y actividades que produzcan evidencias: no se reduce a enviar archivos para lectura.",
+            "Las TIC apoyan la presentación, la simulación, la comunicación y el registro del desempeño, pero son un medio: no sustituyen la práctica ni la conducción del educador."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "Ejecución", d: "Fase en la que el planeamiento didáctico se convierte en acción educativa concreta."},
+        {t: "Inicio", d: "Primer paso: dispone al educando, presenta la finalidad, motiva y recupera saberes previos."},
+        {t: "Desarrollo", d: "Paso central: se enseñan, demuestran, practican y aplican los contenidos; es el centro de gravedad del acto educativo."},
+        {t: "Final", d: "Cierre: sintetiza, comprueba el aprendizaje, corrige, retroalimenta y proyecta lo aprendido."},
+        {t: "EOC", d: "Educación Operacional de los Cuadros: mantiene y perfecciona la aptitud de oficiales y suboficiales."},
+        {t: "EOT", d: "Educación Operacional de la Tropa: forma al soldado para cumplir su rol en la fracción."},
+        {t: "AOC", d: "Adiestramiento Operacional de Conjuntos: integra fracciones y organizaciones para actuar coordinadamente."},
+        {t: "Escuela de Regimiento", d: "Organiza la capacitación continua dentro del elemento, vinculada a sus necesidades reales."},
+        {t: "TTI", d: "Tablas de Instrucción: definen tareas, condiciones y estándares para registrar el progreso individual."},
+        {t: "TTAO", d: "Tablas de Adiestramiento Operacional: evalúan si la fracción cumple su misión, con criterios comunes."}
+      ],
+      cronologia: [
+        {fecha: "Arts. 3.001-3.003", dato: "Sección I · conceptos generales de la ejecución."},
+        {fecha: "Arts. 3.004-3.007", dato: "Sección II · pasos de la ejecución: inicio, desarrollo y final."},
+        {fecha: "Arts. 3.008-3.018", dato: "Sección III · materias de instrucción y adiestramiento."},
+        {fecha: "Arts. 3.019-3.027", dato: "Secciones IV y V · EOC y EOT."},
+        {fecha: "Arts. 3.028-3.030", dato: "Sección VI · adiestramiento operacional de conjuntos."},
+        {fecha: "Arts. 3.031-3.034", dato: "Secciones VII y VIII · reservas, aprendizaje autónomo y EaD."}
+      ],
+      preguntas: [
+        {p: "¿Cuáles son los tres pasos de la ejecución de la instrucción?", o: ["Inicio, desarrollo y final", "Planeamiento, ejecución y evaluación", "Análisis, decisión y preparación", "Motivación, práctica y calificación"], c: 0, e: "El inicio dispone, el desarrollo enseña y practica, y el final integra y comprueba."},
+        {p: "¿Qué se realiza en el paso Inicio?", o: ["Disponer al educando, presentar la finalidad y recuperar saberes previos", "Evaluar con un examen final", "Repartir los materiales", "Entregar certificados"], c: 0, e: "También se comunica la organización, las normas y la seguridad cuando corresponda."},
+        {p: "¿Por qué el Desarrollo es el centro de gravedad del acto educativo?", o: ["Porque allí se produce la mayor parte de la actividad del educando y se construye la competencia", "Porque es el paso más breve", "Porque se entregan las notas", "Porque el instructor solo observa"], c: 0, e: "El instructor organiza experiencias progresivas, observa y retroalimenta."},
+        {p: "¿Qué debe hacerse en el paso Final?", o: ["Sintetizar, comprobar el aprendizaje, corregir, retroalimentar y evacuar dudas", "Presentar contenidos nuevos", "Iniciar la práctica", "Solo despedirse"], c: 0, e: "También se dispone la restitución del escenario y el control del material empleado."},
+        {p: "¿Qué controles previos deben realizarse antes de iniciar una actividad?", o: ["Personal, lugar, MAPE, seguridad y organización", "Solo la asistencia", "El presupuesto institucional", "Las vacaciones del personal"], c: 0, e: "Se verifican escenario, conocimientos previos, medios y condiciones de seguridad."},
+        {p: "Si falla el proyector durante la clase, ¿qué debe hacer el educador?", o: ["Mantener la actividad central con medios alternativos y la evidencia prevista", "Cancelar la clase", "Rectificar sin explicar", "Seguir sin ajustar nada"], c: 0, e: "Puede usar pizarra o fichas, pero conserva la finalidad y el estándar."},
+        {p: "¿Qué exige la instrucción de tiro?", o: ["Cumplir estrictamente las normas de seguridad y controlar armas y munición", "Improvisar la línea de tiro", "Empezar por ejercicios avanzados", "Evitar las demostraciones"], c: 0, e: "Progresa desde la manipulación y el tiro en seco hacia ejercicios de mayor complejidad."},
+        {p: "¿Cómo se estructura una sesión de Adiestramiento Físico Militar?", o: ["Entrada en calor, parte principal y vuelta a la calma", "Solo ejercicios de fuerza", "Solo resistencia prolongada", "Sin entrada en calor"], c: 0, e: "La carga se ajusta al nivel y aumenta gradualmente en volumen e intensidad."},
+        {p: "¿Cuál es el propósito didáctico del Orden Cerrado?", o: ["Formar hábitos de disciplina, precisión, atención y actuación coordinada", "Desarrollar la memoria", "Enseñar métodos de planeamiento", "Evaluar la condición física"], c: 0, e: "Refuerza la obediencia consciente, la uniformidad de movimientos y la cohesión."},
+        {p: "¿Cuál es la finalidad de la Educación Operacional de los Cuadros?", o: ["Mantener y perfeccionar la aptitud profesional de oficiales y suboficiales", "Capacitar solo a la tropa", "Reemplazar la instrucción", "Evaluar unidades"], c: 0, e: "Se desarrolla en forma continua, vinculada con el puesto y las necesidades del elemento."},
+        {p: "¿En qué se diferencia la formación del oficial de la del suboficial?", o: ["En el oficial se enfatiza la conducción y el planeamiento; en el suboficial, el dominio técnico y la conducción directa del personal", "Son exactamente iguales", "El suboficial no educa", "El oficial no conduce"], c: 0, e: "Ambos deben liderar y enseñar según su nivel de responsabilidad."},
+        {p: "¿Qué rol cumple la Escuela de Regimiento en la EOC?", o: ["Organiza la capacitación continua del elemento vinculada a sus necesidades reales", "Reemplaza al instituto de formación", "Solo planifica horarios", "Es un establecimiento civil"], c: 0, e: "Se complementa con el aprendizaje autónomo del individuo."},
+        {p: "¿Qué métodos resultan adecuados para la EOC?", o: ["Trabajos de gabinete, estudios de caso, juegos de guerra y simulaciones", "Solo exposiciones magistrales", "Únicamente lectura de textos", "Solo ejercicios físicos"], c: 0, e: "Para conducción y decisión conviene situaciones que obliguen a analizar, decidir y coordinar."},
+        {p: "¿Cuál es la finalidad de la Educación Operacional de la Tropa?", o: ["Formar al soldado para cumplir con seguridad, disciplina y eficacia las tareas de su rol en la fracción", "Formar oficiales", "Capacitar conjuntos", "Adiestrar a los educadores"], c: 0, e: "Es la base individual que luego se integra en la eficacia del conjunto."},
+        {p: "¿Cómo progresa la capacitación en la EOT?", o: ["Formación básica, formación para el rol y etapas de perfeccionamiento e integración", "En un único ciclo", "Solo con un examen final", "Capacitación docente"], c: 0, e: "Cada ciclo se apoya en el anterior y cierra con una comprobación."},
+        {p: "¿En qué se diferencia el AOC de la instrucción individual?", o: ["El AOC integra fracciones y organizaciones; la instrucción individual desarrolla la destreza de la persona", "Son lo mismo", "El AOC es solo teórico", "La instrucción individual es de conjuntos"], c: 0, e: "El AOC evalúa el desempeño del conjunto frente a una misión."},
+        {p: "¿Para qué sirven las TTI en la EOT?", o: ["Definen tareas, condiciones y estándares y permiten registrar el progreso individual", "Son mapas de terreno", "Evalúan a los docentes", "Se usan solo en la reserva"], c: 0, e: "Sirven para secuenciar la capacitación, comprobar competencias y detectar necesidades de refuerzo."},
+        {p: "¿Qué establecen las TTAO?", o: ["Tareas colectivas, condiciones de ejecución, estándares e indicadores para evaluar si la fracción cumple su misión", "Calificaciones individuales", "Un registro de asistencia", "El plan de estudio"], c: 0, e: "Permiten certificar la eficacia táctica y técnica del conjunto."},
+        {p: "¿Cómo debe configurarse un escenario realista de adiestramiento?", o: ["Representar misión, ambiente, terreno, amenaza y restricciones, con realismo funcional al objetivo y compatible con la seguridad", "Solo mostrar mapas", "Idealizar las condiciones", "Evitar todo riesgo"], c: 0, e: "Cada estímulo debe provocar decisiones o acciones observables y evaluables."},
+        {tipo: "vf", p: "La ejecución es la fase en la que se concreta lo planeado.", v: true, e: "El plan se transforma en conductas del instructor y de los educandos."},
+        {tipo: "vf", p: "En el paso Final se presentan los contenidos nuevos.", v: false, e: "El Final sintetiza, comprueba el aprendizaje, corrige y retroalimenta."},
+        {tipo: "vf", p: "En la instrucción de combate se detiene la actividad ante una condición insegura.", v: true, e: "La seguridad es prioritaria y no se sacrifica por el realismo."},
+        {tipo: "vf", p: "En la tropa la progresión avanza de lo simple a lo complejo y de la práctica guiada a la ejecución autónoma.", v: true, e: "La repetición debe incluir corrección y propósito."},
+        {tipo: "vf", p: "La educación a distancia debe limitarse al envío de archivos para lectura.", v: false, e: "Exige consignas precisas, comunicación regular y actividades que produzcan evidencias."},
+        {tipo: "completar", p: "La ejecución se organiza en tres pasos: inicio, ____ y final.", o: ["desarrollo"], e: "El desarrollo es el centro de gravedad del acto educativo."},
+        {tipo: "completar", p: "La Educación Operacional de la Tropa se abrevia ____.", o: ["eot"], e: "Forma al soldado para cumplir su rol en la fracción."},
+        {tipo: "completar", p: "El ____ Operacional de Conjuntos se abrevia AOC.", o: ["adiestramiento"], e: "Integra fracciones y organizaciones para actuar coordinadamente."},
+        {tipo: "completar", p: "En la instrucción de tiro se corrige un ____ por vez.", o: ["error"], e: "Basado en evidencias y sin comprometer la seguridad."},
+        {tipo: "completar", p: "La ____ de regimiento organiza la capacitación continua del elemento.", o: ["escuela"], e: "Se complementa con el aprendizaje autónomo del personal."},
+        {tipo: "completar", p: "Las Tablas de Instrucción se abrevian ____.", o: ["tti"], e: "Definen tareas, condiciones y estándares para registrar el progreso individual."}
+      ]
+    },
+    {
+      id: "dem_c4",
+      nombre: "DEM · Capítulo IV · Evaluación",
+      desc: "RFD 51-03 (arts. 4.001 a 4.036): evaluación, instrumentos de medición, juicios de valor, evaluación operacional, certificación y evaluación de los educadores.",
+      secciones: [
+        {
+          titulo: "Secciones I a III · Conceptos, instrumentos y juicios",
+          parrafos: [
+            "Evaluar no equivale a calificar: es el proceso de obtener evidencias, compararlas con competencias, capacidades, estándares o criterios previamente establecidos, emitir un juicio y tomar decisiones. Puede evaluarse antes (diagnóstico), durante (regulación) y al final (comprobación de resultados).",
+            "El instrumento debe corresponder al tipo de evidencia buscada: la prueba escrita u oral es adecuada para conocimientos y argumentación; la lista de cotejo, la escala o la guía de observación, para procedimientos y conductas observables; el autoinforme aporta percepciones o actitudes y debe emplearse con criterio y complementarse.",
+            "El análisis de ítems permite detectar preguntas deficientes o aprendizajes no consolidados. La calificación expresa un resultado según una escala, pero no reemplaza la explicación del desempeño. La retroalimentación debe ser específica, oportuna y orientada a mejorar: 'Incorrecto' informa poco."
+          ]
+        },
+        {
+          titulo: "Sección IV · Carreras y cursos",
+          parrafos: [
+            "Se reúnen particularidades sobre evaluación, calificaciones y condiciones de aprobación, interrupción, separación y reincorporación en carreras y cursos.",
+            "Las condiciones administrativas y académicas deben conocerse desde el inicio, y las decisiones de aprobación o separación requieren registros y fundamentos conforme a los anexos y normas vigentes."
+          ]
+        },
+        {
+          titulo: "Secciones V a VII · Evaluación operacional",
+          parrafos: [
+            "En EOC se valora el desempeño vinculado con funciones y responsabilidades de cuadros. En EOT se comprueba el progreso por ciclos y el dominio de tareas individuales y colectivas. En AOC se evalúa la aptitud del conjunto para actuar coordinadamente en las condiciones previstas.",
+            "El mismo error puede analizarse de manera diferente según corresponda a una decisión del cuadro, una destreza individual o una falla de coordinación del conjunto."
+          ]
+        },
+        {
+          titulo: "Secciones VIII y IX · Certificación y educadores",
+          parrafos: [
+            "Certificar implica dejar constancia formal de que se alcanzaron condiciones o competencias determinadas: exige evidencia suficiente y trazable, respetar el procedimiento y registrar lo alcanzado.",
+            "La evaluación de los educadores (ámbitos operacional y académico) observa planeamiento, conducción, dominio, comunicación, evaluación y actitud profesional, y debe generar devolución y acciones de perfeccionamiento."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "Evaluación", d: "Proceso de obtención e interpretación de evidencias para emitir un juicio y tomar decisiones."},
+        {t: "Medición", d: "Asignación o registro de datos mediante un instrumento."},
+        {t: "Indicador de logro", d: "Conducta o evidencia observable que permite apreciar avance o resultado."},
+        {t: "Calificación", d: "Expresión del juicio mediante una escala establecida; no reemplaza la explicación del desempeño."},
+        {t: "Análisis de ítems", d: "Permite detectar preguntas deficientes o aprendizajes no consolidados."},
+        {t: "Retroalimentación", d: "Información específica, oportuna y orientada a consolidar aciertos y corregir dificultades."},
+        {t: "Certificación", d: "Reconocimiento formal y registrado de un logro o competencia, con evidencia trazable."},
+        {t: "Autoinforme", d: "Instrumento que aporta percepciones o actitudes; se emplea con criterio y se complementa."},
+        {t: "Lista de cotejo", d: "Instrumento adecuado para procedimientos y conductas observables."},
+        {t: "Evaluación de los educadores", d: "Valora planeamiento, conducción, dominio, comunicación, evaluación y actitud profesional."}
+      ],
+      cronologia: [
+        {fecha: "Arts. 4.001-4.005", dato: "Sección I · conceptos generales, finalidad, responsabilidades y tipos."},
+        {fecha: "Arts. 4.006-4.013", dato: "Sección II · instrumentos de medición."},
+        {fecha: "Arts. 4.014-4.019", dato: "Sección III · elaboración de juicios de valor."},
+        {fecha: "Arts. 4.020-4.022", dato: "Sección IV · carreras y cursos."},
+        {fecha: "Arts. 4.023-4.031", dato: "Secciones V-VII · evaluación operacional (EOC, EOT y AOC)."},
+        {fecha: "Arts. 4.032-4.034", dato: "Sección VIII · certificación."},
+        {fecha: "Arts. 4.035-4.036", dato: "Sección IX · evaluación de los educadores."}
+      ],
+      preguntas: [
+        {p: "Evaluar NO equivale a:", o: ["Calificar solamente", "Obtener evidencias", "Comparar con criterios establecidos", "Retroalimentar"], c: 0, e: "Calificar es solo una parte; la evaluación emite juicios y orienta decisiones."},
+        {p: "¿Qué instrumento es adecuado para evaluar conocimientos y argumentación?", o: ["La prueba escrita u oral", "La lista de cotejo", "La guía de observación", "El cronómetro"], c: 0, e: "Pruebas escritas u orales valoran conocimientos, comprensión y argumentación."},
+        {p: "¿Qué instrumento se usa para procedimientos y conductas observables?", o: ["Lista de cotejo, escala o guía de observación", "El examen oral", "La monografía", "La encuesta de opinión"], c: 0, e: "Registran conductas o pasos verificables durante la ejecución."},
+        {p: "¿Para qué sirve el análisis de ítems?", o: ["Para detectar preguntas deficientes o aprendizajes no consolidados", "Para aumentar la cantidad de preguntas", "Para ablandar la calificación", "Para ordenar el aula"], c: 0, e: "Los datos se convierten en conclusiones y acciones de mejora."},
+        {p: "¿Qué características debe tener una retroalimentación útil?", o: ["Específica, oportuna y orientada a mejorar", "Genérica y tardía", "Que solo señale errores", "Una simple nota"], c: 0, e: "Un 'incorrecto' informa poco; la explicación concreta orienta la mejora."},
+        {p: "¿Qué es la certificación?", o: ["El reconocimiento formal y registrado de un logro o competencia", "Un examen sorpresa", "Una calificación", "Un listado de alumnos"], c: 0, e: "Requiere evidencia suficiente y trazable."},
+        {p: "¿Qué establece la calificación?", o: ["Expresa un resultado según una escala, sin reemplazar la explicación del desempeño", "Es idéntica a evaluar", "Es siempre obligatoria", "Reemplaza la evidencia"], c: 0, e: "La calificación es la expresión del juicio mediante una escala."},
+        {p: "¿Qué se valora en la evaluación de la EOC?", o: ["El desempeño vinculado con funciones y responsabilidades de cuadros", "Solo la aptitud física", "La memoria", "La asistencia"], c: 0, e: "Se centra en la conducción y el cumplimiento de las funciones del cuadro."},
+        {p: "¿Qué se evalúa en el AOC?", o: ["La aptitud del conjunto para actuar coordinadamente en las condiciones previstas", "A un solo soldado", "El material", "El clima"], c: 0, e: "El conjunto es el objeto de la evaluación."},
+        {p: "¿Qué observa la evaluación de los educadores?", o: ["Planeamiento, conducción, dominio, comunicación, evaluación y actitud profesional", "Solo la antigüedad", "Las notas de los alumnos", "Es optativa"], c: 0, e: "Debe generar devolución y acciones de perfeccionamiento."},
+        {p: "¿Qué es el autoinforme?", o: ["Aporta percepciones o actitudes; se emplea con criterio y se complementa", "Es la prueba definitiva", "Reemplaza toda evidencia", "Evalúa procedimientos físicos"], c: 0, e: "Es útil para actitudes, pero debe complementarse cuando sea posible."},
+        {p: "¿Qué es la medición?", o: ["La asignación o registro de datos mediante un instrumento", "Un juicio de valor", "La certificación", "La retroalimentación"], c: 0, e: "Es una etapa del proceso evaluativo, no el juicio final."},
+        {p: "Para valorar una decisión ética, ¿qué conviene emplear?", o: ["Una rúbrica de fundamentación", "Una lista de cotejo de pasos físicos", "Un cronómetro", "Una escala de fuerza"], c: 0, e: "La lista de cotejo sirve para secuencias observables; la ética exige valorar la fundamentación."},
+        {tipo: "vf", p: "Evaluar es un proceso más amplio que calificar.", v: true, e: "Incluye evidencias, comparación con criterios, juicio, retroalimentación y decisión."},
+        {tipo: "vf", p: "La certificación exige evidencia suficiente y trazable.", v: true, e: "Una constancia sin registro adecuado no permite acreditar el desempeño."},
+        {tipo: "vf", p: "Decir únicamente 'Incorrecto' es una retroalimentación útil.", v: false, e: "Informa poco; conviene indicar qué falló y cómo mejorar."},
+        {tipo: "vf", p: "Puede evaluarse antes, durante y al final del proceso educativo.", v: true, e: "Para diagnosticar, regular y comprobar resultados."},
+        {tipo: "vf", p: "La calificación expresa un juicio mediante una escala establecida.", v: true, e: "Pero no reemplaza la explicación del desempeño."},
+        {tipo: "completar", p: "La ____ es la expresión del juicio mediante una escala.", o: ["calificacion"], e: "Se apoya en evidencias comparadas con criterios previos."},
+        {tipo: "completar", p: "El proceso de obtener evidencias, compararlas con criterios y emitir un juicio es la ____.", o: ["evaluacion"], e: "Es más amplio que calificar."},
+        {tipo: "completar", p: "La lista de ____ es adecuada para conductas observables.", o: ["cotejo"], e: "Junto con la escala y la guía de observación."},
+        {tipo: "completar", p: "La evaluación de los ____ se realiza en los ámbitos operacional y académico.", o: ["educadores"], e: "Observa planeamiento, conducción, dominio, comunicación y actitud."}
+      ]
+    },
+    {
+      id: "dem_c5",
+      nombre: "DEM · Capítulo V · Medios Auxiliares para la Educación (MAPE)",
+      desc: "RFD 51-03 (arts. 5.001 y 5.002): qué son los MAPE, criterios de selección, preparación y empleo, y alternativas ante fallas.",
+      secciones: [
+        {
+          titulo: "Conceptos generales",
+          parrafos: [
+            "Los MAPE son recursos que facilitan la presentación, la comprensión, la práctica o la fijación de aprendizajes. Pueden ser visuales, sonoros, audiovisuales, impresos, digitales, modelos, equipos, materiales reales u otros apoyos acordes con la actividad.",
+            "El MAPE es un medio y no una finalidad: debe servir a la competencia, al contenido, a la actividad y a la evaluación. Su valor depende de cómo se integra en la secuencia didáctica. Una presentación puede ordenar ideas, pero el aprendizaje se produce cuando el educando analiza, responde, practica o resuelve."
+          ]
+        },
+        {
+          titulo: "Aspectos para tener en cuenta",
+          parrafos: [
+            "Se seleccionan solo los medios que aporten una ventaja didáctica concreta, según adecuación al objetivo, características de los educandos, disponibilidad, visibilidad, seguridad, oportunidad, dominio técnico, sencillez y previsión de alternativas.",
+            "Deben probarse antes de la actividad: verificar energía, archivos, sonido, conexiones, ubicación y que el último educando pueda leer. Hay que evitar la saturación, los textos ilegibles y el uso simultáneo de recursos que distraigan, y prever un plan alternativo para conservar la continuidad de la clase."
+          ]
+        }
+      ],
+      conceptos: [
+        {t: "MAPE", d: "Medios Auxiliares para la Educación: recursos que facilitan presentar, comprender, practicar o fijar aprendizajes."},
+        {t: "Medio visual", d: "Recurso percibido principalmente por la vista: imagen, carta, pizarra, gráfico o modelo."},
+        {t: "Medio audiovisual", d: "Recurso que combina imagen y sonido."},
+        {t: "Medio real", d: "Objeto, equipo, instalación o ambiente auténtico empleado con finalidad educativa."},
+        {t: "Medio digital", d: "Recurso basado en tecnologías de la información, empleado como apoyo didáctico."},
+        {t: "Plan alternativo", d: "Recurso o procedimiento previsto para continuar si falla el medio principal."}
+      ],
+      cronologia: [
+        {fecha: "Art. 5.001", dato: "Conceptos generales: definición y tipos de MAPE."},
+        {fecha: "Art. 5.002", dato: "Criterios para elegir, preparar y utilizar los medios."}
+      ],
+      preguntas: [
+        {p: "¿Qué son los MAPE?", o: ["Recursos que facilitan la presentación, comprensión, práctica o fijación de aprendizajes", "Los exámenes", "Las calificaciones", "Los planes de estudio"], c: 0, e: "Son apoyos al aprendizaje; el MAPE es un medio, no una finalidad."},
+        {p: "El MAPE debe:", o: ["Servir a la competencia, el contenido, la actividad y la evaluación", "Ser siempre lo más novedoso", "Reemplazar al educador", "Ocupar toda la clase"], c: 0, e: "Su valor depende de cómo se integra en la secuencia didáctica."},
+        {p: "¿Qué debe hacer el educador antes de la actividad con los medios?", o: ["Probarlos, verificar energía, archivos, sonido y conexiones, y prever un plan alternativo", "Solo revisar el cable", "No usar MAPE", "Rectificar al final"], c: 0, e: "También se verifica la ubicación y que el último educando pueda leer."},
+        {p: "¿Qué es un medio real?", o: ["Un objeto, equipo, instalación o ambiente auténtico empleado con finalidad educativa", "Una película", "Un gráfico", "Una grabación"], c: 0, e: "Es un apoyo auténtico, no una representación."},
+        {p: "¿Por qué un PowerPoint no constituye por sí mismo una clase?", o: ["Porque el aprendizaje se produce cuando el educando analiza, responde, practica o resuelve", "Porque las diapositivas son ilegibles", "Porque está prohibido usarlo", "Porque siempre distrae"], c: 0, e: "El medio ordena ideas, pero la competencia se construye con la actividad del educando."},
+        {p: "¿Qué problemas produce la saturación visual?", o: ["Distracción y pérdida de atención por textos ilegibles o recursos simultáneos", "Mayor aprendizaje", "Mejor memoria", "Más motivación"], c: 0, e: "Hay que evitar usar demasiados recursos que compitan entre sí."},
+        {p: "¿Qué es el plan alternativo?", o: ["Un recurso o procedimiento previsto para continuar si falla el medio principal", "Un plan de evacuación", "Una segunda jornada", "Un examen de recuperación"], c: 0, e: "Permite conservar la continuidad de la actividad ante fallas tecnológicas."},
+        {p: "¿Qué criterios se consideran para elegir un medio?", o: ["Adecuación al objetivo, características de los educandos, disponibilidad, visibilidad, seguridad y sencillez", "Solo el costo", "La marca del producto", "La cantidad disponible"], c: 0, e: "Se selecciona lo que aporta una ventaja didáctica concreta."},
+        {tipo: "vf", p: "El MAPE es el medio y no la finalidad.", v: true, e: "Debe servir a la competencia y a la actividad del educando."},
+        {tipo: "vf", p: "El MAPE reemplaza la actividad del educando.", v: false, e: "Facilita el aprendizaje, pero no sustituye la práctica del educando."},
+        {tipo: "vf", p: "Los medios deben probarse antes de la actividad.", v: true, e: "Se verifican energía, archivos, sonido, ubicación y visibilidad."},
+        {tipo: "vf", p: "Un medio audiovisual combina imagen y sonido.", v: true, e: "Como el video o la multimedia."},
+        {tipo: "vf", p: "Ante una falla tecnológica conviene suspender la clase sin alternativa.", v: false, e: "Debe preverse un plan alternativo para conservar la continuidad."},
+        {tipo: "completar", p: "MAPE significa Medios Auxiliares para la ____.", o: ["educacion"], e: "Recursos que facilitan la presentación, comprensión, práctica o fijación de aprendizajes."},
+        {tipo: "completar", p: "Un recurso que combina imagen y sonido es un medio ____.", o: ["audiovisual", "audio visual"], e: "A diferencia del visual (solo vista) o del sonoro (solo oído)."},
+        {tipo: "completar", p: "Ante una falla tecnológica debe preverse un plan ____.", o: ["alternativo"], e: "Para conservar la continuidad de la actividad."},
+        {tipo: "completar", p: "El medio percibido principalmente por la vista es el medio ____.", o: ["visual"], e: "Imagen, carta, pizarra, gráfico o modelo."},
+        {tipo: "completar", p: "Un objeto o ambiente auténtico con finalidad educativa es un medio ____.", o: ["real"], e: "Es un apoyo auténtico, no una representación."}
+      ]
     }
   ],
   materias: [
     { id: "m_historia", nombre: "Historia", icono: "📖", descripcion: "Las tres unidades del programa, ordenadas cronológicamente: Emancipación, Guerra del Brasil (Clase 3) y la Triple Alianza.", unidades: ["historia_ud1", "historia", "historia_ud3"] },
     { id: "m_tactica", nombre: "Táctica de la Especialidad", icono: "⚔️", descripcion: "Conducción para las Fuerzas Terrestres (ROB 00-01): medios del Ejército, unidades y operaciones militares. Examen final el 24/09.", unidades: ["tac_esp"] },
-    { id: "m_tecnica", nombre: "Técnica de la Especialidad", icono: "🔧", descripcion: "Conducción de las Subunidades de Servicios (ROP 19-01): trenes, abastecimiento y mantenimiento. Examen final el 25/09.", unidades: ["tec_esp"] }
+    { id: "m_tecnica", nombre: "Técnica de la Especialidad", icono: "🔧", descripcion: "Conducción de las Subunidades de Servicios (ROP 19-01): trenes, abastecimiento y mantenimiento. Examen final el 25/09.", unidades: ["tec_esp"] },
+    { id: "m_dem", nombre: "Didáctica Especial Militar (DEM)", icono: "🎓", descripcion: "RFD 51-03: fundamentos (Cap. I), planeamiento (Cap. II), ejecución (Cap. III), evaluación (Cap. IV) y MAPE (Cap. V).", unidades: ["dem_c1", "dem_c2", "dem_c3", "dem_c4", "dem_c5"] }
   ]
 };
 
