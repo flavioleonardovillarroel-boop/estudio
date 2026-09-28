@@ -1823,6 +1823,7 @@ function pintarLogin(){
       '<div class="sub" style="margin:2px 0 6px">Tu clave</div>' +
       '<input class="in pin" id="selPin" type="password" inputmode="numeric" maxlength="6" placeholder="• • • •" autocomplete="current-password" style="font-size:22px;letter-spacing:10px" onkeydown="if(event.key===\'Enter\'){entrarLogin()}">' +
       '<button class="bigbtn" onclick="entrarLogin()">Entrar 🍀</button>' +
+      '<button class="bigbtn ghost" onclick="borrarSel()" style="margin-top:-4px">🗑 Borrar este usuario</button>' +
       '<p class="note" style="margin-top:8px">¿No está tu nombre? Creá un perfil abajo.</p>';
   } else {
     h += '<p class="note">Todavía no hay ningún estudiante. Creá el primero abajo.</p>';
@@ -1835,6 +1836,11 @@ function pintarLogin(){
     '</div></div>';
   document.getElementById('view').innerHTML = h;
   var pin = document.getElementById('selPin'); if (pin) pin.focus();
+}
+function borrarSel(){
+  var sel = document.getElementById('selUsuario');
+  if (!sel || !sel.value) return;
+  borrarUsuario(sel.value);
 }
 function entrarLogin(){
   var sel = document.getElementById('selUsuario');
