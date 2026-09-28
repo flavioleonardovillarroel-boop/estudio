@@ -142,6 +142,7 @@ html.dark .starBtn.on{ border-color:var(--gold); color:#ffc25a; }
   <h1 id="hdTitle">Estudio</h1>
   <div>
     <button id="btnTema" onclick="alternarTema()" title="Claro / oscuro">🌙</button>
+    <button id="btnCal" onclick="abrirCalendario()" title="Calendario">📅</button>
     <button id="btnUser" onclick="pantallaLogin()" title="Cambiar de usuario">👤</button>
     <button onclick="home()">Inicio</button>
   </div>
@@ -2545,6 +2546,143 @@ function toggleEstrella(id, p, btn){
     btn.innerHTML = on ? '⭐ Guardada' : '☆ Guardar para repasar';
   }
 }
+// ===== Calendario por usuario =====
+var KEYEV = function(){ return 'est_' + KEYU() + 'eventos'; };
+function evList(){ return LS.get(KEYEV(), []); }
+function evSet(l){ LS.set(KEYEV(), l); }
+function evTipo(t){ return t === 'examen' ? '📝' : t === 'tp' ? '📄' : t === 'parcial' ? '🗂' : t === 'entrega' ? '📩' : '📍'; }
+function evTipoNombre(t){ return t === 'examen' ? 'Examen' : t === 'tp' ? 'Trabajo práctico' : t === 'parcial' ? 'Parcial' : t === 'entrega' ? 'Entrega' : 'Evento'; }
+function evFaltan(iso){
+  if (!iso) return null;
+  var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+  var p = iso.split('-');
+  var f = new Date(+p[0], (+p[1] || 1) - 1, +p[2] || 1); f.setHours(0, 0, 0, 0);
+  return Math.round((f - hoy) / 86400000);
+}
+function evFechaTxt(iso){
+  if (!iso) return '';
+  var p = iso.split('-');
+  var meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  return (+p[2]) + ' ' + meses[(+p[1]) - 1];
+}
+function evRestante(iso){
+  var d = evFaltan(iso);
+  if (d === null) return '';
+  if (d < 0) return 'hace ' + (-d) + (Math.abs(d) === 1 ? ' día' : ' días');
+  if (d === 0) return '¡hoy!';
+  if (d === 1) return 'mañana';
+  return 'faltan ' + d + ' días';
+}
+function abrirCalendario(){
+  var u = estUsuario(); if (!u){ pintarLogin(); return; }
+  document.getElementById('hdTitle').textContent = 'Calendario';
+  var body = document.getElementById('view');
+  pintarCalendario(body);
+}
+function pintarCalendario(body){
+  var list = evList().sort(function(a, b){ return (a.fecha || '').localeCompare(b.fecha || ''); });
+  var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+  function futuro(e){ var d = evFaltan(e.fecha); return d !== null ? d >= 0 && !e.hecho : false; }
+  var futuros = list.filter(futuro);
+  var pasados = list.filter(function(e){ return !futuro(e); });
+  var h = '<div class="row" style="margin-bottom:10px"><button class="bigbtn ghost" onclick="home()">← Inicio</button></div>' +
+    '<button class="bigbtn" style="width:100%;margin-bottom:12px" onclick="formEvento()">＋ Agregar fecha</button>';
+  if (!list.length){
+    h += '<div class="card"><h3>Tu calendario 📅</h3><p class="sub">Cargá exámenes, entregas de trabajos prácticos, parciales o cualquier fecha importante. La app te avisa cuánto falta y te sugiere qué estudiar: "Te quedan 6 días para rendir Técnica, ¿hacemos un cuestionario rápido?"</p>' +
+      '<button class="bigbtn okbtn" onclick="formEvento()">Cargar mi primer fecha</button></div>';
+  }
+  function card(e, atrasado){
+    var dias = evFaltan(e.fecha);
+    var urg = dias !== null && !e.hecho && dias <= 3;
+    return '<div class="card" style="' + (urg ? 'border-left:4px solid var(--bad)' : e.hecho ? 'opacity:.55' : 'border-left:4px solid var(--accent)') + '">' +
+      '<div class="mini"><div><span class="sec-badge">' + evTipo(e.tipo) + ' ' + evTipoNombre(e.tipo) + '</span><b style="display:block;margin-top:6px">' + esc(e.titulo) + '</b>' +
+      '<div class="note" style="margin-top:4px">📅 ' + evFechaTxt(e.fecha) + ' · <b style="color:' + (e.hecho ? 'var(--muted)' : urg ? 'var(--bad)' : 'var(--accent)') + '">' + (e.hecho ? 'hecho ✓' : evRestante(e.fecha)) + '</b></div>' +
+      (e.nota ? '<div class="note" style="margin-top:4px">' + esc(e.nota) + '</div>' : '') +
+      sugerenciaEvento(e, dias) +
+      '</div><div class="der">' +
+      '<button class="x" style="background:var(--ok)" onclick="toggleHecho(\'' + e.id + '\')" title="Marcar hecho">✓</button>' +
+      '<button class="x" style="background:var(--accent)" onclick="formEvento(\'' + e.id + '\')">✏</button>' +
+      '<button class="x" onclick="borrarEvento(\'' + e.id + '\')">🗑</button></div></div></div>';
+  }
+  h += '<div class="hdiv"><h3>Próximos</h3><div class="line"></div></div>' + (futuros.length ? futuros.map(function(e){ return card(e, false); }).join('') : '<div class="msg">No hay fechas próximas. ¡Agregá una arriba!</div>');
+  if (pasados.length){
+    h += '<div class="hdiv"><h3>Anteriores</h3><div class="line"></div></div>' + pasados.map(function(e){ return card(e, true); }).join('');
+  }
+  body.innerHTML = h;
+}
+function nuevoId(){ return 'e' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+function formEvento(id){
+  var u = estUsuario(); if (!u){ pintarLogin(); return; }
+  var target = document.getElementById('view');
+  var e = id ? (evList().filter(function(x){ return x.id === id; })[0] || null) : null;
+  var h = '<div class="row" style="margin-bottom:10px"><button class="bigbtn ghost" onclick="pintarCalendario(document.getElementById(\'view\'))">← Calendario</button></div>' +
+    '<div class="card"><h3>' + (e ? '✏ Editar fecha' : '＋ Nueva fecha') + '</h3>' +
+    '<div class="sub" style="margin:2px 0 6px">Título</div><input class="in" id="evTit" value="' + (e ? esc(e.titulo) : '') + '" placeholder="Ej: Examen de Técnica">' +
+    '<div class="sub" style="margin:2px 0 6px">Tipo</div><select class="in" id="evTipo">' +
+    [['examen', '📝 Examen'], ['parcial', '🗂 Parcial'], ['tp', '📄 Trabajo práctico'], ['entrega', '📩 Entrega'], ['otro', '📍 Otro']].map(function(o){
+      return '<option value="' + o[0] + '"' + (e && e.tipo === o[0] ? ' selected' : '') + '>' + o[1] + '</option>';
+    }).join('') + '</select>' +
+    '<div class="sub" style="margin:2px 0 6px">Materia / unidad a repasar (opcional)</div><select class="in" id="evTema">' +
+    '<option value="">— Ninguna: solo recordatorio —</option>' +
+    CONTENIDO.temas.map(function(t){
+      return '<option value="' + t.id + '"' + (e && e.tema === t.id ? ' selected' : '') + '>' + esc(t.nombre) + '</option>';
+    }).join('') + '</select>' +
+    '<div class="sub" style="margin:2px 0 6px">Fecha</div><input class="in" type="date" id="evFecha" value="' + (e ? e.fecha : '') + '">' +
+    '<div class="sub" style="margin:2px 0 6px">Nota (opcional)</div><textarea class="txa" id="evNota" rows="2" placeholder="Ej: estudiar ROB 00-01, capítulos 2 y 3">' + (e ? esc(e.nota) : '') + '</textarea>' +
+    '<div class="row"><button class="bigbtn okbtn" onclick="guardarEvento(' + (e ? '\'' + e.id + '\'' : 'null') + ')">' + (e ? 'Guardar cambios' : 'Guardar fecha') + '</button>' +
+    '<button class="ghost bigbtn" onclick="pintarCalendario(document.getElementById(\'view\'))">Cancelar</button></div></div>';
+  target.innerHTML = h;
+}
+function guardarEvento(id){
+  var tit = (document.getElementById('evTit') || {}).value || '';
+  var fecha = (document.getElementById('evFecha') || {}).value || '';
+  tit = tit.trim();
+  if (!tit || !fecha){ alert('Completá el título y la fecha.'); return; }
+  var list = evList();
+  var obj = {
+    id: id || nuevoId(),
+    titulo: tit,
+    tipo: (document.getElementById('evTipo') || {}).value || 'otro',
+    tema: (document.getElementById('evTema') || {}).value || '',
+    fecha: fecha,
+    nota: ((document.getElementById('evNota') || {}).value || '').trim(),
+    hecho: id ? (list.filter(function(x){ return x.id === id; })[0] || {}).hecho : false
+  };
+  if (id){ list = list.map(function(x){ return x.id === id ? obj : x; }); }
+  else { list.push(obj); }
+  evSet(list);
+  tg('🗓 ' + nombreUsuario() + ' (' + devTag() + ') cargó "' + obj.titulo + '" (' + obj.fecha + ')', 'ev');
+  pintarCalendario(document.getElementById('view'));
+}
+function borrarEvento(id){
+  if (!confirm('¿Borrar esta fecha?')) return;
+  evSet(evList().filter(function(x){ return x.id !== id; }));
+  pintarCalendario(document.getElementById('view'));
+}
+function toggleHecho(id){
+  evSet(evList().map(function(x){ return x.id === id ? (function(){ x.hecho = !x.hecho; return x; })() : x; }));
+  pintarCalendario(document.getElementById('view'));
+}
+function sugerenciaEvento(e, dias){
+  if (e.hecho || !e.tema || dias === null || dias < 0) return '';
+  var tema = getTema(e.tema); if (!tema) return '';
+  var msg;
+  if (dias === 0) msg = '¡Hoy es el evento! Respirá, repasá los conceptos y a dar todo. 💪';
+  else if (dias === 1) msg = '¡Mañana es! Hacé un repaso exprés de conceptos antes de dormir. 🌙';
+  else if (dias <= 3) msg = 'Te quedan ' + dias + ' días. Ideal para un <b>cuestionario rápido</b> y ver qué te falta.';
+  else if (dias <= 7) msg = 'Tenés ' + dias + ' días: mejor momento para un cuestionario y repaso con tarjetas.';
+  else msg = 'Quedan ' + dias + ' días. Empezá con calma: leé, repasá conceptos y hacé un cuestionario corto.';
+  return '<div class="msg" style="margin-top:8px">💡 ' + msg + ' ' +
+    '<button class="bigbtn okbtn" style="margin-top:8px" onclick="estudiarPara(\'' + e.tema + '\',\'' + e.id + '\')">🎯 Empezar a estudiar</button></div>';
+}
+function estudiarPara(temaId, evId){
+  var e = evId ? (evList().filter(function(x){ return x.id === evId; })[0] || null) : null;
+  var t = getTema(temaId); if (!t) return home();
+  var dias = e ? evFaltan(e.fecha) : null;
+  if (dias !== null && dias <= 1){ abrirTema(t.id, 'leer'); toastFrase(); return; }
+  abrirTema(t.id, 'quiz');
+  toastFrase();
+}
 function temaAuto(){ var h = new Date().getHours(); return (h >= 20 || h < 7) ? 'oscuro' : 'claro'; }
 function aplicarTema(){
   var d = LS.get('est_tema', 'auto');
@@ -2734,6 +2872,31 @@ function tarjetaTema(t){
     '<span class="note">' + (notas.length ? notas.join(' · ') : 'Sin empezar') + '</span>' +
     '</div>';
 }
+function cardProximo(){
+  var u = estUsuario(); if (!u) return '';
+  var list = evList().filter(function(e){ return !e.hecho && e.fecha; }).sort(function(a, b){ return a.fecha.localeCompare(b.fecha); });
+  var e = list[0];
+  if (!e) return '';
+  var dias = evFaltan(e.fecha);
+  if (dias === null || dias < 0) return '';
+  var tema = e.tema ? getTema(e.tema) : null;
+  var txtDesc = tema ? ' de <b>' + esc(tema.nombre) + '</b>' : '';
+  var msg;
+  if (dias === 0) msg = '¡Hoy es el evento! Respirá, repasá y a dar todo. 💪';
+  else if (dias === 1) msg = 'Te queda <b>1 día</b> para "' + esc(e.titulo) + '"' + txtDesc + '. ¿Repasamos los conceptos clave antes de dormir?';
+  else if (dias <= 3) msg = 'Te quedan <b>' + dias + ' días</b> para ' + evTipoNombre(e.tipo).toLowerCase() + ' de <b>"' + esc(e.titulo) + '"</b>' + txtDesc + '. ¿Hacemos un cuestionario rápido?';
+  else if (dias <= 7) msg = 'Faltan <b>' + dias + ' días</b> para <b>"' + esc(e.titulo) + '"</b>' + txtDesc + '. Buen momento para un cuestionario ahora y otro más cerca de la fecha.';
+  else msg = 'Quedan <b>' + dias + ' días</b> para <b>"' + esc(e.titulo) + '"</b>' + txtDesc + '. Arrancá con un cuestionario corto y de a poco.';
+  var hayTema = !!tema;
+  return '<div class="card" style="border-left:4px solid var(--gold);margin-bottom:14px"><div class="mini"><div>' +
+    '<span class="sec-badge">' + evTipo(e.tipo) + ' ' + evTipoNombre(e.tipo) + ' · ' + evFechaTxt(e.fecha) + '</span>' +
+    '<div style="margin:8px 0 0;font-size:14px;line-height:1.5">' + msg + '</div>' +
+    '<div class="row" style="margin-top:10px">' +
+    (hayTema ? '<button class="bigbtn okbtn" onclick="estudiarPara(\'' + e.tema + '\',\'__card__\')">🎯 ¡Empecemos!</button>'
+            : '<button class="bigbtn ghost" onclick="abrirCalendario()">Ver calendario</button>') +
+    '<button class="bigbtn ghost" onclick="abrirCalendario()">📅 Calendario</button></div>' +
+    '</div></div></div>';
+}
 function home(){
   var u = estUsuario();
   if (!u){ pintarLogin(); return; }
@@ -2753,6 +2916,7 @@ function home(){
     '<div class="caja"><div class="num">' + conQ.length + '/' + todos.length + '</div><div class="lab">temas con quiz</div></div>' +
     '<div class="caja"><div class="num">' + fN + '</div><div class="lab">repasos pendientes</div></div>' +
     '</div></div>';
+  h += cardProximo();
   var pend = todos.filter(function(t){
     var f = fallosTema(t.id); for (var k in f){ if (f[k] > 0) return true; } return false;
   }).sort(function(a, b){
