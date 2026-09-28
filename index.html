@@ -1879,20 +1879,31 @@ var _frases = [
   'Seguí así, {nom}. Yo te banco en todo. 💪',
   'Ese esfuerzo es de auténtica campeona, {nom}.',
   'Acordate, {nom}, que el que te quiere siempre va a estar.',
-  'Ya pasaste cosas más difíciles. Mirá lo que sos capaz, {nom}.'
+  'Ya pasaste cosas más difíciles. Mirá lo que sos capaz, {nom}.',
+  'Quedate tranquila, {nom}: yo celebro cada paso tuyo, chico o grande.',
+  'Un trébol de cuatro hojas no se compara a tenerte de amuleto. 🍀',
+  'Te amo. Y no lo digo por decir: lo digo porque es cierto. 💙',
+  'Dicen que el trébol da suerte... pero la única suerte que necesito sos vos, {nom}.',
+  'Entre libros y exámenes, lo único que nunca tengo que estudiar es lo mucho que te quiero.',
+  'No hay materia que se resista cuando sabés que hay alguien esperando por vos.',
+  'Podría decirte te amo mil veces y todavía me quedaría corto.',
+  'Con vos adentro, todo me sale bien: sos mi amuleto de la suerte. 🍀'
 ];
+var _pet = ['Eve', 'Nono', 'meme'];
+var _emos = ['💙', '🍀', '💪'];
 function frasePersonalizada(){
   var u = estUsuario(), nom = u && u.nombre ? String(u.nombre).trim() : '';
+  var pet = nom ? _pet[Math.floor(Math.random() * _pet.length)] : '';
   var fs = _frases.filter(function(f){ return nom || f.indexOf('{nom}') === -1; });
   var f = fs[Math.floor(Math.random() * fs.length)];
-  return f.replace(/\{nom\}/g, nom);
+  return f.replace(/\{nom\}/g, pet);
 }
 function toastFrase(){
   var prev = document.querySelectorAll('.toastF');
   for (var i = 0; i < prev.length; i++) prev[i].parentNode.removeChild(prev[i]);
   var el = document.createElement('div');
   el.className = 'toastF';
-  el.innerHTML = '<span class="temoji">💙</span><span>' + frasePersonalizada() + '</span><button title="Cerrar">✕</button>';
+  el.innerHTML = '<span class="temoji">' + _emos[Math.floor(Math.random() * _emos.length)] + '</span><span>' + frasePersonalizada() + '</span><button title="Cerrar">✕</button>';
   document.body.appendChild(el);
   requestAnimationFrame(function(){ el.classList.add('in'); });
   var t = setTimeout(cerrar, 8000);
