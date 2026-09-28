@@ -1946,6 +1946,8 @@ function tarjetaTema(t){
     '</div>';
 }
 function home(){
+  var u = estUsuario();
+  if (!u){ pintarLogin(); return; }
   document.getElementById('hdTitle').textContent = CONTENIDO.titulo;
   var h = '<h2>¿Qué querés estudiar hoy?</h2>' + (CONTENIDO.nota ? '<p class="sub">' + CONTENIDO.nota + '</p>' : '');
   h += '<div class="msg">Elegí una materia y adentro vas a ver las unidades. En cada unidad: <b>Leer</b> (resumen con términos táctiles) · <b>Conceptos</b> (tarjetas y lista con buscador) · <b>Cronología</b> (tocás cada fecha para revelar) · <b>Examen</b> (auto-evaluación con opción múltiple, verdadero/falso, completar frases y preguntas de guía con respuesta modelo, y nota final al terminar). Tu progreso se guarda por persona y en este navegador.</div>';
