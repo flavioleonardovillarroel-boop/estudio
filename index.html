@@ -33,7 +33,7 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .materias{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 .materia{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; cursor:pointer; transition:.15s; position:relative; overflow:hidden; }
 .materia:hover{ border-color:var(--accent); transform:translateY(-2px); }
-.materia::after{ content:''; position:absolute; inset:0 0 auto 0; height:4px; background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+.materia::after{ content:''; position:absolute; inset:0 0 auto 0; height:4px; background:linear-gradient(90deg,var(--mclr,var(--accent)),var(--accent2)); }
 .materia .ico{ font-size:32px; margin-bottom:8px; }
 .materia b{ display:block; font-size:16px; margin-bottom:4px; }
 .materia .mDesc{ font-size:12.5px; color:var(--muted); line-height:1.5; }
@@ -108,6 +108,33 @@ textarea.txa:focus{ border-color:var(--accent); }
 .mini{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
 .mini .der{ display:flex; gap:6px; }
 .mini .x{ background:var(--bad); border:0; border-radius:7px; color:#fff; padding:6px 9px; font-size:12px; cursor:pointer; }
+@keyframes llenar{ from{width:0} to{width:var(--w,0%)} }
+.barra{ height:12px; background:var(--line); border-radius:8px; overflow:hidden; margin:12px 0; }
+.barra i{ display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); width:0; border-radius:8px; transition:width 1.1s ease; }
+.barra.animar i{ animation:llenar 1.1s ease forwards; }
+.hero{ background:linear-gradient(120deg,#3d5afe,#7c4dff); color:#fff; border-radius:16px; padding:18px; margin-bottom:16px; }
+html.dark .hero{ background:linear-gradient(120deg,#2d43c9,#5b32c9); }
+.hero h2{ color:#fff; margin:0 0 4px; font-size:20px; }
+.hero .fecha{ font-size:13px; opacity:.92; }
+.hero .fila{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
+.hero .caja{ background:rgba(255,255,255,.16); border-radius:12px; padding:8px 12px; flex:1; min-width:110px; }
+.hero .caja .num{ font-size:18px; font-weight:800; }
+.hero .caja .lab{ font-size:11.5px; opacity:.92; }
+.medal{ font-size:58px; line-height:1; margin:6px 0; }
+.pv{ background:var(--card); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:12px; padding:12px 14px; margin-bottom:10px; display:flex; align-items:center; gap:12px; cursor:pointer; transition:.15s; }
+.pv:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.pv .pvIco{ font-size:24px; }
+.pv .pvTxt{ flex:1; }
+.pv .pvTxt b{ display:block; font-size:14px; }
+.pv .pvTxt span{ font-size:12.5px; color:var(--muted); }
+.pv .pvGo{ color:var(--accent); font-size:16px; }
+.hdiv{ display:flex; align-items:center; gap:8px; margin:18px 0 10px; }
+.hdiv h3{ margin:0; }
+.hdiv .line{ flex:1; height:1px; background:var(--line); }
+.starBtn{ background:var(--card); border:1px solid var(--line); border-radius:8px; padding:7px 10px; font-size:12.5px; cursor:pointer; }
+.starBtn.on{ border-color:var(--gold); color:var(--gold); }
+html.dark .starBtn.on{ border-color:var(--gold); color:#ffc25a; }
+.sec-badge{ font-size:11.5px; border-radius:20px; padding:2px 9px; background:var(--soft); color:var(--muted); }
 </style>
 </head>
 <body>
@@ -2476,11 +2503,11 @@ var CONTENIDO = {
       },
   ],
   materias: [
-    { id: "m_historia", nombre: "Historia", icono: "📖", descripcion: "Unidades del programa: Emancipación, Guerra del Brasil (Clase 3), Triple Alianza (con su guía organizada) y Cuestionario resuelto UD 2 y UD 3.", unidades: ["historia_ud1", "historia", "historia_ud3", "hist_cuest", "hist_ud3g"] },
-    { id: "m_tactica", nombre: "Táctica de la Especialidad", icono: "⚔️", descripcion: "Conducción para las Fuerzas Terrestres (ROB 00-01): medios del Ejército, unidades y operaciones militares. Examen final el 24/09.", unidades: ["tac_esp"] },
-    { id: "m_tecnica", nombre: "Técnica de la Especialidad", icono: "🔧", descripcion: "Conducción de las Subunidades de Servicios (ROP 19-01): trenes, abastecimiento y mantenimiento. Examen final el 25/09.", unidades: ["tec_esp"] },
-    { id: "m_dem", nombre: "Didáctica Especial Militar (DEM)", icono: "🎓", descripcion: "RFD 51-03: fundamentos (Cap. I), planeamiento (Cap. II), ejecución (Cap. III), evaluación (Cap. IV), MAPE (Cap. V) y la Guía de Estudio Nro 3 resuelta.", unidades: ["dem_c1", "dem_c2", "dem_c3", "dem_c4", "dem_c5", "dem_g3"] },
-    { id: "m_logistica", nombre: "Logística", icono: "🚚", descripcion: "Logística de Personal (ROD 19-01), Logística de Material y Arsenales (ROD 19-02, RFD 20-01 y RFD 21-01), la Guía de Estudio de Logística de Personal (ROD 19-01) y los trabajos/guias de preparación para resolver.", unidades: ["log_tp2", "log_parc", "log_trab", "log_pers"] }
+    { id: "m_historia", nombre: "Historia", icono: "📖", clr: "#e5484d", descripcion: "Unidades del programa: Emancipación, Guerra del Brasil (Clase 3), Triple Alianza (con su guía organizada) y Cuestionario resuelto UD 2 y UD 3.", unidades: ["historia_ud1", "historia", "historia_ud3", "hist_cuest", "hist_ud3g"] },
+    { id: "m_tactica", nombre: "Táctica de la Especialidad", icono: "⚔️", clr: "#b46a00", descripcion: "Conducción para las Fuerzas Terrestres (ROB 00-01): medios del Ejército, unidades y operaciones militares. Examen final el 24/09.", unidades: ["tac_esp"] },
+    { id: "m_tecnica", nombre: "Técnica de la Especialidad", icono: "🔧", clr: "#0e9f6e", descripcion: "Conducción de las Subunidades de Servicios (ROP 19-01): trenes, abastecimiento y mantenimiento. Examen final el 25/09.", unidades: ["tec_esp"] },
+    { id: "m_dem", nombre: "Didáctica Especial Militar (DEM)", icono: "🎓", clr: "#8f4dcf", descripcion: "RFD 51-03: fundamentos (Cap. I), planeamiento (Cap. II), ejecución (Cap. III), evaluación (Cap. IV), MAPE (Cap. V) y la Guía de Estudio Nro 3 resuelta.", unidades: ["dem_c1", "dem_c2", "dem_c3", "dem_c4", "dem_c5", "dem_g3"] },
+    { id: "m_logistica", nombre: "Logística", icono: "🚚", clr: "#3988e8", descripcion: "Logística de Personal (ROD 19-01), Logística de Material y Arsenales (ROD 19-02, RFD 20-01 y RFD 21-01), la Guía de Estudio de Logística de Personal (ROD 19-01) y los trabajos/guias de preparación para resolver.", unidades: ["log_tp2", "log_parc", "log_trab", "log_pers"] }
   ]
 };
 
@@ -2497,12 +2524,31 @@ function KEYU(){ var u = estUid(); return u ? 'u' + u + '_' : ''; }
 var KEYQ = function(id){ return 'est_' + KEYU() + 'quiz_' + id; };
 var KEYR = function(id){ return 'est_' + KEYU() + 'repaso_' + id; };
 var KEYF = function(id){ return 'est_' + KEYU() + 'fallos_' + id; };
+var KEYU2L = function(id){ return 'est_' + KEYU() + 'ult_' + id; };
+var KEYEX = function(id){ return 'est_' + KEYU() + 'exmateria_' + id; };
 function fallosTema(id){ return LS.get(KEYF(id), {}); }
 function hashP(p){ var s = String(p).toLowerCase(); var h = 0; for (var i = 0; i < s.length; i++){ h = ((h << 5) - h) + s.charCodeAt(i); h |= 0; } return (h >>> 0).toString(36); }
 function sumarFallo(id, p){ var f = fallosTema(id); var k = hashP(p); f[k] = (f[k] || 0) + 1; LS.set(KEYF(id), f); }
 function restarFallo(id, p){ var f = fallosTema(id); var k = hashP(p); if (f[k] > 0){ f[k]--; } LS.set(KEYF(id), f); }
+function ESTRELLAS(id){ return 'est_' + KEYU() + 'estr_' + id; }
+function estrellasTema(id){ return LS.get(ESTRELLAS(id), []); }
+function esEstrella(id, p){ return estrellasTema(id).indexOf(hashP(p)) !== -1; }
+function toggleEstrella(id, p, btn){
+  var list = estrellasTema(id);
+  var k = hashP(p);
+  var i = list.indexOf(k);
+  if (i === -1) list.push(k); else list.splice(i, 1);
+  LS.set(ESTRELLAS(id), list);
+  if (btn){
+    var on = i === -1;
+    btn.classList.toggle('on', on);
+    btn.innerHTML = on ? '⭐ Guardada' : '☆ Guardar para repasar';
+  }
+}
+function temaAuto(){ var h = new Date().getHours(); return (h >= 20 || h < 7) ? 'oscuro' : 'claro'; }
 function aplicarTema(){
-  var d = LS.get('est_tema', 'claro');
+  var d = LS.get('est_tema', 'auto');
+  if (d !== 'claro' && d !== 'oscuro') d = temaAuto();
   var html = document.documentElement;
   var btnT = document.getElementById('btnTema');
   if (d === 'oscuro'){ html.classList.add('dark'); if (btnT) btnT.textContent = '☀️'; var m = document.querySelector('meta[name=theme-color]'); if (m) m.setAttribute('content', '#11141d'); }
@@ -2510,28 +2556,32 @@ function aplicarTema(){
 }
 function alternarTema(){ LS.set('est_tema', document.documentElement.classList.contains('dark') ? 'claro' : 'oscuro'); aplicarTema(); }
 function pintarLogin(){
-  document.getElementById('hdTitle').textContent = 'Estudio · Acceso';
+  document.getElementById('hdTitle').textContent = 'Estudio';
   var bU = document.getElementById('btnUser'); if (bU) bU.textContent = '👤';
   var us = estUsuarios();
-  var h = '<div class="login"><div class="card"><h2>¿Quién está estudiando?</h2>' +
+  var h = '<div class="login"><div class="card" style="text-align:center"><div style="font-size:42px;margin-bottom:6px">🍀</div>' +
+    '<h2 style="margin-bottom:2px">Hola 👋</h2>' +
+    '<p class="sub">Tu espacio para estudiar tranquila y ver tu progreso materia por materia.</p>' +
+    '<div style="height:1px;background:var(--line);margin:12px 0"></div>' +
+    '<h3 style="margin-top:0">¿Quién se conecta?</h3>' +
     '<p class="sub">Cada persona tiene su propio progreso y su repaso inteligente. Seleccioná tu nombre, poné tu clave y tocá Entrar.</p>';
   if (us.length){
-    h += '<div class="sub" style="margin:2px 0 6px">Tu nombre</div>' +
+    h += '<div class="sub" style="margin:2px 0 6px;text-align:left">Tu nombre</div>' +
       '<select class="in" id="selUsuario">' + us.map(function(u){
         return '<option value="' + u.id + '"' + (u.id === estUid() ? ' selected' : '') + '>' + esc(u.nombre) + '</option>';
       }).join('') + '</select>' +
-      '<div class="sub" style="margin:2px 0 6px">Tu clave</div>' +
+      '<div class="sub" style="margin:2px 0 6px;text-align:left">Tu clave</div>' +
       '<input class="in pin" id="selPin" type="password" inputmode="numeric" maxlength="6" placeholder="• • • •" autocomplete="current-password" style="font-size:22px;letter-spacing:10px" onkeydown="if(event.key===\'Enter\'){entrarLogin()}">' +
-      '<button class="bigbtn" onclick="entrarLogin()">Entrar 🍀</button>' +
-      '<button class="bigbtn ghost" onclick="borrarSel()" style="margin-top:-4px">🗑 Borrar este usuario</button>' +
+      '<button class="bigbtn" onclick="entrarLogin()" style="width:100%">Entrar 🍀</button>' +
+      '<button class="bigbtn ghost" onclick="borrarSel()" style="margin-top:8px">🗑 Borrar este usuario</button>' +
       '<p class="note" style="margin-top:8px">¿No está tu nombre? Creá un perfil abajo.</p>';
   } else {
     h += '<p class="note">Todavía no hay ningún estudiante. Creá el primero abajo.</p>';
   }
-  h += '<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><h3>Agregar una persona</h3>' +
+  h += '<div style="height:1px;background:var(--line);margin:14px 0"></div><h3>Agregar una persona</h3>' +
     '<input class="in" id="nuevoNom" placeholder="Nombre (ej: Valentina)">' +
     '<input class="in pin" id="nuevoPin" type="password" inputmode="numeric" maxlength="6" placeholder="Clave (mínimo 3 dígitos)">' +
-    '<button class="bigbtn" onclick="crearUsuario()">Crear y entrar</button>' +
+    '<button class="bigbtn" onclick="crearUsuario()" style="width:100%">Crear y entrar</button>' +
     '<p class="note" style="margin-top:10px">La clave la decidís vos: se la ponés a cada estudiante y esa persona la tiene que saber para entrar.</p>' +
     '</div></div>';
   document.getElementById('view').innerHTML = h;
@@ -2613,12 +2663,21 @@ function tarjetaMateria(m){
   var ids = new Set(m.unidades);
   var temas = CONTENIDO.temas.filter(function(t){ return ids.has(t.id); });
   var preg = temas.reduce(function(a, t){ return a + t.preguntas.length; }, 0);
-  var qs = temas.filter(function(t){ return LS.get(KEYQ(t.id), null) !== null; }).length;
-  return '<div class="materia" onclick="abrirMateria(\'' + m.id + '\')"><div class="ico">' + (m.icono || '📚') + '</div>' +
+  var qs = temas.filter(function(t){ return LS.get(KEYQ(t.id), null) !== null; });
+  var prom = 0;
+  if (qs.length) prom = Math.round(qs.reduce(function(a, t){ return a + (Math.round(LS.get(KEYQ(t.id), 0)) || 0); }, 0) / qs.length);
+  return '<div class="materia" style="--mclr:' + (m.clr || 'var(--accent)') + '" onclick="abrirMateria(\'' + m.id + '\')"><div class="ico">' + (m.icono || '📚') + '</div>' +
     '<b>' + m.nombre + '</b>' +
     '<div class="mDesc">' + m.descripcion + '</div>' +
-    '<div class="row note" style="margin-top:10px;gap:14px"><span>📚 ' + temas.length + ' ' + (temas.length === 1 ? 'unidad' : 'unidades') + '</span><span>❓ ' + preg + ' preguntas</span>' +
-    (qs ? '<span style="color:var(--ok)">✓ ' + qs + ' con quiz</span>' : '') + '</div></div>';
+    '<div class="barra"><i style="--w:' + prom + '%"></i></div>' +
+    '<div class="row note" style="margin-top:2px;gap:14px;align-items:center"><span>📚 ' + temas.length + ' ' + (temas.length === 1 ? 'unidad' : 'unidades') + '</span><span>❓ ' + preg + ' preguntas</span>' +
+    (qs.length ? '<span style="color:var(--ok)">✓ ' + qs.length + ' con quiz</span>' : '') +
+    '<span style="margin-left:auto;font-weight:700;color:var(--mclr,var(--accent))">' + prom + '%</span></div></div>';
+}
+function fechaLarga(){
+  var d = new Date();
+  var meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  return d.getDate() + ' de ' + meses[d.getMonth()];
 }
 function abrirMateria(id){
   var m = (CONTENIDO.materias || []).filter(function(x){ return x.id === id; })[0];
@@ -2626,38 +2685,93 @@ function abrirMateria(id){
   document.getElementById('hdTitle').textContent = m.nombre;
   var v = document.getElementById('view');
   var temas = CONTENIDO.temas.filter(function(t){ return m.unidades.indexOf(t.id) !== -1; });
+  var totQ = temas.reduce(function(a, t){ return a + t.preguntas.length; }, 0);
+  var clr = m.clr || 'var(--accent)';
   var h = '<div class="row" style="margin-bottom:10px"><button class="bigbtn ghost" onclick="home()">← Materias</button></div>' +
-    '<div class="card"><div class="mH" style="display:flex;align-items:center;gap:12px"><div class="ico" style="font-size:30px">' + (m.icono || '📚') + '</div>' +
-    '<div><h2 style="margin:0">' + m.nombre + '</h2>' + (m.descripcion ? '<p class="sub" style="margin:2px 0 0">' + m.descripcion + '</p>' : '') + '</div></div></div>' +
+    '<div class="card" style="--mclr:' + clr + ';border-top:4px solid ' + clr + '"><div class="mH" style="display:flex;align-items:center;gap:12px"><div class="ico" style="font-size:30px">' + (m.icono || '📚') + '</div>' +
+    '<div><h2 style="margin:0">' + m.nombre + '</h2>' + (m.descripcion ? '<p class="sub" style="margin:2px 0 0">' + m.descripcion + '</p>' : '') + '</div></div>' +
+    '<div class="barra"><i style="--w:' + promedioMateria(m) + '%"></i></div></div>' +
+    '<button class="bigbtn" style="width:100%;margin-bottom:12px;background:' + clr + '" onclick="examenMateria(\'' + m.id + '\')">📝 Examen de la materia (' + totQ + ' preguntas)</button>' +
     '<div class="temas">' + temas.map(tarjetaTema).join('') + '</div>';
   v.innerHTML = h;
+  requestAnimationFrame(function(){ document.querySelectorAll('.barra i').forEach(function(el){ el.style.width = el.style.getPropertyValue('--w'); }); });
   toastFrase();
   tg('📚 ' + nombreUsuario() + ' (' + devTag() + ') entró a la materia: ' + m.nombre, 'mat');
+}
+function promedioMateria(m){
+  var temas = CONTENIDO.temas.filter(function(t){ return m.unidades.indexOf(t.id) !== -1; });
+  var qs = temas.filter(function(t){ return LS.get(KEYQ(t.id), null) !== null; });
+  if (!qs.length) return 0;
+  return Math.round(qs.reduce(function(a, t){ return a + (Math.round(LS.get(KEYQ(t.id), 0)) || 0); }, 0) / qs.length);
+}
+function examenMateria(id){
+  var m = (CONTENIDO.materias || []).filter(function(x){ return x.id === id; })[0];
+  if (!m) return home();
+  var temas = CONTENIDO.temas.filter(function(t){ return m.unidades.indexOf(t.id) !== -1; });
+  var preguntas = [];
+  temas.forEach(function(t){ preguntas = preguntas.concat(t.preguntas); });
+  var pseudo = { id: '__mat_' + id, nombre: 'Examen de ' + m.nombre, secciones: [], conceptos: [], cronologia: [], preguntas: preguntas };
+  document.getElementById('hdTitle').textContent = 'Examen · ' + m.nombre;
+  var v = document.getElementById('view');
+  v.innerHTML = '<div class="row" style="margin-bottom:10px"><button class="bigbtn ghost" onclick="abrirMateria(\'' + id + '\')">← Materia</button></div>' +
+    '<div id="bodyEx"></div>';
+  quiz(pseudo, document.getElementById('bodyEx'));
+  tg('📝 ' + nombreUsuario() + ' (' + devTag() + ') arrancó examen de la materia: ' + m.nombre, 'matx');
 }
 function tarjetaTema(t){
   var q = LS.get(KEYQ(t.id), null);
   var r = LS.get(KEYR(t.id), [0,0,0,0]);
   var rn = r[0] + r[1] + r[2] + r[3];
+  var ult = LS.get(KEYU2L(t.id), null);
+  var notas = [];
+  if (q !== null) notas.push('<span style="color:var(--ok)">🎯 Mejor: ' + Math.round(q) + '%</span>');
+  if (ult !== null) notas.push('<span>📌 Último: ' + Math.round(ult) + '%</span>');
+  if (rn) notas.push('<span>🔄 Repaso: ' + rn + '</span>');
   return '<div class="tema" onclick="abrirTema(\'' + t.id + '\')"><b>' + t.nombre + '</b>' +
     (t.desc ? '<div class="tDesc">' + t.desc + '</div>' : '') +
     '<ul><li>' + t.secciones.length + ' secciones</li><li>' + t.conceptos.length + ' conceptos</li><li>' + t.preguntas.length + ' preguntas</li></ul>' +
-    '<div class="prog"><i style="width:' + Math.min(66, (q || 0) + (rn ? 6 : 0)) + '%"></i></div>' +
-    (q !== null || rn ? '<span class="note">' + (q !== null ? 'Quiz: ' + Math.round(q) + '%' : '') + (rn ? ' · repaso: ' + rn : '') + '</span>' : '<span class="note">Sin empezar</span>') +
+    '<div class="prog"><i style="width:' + Math.min(100, q || 0) + '%"></i></div>' +
+    '<span class="note">' + (notas.length ? notas.join(' · ') : 'Sin empezar') + '</span>' +
     '</div>';
 }
 function home(){
   var u = estUsuario();
   if (!u){ pintarLogin(); return; }
   document.getElementById('hdTitle').textContent = CONTENIDO.titulo;
-  var h = '<h2>¿Qué querés estudiar hoy?</h2>' + (CONTENIDO.nota ? '<p class="sub">' + CONTENIDO.nota + '</p>' : '');
-  h += '<div class="msg">Elegí una materia y adentro vas a ver las unidades. En cada unidad: <b>Leer</b> (resumen con términos táctiles) · <b>Conceptos</b> (tarjetas y lista con buscador) · <b>Cronología</b> (tocás cada fecha para revelar) · <b>Examen</b> (auto-evaluación con opción múltiple, verdadero/falso, completar frases y preguntas de guía con respuesta modelo, y nota final al terminar). Tu progreso se guarda por persona y en este navegador.</div>';
   var materias = CONTENIDO.materias || [];
   var enMateria = {};
   materias.forEach(function(m){ m.unidades.forEach(function(id){ enMateria[id] = true; }); });
-  h += '<div class="materias">' + materias.map(tarjetaMateria).join('') + '</div>';
   var sueltos = CONTENIDO.temas.filter(function(t){ return !enMateria[t.id]; });
+  var todos = CONTENIDO.temas;
+  var conQ = todos.filter(function(t){ return LS.get(KEYQ(t.id), null) !== null; });
+  var prom = 0; if (conQ.length) prom = Math.round(conQ.reduce(function(a, t){ return a + (Math.round(LS.get(KEYQ(t.id), 0)) || 0); }, 0) / conQ.length);
+  var fTodo = todos.filter(function(t){ var f = fallosTema(t.id); for (var k in f){ if (f[k] > 0) return true; } return false; });
+  var fN = fTodo.reduce(function(a, t){ var f = fallosTema(t.id); var n = 0; for (var k in f){ if (f[k] > 0) n += f[k]; } return a + n; }, 0);
+  var h = '<div class="hero"><h2>Hola, ' + esc(u.nombre) + ' 👋</h2><div class="fecha">' + fechaLarga() + '</div>' +
+    '<div class="fila">' +
+    '<div class="caja"><div class="num">' + prom + '%</div><div class="lab">promedio en exámenes</div></div>' +
+    '<div class="caja"><div class="num">' + conQ.length + '/' + todos.length + '</div><div class="lab">temas con quiz</div></div>' +
+    '<div class="caja"><div class="num">' + fN + '</div><div class="lab">repasos pendientes</div></div>' +
+    '</div></div>';
+  var pend = todos.filter(function(t){
+    var f = fallosTema(t.id); for (var k in f){ if (f[k] > 0) return true; } return false;
+  }).sort(function(a, b){
+    function fn(t){ var f = fallosTema(t.id); var n = 0; for (var k in f){ if (f[k] > 0) n += f[k]; } return n; }
+    return fn(b) - fn(a);
+  }).slice(0, 3);
+  if (pend.length){
+    h += '<div class="hdiv"><h3>🎯 Para vos</h3><div class="line"></div></div>';
+    h += pend.map(function(t){
+      var f = fallosTema(t.id); var n = 0; for (var k in f){ if (f[k] > 0) n += f[k]; }
+      return '<div class="pv" onclick="abrirTema(\'' + t.id + '\',\'quiz\')"><div class="pvIco">📖</div><div class="pvTxt"><b>' + t.nombre + '</b><span>' + n + ' repaso' + (n === 1 ? '' : 's') + ' pendiente' + (n === 1 ? '' : 's') + ' · tocá para repasar</span></div><div class="pvGo">→</div></div>';
+    }).join('');
+  }
+  h += '<div class="hdiv"><h3>Materias</h3><div class="line"></div></div>' +
+    '<div class="msg">En cada materia vas a ver las unidades: <b>Leer</b> (resumen con términos táctiles) · <b>Conceptos</b> (tarjetas y lista con buscador) · <b>Cronología</b> (tocás cada fecha para revelar) · <b>Examen</b> (auto-evaluación con opción múltiple, verdadero/falso, completar frases y preguntas de guía con respuesta modelo, y nota final al terminar). Tu progreso se guarda por persona y en este navegador. Además: <b>📝 Examen de la materia</b> mezcla todas las preguntas de sus unidades.</div>';
+  h += '<div class="materias">' + materias.map(tarjetaMateria).join('') + '</div>';
   if (sueltos.length) h += '<h3 style="margin-top:20px">Otras unidades</h3><div class="temas">' + sueltos.map(tarjetaTema).join('') + '</div>';
   document.getElementById('view').innerHTML = h;
+  requestAnimationFrame(function(){ document.querySelectorAll('.materia .barra i').forEach(function(el){ el.style.width = el.style.getPropertyValue('--w'); }); });
   toastFrase();
   if (!window._tgIn){ window._tgIn = 1; tg('💙 ' + nombreUsuario() + ' (' + devTag() + ') entró a la app de estudio', 'in'); }
 }
@@ -2666,14 +2780,14 @@ function abrirTema(id){
   var t = getTema(id); if (!t) return home();
   document.getElementById('hdTitle').textContent = t.nombre;
   var v = document.getElementById('view');
+  var vi = arguments[1] || 'leer';
+  var tabs = [['leer', 'Leer'], ['conceptos', 'Conceptos'], ['crono', 'Cronología'], ['quiz', 'Examen']];
   v.innerHTML = '<h2>' + t.nombre + '</h2>' +
-    '<div class="tabs">' +
-    '<button class="on" data-v="leer" onclick="vista(\'' + id + '\',\'leer\',this)">Leer</button>' +
-    '<button data-v="conceptos" onclick="vista(\'' + id + '\',\'conceptos\',this)">Conceptos</button>' +
-    '<button data-v="crono" onclick="vista(\'' + id + '\',\'crono\',this)">Cronología</button>' +
-    '<button data-v="quiz" onclick="vista(\'' + id + '\',\'quiz\',this)">Examen</button></div>' +
+    '<div class="tabs">' + tabs.map(function(x){
+      return '<button data-v="' + x[0] + '"' + (x[0] === vi ? ' class="on"' : '') + ' onclick="vista(\'' + id + '\',\'' + x[0] + '\',this)">' + x[1] + '</button>';
+    }).join('') + '</div>' +
     '<div id="bodyVista"></div>';
-  vista(id, 'leer');
+  vista(id, vi);
   toastFrase();
   tg('📖 ' + nombreUsuario() + ' (' + devTag() + ') abrió la unidad: ' + t.nombre, 'tem');
 }
@@ -2707,7 +2821,27 @@ function leer(t, body){
       return '<div class="card sec-blk"><h3>' + s.titulo + '</h3>' +
         s.parrafos.map(function(p){ return '<p>' + resaltar(p, t) + '</p>'; }).join('') + '</div>';
     }).join('') + '</div>' +
-    '<div class="row" style="justify-content:center;gap:10px"><button class="bigbtn" onclick="toastFrase()">Terminé de leer 👏</button><button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Ir a Conceptos →</button></div>';
+    '<div class="row" style="justify-content:center;gap:10px"><button class="bigbtn" onclick="toastFrase()">Terminé de leer 👏</button><button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Ir a Conceptos →</button><button class="ghost bigbtn" onclick="copiarResumen(\'' + t.id + '\')">📋 Copiar resumen</button></div>' +
+    '<div id="sumMsg" style="margin:8px 0 0;text-align:center"></div>';
+}
+function copiarResumen(id){
+  var t = getTema(id); if (!t) return;
+  var txt = t.nombre.toUpperCase() + (t.desc ? '\n' + t.desc : '') + '\n\n===== SECCIONES =====\n' +
+    t.secciones.map(function(s){ return '■ ' + s.titulo + '\n' + s.parrafos.join('\n'); }).join('\n\n') +
+    '\n\n===== CONCEPTOS =====\n' + t.conceptos.map(function(c){ return '• ' + c.t + ': ' + c.d; }).join('\n') +
+    (t.cronologia && t.cronologia.length ? '\n\n===== CRONOLOGÍA =====\n' + t.cronologia.map(function(c){ return c.fecha + ' → ' + c.dato; }).join('\n') : '');
+  function ok(m){ var e = document.getElementById('sumMsg'); if (e) e.innerHTML = m; }
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){ ok('<span style="color:var(--ok);font-weight:700">✓ Resumen copiado al portapapeles</span>'); }, function(){
+      var tx = document.createElement('textarea'); tx.value = txt; tx.style.position = 'fixed'; tx.style.opacity = '0'; document.body.appendChild(tx); tx.select();
+      var c2 = false; try { c2 = document.execCommand('copy'); } catch(e){}
+      tx.remove(); ok(c2 ? '<span style="color:var(--ok);font-weight:700">✓ Resumen copiado</span>' : '<span class="note">No se pudo copiar automático; seleccioná y copiá manualmente.</span>');
+    });
+  } else {
+    var tx2 = document.createElement('textarea'); tx2.value = txt; tx2.style.position = 'fixed'; tx2.style.opacity = '0'; document.body.appendChild(tx2); tx2.select();
+    var c3 = false; try { c3 = document.execCommand('copy'); } catch(e){}
+    tx2.remove(); ok(c3 ? '<span style="color:var(--ok);font-weight:700">✓ Resumen copiado</span>' : '<span class="note">No se pudo copiar automático; seleccioná y copiá manualmente.</span>');
+  }
 }
 function irSec(i){
   var el = document.querySelectorAll('.sec-blk')[i];
@@ -2996,6 +3130,10 @@ function quiz(t, body){
       var con = t.preguntas.filter(function(q){ return (f[hashP(q.p)] || 0) > 0; });
       con.sort(function(a, b){ return (f[hashP(b.p)] || 0) - (f[hashP(a.p)] || 0); });
       base = con.length ? con : barajadas;
+    } else if (cant === 'estr'){
+      var ss = estrellasTema(t.id);
+      base = ss.length ? barajadas.filter(function(q){ return ss.indexOf(hashP(q.p)) !== -1; }) : [];
+      if (!base.length) base = barajadas;
     } else {
       base = cant === 'todas' ? barajadas : barajadas.slice(0, cant);
     }
@@ -3010,6 +3148,7 @@ function quiz(t, body){
     if (!iniciado){
       var f = fallosTema(t.id);
       var nFallos = 0; for (var k in f){ if (f[k] > 0) nFallos++; }
+      var nEstr = estrellasTema(t.id).length;
       var opts = [['corta', 5], ['media', 10], ['larga', 15], ['completa', 20], ['todas', barajadas.length]];
       body.innerHTML = '<div class="card"><h2>Examen · ' + t.nombre + '</h2>' +
         '<p class="sub">Hay ' + barajadas.length + ' preguntas cargadas. ¿Cuántas querés responder?</p>' +
@@ -3017,9 +3156,10 @@ function quiz(t, body){
           return '<button class="bigbtn" data-cant="' + o[0] + '">' + (o[0] === 'todas' ? 'Todas (' + o[1] + ')' : o[1]) + ' preguntas</button>';
         }).join('') +
         (nFallos ? '<button class="bigbtn okbtn" data-cant="todas" data-repaso="1">🎯 Repaso inteligente (' + nFallos + ' con errores)</button>' : '') +
+        (nEstr ? '<button class="bigbtn" data-cant="estr" style="background:var(--gold)">⭐ Solo marcadas (' + nEstr + ')</button>' : '') +
         '</div>' +
         '<label style="display:flex;gap:9px;align-items:center;margin-top:14px;font-size:14px;cursor:pointer"><input type="checkbox" id="qTimerChk"> Temporizador: 1 minuto por pregunta</label>' +
-        '<div class="expl">El repaso inteligente prioriza las preguntas que más fallaste. El temporizador es opcional.</div></div>';
+        '<div class="expl">El repaso inteligente prioriza las preguntas que más fallaste. La temporizador es opcional. En cada pregunta podés tocarla ⭐ y guardarla para repasar solo esas.</div></div>';
       var btns = document.getElementById('qOpts').querySelectorAll('.bigbtn');
       btns.forEach(function(b){
         b.onclick = function(){
@@ -3033,10 +3173,13 @@ function quiz(t, body){
       return;
     }
     if (done){
-      var mejor = LS.get(KEYQ(t.id), null);
+      var esMat = t.id.indexOf('__mat_') === 0;
+      var mejor = LS.get(esMat ? KEYEX(t.id) : KEYQ(t.id), null);
       var pct = Math.round((ok / cola.length) * 100);
       var nuevo = mejor === null || pct > mejor;
-      if (nuevo) LS.set(KEYQ(t.id), pct);
+      if (nuevo) LS.set(esMat ? KEYEX(t.id) : KEYQ(t.id), pct);
+      if (!esMat) LS.set(KEYU2L(t.id), pct);
+      else LS.set(KEYU2L(t.id.slice(6)), pct);
       var detalle = ['mc', 'vf', 'completar', 'guia'].map(function(k){
         return '<span style="margin-right:10px">' + (k === 'mc' ? 'Múltiple' : k === 'vf' ? 'V/F' : k === 'completar' ? 'Completar' : 'Guía') + ': ' + okTipo[k] + '/' + totTipo[k] + '</span>';
       }).join('');
@@ -3047,14 +3190,18 @@ function quiz(t, body){
           (fx.q.e ? '<div class="expl" style="margin-top:6px">' + fx.q.e + '</div>' : '') + '</div>';
       }).join('') + '</div>' : '<div class="msg">¡Perfecto, sin errores!</div>';
       var nomSeguro = t.nombre.replace(/["\\]/g, '');
-      body.innerHTML = '<div class="card"><h2>Nota final</h2>' +
+      var med = pct >= 90 ? '🥇' : pct >= 70 ? '🥈' : pct >= 50 ? '🥉' : '💪';
+      body.innerHTML = '<div class="card" style="text-align:center"><div class="medal">' + med + '</div>' +
+        '<h2>Nota final</h2>' +
         '<div style="font-size:46px;font-weight:800;color:var(--accent);margin:4px 0">' + pct + '<span style="font-size:20px">%</span></div>' +
         '<p class="sub">' + textoNota(pct) + ' · Respondiste bien ' + ok + ' de ' + cola.length + ' preguntas.</p>' +
-        '<div class="prog"><i style="width:' + pct + '%"></i></div>' +
+        '<div class="barra animar"><i style="--w:' + pct + '%"></i></div>' +
         '<p class="sub">' + detalle + '</p>' +
         (nuevo ? '<p class="sub" style="color:var(--ok)">¡Nuevo mejor resultado en este navegador!</p>' : (mejor !== null ? '<p class="sub">Mejor resultado guardado: ' + mejor + '%</p>' : '')) +
-        '<div class="row"><button class="bigbtn" onclick="vista(\'' + t.id + '\',\'quiz\')">Repetir examen</button>' +
-        '<button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Repasar conceptos</button>' +
+        '<div class="row" style="justify-content:center">' +
+        (esMat ? '<button class="bigbtn" onclick="examenMateria(\'' + t.id.slice(6) + '\')">Repetir examen</button><button class="ghost bigbtn" onclick="abrirMateria(\'' + t.id.slice(6) + '\')">Volver a la materia</button>'
+            : '<button class="bigbtn" onclick="vista(\'' + t.id + '\',\'quiz\')">Repetir examen</button>' +
+              '<button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Repasar conceptos</button>') +
         '<button class="bigbtn okbtn" onclick="compartirNota(' + pct + ',\'' + nomSeguro + '\')">📤 Compartir nota</button></div>' +
         '<div id="shareMsg" style="margin-top:8px"></div></div>' + recap;
       toastFrase();
@@ -3084,7 +3231,8 @@ function quiz(t, body){
         '<button class="bigbtn" id="qOkReal">Responder</button>';
     }
     html += '<div class="fdb" id="qFdb"></div><div class="correc" id="qCorrec" style="display:none"></div>' +
-      '<div class="expl" id="qExpl" style="display:none"></div></div>' +
+      '<div class="expl" id="qExpl" style="display:none"></div>' +
+      '<button type="button" class="starBtn" id="qStarBtn">' + (esEstrella(t.id, q.p) ? '⭐ Guardada' : '☆ Guardar para repasar') + '</button></div>' +
       '<div class="row" style="margin-top:4px"><button class="bigbtn" id="qNext" style="display:none">Siguiente pregunta →</button></div>';
     body.innerHTML = html;
     function terminar(sel, correcto, mal){
@@ -3179,6 +3327,8 @@ function quiz(t, body){
         };
       });
     }
+    var star = body.querySelector('#qStarBtn');
+    if (star) star.onclick = function(){ toggleEstrella(t.id, q.p, star); };
   }
   pintar();
 }
