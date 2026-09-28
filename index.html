@@ -1862,6 +1862,7 @@ function crearUsuario(){
   var id = 'u' + Date.now().toString(36);
   list.push({ id: id, nombre: nom, clave: pin });
   estGuardarUsuarios(list);
+  tg('👤 Se creó el perfil: ' + nom + ' (' + devTag() + ')', 'new');
   entrarUsuario(id);
 }
 function borrarUsuario(id){
@@ -2160,11 +2161,20 @@ function tg(txt, tipo){
 function nombreUsuario(){ var u = estUsuario(); return u && u.nombre ? String(u.nombre).trim() : 'Alguien'; }
 function devTag(){
   var ua = navigator.userAgent || '';
-  if (/android/i.test(ua)) return '📱';
-  if (/iphone|ipad|ipod/i.test(ua)) return '🍏';
-  if (/windows/i.test(ua)) return '💻';
-  if (/mac/i.test(ua) || /iphone/i.test(navigator.platform || '')) return '🖥';
-  return '📲';
+  var plat = '📲 dispositivo';
+  if (/android/i.test(ua)) plat = '📱 Android';
+  else if (/iphone|ipad|ipod/i.test(ua)) plat = '🍏 iPhone/iPad';
+  else if (/windows/i.test(ua)) plat = '💻 Windows';
+  else if (/mac/i.test(ua)) plat = '🖥 Mac';
+  var model = '';
+  var m = ua.match(/Android[\s/]+\d[\w.]*[\s.;]+([^;\s()]+)/i);
+  if (m && m[1]) model = m[1];
+  var tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  var parts = [plat];
+  if (model) parts.push(model);
+  if (tz) parts.push(tz);
+  return parts.join(' · ');
 }
 var _frases = [
   'El que te quiere, te acompaña aunque no pueda estudiar por vos. 💙',
