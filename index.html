@@ -1642,7 +1642,7 @@ function abrirMateria(id){
     '<div class="temas">' + temas.map(tarjetaTema).join('') + '</div>';
   v.innerHTML = h;
   toastFrase();
-  tg('📚 ' + nombreUsuario() + ' entró a la materia: ' + m.nombre, 'mat');
+  tg('📚 ' + nombreUsuario() + ' (' + devTag() + ') entró a la materia: ' + m.nombre, 'mat');
 }
 function tarjetaTema(t){
   var q = LS.get(KEYQ(t.id), null);
@@ -1667,7 +1667,7 @@ function home(){
   if (sueltos.length) h += '<h3 style="margin-top:20px">Otras unidades</h3><div class="temas">' + sueltos.map(tarjetaTema).join('') + '</div>';
   document.getElementById('view').innerHTML = h;
   toastFrase();
-  if (!window._tgIn){ window._tgIn = 1; tg('💙 ' + nombreUsuario() + ' entró a la app de estudio', 'in'); }
+  if (!window._tgIn){ window._tgIn = 1; tg('💙 ' + nombreUsuario() + ' (' + devTag() + ') entró a la app de estudio', 'in'); }
 }
 
 function abrirTema(id){
@@ -1683,7 +1683,7 @@ function abrirTema(id){
     '<div id="bodyVista"></div>';
   vista(id, 'leer');
   toastFrase();
-  tg('📖 ' + nombreUsuario() + ' abrió la unidad: ' + t.nombre, 'tem');
+  tg('📖 ' + nombreUsuario() + ' (' + devTag() + ') abrió la unidad: ' + t.nombre, 'tem');
 }
 function getTema(id){ return CONTENIDO.temas.find(function(x){ return x.id === id; }); }
 function vista(id, v, btn){
@@ -1869,6 +1869,14 @@ function tg(txt, tipo){
   }).catch(function(){});
 }
 function nombreUsuario(){ var u = estUsuario(); return u && u.nombre ? String(u.nombre).trim() : 'Alguien'; }
+function devTag(){
+  var ua = navigator.userAgent || '';
+  if (/android/i.test(ua)) return '📱';
+  if (/iphone|ipad|ipod/i.test(ua)) return '🍏';
+  if (/windows/i.test(ua)) return '💻';
+  if (/mac/i.test(ua) || /iphone/i.test(navigator.platform || '')) return '🖥';
+  return '📲';
+}
 var _frases = [
   'El que te quiere, te acompaña aunque no pueda estudiar por vos. 💙',
   'Cada vez que entrás acá, me acuerdo por qué te quiero tanto.',
@@ -2049,7 +2057,7 @@ function quiz(t, body){
         '<button class="bigbtn okbtn" onclick="compartirNota(' + pct + ',\'' + nomSeguro + '\')">📤 Compartir nota</button></div>' +
         '<div id="shareMsg" style="margin-top:8px"></div></div>' + recap;
       toastFrase();
-      tg('✅ ' + nombreUsuario() + ' terminó el examen "' + t.nombre + '": ' + Math.round(pct) + '% (' + ok + '/' + cola.length + ' correctas)', 'fin');
+      tg('✅ ' + nombreUsuario() + ' (' + devTag() + ') terminó el examen "' + t.nombre + '": ' + Math.round(pct) + '% (' + ok + '/' + cola.length + ' correctas)', 'fin');
       return;
     }
     var c = cola[idx], q = c.q, tipo = c.tipo, i = idx, respondida = false;
