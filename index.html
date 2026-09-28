@@ -1814,11 +1814,19 @@ function pintarLogin(){
   var bU = document.getElementById('btnUser'); if (bU) bU.textContent = '👤';
   var us = estUsuarios();
   var h = '<div class="login"><div class="card"><h2>¿Quién está estudiando?</h2>' +
-    '<p class="sub">Cada persona tiene su propio progreso y su repaso inteligente. Elegí tu nombre y poné tu clave.</p>';
-  h += us.map(function(u){
-    return '<div class="mini"><button class="hbtn" onclick="elegirUsuario(\'' + u.id + '\')"><b>' + esc(u.nombre) + '</b><span class="note" style="float:right">tocar para entrar</span></button>' +
-      '<button class="x" onclick="borrarUsuario(\'' + u.id + '\')" title="Borrar estudiante">✕</button></div>';
-  }).join('');
+    '<p class="sub">Cada persona tiene su propio progreso y su repaso inteligente. Seleccioná tu nombre, poné tu clave y tocá Entrar.</p>';
+  if (us.length){
+    h += '<div class="sub" style="margin:2px 0 6px">Tu nombre</div>' +
+      '<select class="in" id="selUsuario">' + us.map(function(u){
+        return '<option value="' + u.id + '"' + (u.id === estUid() ? ' selected' : '') + '>' + esc(u.nombre) + '</option>';
+      }).join('') + '</select>' +
+      '<div class="sub" style="margin:2px 0 6px">Tu clave</div>' +
+      '<input class="in pin" id="selPin" type="password" inputmode="numeric" maxlength="6" placeholder="• • • •" autocomplete="current-password" style="font-size:22px;letter-spacing:10px" onkeydown="if(event.key===\'Enter\'){entrarLogin()}">' +
+      '<button class="bigbtn" onclick="entrarLogin()">Entrar 🍀</button>' +
+      '<p class="note" style="margin-top:8px">¿No está tu nombre? Creá un perfil abajo.</p>';
+  } else {
+    h += '<p class="note">Todavía no hay ningún estudiante. Creá el primero abajo.</p>';
+  }
   h += '<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><h3>Agregar una persona</h3>' +
     '<input class="in" id="nuevoNom" placeholder="Nombre (ej: Valentina)">' +
     '<input class="in pin" id="nuevoPin" type="password" inputmode="numeric" maxlength="6" placeholder="Clave (mínimo 3 dígitos)">' +
@@ -1826,12 +1834,15 @@ function pintarLogin(){
     '<p class="note" style="margin-top:10px">La clave la decidís vos: se la ponés a cada estudiante y esa persona la tiene que saber para entrar.</p>' +
     '</div></div>';
   document.getElementById('view').innerHTML = h;
+  var pin = document.getElementById('selPin'); if (pin) pin.focus();
 }
-function elegirUsuario(id){
+function entrarLogin(){
+  var sel = document.getElementById('selUsuario');
+  var id = sel ? sel.value : '';
+  if (!id){ alert('Primero creá un estudiante.'); return; }
   var u = estUsuarios().filter(function(x){ return x.id === id; })[0];
   if (!u) return pintarLogin();
-  var pin = prompt('Clave para ' + u.nombre + ':');
-  if (pin === null) return;
+  var pin = (document.getElementById('selPin') || {}).value || '';
   if (String(pin).trim() !== u.clave){ alert('Clave incorrecta. Pedile la clave a quien administra la app.'); return; }
   entrarUsuario(id);
 }
@@ -2454,7 +2465,9 @@ function quiz(t, body){
   pintar();
 }
 
-home();
+aplicarTema();
+if ('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(function(){}); }
+pintarLogin();
 </script>
 </body>
 </html>
