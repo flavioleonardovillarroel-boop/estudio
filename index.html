@@ -156,6 +156,42 @@ html.dark .starBtn.on{ border-color:var(--gold); color:#ffc25a; }
 .alm .ley{ display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; font-size:11px; color:var(--muted); }
 .alm .ley span{ display:inline-flex; align-items:center; gap:5px; }
 .alm .chip{ width:10px; height:10px; border-radius:3px; display:inline-block; }
+/* ===== Asistente Tuti 🦉 ===== */
+.ay-fab{
+  position:fixed; right:16px; bottom:16px; z-index:70; width:58px; height:58px; border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),#7c4dff); border:none; cursor:pointer;
+  font-size:26px; box-shadow:0 6px 20px rgba(0,0,0,.28); display:flex; align-items:center; justify-content:center;
+  animation:ayPulse 2.6s infinite;
+}
+.ay-fab:hover{ transform:scale(1.09); }
+@keyframes ayPulse{
+  0%{ box-shadow:0 6px 20px rgba(0,0,0,.28),0 0 0 0 rgba(124,77,255,.45); }
+  70%{ box-shadow:0 6px 20px rgba(0,0,0,.28),0 0 0 16px rgba(124,77,255,0); }
+  100%{ box-shadow:0 6px 20px rgba(0,0,0,.28),0 0 0 0 rgba(124,77,255,0); }
+}
+.ay-panel{
+  position:fixed; right:16px; bottom:16px; z-index:71; width:min(360px,calc(100vw - 32px));
+  background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:0 12px 44px rgba(0,0,0,.32);
+  display:flex; flex-direction:column; overflow:hidden; max-height:min(540px,80vh);
+  transform:translateY(28px) scale(.96); opacity:0; pointer-events:none; transition:.26s ease;
+}
+.ay-panel.on{ transform:none; opacity:1; pointer-events:auto; }
+.ay-head{ background:linear-gradient(120deg,#3d5afe,#7c4dff); color:#fff; padding:11px 14px; display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.ay-head .av{ width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.22); display:flex; align-items:center; justify-content:center; font-size:20px; }
+.ay-head b{ font-size:14px; display:block; }
+.ay-head small{ font-size:11px; opacity:.9; }
+.ay-head button{ margin-left:auto; background:none; border:none; color:#fff; font-size:19px; cursor:pointer; padding:2px 6px; }
+.ay-msg{ flex:1; overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:8px; min-height:130px; background:var(--bg); }
+.ay-b, .ay-a{ max-width:86%; padding:8px 11px; border-radius:14px; font-size:13.5px; line-height:1.5; white-space:pre-wrap; word-break:break-word; }
+.ay-b{ align-self:flex-start; background:var(--soft); border-bottom-left-radius:4px; color:var(--ink); }
+.ay-a{ align-self:flex-end; background:linear-gradient(135deg,var(--accent),#7c4dff); color:#fff; border-bottom-right-radius:4px; }
+.ay-b b{ color:var(--accent); }
+.ay-chips{ display:flex; gap:6px; flex-wrap:wrap; padding:2px 12px 8px; flex:0 0 auto; }
+.ay-chip{ font-size:12px; background:var(--soft); border:1px solid var(--accent); color:var(--accent); border-radius:20px; padding:5px 11px; cursor:pointer; }
+.ay-chip:hover{ background:var(--accent); color:#fff; }
+.ay-form{ display:flex; gap:8px; padding:8px 12px 12px; border-top:1px solid var(--line); flex:0 0 auto; background:var(--card); }
+.ay-form input{ flex:1; border:1px solid var(--line); background:var(--soft); border-radius:20px; padding:9px 13px; font-size:13.5px; color:var(--ink); outline:none; }
+.ay-form button{ border:none; border-radius:50%; width:38px; height:38px; background:linear-gradient(135deg,var(--accent),#7c4dff); color:#fff; font-size:16px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -170,6 +206,20 @@ html.dark .starBtn.on{ border-color:var(--gold); color:#ffc25a; }
 </header>
 <main id="view"></main>
 <div class="ficha" id="ficha" style="display:none"><b id="fT"></b><p id="fD"></p><div class="row"><button class="ghost bigbtn" onclick="cerrarFicha()">Cerrar</button></div></div>
+<button class="ay-fab" id="ayFab" onclick="togglAyuda()" title="Preguntame algo">🦉</button>
+<div class="ay-panel" id="ayPanel">
+  <div class="ay-head">
+    <div class="av">🦉</div>
+    <div><b>Tuti, tu guía</b><small>Preguntame lo que quieras de la app</small></div>
+    <button onclick="cerrarAyuda()">✕</button>
+  </div>
+  <div class="ay-msg" id="ayMsg"></div>
+  <div class="ay-chips" id="ayChips"></div>
+  <div class="ay-form">
+    <input id="ayIn" placeholder="Escribí tu pregunta…" onkeydown="if(event.key==='Enter'){ayEnvio()}" autocomplete="off">
+    <button onclick="ayEnvio()">➤</button>
+  </div>
+</div>
 <script>
 var CONTENIDO = {
   titulo: "Estudio · Historia y Especialidad",
@@ -3590,6 +3640,173 @@ function quiz(t, body){
     if (star) star.onclick = function(){ toggleEstrella(t.id, q.p, star); };
   }
   pintar();
+}
+
+togglAyuda = function(){
+  var p = document.getElementById('ayPanel');
+  if (!p) return;
+  if (p.classList.contains('on')){ cerrarAyuda(); return; }
+  p.classList.add('on');
+  var m = document.getElementById('ayMsg');
+  if (m && m.children.length === 0){
+    var ini = '¡Hola ' + esc(nombreUsuario() === 'Alguien' ? '' : nombreUsuario()) + '! Soy Tuti 🦉\nSoy la guía de tu app de estudio. Contame qué no entiendes y te lo explico paso a paso.';
+    ayBurbuja(ini, 'b');
+    var actual = ayPantalla();
+    if (actual !== 'login'){
+      ayBurbuja('Estás en ' + ayNombrePant(actual) + '. Probá tocar una de estas sugerencias 👇', 'b');
+    } else {
+      ayBurbuja('Estás en la pantalla de entrada. Te puedo explicar cómo crearte un perfil o cómo funciona la app. Probá una sugerencia 👇', 'b');
+    }
+  }
+  ayChips(ayChipsPantalla());
+  document.getElementById('ayIn').focus();
+};
+function cerrarAyuda(){ var p = document.getElementById('ayPanel'); if (p) p.classList.remove('on'); }
+function ayPantalla(){
+  if (document.getElementById('ficha') && document.getElementById('ficha').style.display === 'block') return 'ficha';
+  if (!estUsuario()) return 'login';
+  var t = document.getElementById('hdTitle').textContent;
+  if (t === 'Calendario') return 'cal';
+  if (t === CONTENIDO.titulo) return 'home';
+  return 'tema';
+}
+function ayNombrePant(p){
+  if (p === 'login') return 'la pantalla de entrada';
+  if (p === 'cal') return 'tu calendario';
+  if (p === 'home') return 'la página principal';
+  if (p === 'ficha') return 'una ficha de concepto';
+  return 'una unidad';
+}
+function ayEnvio(){
+  var i = document.getElementById('ayIn');
+  var v = i.value.trim();
+  if (!v) return;
+  i.value = '';
+  ayBurbuja(v, 'a');
+  var r = ayResponde(v);
+  ayBurbuja(r, 'b', true);
+  aySugiere(v);
+}
+function ayBurbuja(txt, quien, esHtml){
+  var m = document.getElementById('ayMsg');
+  var d = document.createElement('div');
+  d.className = quien === 'a' ? 'ay-a' : 'ay-b';
+  if (esHtml) d.innerHTML = txt; else d.textContent = txt;
+  m.appendChild(d);
+  m.scrollTop = m.scrollHeight;
+}
+function ayChips(lista){
+  var c = document.getElementById('ayChips');
+  c.innerHTML = '';
+  (lista || []).forEach(function(q){
+    var b = document.createElement('button');
+    b.className = 'ay-chip';
+    b.textContent = q;
+    b.onclick = function(){ ayChipsClick(q); };
+    c.appendChild(b);
+  });
+}
+function ayChipsClick(q){
+  ayBurbuja(q, 'a');
+  var r = ayResponde(q);
+  ayBurbuja(r, 'b', true);
+  aySugiere(q);
+}
+function ayChipsPantalla(){
+  var p = ayPantalla();
+  if (p === 'login') return ['¿Cómo hago un perfil?', '¿Para qué sirve esta app?', '¿Se guardan mis datos?'];
+  if (p === 'cal') return ['¿Para qué sirve el calendario?', '¿Cómo agrego una fecha?', '¿Qué significan rojo y verde?'];
+  if (p === 'home') return ['¿Cómo arranco a estudiar?', '¿Qué significa cada color del almanaque?', '¿Qué son las medallas?', '¿Qué es "Para vos"?'];
+  if (p === 'ficha') return ['¿Cómo se usan los conceptos?', '¿Cómo arranco a estudiar?'];
+  return ['¿Qué puedo hacer en una unidad?', '¿Qué son las medallas?', '¿Qué son las estrellas?', '¿Qué es el repaso inteligente?'];
+}
+function aySugiere(q){
+  var n = norm(q);
+  if (n.indexOf('examen') !== -1 || n.indexOf('question') !== -1) ayChips(['¿Cómo se calcula la nota?', '¿Qué es el repaso inteligente?']);
+  else if (n.indexOf('medalla') !== -1) ayChips(['¿Cómo mejoro mi porcentaje?', '¿Qué es el repaso inteligente?']);
+  else if (n.indexOf('estrella') !== -1 || n.indexOf('favorita') !== -1) ayChips(['¿Qué es el repaso inteligente?', '¿Cómo arranco a estudiar?']);
+  else if (n.indexOf('calendar') !== -1 || n.indexOf('fecha') !== -1 || n.indexOf('almanaque') !== -1) ayChips(['¿Cómo agrego una fecha?', '¿Qué significan rojo y verde?']);
+  else if (n.indexOf('nota') !== -1 || n.indexOf('porcentaje') !== -1 || n.indexOf('promedio') !== -1) ayChips(['¿Cómo me va en cada tema?', '¿Qué son los repasos?']);
+  else ayChips(ayChipsPantalla());
+}
+
+var AY = [];
+AY.push({ k: ['como arranco', 'como empiezo', 'que hago primero', 'empezar a estudiar', 'por donde', 'primeros pasos', 'tutorial', 'guia', 'ayuda con la app', 'que hace esta app', 'para que sirve esta app', 'que puedo hacer aqui', 'como se usa'], r: function(){
+  return '¡Dale! Empezá así 🚀<br><br><b>1️⃣ Leer</b>: en cada unidad, leé el resumen. Los términos en color se tocan y se abre su definición.<br><b>2️⃣ Conceptos</b>: repasá con tarjetas o la lista con buscador.<br><b>3️⃣ Cronología</b>: tocá cada fecha para fijar el dato.<br><b>4️⃣ Examen</b>: cuando te sientas lista hacé un quiz. Al final te queda tu <b>%</b> y una lista de <b>Para repasar</b>.<br><b>5️⃣ Repaso inteligente</b>: repetí el examen solo con las que fallaste para bajar los repasos.<br><br>En el inicio ves tu <b>promedio</b>, el <b>almanaque</b> con tus fechas y el bloque <b>🎯 Para vos</b> con los temas que más necesitan repaso.';
+}, chips: true });
+AY.push({ k: ['que es el repaso inteligente', 'repaso inteligente', 'examen sofi', 'que son los repasos', 'repaso'], r: function(){
+  return '🎯 <b>Repaso inteligente</b>: si en un examen fallaste algunas preguntas, al volver aparece el botón <b>"🎯 Repaso inteligente (N con errores)"</b>.<br>Arma un <b>examen solo con las preguntas que fallaste</b>, ordenando primero las que más veces erraste. Así atacás justo tus debilidades 💪.<br>Además, en el inicio el bloque <b>Para vos</b> te propone los temas con más repasos pendientes.';
+}, chips: true });
+AY.push({ k: ['medalla', 'que son las medallas', 'medallas', 'premio', 'insignia', 'trofeo'], r: function(){
+  return '🏅 Al terminar un examen recibís una medalla según tu porcentaje:<br><br>🥇 <b>Oro</b> · 90% o más<br>🥈 <b>Plata</b> · 70% a 89%<br>🥉 <b>Bronce</b> · 50% a 69%<br>💪 <b>Fuerza</b> · menos de 50% (a seguir! )<br><br>Tu letra final además dice: <b>Excelente</b>, <b>Muy bien</b>, <b>Aprobado</b> o <b>A estudiar más</b>.';
+}, chips: true });
+AY.push({ k: ['estrella', 'estrellas', 'favorita', 'favoritas', 'marcada', 'marcadas', 'guardar pregunta', 'guardar para repasar'], r: function(){
+  return '⭐ Las <b>estrellas</b> son para guardar preguntas puntuales. En cualquier pregunta del examen hay un botón <b>"☆ Guardar para repasar"</b>: tocándolo la pregunta queda marcada.<br>Después, al empezar un examen, aparece el botón <b>"⭐ Solo marcadas"</b> que arma un quiz solo con esas preguntas.<br>Es ideal para repasar las que te cuestan o las que creés que van a tomar 😉.';
+}, chips: true });
+AY.push({ k: ['examen', 'quiz', 'cuestionario', 'como se hace el examen', 'como rindo', 'autoevaluacion'], r: function(){
+  return '📝 El <b>examen</b> de cada tema mezcla las preguntas reales de la unidad. Elegís cuántas responder (5, 10, 15, 20 o todas) y aparecen preguntas de <b>opción múltiple</b>, <b>verdadero/falso</b>, <b>completar la frase</b> y de la <b>guía</b>.<br>Cada respuesta correcta suma; al final ves tu <b>% y la medalla</b>. Podés activar el <b>temporizador</b> opcional de 1 minuto por pregunta.<br>Tu <b>mejor resultado</b> queda guardado en cada tema.';
+}, chips: true });
+AY.push({ k: ['nota', 'porcentaje', 'como se calcula', 'se calcula la nota', 'nota final', 'promedio'], r: function(){
+  return '🧮 La nota se calcula así: <b>(respuestas correctas ÷ total de preguntas) × 100</b>.<br>Ejemplo: 8 bien de 10 = <b>80%</b> 🥈.<br>En cada tema queda guardado tu <b>mejor %</b>, tu <b>último</b> y los <b>repasos</b> pendientes. Y el <b>promedio</b> del inicio es el promedio de tu mejor resultado en cada tema con examen.';
+}, chips: true });
+AY.push({ k: ['calendario', 'fecha', 'evento', 'almanaque', 'agregar una fecha', 'como agrego ', 'examen el ', 'entrega', 'vencimiento', 'countdown', 'cuenta regresiva'], r: function(){
+  return '🗓 El <b>calendario</b> guarda tus fechas importantes: exámenes, parciales, entregas de TPs y cualquier evento.<br>En cada fecha cargás <b>título, tipo, fecha y (opcional) la unidad a estudiar</b>.<br>La app te muestra <b>cuánto falta</b> ("faltan 6 días", "mañana", "¡hoy!") y, si la fecha tiene unidad vinculada, te <b>sugiere qué estudiar</b> con el botón <b>"🎯 Empecemos"</b>.<br>Para marcarla como hecha tocás ✓, para editarla ✏ y para borrarla 🗑.';
+}, chips: true });
+AY.push({ k: ['rojo', 'verde', 'colores', 'que significa cada color', 'parte el dia', 'examen va arriba', 'almanaque'], r: function(){
+  return '🎨 En el <b>almanaque</b> de la página principal cada día con fecha se marca con su sigla de color:<br>🔴 <b>EX/PAR</b> = examen o parcial<br>🟢 <b>TP/ENT</b> = trabajo práctico o entrega<br>⚪ <b>EV</b> = otro evento<br>Si un mismo día cae examen y trabajo, la celda <b>se parte en dos</b>: el examen arriba (prioridad) y el trabajo abajo. El círculo de color marca el <b>día de hoy</b>.';
+}, chips: true });
+AY.push({ k: ['para vos', 'top 3', 'recomienda', 'recomendacion', 'que estudiar', 'que repasar'], r: function(){
+  return '🎯 <b>"Para vos"</b> es la sección del inicio que te sugiere los <b>3 temas con más repasos pendientes</b> (preguntas que fallaste en exámenes).<br>Tocando uno vas directo al examen de ese tema para bajar esos repasos. Es la forma más rápida de saber <b>por dónde seguir hoy</b>.';
+}, chips: true });
+AY.push({ k: ['materia', 'materias', 'todos los temas juntos', 'examen de la materia', 'unidad'], r: function(){
+  return '📚 Las <b>materias</b> agrupan sus unidades con un color y una barra de progreso (Historia, Táctica, Técnica, DEM y Logística).<br>Dentro de cada materia hay un botón <b>"📝 Examen de la materia"</b> que mezcla <b>todas las preguntas de todas sus unidades</b>, como un examen integrador, y guarda tu mejor resultado.<br>Cada unidad a su vez tiene sus pestañas: Leer, Conceptos, Cronología y Examen.';
+}, chips: true });
+AY.push({ k: ['perfil', 'usuario', 'cuenta', 'clave', 'login', 'entrar', 'registrarme', 'crear perfil', 'crear un perfil', 'pantalla de entrada'], r: function(){
+  return '👤 En la pantalla de entrada elegís tu nombre o <b>creás tu perfil</b> poniendo tu nombre y una clave.<br>Cada estudiante tiene <b>su propio progreso</b>: notas, exámenes, repasos, estrellas y calendario se guardan <b>por separado</b>.<br>La clave la ponés vos: se la compartís a quien va a usar ese perfil. Para cambiar de usuario tocá 👤 arriba.';
+}, chips: true });
+AY.push({ k: ['se guardan', 'donde se guarda', 'se guarda la nota', 'guardan mis', 'guardar mis', 'datos', 'progreso', 'nube', 'borrar mis'], r: function(){
+  return '💾 <b>Todo se guarda en el navegador</b> (localStorage), no en la nube. Por eso:<br>• Es <b>por persona</b>: cada perfil tiene sus propias notas y calendario.<br>• Se mantiene al cerrar y volver a abrir la app en el mismo dispositivo.<br>• Si usás otro celular o entrás con otro navegador, arranca de cero.<br>• No se comparte nada por internet: es todo tuyo.';
+}, chips: true });
+AY.push({ k: ['error', 'fallo', 'falle', 'fallado', 'mal', 'incorrecta', 'errores', 'revisar'], r: function(){
+  return '😅 No pasa nada: <b>fallar es parte de estudiar</b>. Cada pregunta que respondés mal queda contada como <b>repaso pendiente</b>.<br>Al final del examen ves la lista <b>"Para repasar"</b> con cada pregunta, tu respuesta y la correcta (con explicación).<br>Después, el <b>Repaso inteligente</b> te da un examen solo con esas preguntas hasta que las bajes al mínimo.';
+}, chips: true });
+AY.push({ k: ['modo oscuro', 'tema oscuro', 'modo claro', 'noche', 'bajar el brillo', 'luz'], r: function(){
+  return '🌙 La app usa <b>modo oscuro automático</b>: entre las 20 hs y las 7 hs se pone sola en oscuro para cuidar la vista. También podés alternarlo con el botón <b>🌙</b> del encabezado cuando quieras.';
+}, chips: true });
+AY.push({ k: ['temporizador', 'timer', 'minuto', 'tiempo limite', 'cronometro'], r: function(){
+  return '⏱ El <b>temporizador</b> es opcional: marcás la casilla antes de empezar el examen y cada pregunta tiene <b>1 minuto</b>.<br>Si se agota el tiempo, la pregunta se cuenta como fallada y pasa a la siguiente. ¡Sirve para entrenar como en un parcial real!';
+}, chips: true });
+AY.push({ k: ['compartir', 'enviar nota', 'whatsapp', 'manda la nota'], r: function(){
+  return '📤 Al terminar un examen tocás <b>"Compartir nota"</b> y se arma un texto con tu porcentaje: <b>"📚 Saqué 80% en &quot;Técnica&quot; con la app de Estudio. ¿Lo superás?"</b>.<br>Lo copiás y lo mandás por WhatsApp o donde quieras 😄.';
+}, chips: true });
+AY.push({ k: ['estadistica', 'cuantas preguntas', 'veces hice', 'cuantas veces', 'historial', 'resultados'], r: function(){
+  return '📊 En la tarjeta de cada tema (o materia) podés ver: <b>Mejor</b> resultado, <b>Último</b> resultado y <b>Repasos</b> pendientes.<br>El promedio general está en la página principal, arriba, junto a los <b>temas con examen</b> y los <b>repasos pendientes</b> totales.';
+}, chips: true });
+AY.push({ k: ['flashcard', 'tarjetas', 'concepto', 'definicion', 'ficha', 'terminos'], r: function(){
+  return '🃏 En <b>Conceptos</b> tenés dos modos:<br>• <b>Tarjetas</b>: tocás la tarjeta y se da vuelta mostrando la definición.<br>• <b>Lista</b>: todas las definiciones con un <b>buscador</b> arriba para filtrar.<br>También está el botón <b>Mezclar</b> para cambiar el orden. Y en la lectura, los <b>términos en color</b> se tocan y muestran su definición abajo.';
+}, chips: true });
+AY.push({ k: ['cronologia', 'fechas', 'linea de tiempo', 'cronograma', 'cuando paso'], r: function(){
+  return '🗓 La <b>Cronología</b> es la línea de tiempo de la unidad: cada fecha está "tapada" y la tocás para revelar el dato.<br>Tip: <b>pensá el dato primero</b> y después tocá, así te autoevaluás. El botón <b>"Revelar todas"</b> muestra todo de una.';
+}, chips: true });
+AY.push({ k: ['leer', 'resumen', 'texto', 'secciones', 'para leer', 'parrafo'], r: function(){
+  return '📖 <b>Leer</b> es el resumen de la clase, con las secciones en chips arriba: tocás uno y bajás directo a esa parte.<br>Los <b>términos clave</b> aparecen en color: tocándolos se abre su <b>definición</b>.<br>Abajo encontrás <b>"Terminé de leer"</b> 👏, <b>"Ir a Conceptos"</b> y <b>"📋 Copiar resumen"</b> para copiar toda la unidad de una.';
+}, chips: true });
+AY.push({ k: ['que es tuti', 'quien sos', 'quien eres', 'quien es tuti'], r: function(){
+  return '¡Soy Tuti! 🦉 Soy tu <b>guía de estudio</b> dentro de la app: te explico cómo se usa cada cosa y qué significa lo que ves. Preguntame lo que quieras: exámenes, repasos, calendario, medallas, estrellas... ¡lo que sea!';
+}, chips: true });
+function ayResponde(q){
+  var n = norm(q);
+  if (!n) return '¿Me contás qué querés saber? Tocá alguna sugerencia o escribí tu pregunta 👇';
+  var mejor = null, mejorN = 0;
+  AY.forEach(function(r){
+    var s = 0;
+    r.k.forEach(function(pal){
+      if (n.indexOf(norm(pal)) !== -1) s += pal.replace(/\s+/g, '_').length + 2;
+    });
+    if (s > mejorN){ mejorN = s; mejor = r; }
+  });
+  if (mejor) return mejor.r();
+  return '😅 No estoy segura de entender esa pregunta todavía.<br>Probá escribiendo cosas como:<br>• "¿Cómo arranco a estudiar?"<br>• "¿Qué es el repaso inteligente?"<br>• "¿Qué son las medallas?"<br>• "¿Cómo agrego una fecha al calendario?"';
 }
 
 aplicarTema();
