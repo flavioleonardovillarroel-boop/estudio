@@ -2750,12 +2750,12 @@ var CONTENIDO = {
         {"fecha":"Parcial 21/09/2026","dato":"1ra Ca I · hoja de avanzada con el temario por capítulos y artículos."},
       ],
       preguntas: [
-        {"p":"1. ¿Qué es la ordenada al origen?","r":"Es el valor f(0): el punto donde el gráfico corta al eje y. Se calcula reemplazando x=0 en la función.","f":"Guía de estudio · Conceptos previos."},
-        {"p":"2. Explique cómo se calcula la pendiente entre dos puntos.","r":"m = (y₂ − y₁) / (x₂ − x₁). Por ejemplo entre A=(2,−3) y B=(5,3): m = (3−(−3))/(5−2) = 6/3 = 2.","f":"Guía de estudio · Fórmulas esenciales / Ejercicio 3."},
-        {"p":"3. ¿Qué condición cumplen dos rectas paralelas? ¿Y dos rectas perpendiculares?","r":"Paralelas: misma pendiente, m₁ = m₂. Perpendiculares: m₁ · m₂ = −1, es decir, las pendientes son recíprocas opuestas.","f":"Guía de estudio · Ejercicio 4."},
-        {"p":"4. ¿Cómo se halla la raíz de una recta?","r":"Se hace y=0 en y = mx + b y se despeja x = −b/m. En y=2x−7 la raíz es x = 7/2 = 3,5.","f":"Guía de estudio · Ejercicio 3."},
-        {"p":"5. Explique el estudio completo de la parábola y = −x² + 6x − 5.","r":"a=−1, b=6, c=−5. Raíces por resolvente: Δ=16, x₁=1 y x₂=5. Vértice: xᵥ=−b/(2a)=3, yᵥ=f(3)=4, V=(3,4) máximo (a<0). Imagen (−∞,4]; C⁺ (1,5); C⁻ (−∞,1)∪(5,+∞); crece en (−∞,3), decrece en (3,+∞).","f":"Guía de estudio · Ejercicio 5."},
-        {"p":"6. ¿Qué diferencia hay entre el dominio, la imagen, los ceros y la positividad de una función?","r":"Dominio: valores de x posibles. Imagen: valores de y que toma. Ceros: x donde f(x)=0. Positividad: intervalos donde f(x)>0 (encima del eje x, sin incluir las raíces).","f":"Guía de estudio · Conceptos previos."},
+        {tipo:"guia", p:"1. ¿Qué es la ordenada al origen?", r:"Es el valor f(0): el punto donde el gráfico corta al eje y. Se calcula reemplazando x=0 en la función.", f:"Guía de estudio · Conceptos previos."},
+        {tipo:"guia", p:"2. Explique cómo se calcula la pendiente entre dos puntos.", r:"m = (y₂ − y₁) / (x₂ − x₁). Por ejemplo entre A=(2,−3) y B=(5,3): m = (3−(−3))/(5−2) = 6/3 = 2.", f:"Guía de estudio · Fórmulas esenciales / Ejercicio 3."},
+        {tipo:"guia", p:"3. ¿Qué condición cumplen dos rectas paralelas? ¿Y dos rectas perpendiculares?", r:"Paralelas: misma pendiente, m₁ = m₂. Perpendiculares: m₁ · m₂ = −1, es decir, las pendientes son recíprocas opuestas.", f:"Guía de estudio · Ejercicio 4."},
+        {tipo:"guia", p:"4. ¿Cómo se halla la raíz de una recta?", r:"Se hace y=0 en y = mx + b y se despeja x = −b/m. En y=2x−7 la raíz es x = 7/2 = 3,5.", f:"Guía de estudio · Ejercicio 3."},
+        {tipo:"guia", p:"5. Explique el estudio completo de la parábola y = −x² + 6x − 5.", r:"a=−1, b=6, c=−5. Raíces por resolvente: Δ=16, x₁=1 y x₂=5. Vértice: xᵥ=−b/(2a)=3, yᵥ=f(3)=4, V=(3,4) máximo (a<0). Imagen (−∞,4]; C⁺ (1,5); C⁻ (−∞,1)∪(5,+∞); crece en (−∞,3), decrece en (3,+∞).", f:"Guía de estudio · Ejercicio 5."},
+        {tipo:"guia", p:"6. ¿Qué diferencia hay entre el dominio, la imagen, los ceros y la positividad de una función?", r:"Dominio: valores de x posibles. Imagen: valores de y que toma. Ceros: x donde f(x)=0. Positividad: intervalos donde f(x)>0 (encima del eje x, sin incluir las raíces).", f:"Guía de estudio · Conceptos previos."},
         {"p":"¿Cuál es la pendiente de la recta y = 3x + 3?","o":["3","−3","1","0"],"c":0,"e":"m=3. Como m>0 la recta es creciente."},
         {"p":"¿En qué punto corta la recta y = 2x − 7 al eje x?","o":["x = 3,5","x = −3,5","x = 7","x = 2"],"c":0,"e":"Raíz: 0 = 2x − 7 → x = 7/2 = 3,5."},
         {"p":"¿Qué condición cumplen las rectas paralelas?","o":["Tienen la misma pendiente","Sus pendientes se multiplican por −1","Tienen la misma ordenada al origen","Sus raíces son iguales"],"c":0,"e":"m₁ = m₂ en rectas paralelas."},
@@ -3649,7 +3649,8 @@ function quiz(t, body){
       base = ss.length ? barajadas.filter(function(q){ return ss.indexOf(hashP(q.p)) !== -1; }) : [];
       if (!base.length) base = barajadas;
     } else {
-      base = cant === 'todas' ? barajadas : barajadas.slice(0, cant);
+      var n = ({ corta: 5, media: 10, larga: 15, completa: 20 })[cant];
+      base = (cant === 'todas' || n === undefined) ? barajadas : barajadas.slice(0, n);
     }
     cola = base.map(prepPregunta);
     totTipo = { mc: 0, vf: 0, completar: 0, guia: 0 };
