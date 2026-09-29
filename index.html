@@ -3924,10 +3924,13 @@ function tipoLabel(q){
   if (q.tipo === 'guia') return 'Pregunta de la guía';
   return 'Opción múltiple';
 }
+function respuestaGuia(q){
+  return q.r || q.e || '';
+}
 function respuestaCorrecta(q){
   if (q.tipo === 'vf') return q.v ? 'Verdadero' : 'Falso';
   if (q.tipo === 'completar') return q.o.join(' / ');
-  if (q.tipo === 'guia') return q.r;
+  if (q.tipo === 'guia') return respuestaGuia(q);
   return q.o[q.c];
 }
 function textoNota(pct){
@@ -4028,7 +4031,7 @@ function quiz(t, body){
         return '<div class="lista-card"><b>' + esc(fx.q.p).replace(/____/g, '…') + '</b>' +
           '<div class="note">Tu respuesta: ' + esc(fx.mal) + '</div>' +
           '<div class="note" style="color:var(--ok)">Correcta: ' + esc(respuestaCorrecta(fx.q)) + '</div>' +
-          (fx.q.e ? '<div class="expl" style="margin-top:6px">' + fx.q.e + '</div>' : '') + '</div>';
+          (fx.q.e && fx.q.tipo !== 'guia' ? '<div class="expl" style="margin-top:6px">' + fx.q.e + '</div>' : '') + '</div>';
       }).join('') + '</div>' : '<div class="msg">¡Perfecto, sin errores!</div>';
       var nomSeguro = t.nombre.replace(/["\\]/g, '');
       var med = pct >= 90 ? '🥇' : pct >= 70 ? '🥈' : pct >= 50 ? '🥉' : '💪';
@@ -4153,7 +4156,7 @@ function quiz(t, body){
         var tx = document.getElementById('qGui'); if (tx) tx.disabled = true;
         var gm = document.getElementById('qGModel');
         gm.style.display = 'block';
-        gm.innerHTML = '<div class="card" style="margin:10px 0 0;background:var(--soft)"><b style="color:var(--ok)">Respuesta modelo:</b><div style="line-height:1.55;margin-top:6px">' + esc(q.r) + '</div>' +
+        gm.innerHTML = '<div class="card" style="margin:10px 0 0;background:var(--soft)"><b style="color:var(--ok)">Respuesta modelo:</b><div style="line-height:1.55;margin-top:6px">' + esc(respuestaGuia(q)) + '</div>' +
           (q.f ? '<div class="note" style="margin-top:8px">📌 ' + esc(q.f) + '</div>' : '') + '</div>';
         document.getElementById('qGAssess').style.display = 'flex';
       };
