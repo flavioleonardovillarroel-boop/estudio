@@ -2573,10 +2573,215 @@ var CONTENIDO = {
         {"tipo":"vf","p":"La función Sanidad solo comprende la evacuación y hospitalización.","v":false,"e":"Falso: comprende mantener/recuperar la aptitud psicofísica, evacuar, hospitalizar y tareas relacionadas (necrológicas, selección, reingreso)."},
       ]
       },
+      {
+      id: "tac_mortero",
+      nombre: "Tiro de Mortero · TAC ESP (RFP 79-06)",
+      desc: "Módulo de Táctica de la Especialidad: guía de estudio resuelta de matemática aplicada al tiro (funciones, tabulación, rectas, paralelismo, perpendicularidad y cuadráticas) más el temario del parcial según el RFP 79-06 «Tiro con Morteros 2022»." ,
+      secciones: [
+        {
+          titulo: "Guía de estudio resuelta · Tiro de Mortero",
+          parrafos: [
+            "Guía de estudio resuelta · Repaso pre-parcial de matemática aplicada al tiro de mortero: funciones, tabulación, rectas, paralelismo, perpendicularidad y cuadráticas.",
+            "Materia: Táctica de la Especialidad (TAC ESP). Referencia reglamentaria: RFP 79-06 «Tiro con Morteros 2022». Examen parcial según hoja de avanzada del 21/09/2026.",
+            "Objetivo: resolver paso a paso los ejercicios del cuestionario y dejar una guía clara para estudiar. Criterio: se explican fórmulas, procedimientos, resultados y gráficos.",
+            "En el Ejercicio 1, como la hoja muestra el gráfico pero no una ecuación, los extremos se leen de forma aproximada.",
+          ]
+        },
+        {
+          titulo: "Conceptos que tenés que saber antes de empezar",
+          parrafos: [
+            "Dominio: todos los valores de x para los que existe la función. En funciones lineales y cuadráticas, dominio ℝ.",
+            "Imagen: todos los valores de y que toma la función. En la cuadrática depende del vértice (máximo o mínimo).",
+            "Ordenada al origen: valor f(0), el punto donde el gráfico corta el eje y.",
+            "Ceros / raíces: valores de x donde f(x)=0; son los cortes con el eje x.",
+            "C⁺ / Positividad: intervalos donde f(x)>0, el gráfico está por encima del eje x.",
+            "C⁻ / Negatividad: intervalos donde f(x)<0, el gráfico está por debajo del eje x.",
+            "Crecimiento: al aumentar x también aumenta y. Decrecimiento: al aumentar x, disminuye y.",
+            "Máximo / mínimo: puntos extremos del gráfico. En una parábola con a<0 el vértice es máximo; con a>0 es mínimo.",
+          ]
+        },
+        {
+          titulo: "Fórmulas esenciales",
+          parrafos: [
+            "Pendiente entre dos puntos: m = (y₂ − y₁) / (x₂ − x₁).",
+            "Recta: y = mx + b (m pendiente, b ordenada al origen).",
+            "Raíz de una recta: x = −b / m (se hace y=0).",
+            "Rectas paralelas: tienen la misma pendiente, m₁ = m₂.",
+            "Rectas perpendiculares: sus pendientes se multiplican por −1, m₁ · m₂ = −1 (recíproco opuesto).",
+            "Raíces cuadráticas (fórmula resolvente): x = (−b ± √(b² − 4ac)) / 2a.",
+            "Vértice: xᵥ = −b/(2a) ; yᵥ = f(xᵥ). Eje de simetría: x = xᵥ.",
+            "Forma canónica: y = a(x − xᵥ)² + yᵥ. Forma factorizada: y = a(x − x₁)(x − x₂).",
+          ]
+        },
+        {
+          titulo: "Ejercicio 1 — Análisis general de traza de infiltración",
+          parrafos: [
+            "La consigna entrega únicamente el gráfico. Por eso se resuelve leyendo los cortes, los signos y los extremos directamente de la curva.",
+            "Resultados: Dominio ℝ · Imagen ℝ · Ordenada al origen f(0)=0 → (0,0).",
+            "Conjunto de ceros C⁰ = {−3, 0, 3}.",
+            "Conjunto de positividad C⁺ = (−∞,−3) ∪ (0,3).",
+            "Conjunto de negatividad C⁻ = (−3,0) ∪ (3,+∞).",
+            "Intervalo de crecimiento: aprox. (−1,7 ; 1,7). Intervalo de decrecimiento: aprox. (−∞,−1,7) ∪ (1,7,+∞).",
+            "Punto máximo local: aprox. (1,7 ; 3,5). Punto mínimo local: aprox. (−1,7 ; −3,5).",
+            "Cómo se lee: arriba del eje x → positivo; debajo → negativo. Los cortes con el eje x son los ceros. Donde la curva cambia de bajar a subir hay un mínimo; donde cambia de subir a bajar hay un máximo.",
+            "Reconstrucción didáctica compatible con el gráfico de la hoja. Los extremos son aproximados.",
+          ]
+        },
+        {
+          titulo: "Ejercicio 2 — Tabulación y gráfico",
+          parrafos: [
+            "a) y = 3x + 3: para completar la tabla se reemplaza cada valor de x en la expresión.",
+            "Tabla: x = −3 → y = −6 · x = −2 → y = −3 · x = −1 → y = 0 · x = 0 → y = 3 · x = 1 → y = 6.",
+            "Ejemplo: si x = −2 → y = 3(−2)+3 = −6+3 = −3.",
+            "Dato útil: es una recta creciente porque su pendiente es m=3>0. Corta al eje y en 3 y al eje x en −1.",
+            "b) y = x² − 4: x = −3 → y = 5 · −2 → 0 · −1 → −3 · 0 → −4 · 1 → −3 · 2 → 0 · 3 → 5.",
+            "Ejemplo: si x = −3 → y = (−3)² − 4 = 9 − 4 = 5.",
+            "Dato útil: la parábola abre hacia arriba (a=1>0). Sus raíces son x=−2 y x=2, y su vértice es (0,−4).",
+          ]
+        },
+        {
+          titulo: "Ejercicio 3 — Ecuación del eje de repliegue y análisis lineal",
+          parrafos: [
+            "Datos: A=(2,−3) y B=(5,3). Buscamos una recta de la forma y = mx + b.",
+            "1) Pendiente: m = (3 − (−3)) / (5 − 2) = 6/3 = 2.",
+            "2) Ordenada al origen: usamos el punto A en y = 2x + b → −3 = 2·2 + b → −3 = 4 + b → b = −7.",
+            "Ecuación resultante: y = 2x − 7.",
+            "3) Raíz: 0 = 2x − 7 → 2x = 7 → x = 7/2 = 3,5.",
+            "Análisis completo: dominio ℝ · imagen ℝ · ordenada al origen (0,−7) · ceros {3,5} · comportamiento creciente porque m=2>0.",
+          ]
+        },
+        {
+          titulo: "Ejercicio 4 — Vías alternativas: paralelismo y perpendicularidad",
+          parrafos: [
+            "Recta de referencia: y = −4x + 2, por lo tanto su pendiente es m = −4.",
+            "1) Recta paralela P que pasa por (−1,3): una paralela debe tener la misma pendiente mP = −4.",
+            "Usamos y = −4x + b con el punto (−1,3): 3 = −4(−1)+b = 4+b → b = −1. Recta P: y = −4x − 1.",
+            "2) Recta perpendicular Q con ordenada al origen −3: para que sea perpendicular (−4)·mQ = −1 → mQ = 1/4.",
+            "Como su ordenada al origen es −3, queda: Recta Q: y = ¼x − 3.",
+            "Comprobación: Referencia pendiente −4; P pendiente −4 (paralela, misma pendiente); Q pendiente 1/4 (perpendicular: (−4)(1/4)=−1).",
+          ]
+        },
+        {
+          titulo: "Ejercicio 5 — Estudio completo de la parábola de tiro",
+          parrafos: [
+            "Función: y = −x² + 6x − 5. Aquí a=−1, b=6 y c=−5.",
+            "1) Raíces por fórmula resolvente: Δ = b² − 4ac = 6² − 4(−1)(−5) = 36 − 20 = 16.",
+            "x = (−6 ± √16) / (−2) = (−6 ± 4)/(−2) → x₁ = 1 y x₂ = 5. Ceros: C⁰ = {1,5}.",
+            "2) Vértice y eje de simetría: xᵥ = −b/(2a) = −6/[2(−1)] = 3. yᵥ = f(3) = −9 + 18 − 5 = 4.",
+            "Vértice y eje: V=(3,4) ; eje de simetría: x = 3. Como a<0, el vértice es un MÁXIMO.",
+            "3) Formas de la cuadrática: polinómica y = −x² + 6x − 5 · factorizada y = −(x−1)(x−5) · canónica y = −(x−3)² + 4.",
+            "4) Análisis completo: dominio ℝ · imagen (−∞,4] · ordenada (0,−5) · ceros {1,5} · C⁺ (1,5) · C⁻ (−∞,1) ∪ (5,+∞) · crecimiento (−∞,3) · decrecimiento (3,+∞) · máximo (3,4) · mínimo no posee.",
+          ]
+        },
+        {
+          titulo: "Resumen final — respuestas rápidas",
+          parrafos: [
+            "Ejercicio 1: ceros {−3,0,3} · C⁺ (−∞,−3)∪(0,3) · C⁻ (−3,0)∪(3,+∞) · mín ≈ (−1,7;−3,5) · máx ≈ (1,7;3,5).",
+            "Ejercicio 2a: y = 3x + 3 → y: −6,−3,0,3,6 para x: −3,−2,−1,0,1.",
+            "Ejercicio 2b: y = x² − 4 → y: 5,0,−3,−4,−3,0,5 para x: −3,…,3.",
+            "Ejercicio 3: m=2 · b=−7 · recta y = 2x − 7 · raíz x=3,5 · creciente.",
+            "Ejercicio 4: paralela P: y = −4x − 1 · perpendicular Q: y = ¼x − 3.",
+            "Ejercicio 5: raíces 1 y 5 · V=(3,4) · factorizada −(x−1)(x−5) · canónica −(x−3)²+4.",
+          ]
+        },
+        {
+          titulo: "Errores frecuentes que conviene evitar",
+          parrafos: [
+            "Confundir ordenada al origen con raíz: la ordenada usa x=0; la raíz usa y=0.",
+            "En rectas perpendiculares no alcanza con cambiar el signo: hay que usar el recíproco opuesto.",
+            "En la fórmula resolvente, respetar los signos de a, b y c.",
+            "En una parábola con a<0 el vértice es máximo; con a>0 es mínimo.",
+            "Los intervalos de positividad y negatividad NO incluyen las raíces, porque allí f(x)=0.",
+            "En el Ejercicio 1, los valores de máximo y mínimo se leen aproximadamente del gráfico, porque no se proporciona una ecuación.",
+          ]
+        },
+        {
+          titulo: "Temario del parcial según RFP 79-06 (hoja de avanzada)",
+          parrafos: [
+            "Hoja de avanzada 21/09/2026 · 1ra Ca I · Instructor: SG Braian Cabrera · Prescripción: RFP 79-06 «Tiro con Morteros 2022» · Examen PARCIAL.",
+            "Capítulo I · Sec I: arts. 1.001 a 1.005. · Sec II: arts. 1.007 a 1.010 y 1.022 a 1.023. · Sec III: arts. 1.027 a 1.029 (solo cuadro). · Sec IV: arts. 1.030 a 1.035.",
+            "Capítulo II · Sec I: art. 2.002 (punto «a», Preparación). · Sec II: arts. 2.003, 2.004 y 2.005. · Sec IV: art. 2.008. · Sec V: arts. 2.011 y 2.012.",
+            "Capítulo III · Sec I: arts. 3.002 (punto «a»), 3.003, 3.006, 3.007 (punto «a») y 3.008. · Sec IV: arts. 3.034, 3.035, 3.036, 3.042 y 3.043.",
+            "Capítulo IV · Sec I: arts. 4.006, 4.007 y 4.008. · Sec II: arts. 4.009 y 4.013. · Sec IV: art. 4.023.",
+            "Capítulo VI · Sec II: arts. 6.009 y 6.011.",
+          ]
+        },
+        {
+          titulo: "Método de estudio recomendado",
+          parrafos: [
+            "Primero practicá tabulación y lectura de gráficos. Después rectas (pendiente, b, raíz, paralelas/perpendiculares).",
+            "Por último, cuadráticas: raíces → vértice → formas → signos → crecimiento/decrecimiento.",
+            "Relacioná cada ejercicio con el tiro de mortero: la parábola del Ejercicio 5 modela la trayectoria del proyectil (balística con a<0, vértice = altura máxima).",
+          ]
+        },
+      ],
+      conceptos: [
+        {"t":"Dominio","d":"Todos los valores de x para los que existe la función. En lineales y cuadráticas es ℝ."},
+        {"t":"Imagen","d":"Todos los valores de y que toma la función; en la cuadrática depende del vértice."},
+        {"t":"Ordenada al origen","d":"Valor f(0): punto donde el gráfico corta el eje y."},
+        {"t":"Ceros / raíces","d":"Valores de x donde f(x)=0; cortes con el eje x."},
+        {"t":"Positividad C⁺","d":"Intervalos donde f(x)>0: gráfico por encima del eje x. No incluye las raíces."},
+        {"t":"Negatividad C⁻","d":"Intervalos donde f(x)<0: gráfico por debajo del eje x. No incluye las raíces."},
+        {"t":"Crecimiento","d":"Al aumentar x también aumenta y."},
+        {"t":"Decrecimiento","d":"Al aumentar x, disminuye y."},
+        {"t":"Máximo / mínimo local","d":"Puntos extremos del gráfico; con a<0 el vértice es máximo, con a>0 es mínimo."},
+        {"t":"Pendiente m","d":"(y₂−y₁)/(x₂−x₁). En y=mx+b define la inclinación de la recta."},
+        {"t":"Recta y=mx+b","d":"Forma general de la recta: m pendiente, b ordenada al origen."},
+        {"t":"Rectas paralelas","d":"Tienen la misma pendiente: m₁ = m₂."},
+        {"t":"Rectas perpendiculares","d":"Sus pendientes se multiplican por −1: m₁ · m₂ = −1 (recíproco opuesto)."},
+        {"t":"Fórmula resolvente","d":"x = (−b ± √(b² − 4ac)) / 2a para hallar las raíces cuadráticas."},
+        {"t":"Discriminante Δ","d":"Δ = b² − 4ac. Si Δ>0 hay dos raíces reales; Δ=0 una; Δ<0 ninguna real."},
+        {"t":"Vértice","d":"xᵥ = −b/(2a) ; yᵥ = f(xᵥ). Máximo si a<0, mínimo si a>0."},
+        {"t":"Eje de simetría","d":"Recta x = xᵥ que divide la parábola en dos ramas iguales."},
+        {"t":"Forma canónica","d":"y = a(x − xᵥ)² + yᵥ. Lectura directa del vértice."},
+        {"t":"Forma factorizada","d":"y = a(x − x₁)(x − x₂). Lectura directa de las raíces."},
+        {"t":"Tabulación","d":"Completar una tabla reemplazando cada valor de x en la función."},
+        {"t":"Parábola de tiro","d":"Trayectoria del proyectil de mortero: y = −x² + 6x − 5, a<0, vértice = altura máxima (3,4)."},
+      ],
+      cronologia: [
+        {"fecha":"Ceros Ej.1","dato":"{−3, 0, 3}; C⁺ (−∞,−3)∪(0,3); C⁻ (−3,0)∪(3,+∞)."},
+        {"fecha":"Recta y=3x+3","dato":"m=3>0 creciente; corta y en 3 y x en −1."},
+        {"fecha":"Parábola y=x²−4","dato":"a>0, raíces −2 y 2, vértice (0,−4)."},
+        {"fecha":"Recta y=2x−7","dato":"m=2, b=−7, raíz x=3,5, creciente."},
+        {"fecha":"Paralela P","dato":"y = −4x − 1 (misma pendiente −4)."},
+        {"fecha":"Perpendicular Q","dato":"y = ¼x − 3 (m₁·m₂ = −1)."},
+        {"fecha":"Parábola de tiro","dato":"y = −x² + 6x − 5: ceros {1,5}, V=(3,4) máximo."},
+        {"fecha":"RFP 79-06","dato":"«Tiro con Morteros 2022»: reglamento base del parcial de TAC ESP."},
+        {"fecha":"Parcial 21/09/2026","dato":"1ra Ca I · hoja de avanzada con el temario por capítulos y artículos."},
+      ],
+      preguntas: [
+        {"p":"1. ¿Qué es la ordenada al origen?","r":"Es el valor f(0): el punto donde el gráfico corta al eje y. Se calcula reemplazando x=0 en la función.","f":"Guía de estudio · Conceptos previos."},
+        {"p":"2. Explique cómo se calcula la pendiente entre dos puntos.","r":"m = (y₂ − y₁) / (x₂ − x₁). Por ejemplo entre A=(2,−3) y B=(5,3): m = (3−(−3))/(5−2) = 6/3 = 2.","f":"Guía de estudio · Fórmulas esenciales / Ejercicio 3."},
+        {"p":"3. ¿Qué condición cumplen dos rectas paralelas? ¿Y dos rectas perpendiculares?","r":"Paralelas: misma pendiente, m₁ = m₂. Perpendiculares: m₁ · m₂ = −1, es decir, las pendientes son recíprocas opuestas.","f":"Guía de estudio · Ejercicio 4."},
+        {"p":"4. ¿Cómo se halla la raíz de una recta?","r":"Se hace y=0 en y = mx + b y se despeja x = −b/m. En y=2x−7 la raíz es x = 7/2 = 3,5.","f":"Guía de estudio · Ejercicio 3."},
+        {"p":"5. Explique el estudio completo de la parábola y = −x² + 6x − 5.","r":"a=−1, b=6, c=−5. Raíces por resolvente: Δ=16, x₁=1 y x₂=5. Vértice: xᵥ=−b/(2a)=3, yᵥ=f(3)=4, V=(3,4) máximo (a<0). Imagen (−∞,4]; C⁺ (1,5); C⁻ (−∞,1)∪(5,+∞); crece en (−∞,3), decrece en (3,+∞).","f":"Guía de estudio · Ejercicio 5."},
+        {"p":"6. ¿Qué diferencia hay entre el dominio, la imagen, los ceros y la positividad de una función?","r":"Dominio: valores de x posibles. Imagen: valores de y que toma. Ceros: x donde f(x)=0. Positividad: intervalos donde f(x)>0 (encima del eje x, sin incluir las raíces).","f":"Guía de estudio · Conceptos previos."},
+        {"p":"¿Cuál es la pendiente de la recta y = 3x + 3?","o":["3","−3","1","0"],"c":0,"e":"m=3. Como m>0 la recta es creciente."},
+        {"p":"¿En qué punto corta la recta y = 2x − 7 al eje x?","o":["x = 3,5","x = −3,5","x = 7","x = 2"],"c":0,"e":"Raíz: 0 = 2x − 7 → x = 7/2 = 3,5."},
+        {"p":"¿Qué condición cumplen las rectas paralelas?","o":["Tienen la misma pendiente","Sus pendientes se multiplican por −1","Tienen la misma ordenada al origen","Sus raíces son iguales"],"c":0,"e":"m₁ = m₂ en rectas paralelas."},
+        {"p":"¿Qué condición cumplen las rectas perpendiculares?","o":["m₁ · m₂ = −1","m₁ = m₂","m₁ + m₂ = 0","m₁ · m₂ = 1"],"c":0,"e":"las pendientes son recíprocas opuestas."},
+        {"p":"¿Cuáles son las raíces de y = x² − 4?","o":["−2 y 2","2 y 4","0 y 4","−4 y 4"],"c":0,"e":"x² − 4 = 0 → x = ±2."},
+        {"p":"¿Cuál es el vértice de la parábola y = −x² + 6x − 5?","o":["(3,4)","(−3,4)","(1,5)","(3,−4)"],"c":0,"e":"xᵥ = −6/(2·(−1)) = 3 ; yᵥ = f(3) = 4. Es un máximo porque a<0."},
+        {"p":"¿Cuál es la ordenada al origen de y = 2x − 7?","o":["−7","7","2","3,5"],"c":0,"e":"b=−7; el punto es (0,−7)."},
+        {"p":"¿Qué pendiente debe tener una recta perpendicular a y = −4x + 2?","o":["1/4","4","−4","−1/4"],"c":0,"e":"(−4)·mQ = −1 → mQ = 1/4. Resultado: y = ¼x − 3."},
+        {"tipo":"vf","p":"La recta y = 3x + 3 es creciente.","v":true,"e":"Su pendiente es m=3>0."},
+        {"tipo":"vf","p":"En una parábola con a<0, el vértice es un mínimo.","v":false,"e":"Con a<0 la parábola abre hacia abajo y el vértice es un máximo."},
+        {"tipo":"vf","p":"Los intervalos de positividad y negatividad incluyen las raíces de la función.","v":false,"e":"No: en las raíces f(x)=0, por eso los intervalos de signo las excluyen."},
+        {"tipo":"vf","p":"La ordenada al origen se calcula reemplazando x=0.","v":true,"e":"f(0): el corte con el eje y. La raíz, en cambio, se calcula con y=0."},
+        {"tipo":"vf","p":"La recta paralela a y = −4x + 2 por el punto (−1,3) es y = −4x − 1.","v":true,"e":"misma pendiente −4; b: 3 = −4(−1)+b → b=−1."},
+        {"tipo":"vf","p":"El reglamento base del parcial de Tiro de Mortero de TAC ESP es el RFP 79-06 «Tiro con Morteros 2022».","v":true,"e":"Así lo indica la prescripción reglamentaria de la hoja de avanzada."},
+        {"tipo":"completar","p":"La pendiente entre dos puntos se calcula como m = (y₂ − y₁) / (x₂ − ____).","o":["x1","x₁","x de A","x2"],"e":"m = (y₂ − y₁) / (x₂ − x₁)."},
+        {"tipo":"completar","p":"Para que la recta Q sea perpendicular a y = −4x + 2, su pendiente debe ser ____.","o":["1/4","0,25"],"e":"(−4)·mQ = −1 → mQ = 1/4; como b=−3, Q: y = ¼x − 3."},
+        {"tipo":"completar","p":"Las raíces de y = −x² + 6x − 5 son x₁ = 1 y x₂ = ____.","o":["5"],"e":"Δ=16 → x = (−6 ± 4)/(−2): x₁=1, x₂=5."},
+        {"tipo":"completar","p":"Los ceros de la función del Ejercicio 1 son {−3, ____, 3}.","o":["0"],"e":"C⁰ = {−3, 0, 3}: los tres cortes con el eje x."},
+        {"tipo":"completar","p":"El vértice de la parábola de tiro es V = (3, ____)","o":["4"],"e":"yᵥ = f(3) = −9 + 18 − 5 = 4; altura máxima del tiro."},
+        {"tipo":"completar","p":"La forma canónica de y = −x² + 6x − 5 es y = −(x − 3)² + ____.","o":["4"],"e":"y = a(x − xᵥ)² + yᵥ con a=−1, V=(3,4)."},
+      ]
+      },
   ],
   materias: [
     { id: "m_historia", nombre: "Historia", icono: "📖", clr: "#e5484d", descripcion: "Unidades del programa: Emancipación, Guerra del Brasil (Clase 3), Triple Alianza (con su guía organizada) y Cuestionario resuelto UD 2 y UD 3.", unidades: ["historia_ud1", "historia", "historia_ud3", "hist_cuest", "hist_ud3g"] },
-    { id: "m_tactica", nombre: "Táctica de la Especialidad", icono: "⚔️", clr: "#b46a00", descripcion: "Conducción para las Fuerzas Terrestres (ROB 00-01): medios del Ejército, unidades y operaciones militares. Examen final el 24/09.", unidades: ["tac_esp"] },
+    { id: "m_tactica", nombre: "Táctica de la Especialidad", icono: "⚔️", clr: "#b46a00", descripcion: "Conducción para las Fuerzas Terrestres (ROB 00-01): medios del Ejército, unidades y operaciones militares. Examen final el 24/09.", unidades: ["tac_esp", "tac_mortero"] },
     { id: "m_tecnica", nombre: "Técnica de la Especialidad", icono: "🔧", clr: "#0e9f6e", descripcion: "Conducción de las Subunidades de Servicios (ROP 19-01): trenes, abastecimiento y mantenimiento. Examen final el 25/09.", unidades: ["tec_esp"] },
     { id: "m_dem", nombre: "Didáctica Especial Militar (DEM)", icono: "🎓", clr: "#8f4dcf", descripcion: "RFD 51-03: fundamentos (Cap. I), planeamiento (Cap. II), ejecución (Cap. III), evaluación (Cap. IV), MAPE (Cap. V) y la Guía de Estudio Nro 3 resuelta.", unidades: ["dem_c1", "dem_c2", "dem_c3", "dem_c4", "dem_c5", "dem_g3"] },
     { id: "m_logistica", nombre: "Logística", icono: "🚚", clr: "#3988e8", descripcion: "Logística de Personal (ROD 19-01), Logística de Material y Arsenales (ROD 19-02, RFD 20-01 y RFD 21-01), la Guía de Estudio de Logística de Personal (ROD 19-01) y los trabajos/guias de preparación para resolver.", unidades: ["log_tp2", "log_parc", "log_trab", "log_pers"] }
