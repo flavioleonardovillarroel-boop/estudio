@@ -5660,81 +5660,11 @@ function devTag(){
   if (tz) parts.push(tz);
   return parts.join(' · ');
 }
-var _frases = [
-  'El que te quiere, te acompaña aunque no pueda estudiar por vos. 💙',
-  'Cada vez que entrás acá, me acuerdo por qué te quiero tanto.',
-  'Estoy orgulloso de vos: no solo por estudiar, sino por cómo sos.',
-  'Tu esfuerzo de hoy es tu tranquilidad de mañana. Seguí, que está andando.',
-  'No importa cuántas veces falles una pregunta: importa que sigas.',
-  'Estudiar nunca se sintió tan acompañado. 😊',
-  'Sos mucho más valiente de lo que creés, en esto y en todo.',
-  'Me encanta verte esforzarte así. Te queda hermoso.',
-  'Un poco de esfuerzo cada día te lleva lejísimo. Vos podés.',
-  'Lo importante no es acertar todo hoy, es no rendirse nunca.',
-  'Diez minutos tuyos valen más que diez horas ajenas.',
-  'Respirá, que esto se aprueba con constancia... y la tenés.',
-  'No sos una nota: sos la persona que elige mejorar todos los días.',
-  'Hoy aprendiste. Mañana también. Y te va a ir genial.',
-  'Estamos en esto juntos, aunque sea a distancia. 💪',
-  'Un pasito más cerca de ese objetivo. Yo lo celebro con vos.',
-  'Cuando dudes, acordate de todo lo que ya lograste.',
-  'Haceme caso: vas por buen camino.',
-  'Este examen no te define. Tu actitud sí, y la tuya es de campeona.',
-  'Seguí entrenando tranquila: tu esfuerzo rinde en las buenas y en las malas.',
-  'Tu cabeza agradecida es tu corazón contento. ¡Vas muy bien!',
-  'Aunque el cansancio gane hoy, vos ya ganaste por intentarlo.',
-  'Esto que hacés por vos me enseña a quererte un poquito más.',
-  'Sos inteligente, constante y buena persona: triple amenaza. 😄',
-  'Seguí así, {nom}. Yo te banco en todo. 💪',
-  'Ese esfuerzo es de auténtica campeona, {nom}.',
-  'Acordate, {nom}, que el que te quiere siempre va a estar.',
-  'Ya pasaste cosas más difíciles. Mirá lo que sos capaz, {nom}.',
-  'Quedate tranquila, {nom}: yo celebro cada paso tuyo, chico o grande.',
-  'Un trébol de cuatro hojas no se compara a tenerte de amuleto. 🍀',
-  'Te amo. Y no lo digo por decir: lo digo porque es cierto. 💙',
-  'Dicen que el trébol da suerte... pero la única suerte que necesito sos vos, {nom}.',
-  'Entre libros y exámenes, lo único que nunca tengo que estudiar es lo mucho que te quiero.',
-  'No hay materia que se resista cuando sabés que hay alguien esperando por vos.',
-  'Podría decirte te amo mil veces y todavía me quedaría corto.',
-  'Con vos adentro, todo me sale bien: sos mi amuleto de la suerte. 🍀',
-  'Te miro, me miras, y el mundo no gira. Todo parece mentira. — Cuando Nadie Ve, Morat 🎶',
-  'Entre tantos corazones, en el tuyo me quedé. — Me Enamoré, Jay Wheeler 🎶',
-  'Y no pude evitarlo, por más que lo intenté. — Me Enamoré, Jay Wheeler 🎶',
-  'Si me permites, contigo me quedo. — Me Enamoré, Jay Wheeler 🎶',
-  'Cuando es a mí, el mundo ya no gira. — Te Quiero Así, Jay Wheeler 🎶',
-  'No tienes que cambiar porque yo te quiero así. — Te Quiero Así, Jay Wheeler 🎶',
-  'Todo es posible si tú estás conmigo. — Romántica, Jay Wheeler 🎶',
-  'Eres la causa de que sean buenos mis días. — Romántica, Jay Wheeler 🎶',
-  'Qué afortunado soy de que tú estés aquí para mí. — Romántica, Jay Wheeler 🎶',
-  'Tienes que saber lo que mereces. — Si Quieres Amor, Jay Wheeler 🎶',
-  'Si quieres amor, tienen que despertarse con las mismas ganas. — Si Quieres Amor, Jay Wheeler 🎶'
-];
-var _pet = ['Eve', 'Nono', 'meme'];
-var _emos = ['💙', '🍀', '💪'];
 function frasePersonalizada(){
-  var u = estUsuario(), nom = u && u.nombre ? String(u.nombre).trim() : '';
-  var pet = nom ? _pet[Math.floor(Math.random() * _pet.length)] : '';
-  var fs = _frases.filter(function(f){ return nom || f.indexOf('{nom}') === -1; });
-  var f = fs[Math.floor(Math.random() * fs.length)];
-  return f.replace(/\{nom\}/g, pet);
+  return '';
 }
 function toastFrase(){
-  var prev = document.querySelectorAll('.toastF');
-  for (var i = 0; i < prev.length; i++) prev[i].parentNode.removeChild(prev[i]);
-  var el = document.createElement('div');
-  el.className = 'toastF';
-  el.innerHTML = '<span class="temoji">' + _emos[Math.floor(Math.random() * _emos.length)] + '</span><span>' + frasePersonalizada() + '</span><button title="Cerrar">✕</button>';
-  document.body.appendChild(el);
-  requestAnimationFrame(function(){ el.classList.add('in'); });
-  var t = setTimeout(cerrar, 8000);
-  el.querySelector('button').onclick = cerrar;
-  function cerrar(){
-    clearTimeout(t);
-    if (!el.parentNode || el.dataset.cerrado) return;
-    el.dataset.cerrado = '1';
-    el.classList.remove('in');
-    setTimeout(function(){ if (el.parentNode) el.parentNode.removeChild(el); }, 400);
-  }
+  return;
 }
 function tipoLabel(q){
   if (q.tipo === 'vf') return 'Verdadero / Falso';
