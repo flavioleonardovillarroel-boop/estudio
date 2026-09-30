@@ -1,4 +1,4 @@
-const CACHE = 'estudio-v5';
+const CACHE = 'estudio-v6';
 const PRECACHE = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', (e) => {
