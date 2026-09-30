@@ -5201,9 +5201,17 @@ function fechaLarga(){
   var meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   return d.getDate() + ' de ' + meses[d.getMonth()];
 }
+var curMateria = null;
+function volver(temaId){
+  var ms = (CONTENIDO.materias || []).filter(function(m){ return m.unidades.indexOf(temaId) !== -1; });
+  var destino = ms[0] ? ms[0].id : (curMateria && (CONTENIDO.materias || []).some(function(m){ return m.id === curMateria; }) ? curMateria : null);
+  if (destino) abrirMateria(destino);
+  else home();
+}
 function abrirMateria(id){
   var m = (CONTENIDO.materias || []).filter(function(x){ return x.id === id; })[0];
   if (!m) return home();
+  curMateria = id;
   document.getElementById('hdTitle').textContent = m.nombre;
   var v = document.getElementById('view');
   var temas = CONTENIDO.temas.filter(function(t){ return m.unidades.indexOf(t.id) !== -1; });
@@ -5404,7 +5412,8 @@ function abrirTema(id){
   var v = document.getElementById('view');
   var vi = arguments[1] || 'leer';
   var tabs = [['leer', 'Leer'], ['conceptos', 'Conceptos'], ['crono', 'Cronología'], ['quiz', 'Examen']];
-  v.innerHTML = '<h2>' + t.nombre + '</h2>' +
+  v.innerHTML = '<div class="row" style="margin-bottom:10px"><button class="bigbtn ghost" onclick="volver(\'' + id + '\')">← Volver</button></div>' +
+    '<h2>' + t.nombre + '</h2>' +
     '<div class="tabs">' + tabs.map(function(x){
       return '<button data-v="' + x[0] + '"' + (x[0] === vi ? ' class="on"' : '') + ' onclick="vista(\'' + id + '\',\'' + x[0] + '\',this)">' + x[1] + '</button>';
     }).join('') + '</div>' +
