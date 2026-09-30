@@ -1,4 +1,8 @@
-const CACHE = 'estudio-v4';
+<<<<<<< HEAD
+const CACHE = 'estudio-v5';
+=======
+const CACHE = 'estudio-v5';
+>>>>>>> 810280c (Sustancias Peligrosas (ADR 2025 con pictogramas) + Auxiliares y Depositos (4 unidades))
 const PRECACHE = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', (e) => {
