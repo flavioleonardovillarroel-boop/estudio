@@ -1,0 +1,47 @@
+ESTUDIO: VERSION LOCAL VALIDADA — 01/10/2026
+
+No hubo push ni publicación. Los cambios están en la rama local
+local-hardening-2026-10-01. La fuente D:\leo\estudio\estudio.html
+coincide exactamente con index.html. source-entry conserva los recursos PWA
+para la entrada estudio.html; el deploy usa index.html y cache estudio-v12.
+
+Cambios: eliminación de avisos/credencial Telegram; escape HTML de texto y
+atributos; validación de perfiles/eventos almacenados; teclado, nombres
+accesibles, foco visible, Escape/retorno de foco y movimiento reducido;
+normalización del mes en calendario; caches propias y fallback offline.
+No se cambió el contenido académico, las imágenes, el icono ni el diseño.
+
+Pruebas reproducibles desde este repositorio:
+  node tests/regression.cjs
+  node tests/browser.cjs
+Browser usa Edge en un perfil temporal aislado y servidor solo loopback,
+sin acceder al perfil real de la usuaria ni a servicios externos.
+Playwright se resuelve desde node_modules o el runtime incluido de Codex.
+Los resultados/screen captures se guardan en test-results (ignorado por Git).
+La regresión admite ESTUDIO_HTML para probar otra copia del HTML.
+
+Vista local, sin publicar y sin exponer recuperación ni el historial Git:
+  node tests/preview.cjs
+  abrir http://127.0.0.1:4173/
+  Ctrl+C para cerrar el servidor
+El servidor solo entrega los cuatro recursos de la PWA. El uso PWA/offline
+requiere HTTP localhost o HTTPS y una primera carga con conexión. Abrir el
+HTML por file:// no instala un service worker.
+
+Pendientes antes de publicar:
+1. Revocar el token anterior en BotFather. Quitarlo del frontend no lo
+   invalida. Historial Git y respaldos conservan la credencial antigua.
+2. Mantener privadas las carpetas recovery y los respaldos originales.
+3. Revisar en el dispositivo de la usuaria la instalación/actualización y
+   un repaso sin conexión. Edge automatizado pasó; no se probó iOS/Android.
+4. El PIN sigue siendo una separación local de perfiles, almacenado en
+   localStorage; no es autenticación de servidor ni protección criptográfica.
+5. Confirmar editorialmente “Marea Cobra Mod”: también está escrito así en
+   la diapositiva n03; no se corrigió por conjetura. Tres imágenes LRE sin
+   referencias se conservaron: lre_tabla1b, lre_flujo, lre_24081_anatomia.
+6. Antigravity no emitió revisión: su herramienta command fue denegada en
+   modo headless. No se usó como aprobación. Codex/OpenCode sí auditaron.
+
+La recuperación previa completa está en:
+D:\leo\estudio\recovery\2026-10-01-pre-hardening
+Se verificaron 1603 archivos por SHA-256, más la fuente principal.

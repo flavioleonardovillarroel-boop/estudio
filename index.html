@@ -208,32 +208,36 @@ html.dark .starBtn.on{ border-color:var(--gold); color:#ffc25a; }
 .picFormQ img{max-width:760px}
 .picCap{color:var(--muted);font-size:12.5px;text-align:center;margin:0 0 16px;padding:0 8px}
 
+/* Keyboard focus and motion preferences; preserve the existing layout. */
+:where(button,input,select,textarea,a,[tabindex]):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ay-panel:not(.on){visibility:hidden}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header>
   <h1 id="hdTitle">Estudio</h1>
   <div>
-    <button id="btnTema" onclick="alternarTema()" title="Claro / oscuro">🌙</button>
-    <button id="btnCal" onclick="abrirCalendario()" title="Calendario">📅</button>
-    <button id="btnUser" onclick="pantallaLogin()" title="Cambiar de usuario">👤</button>
+    <button id="btnTema" aria-label="Alternar tema claro u oscuro" onclick="alternarTema()" title="Claro / oscuro">🌙</button>
+    <button id="btnCal" aria-label="Abrir calendario" onclick="abrirCalendario()" title="Calendario">📅</button>
+    <button id="btnUser" aria-label="Cambiar de usuario" onclick="pantallaLogin()" title="Cambiar de usuario">👤</button>
     <button onclick="home()">Inicio</button>
   </div>
 </header>
 <main id="view"></main>
 <div class="ficha" id="ficha" style="display:none"><b id="fT"></b><p id="fD"></p><div class="row"><button class="ghost bigbtn" onclick="cerrarFicha()">Cerrar</button></div></div>
-<button class="ay-fab" id="ayFab" onclick="togglAyuda()" title="Preguntame algo">🦉</button>
-<div class="ay-panel" id="ayPanel">
+<button class="ay-fab" id="ayFab" aria-label="Abrir ayuda de Tuti" aria-controls="ayPanel" aria-expanded="false" onclick="togglAyuda()" title="Preguntame algo">🦉</button>
+<div class="ay-panel" id="ayPanel" role="region" aria-label="Ayuda de Tuti" aria-hidden="true">
   <div class="ay-head">
     <div class="av">🦉</div>
     <div><b>Tuti, tu guía</b><small>Preguntame lo que quieras de la app</small></div>
-    <button onclick="cerrarAyuda()">✕</button>
+    <button aria-label="Cerrar ayuda de Tuti" onclick="cerrarAyuda()">✕</button>
   </div>
-  <div class="ay-msg" id="ayMsg"></div>
+  <div class="ay-msg" id="ayMsg" role="log" aria-live="polite" aria-relevant="additions"></div>
   <div class="ay-chips" id="ayChips"></div>
   <div class="ay-form">
-    <input id="ayIn" placeholder="Escribí tu pregunta…" onkeydown="if(event.key==='Enter'){ayEnvio()}" autocomplete="off">
-    <button onclick="ayEnvio()">➤</button>
+    <input id="ayIn" aria-label="Pregunta para Tuti" placeholder="Escribí tu pregunta…" onkeydown="if(event.key==='Enter'){ayEnvio()}" autocomplete="off">
+    <button aria-label="Enviar pregunta a Tuti" onclick="ayEnvio()">➤</button>
   </div>
 </div>
 <script>
@@ -6731,7 +6735,13 @@ var LS = {
   set: function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
   del: function(k){ try{ localStorage.removeItem(k); }catch(e){} }
 };
-function estUsuarios(){ return LS.get('est_usuarios', []); }
+function estUsuarios(){
+  var list = LS.get('est_usuarios', []);
+  return Array.isArray(list) ? list.filter(function(u){
+    return u && typeof u.id === 'string' && /^[a-zA-Z0-9_-]+$/.test(u.id) &&
+      typeof u.nombre === 'string' && typeof u.clave === 'string';
+  }) : [];
+}
 function estUid(){ return LS.get('est_uid', ''); }
 function estUsuario(){ var u = estUid(); if (!u) return null; var r = estUsuarios().filter(function(x){ return x.id === u; }); return r.length ? r[0] : null; }
 function estGuardarUsuarios(list){ LS.set('est_usuarios', list); }
@@ -6762,7 +6772,15 @@ function toggleEstrella(id, p, btn){
 }
 // ===== Calendario por usuario =====
 var KEYEV = function(){ return 'est_' + KEYU() + 'eventos'; };
-function evList(){ return LS.get(KEYEV(), []); }
+function evList(){
+  var list = LS.get(KEYEV(), []);
+  return Array.isArray(list) ? list.filter(function(e){
+    return e && typeof e.id === 'string' && /^[a-zA-Z0-9_-]+$/.test(e.id) &&
+      typeof e.titulo === 'string' && typeof e.fecha === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(e.fecha) &&
+      (e.nota == null || typeof e.nota === 'string') &&
+      (e.tema == null || e.tema === '' || !!getTema(e.tema));
+  }) : [];
+}
 function evSet(l){ LS.set(KEYEV(), l); }
 function evTipo(t){ return t === 'examen' ? '📝' : t === 'tp' ? '📄' : t === 'parcial' ? '🗂' : t === 'entrega' ? '📩' : '📍'; }
 function evTipoNombre(t){ return t === 'examen' ? 'Examen' : t === 'tp' ? 'Trabajo práctico' : t === 'parcial' ? 'Parcial' : t === 'entrega' ? 'Entrega' : 'Evento'; }
@@ -6814,9 +6832,9 @@ function pintarCalendario(body){
       (e.nota ? '<div class="note" style="margin-top:4px">' + esc(e.nota) + '</div>' : '') +
       sugerenciaEvento(e, dias) +
       '</div><div class="der">' +
-      '<button class="x" style="background:var(--ok)" onclick="toggleHecho(\'' + e.id + '\')" title="Marcar hecho">✓</button>' +
-      '<button class="x" style="background:var(--accent)" onclick="formEvento(\'' + e.id + '\')">✏</button>' +
-      '<button class="x" onclick="borrarEvento(\'' + e.id + '\')">🗑</button></div></div></div>';
+      '<button class="x" style="background:var(--ok)" onclick="toggleHecho(\'' + e.id + '\')" aria-label="Marcar evento como hecho o pendiente" title="Marcar hecho">✓</button>' +
+      '<button class="x" style="background:var(--accent)" aria-label="Editar evento" onclick="formEvento(\'' + e.id + '\')">✏</button>' +
+      '<button class="x" aria-label="Borrar evento" onclick="borrarEvento(\'' + e.id + '\')">🗑</button></div></div></div>';
   }
   h += '<div class="hdiv"><h3>Próximos</h3><div class="line"></div></div>' + (futuros.length ? futuros.map(function(e){ return card(e, false); }).join('') : '<div class="msg">No hay fechas próximas. ¡Agregá una arriba!</div>');
   if (pasados.length){
@@ -6831,18 +6849,18 @@ function formEvento(id){
   var e = id ? (evList().filter(function(x){ return x.id === id; })[0] || null) : null;
   var h = '<div class="row" style="margin-bottom:10px"><button class="bigbtn ghost" onclick="pintarCalendario(document.getElementById(\'view\'))">← Calendario</button></div>' +
     '<div class="card"><h3>' + (e ? '✏ Editar fecha' : '＋ Nueva fecha') + '</h3>' +
-    '<div class="sub" style="margin:2px 0 6px">Título</div><input class="in" id="evTit" value="' + (e ? esc(e.titulo) : '') + '" placeholder="Ej: Examen de Técnica">' +
-    '<div class="sub" style="margin:2px 0 6px">Tipo</div><select class="in" id="evTipo">' +
+    '<div class="sub" style="margin:2px 0 6px">Título</div><input class="in" id="evTit" aria-label="Título del evento" value="' + (e ? esc(e.titulo) : '') + '" placeholder="Ej: Examen de Técnica">' +
+    '<div class="sub" style="margin:2px 0 6px">Tipo</div><select class="in" id="evTipo" aria-label="Tipo de evento">' +
     [['examen', '📝 Examen'], ['parcial', '🗂 Parcial'], ['tp', '📄 Trabajo práctico'], ['entrega', '📩 Entrega'], ['otro', '📍 Otro']].map(function(o){
       return '<option value="' + o[0] + '"' + (e && e.tipo === o[0] ? ' selected' : '') + '>' + o[1] + '</option>';
     }).join('') + '</select>' +
-    '<div class="sub" style="margin:2px 0 6px">Materia / unidad a repasar (opcional)</div><select class="in" id="evTema">' +
+    '<div class="sub" style="margin:2px 0 6px">Materia / unidad a repasar (opcional)</div><select class="in" id="evTema" aria-label="Materia o unidad a repasar">' +
     '<option value="">— Ninguna: solo recordatorio —</option>' +
     CONTENIDO.temas.map(function(t){
       return '<option value="' + t.id + '"' + (e && e.tema === t.id ? ' selected' : '') + '>' + esc(t.nombre) + '</option>';
     }).join('') + '</select>' +
-    '<div class="sub" style="margin:2px 0 6px">Fecha</div><input class="in" type="date" id="evFecha" value="' + (e ? e.fecha : '') + '">' +
-    '<div class="sub" style="margin:2px 0 6px">Nota (opcional)</div><textarea class="txa" id="evNota" rows="2" placeholder="Ej: estudiar ROB 00-01, capítulos 2 y 3">' + (e ? esc(e.nota) : '') + '</textarea>' +
+    '<div class="sub" style="margin:2px 0 6px">Fecha</div><input class="in" type="date" id="evFecha" aria-label="Fecha del evento" value="' + (e ? e.fecha : '') + '">' +
+    '<div class="sub" style="margin:2px 0 6px">Nota (opcional)</div><textarea class="txa" id="evNota" aria-label="Nota del evento" rows="2" placeholder="Ej: estudiar ROB 00-01, capítulos 2 y 3">' + (e ? esc(e.nota) : '') + '</textarea>' +
     '<div class="row"><button class="bigbtn okbtn" onclick="guardarEvento(' + (e ? '\'' + e.id + '\'' : 'null') + ')">' + (e ? 'Guardar cambios' : 'Guardar fecha') + '</button>' +
     '<button class="ghost bigbtn" onclick="pintarCalendario(document.getElementById(\'view\'))">Cancelar</button></div></div>';
   target.innerHTML = h;
@@ -6865,7 +6883,6 @@ function guardarEvento(id){
   if (id){ list = list.map(function(x){ return x.id === id ? obj : x; }); }
   else { list.push(obj); }
   evSet(list);
-  tg('🗓 ' + nombreUsuario() + ' (' + devTag() + ') cargó "' + obj.titulo + '" (' + obj.fecha + ')', 'ev');
   pintarCalendario(document.getElementById('view'));
 }
 function borrarEvento(id){
@@ -6919,11 +6936,11 @@ function pintarLogin(){
     '<p class="sub">Cada persona tiene su propio progreso y su repaso inteligente. Seleccioná tu nombre, poné tu clave y tocá Entrar.</p>';
   if (us.length){
     h += '<div class="sub" style="margin:2px 0 6px;text-align:left">Tu nombre</div>' +
-      '<select class="in" id="selUsuario">' + us.map(function(u){
+      '<select class="in" id="selUsuario" aria-label="Tu nombre">' + us.map(function(u){
         return '<option value="' + u.id + '"' + (u.id === estUid() ? ' selected' : '') + '>' + esc(u.nombre) + '</option>';
       }).join('') + '</select>' +
       '<div class="sub" style="margin:2px 0 6px;text-align:left">Tu clave</div>' +
-      '<input class="in pin" id="selPin" type="password" inputmode="numeric" maxlength="6" placeholder="• • • •" autocomplete="current-password" style="font-size:22px;letter-spacing:10px" onkeydown="if(event.key===\'Enter\'){entrarLogin()}">' +
+      '<input class="in pin" id="selPin" aria-label="Tu clave" type="password" inputmode="numeric" maxlength="6" placeholder="• • • •" autocomplete="current-password" style="font-size:22px;letter-spacing:10px" onkeydown="if(event.key===\'Enter\'){entrarLogin()}">' +
       '<button class="bigbtn" onclick="entrarLogin()" style="width:100%">Entrar 🍀</button>' +
       '<button class="bigbtn ghost" onclick="borrarSel()" style="margin-top:8px">🗑 Borrar este usuario</button>' +
       '<p class="note" style="margin-top:8px">¿No está tu nombre? Creá un perfil abajo.</p>';
@@ -6931,8 +6948,8 @@ function pintarLogin(){
     h += '<p class="note">Todavía no hay ningún estudiante. Creá el primero abajo.</p>';
   }
   h += '<div style="height:1px;background:var(--line);margin:14px 0"></div><h3>Agregar una persona</h3>' +
-    '<input class="in" id="nuevoNom" placeholder="Nombre (ej: Valentina)">' +
-    '<input class="in pin" id="nuevoPin" type="password" inputmode="numeric" maxlength="6" placeholder="Clave (mínimo 3 dígitos)">' +
+    '<input class="in" id="nuevoNom" aria-label="Nombre del nuevo perfil" placeholder="Nombre (ej: Valentina)">' +
+    '<input class="in pin" id="nuevoPin" aria-label="Clave del nuevo perfil" type="password" inputmode="numeric" maxlength="6" placeholder="Clave (mínimo 3 dígitos)">' +
     '<button class="bigbtn" onclick="crearUsuario()" style="width:100%">Crear y entrar</button>' +
     '<p class="note" style="margin-top:10px">La clave la decidís vos: se la ponés a cada estudiante y esa persona la tiene que saber para entrar.</p>' +
     '</div></div>';
@@ -6964,7 +6981,6 @@ function crearUsuario(){
   var id = 'u' + Date.now().toString(36);
   list.push({ id: id, nombre: nom, clave: pin });
   estGuardarUsuarios(list);
-  tg('👤 Se creó el perfil: ' + nom + ' (' + devTag() + ')', 'new');
   entrarUsuario(id);
 }
 function borrarUsuario(id){
@@ -6981,7 +6997,6 @@ function entrarUsuario(id){
   if (bU) bU.textContent = u ? u.nombre.charAt(0).toUpperCase() : '👤';
 (function iniciar(){
   aplicarTema();
-  if ('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(function(){}); }
   if (estUsuario()){ home(); } else { pintarLogin(); }
 })();
 }
@@ -7018,7 +7033,7 @@ function tarjetaMateria(m){
   var qs = temas.filter(function(t){ return LS.get(KEYQ(t.id), null) !== null; });
   var prom = 0;
   if (qs.length) prom = Math.round(qs.reduce(function(a, t){ return a + (Math.round(LS.get(KEYQ(t.id), 0)) || 0); }, 0) / qs.length);
-  return '<div class="materia" style="--mclr:' + (m.clr || 'var(--accent)') + '" onclick="abrirMateria(\'' + m.id + '\')"><div class="ico">' + (m.icono || '📚') + '</div>' +
+  return '<div class="materia" style="--mclr:' + (m.clr || 'var(--accent)') + '" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="abrirMateria(\'' + m.id + '\')"><div class="ico">' + (m.icono || '📚') + '</div>' +
     '<b>' + m.nombre + '</b>' +
     '<div class="mDesc">' + m.descripcion + '</div>' +
     '<div class="barra"><i style="--w:' + prom + '%"></i></div>' +
@@ -7056,7 +7071,6 @@ function abrirMateria(id){
   v.innerHTML = h;
   requestAnimationFrame(function(){ document.querySelectorAll('.barra i').forEach(function(el){ el.style.width = el.style.getPropertyValue('--w'); }); });
   toastFrase();
-  tg('📚 ' + nombreUsuario() + ' (' + devTag() + ') entró a la materia: ' + m.nombre, 'mat');
 }
 function promedioMateria(m){
   var temas = CONTENIDO.temas.filter(function(t){ return m.unidades.indexOf(t.id) !== -1; });
@@ -7076,7 +7090,6 @@ function examenMateria(id){
   v.innerHTML = '<div class="row" style="margin-bottom:10px"><button class="bigbtn ghost" onclick="abrirMateria(\'' + id + '\')">← Materia</button></div>' +
     '<div id="bodyEx"></div>';
   quiz(pseudo, document.getElementById('bodyEx'));
-  tg('📝 ' + nombreUsuario() + ' (' + devTag() + ') arrancó examen de la materia: ' + m.nombre, 'matx');
 }
 function tarjetaTema(t){
   var q = LS.get(KEYQ(t.id), null);
@@ -7087,7 +7100,7 @@ function tarjetaTema(t){
   if (q !== null) notas.push('<span style="color:var(--ok)">🎯 Mejor: ' + Math.round(q) + '%</span>');
   if (ult !== null) notas.push('<span>📌 Último: ' + Math.round(ult) + '%</span>');
   if (rn) notas.push('<span>🔄 Repaso: ' + rn + '</span>');
-  return '<div class="tema" onclick="abrirTema(\'' + t.id + '\')"><b>' + t.nombre + '</b>' +
+  return '<div class="tema" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="abrirTema(\'' + t.id + '\')"><b>' + t.nombre + '</b>' +
     (t.desc ? '<div class="tDesc">' + t.desc + '</div>' : '') +
     '<ul><li>' + t.secciones.length + ' secciones</li><li>' + t.conceptos.length + ' conceptos</li><li>' + t.preguntas.length + ' preguntas</li></ul>' +
     '<div class="prog"><i style="width:' + Math.min(100, q || 0) + '%"></i></div>' +
@@ -7120,7 +7133,7 @@ function cardProximo(){
     '</div></div></div>';
 }
 var _alm = null;
-function almEstado(y, m){ _alm = { y: y, m: m }; }
+function almEstado(y, m){ var d = new Date(y, m, 1); _alm = { y: d.getFullYear(), m: d.getMonth() }; }
 function mesNombre(m){ return ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][m]; }
 function evPrio(e){
   if (e.tipo === 'examen' || e.tipo === 'parcial') return 0;
@@ -7163,9 +7176,9 @@ function renderAlmanaque(){
   Object.keys(porDia).forEach(function(k){ porDia[k].sort(function(a, b){ return evPrio(a) - evPrio(b); }); });
   var diasSem = ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'];
   var h = '<div class="card alm"><div class="cab">' +
-    '<button onclick="almEstado(' + y + ',' + (m - 1) + ');renderAlmanaque()">‹</button>' +
+    '<button aria-label="Mes anterior" onclick="almEstado(' + y + ',' + (m - 1) + ');renderAlmanaque()">‹</button>' +
     '<b>' + mesNombre(m) + ' ' + y + '</b>' +
-    '<button onclick="almEstado(' + y + ',' + (m + 1) + ');renderAlmanaque()">›</button></div>' +
+    '<button aria-label="Mes siguiente" onclick="almEstado(' + y + ',' + (m + 1) + ');renderAlmanaque()">›</button></div>' +
     '<div class="g">' + diasSem.map(function(d){ return '<div class="cn">' + d + '</div>'; }).join('') +
     '';
   var celda = [];
@@ -7180,7 +7193,7 @@ function renderAlmanaque(){
       }).join('');
       interior = '<div class="evs">' + frag + '</div>';
     }
-    celda.push('<div class="d' + (esHoy ? ' hoy' : '') + '" onclick="abrirCalendario()"><div class="num">' + d + '</div>' + interior + '</div>');
+    celda.push('<div class="d' + (esHoy ? ' hoy' : '') + '" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="abrirCalendario()"><div class="num">' + d + '</div>' + interior + '</div>');
   }
   var resto = (inSem + diasMes) % 7;
   if (resto) for (var r = 0; r < 7 - resto; r++) celda.push('<div class="d vacio"></div>');
@@ -7221,7 +7234,7 @@ function home(){
     h += '<div class="hdiv"><h3>🎯 Para vos</h3><div class="line"></div></div>';
     h += pend.map(function(t){
       var f = fallosTema(t.id); var n = 0; for (var k in f){ if (f[k] > 0) n += f[k]; }
-      return '<div class="pv" onclick="abrirTema(\'' + t.id + '\',\'quiz\')"><div class="pvIco">📖</div><div class="pvTxt"><b>' + t.nombre + '</b><span>' + n + ' repaso' + (n === 1 ? '' : 's') + ' pendiente' + (n === 1 ? '' : 's') + ' · tocá para repasar</span></div><div class="pvGo">→</div></div>';
+      return '<div class="pv" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="abrirTema(\'' + t.id + '\',\'quiz\')"><div class="pvIco">📖</div><div class="pvTxt"><b>' + t.nombre + '</b><span>' + n + ' repaso' + (n === 1 ? '' : 's') + ' pendiente' + (n === 1 ? '' : 's') + ' · tocá para repasar</span></div><div class="pvGo">→</div></div>';
     }).join('');
   }
   h += '<div class="hdiv"><h3>Materias</h3><div class="line"></div></div>' +
@@ -7233,7 +7246,6 @@ function home(){
   _alm = null;
   renderAlmanaque();
   toastFrase();
-  if (!window._tgIn){ window._tgIn = 1; tg('💙 ' + nombreUsuario() + ' (' + devTag() + ') entró a la app de estudio', 'in'); }
 }
 
 function abrirTema(id){
@@ -7250,7 +7262,6 @@ function abrirTema(id){
     '<div id="bodyVista"></div>';
   vista(id, vi);
   toastFrase();
-  tg('📖 ' + nombreUsuario() + ' (' + devTag() + ') abrió la unidad: ' + t.nombre, 'tem');
 }
 function getTema(id){ return CONTENIDO.temas.find(function(x){ return x.id === id; }); }
 function vista(id, v, btn){
@@ -7270,7 +7281,7 @@ function resaltar(texto, t){
   if (!lista.length) return texto;
   var re = new RegExp('(?<![A-Za-zÀ-ÿ0-9])(' + lista.join('|') + ')(?![A-Za-zÀ-ÿ0-9])', 'gi');
   return texto.replace(re, function(m){
-    return '<span class="hl" onclick="ficha(\'' + t.id + '\',this)">' + m + '</span>';
+    return '<span class="hl" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="ficha(\'' + t.id + '\',this)">' + m + '</span>';
   });
 }
 
@@ -7295,7 +7306,7 @@ function picGrid(keys){
 }
 function leer(t, body){
   var chips = t.secciones.map(function(s, i){
-    return '<span class="sec" onclick="irSec(' + i + ')">' + (i + 1) + ') ' + s.titulo + '</span>';
+    return '<span class="sec" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="irSec(' + i + ')">' + (i + 1) + ') ' + s.titulo + '</span>';
   }).join('');
   body.innerHTML = '<div class="card"><div class="sub">Secciones de la clase (tocá para ir directo):</div>' + chips + '</div>' +
     '<div id="secs">' + t.secciones.map(function(s){
@@ -7346,7 +7357,7 @@ function crono(t, body){
   body.innerHTML = '<div class="card"><div class="sub">Tocá cada fecha para revelar el dato. Podés autoevaluarte: tapá mentalmente la fecha antes de revelar.</div>' +
     '<div class="row" style="justify-content:flex-end"><button class="ghost bigbtn" onclick="revelarTodas()">Revelar todas</button></div></div>' +
     '<div id="tlWrap"><div class="tl">' + t.cronologia.map(function(c){
-      return '<div onclick="this.classList.toggle(\'abierta\')"><b>' + c.fecha + '</b><p class="pista">tocá para revelar</p><p>' + c.dato + '</p></div>';
+      return '<div role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="this.classList.toggle(\'abierta\')"><b>' + c.fecha + '</b><p class="pista">tocá para revelar</p><p>' + c.dato + '</p></div>';
     }).join('') + '</div></div>';
 }
 function revelarTodas(){
@@ -7361,7 +7372,7 @@ function barajar(a){
 
 function conceptos(t, body){
   var modo = LS.get('est_modo_' + t.id, 'cards');
-  body.innerHTML = '<div class="card"><input class="in" id="cBus" placeholder="Buscar concepto..." oninput="renderConceptos(\'' + t.id + '\')">' +
+  body.innerHTML = '<div class="card"><input class="in" id="cBus" aria-label="Buscar concepto" placeholder="Buscar concepto..." oninput="renderConceptos(\'' + t.id + '\')">' +
     '<div class="row" style="justify-content:space-between">' +
     '<div class="row"><button class="' + (modo === 'cards' ? 'bigbtn' : 'ghost bigbtn') + '" onclick="setModo(\'' + t.id + '\',\'cards\')">Tarjetas</button>' +
     '<button class="' + (modo === 'lista' ? 'bigbtn' : 'ghost bigbtn') + '" onclick="setModo(\'' + t.id + '\',\'lista\')">Lista</button></div>' +
@@ -7385,7 +7396,7 @@ function renderConceptos(id){
     }).join('') || '<p class="sub">Sin resultados.</p>';
   } else {
     var html = lista.map(function(c, i){
-      return '<div class="card" style="cursor:pointer" onclick="flipCard(this)"><div class="inner2"><div><b style="color:var(--accent)">' + c.t + '</b><div style="color:var(--muted);font-size:12px;margin-top:4px">tocá para ver definición</div></div><div style="display:none;margin-top:8px;font-size:14px;line-height:1.5">' + c.d + '</div></div></div>';
+      return '<div class="card" style="cursor:pointer" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="flipCard(this)"><div class="inner2"><div><b style="color:var(--accent)">' + c.t + '</b><div style="color:var(--muted);font-size:12px;margin-top:4px">tocá para ver definición</div></div><div style="display:none;margin-top:8px;font-size:14px;line-height:1.5">' + c.d + '</div></div></div>';
     }).join('') || '<p class="sub">Sin resultados.</p>';
     if (lista.length > 1) html += '<div class="row" style="justify-content:center"><button class="ghost bigbtn" onclick="mostrarTodas(\'' + id + '\')">Mostrar todas</button></div>';
     body.innerHTML = html;
@@ -7422,7 +7433,7 @@ function repaso(t, body, cards){
     var pct = Math.round((i / cards.length) * 100);
     body.innerHTML = '<div class="card"><div class="prog"><i style="width:' + pct + '%"></i></div>' +
       '<div class="note" id="repasoInfo">' + (i + 1) + ' de ' + cards.length + '</div>' +
-      '<div class="flip" id="flash" onclick="this.classList.toggle(\'flipped\')"><div class="inner">' +
+      '<div class="flip" id="flash" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="this.classList.toggle(\'flipped\')"><div class="inner">' +
       '<div class="face">' + c.t + '</div><div class="face back"><small>tocá para ver</small>' + c.d + '</div>' +
       '</div></div>' +
       '<div class="rates">' +
@@ -7462,39 +7473,11 @@ function norm(s){
   for (var i = 0; i < s.length; i++){ var j = a.indexOf(s[i]); out += j >= 0 ? b[j] : s[i]; }
   return out.replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
 }
-function esc(s){ return (s || '').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
-// ===== Avisos por Telegram (opcional): cuando ella usa la app, te llegan mensajes =====
-var TG_TOKEN = '8860446945:AAGXHQMVpgbOSYAOuAWbIUeaHogPmHVjsFQ'; // token del bot (lo creás con @BotFather)
-var TG_CHAT = '6630055393'; // tu chat id de Telegram
-var _tgU = {};
-function tg(txt, tipo){
-  if (!TG_TOKEN || !TG_CHAT) return;
-  var ahora = Date.now();
-  if (_tgU[tipo] && ahora - _tgU[tipo] < 45000) return;
-  _tgU[tipo] = ahora;
-  fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: TG_CHAT, text: txt, disable_web_page_preview: true })
-  }).catch(function(){});
+function esc(s){
+  return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 function nombreUsuario(){ var u = estUsuario(); return u && u.nombre ? String(u.nombre).trim() : 'Alguien'; }
-function devTag(){
-  var ua = navigator.userAgent || '';
-  var plat = '📲 dispositivo';
-  if (/android/i.test(ua)) plat = '📱 Android';
-  else if (/iphone|ipad|ipod/i.test(ua)) plat = '🍏 iPhone/iPad';
-  else if (/windows/i.test(ua)) plat = '💻 Windows';
-  else if (/mac/i.test(ua)) plat = '🖥 Mac';
-  var model = '';
-  var m = ua.match(/Android[\s/]+\d[\w.]*[\s.;]+([^;\s()]+)/i);
-  if (m && m[1]) model = m[1];
-  var tz = '';
-  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
-  var parts = [plat];
-  if (model) parts.push(model);
-  if (tz) parts.push(tz);
-  return parts.join(' · ');
-}
 function frasePersonalizada(){
   return '';
 }
@@ -7521,11 +7504,11 @@ function textoNota(pct){
 }
 function fraseConInput(p){
   var partes = p.split('____');
-  if (partes.length === 1) return p + '<input class="inBlank" id="qBlank" placeholder="respuesta">';
+  if (partes.length === 1) return p + '<input class="inBlank" id="qBlank" aria-label="Respuesta para completar" placeholder="respuesta">';
   var html = '';
   for (var i = 0; i < partes.length; i++){
     html += partes[i];
-    if (i < partes.length - 1) html += '<input class="inBlank" id="qBlank" placeholder="respuesta">';
+    if (i < partes.length - 1) html += '<input class="inBlank" id="qBlank" aria-label="Respuesta para completar" placeholder="respuesta">';
   }
   return html;
 }
@@ -7629,7 +7612,6 @@ function quiz(t, body){
         '<button class="bigbtn okbtn" onclick="compartirNota(' + pct + ',\'' + nomSeguro + '\')">📤 Compartir nota</button></div>' +
         '<div id="shareMsg" style="margin-top:8px"></div></div>' + recap;
       toastFrase();
-      tg('✅ ' + nombreUsuario() + ' (' + devTag() + ') terminó el examen "' + t.nombre + '": ' + Math.round(pct) + '% (' + ok + '/' + cola.length + ' correctas)', 'fin');
       return;
     }
     var c = cola[idx], q = c.q, tipo = c.tipo, i = idx, respondida = false;
@@ -7647,7 +7629,7 @@ function quiz(t, body){
     } else if (tipo === 'guia'){
       html += '<h2 style="font-size:17px;line-height:1.5">' + q.p + '</h2>' +
         '<div class="sub" style="margin:6px 0">Resolvela vos primero y después comparala con la respuesta modelo:</div>' +
-        '<textarea class="txa" id="qGui" rows="4" placeholder="Escribí tu respuesta (o pensala)..."></textarea>' +
+        '<textarea class="txa" id="qGui" aria-label="Tu respuesta a la pregunta de la guía" rows="4" placeholder="Escribí tu respuesta (o pensala)..."></textarea>' +
         '<div class="row"><button class="bigbtn" id="qRevelar">🔎 Revelar respuesta modelo</button></div>' +
         '<div id="qGModel" style="display:none"></div>' +
         '<div class="row" id="qGAssess" style="display:none"><button class="okbtn bigbtn" id="qGYes">✅ La sabía</button><button class="badbtn bigbtn" id="qGNo">No la sabía</button></div>';
@@ -7764,6 +7746,8 @@ togglAyuda = function(){
   if (!p) return;
   if (p.classList.contains('on')){ cerrarAyuda(); return; }
   p.classList.add('on');
+  if (p.setAttribute) p.setAttribute('aria-hidden', 'false');
+  var fab = document.getElementById('ayFab'); if (fab && fab.setAttribute) fab.setAttribute('aria-expanded', 'true');
   var m = document.getElementById('ayMsg');
   if (m && m.children.length === 0){
     var ini = '¡Hola ' + esc(nombreUsuario() === 'Alguien' ? '' : nombreUsuario()) + '! Soy Tuti 🦉\nSoy la guía de tu app de estudio. Contame qué no entiendes y te lo explico paso a paso.';
@@ -7778,7 +7762,14 @@ togglAyuda = function(){
   ayChips(ayChipsPantalla());
   document.getElementById('ayIn').focus();
 };
-function cerrarAyuda(){ var p = document.getElementById('ayPanel'); if (p) p.classList.remove('on'); }
+function cerrarAyuda(){
+  var p = document.getElementById('ayPanel'); if (p){ p.classList.remove('on'); if (p.setAttribute) p.setAttribute('aria-hidden', 'true'); }
+  var fab = document.getElementById('ayFab'); if (fab){ if (fab.setAttribute) fab.setAttribute('aria-expanded', 'false'); if (fab.focus) fab.focus(); }
+}
+addEventListener('keydown', function(event){
+  var p = document.getElementById('ayPanel');
+  if (event.key === 'Escape' && p && p.classList.contains('on')) cerrarAyuda();
+});
 function ayPantalla(){
   if (document.getElementById('ficha') && document.getElementById('ficha').style.display === 'block') return 'ficha';
   if (!estUsuario()) return 'login';
@@ -7927,7 +7918,9 @@ function ayResponde(q){
 }
 
 aplicarTema();
-if ('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js').catch(function(){}); }
+if ('serviceWorker' in navigator && typeof location !== 'undefined' && /^https?:$/.test(location.protocol)){
+  navigator.serviceWorker.register('sw.js').catch(function(){});
+}
 pintarLogin();
 </script>
 </body>

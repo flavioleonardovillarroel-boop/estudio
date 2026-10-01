@@ -1,8 +1,8 @@
-const CACHE = 'estudio-v12';
-const CACHE_PREFIX = 'estudio-v';
-const PRECACHE = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
+const CACHE = 'estudio-source-v12';
+const CACHE_PREFIX = 'estudio-source-v';
+const PRECACHE = ['./', './estudio.html', './manifest.webmanifest', './icon.svg'];
 const APP_ROOT = new URL('./', self.location.href);
-const INDEX_URL = new URL('./index.html', APP_ROOT).href;
+const INDEX_URL = new URL('./estudio.html', APP_ROOT).href;
 const APP_RESOURCES = new Set(PRECACHE.map(path => new URL(path, APP_ROOT).href));
 
 self.addEventListener('install', event => {
