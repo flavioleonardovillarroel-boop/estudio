@@ -213,6 +213,7 @@ html.dark .starBtn.on{ border-color:var(--gold); color:#ffc25a; }
 :where(button,input,select,textarea,a,[tabindex]):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .ay-panel:not(.on){visibility:hidden}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.tuti-orden label{display:block;font-weight:700;margin-bottom:8px}.tuti-orden .in{width:100%;box-sizing:border-box}.orden-lista{list-style:none;padding:0;margin:12px 0}.orden-lista li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}.orden-lista li>span{flex:1;min-width:150px}.orden-acciones{display:flex;gap:6px}.orden-acciones button{min-width:40px;min-height:40px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;cursor:pointer}.orden-acciones button:disabled{opacity:.4;cursor:default}.orden-numero{display:inline-block;align-self:flex-start;border:1px solid var(--accent);color:var(--ink);border-radius:20px;padding:3px 10px;font-size:12px;font-weight:800}.tuti-orden h3{margin-top:0}
 </style>
 </head>
 <body>
@@ -11413,6 +11414,7 @@ function tarjetaMateria(m){
   var prom = 0;
   if (qs.length) prom = Math.round(qs.reduce(function(a, t){ return a + (Math.round(LS.get(KEYQ(t.id), 0)) || 0); }, 0) / qs.length);
   return '<div class="materia" style="--mclr:' + (m.clr || 'var(--accent)') + '" role="button" tabindex="0" onkeydown="if(event.target===this&&(event.key===\'Enter\'||event.key===\' \')){event.preventDefault();this.click()}" onclick="abrirMateria(\'' + m.id + '\')"><div class="ico">' + (m.icono || '📚') + '</div>' +
+    (prioridadMateria(m.id) ? '<span class="orden-numero">' + prioridadMateria(m.id) + '.º examen</span>' : '') +
     '<b>' + m.nombre + '</b>' +
     '<div class="mDesc">' + m.descripcion + '</div>' +
     '<div class="barra"><i style="--w:' + prom + '%"></i></div>' +
@@ -11583,12 +11585,78 @@ function renderAlmanaque(){
     '<span><i class="chip" style="background:var(--muted)"></i>Otro</span></div></div>';
   w.innerHTML = h;
 }
+function KEYORDEN(){ return 'est_' + KEYU() + 'orden_materias'; }
+function ordenMaterias(){
+  var raw = LS.get(KEYORDEN(), []), vistos = Object.create(null);
+  if (!Array.isArray(raw)) return [];
+  return raw.filter(function(id){
+    if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]+$/.test(id) || vistos[id] || !(CONTENIDO.materias || []).some(function(m){ return m.id === id; })) return false;
+    vistos[id] = true; return true;
+  });
+}
+function prioridadMateria(id){ return ordenMaterias().indexOf(id) + 1; }
+function materiasOrdenadas(){
+  var orden = ordenMaterias(), base = (CONTENIDO.materias || []).slice();
+  return base.sort(function(a,b){
+    var pa = orden.indexOf(a.id), pb = orden.indexOf(b.id);
+    if (pa < 0) pa = orden.length + CONTENIDO.materias.indexOf(a);
+    if (pb < 0) pb = orden.length + CONTENIDO.materias.indexOf(b);
+    return pa - pb;
+  });
+}
+var _ordenUid = null, _ordenAbierto = false;
+function cardOrdenTuti(){
+  if (_ordenUid !== estUid()){
+    _ordenUid = estUid(); _ordenAbierto = LS.get(KEYORDEN(), null) === null;
+  }
+  var orden = ordenMaterias(), h = '<section class="card tuti-orden" aria-labelledby="ordenTitulo"><h3 id="ordenTitulo">🦉 Tuti · ¿Qué materia rendís primero?</h3>';
+  h += '<p>Elegí tus materias en el orden de los exámenes. Les pongo un número y las acomodo abajo. El orden se guarda en tu perfil, en este dispositivo.</p>';
+  if (!_ordenAbierto){
+    h += '<p>' + (orden.length ? 'Tu orden: ' + orden.map(function(id,i){ var m=CONTENIDO.materias.find(function(x){return x.id===id;});return (i+1)+'. '+esc(m.nombre); }).join(' → ') : 'Podés organizar tus exámenes cuando quieras.') + '</p>';
+    h += '<button class="bigbtn" onclick="editarOrdenTuti()">' + (orden.length ? 'Cambiar orden de exámenes' : 'Organizar mis exámenes') + '</button>';
+  } else {
+    var libres = (CONTENIDO.materias || []).filter(function(m){ return /^[a-zA-Z0-9_-]+$/.test(m.id) && orden.indexOf(m.id)<0; });
+    h += '<label for="ordenMateria">' + (orden.length ? '¿Cuál rendís después? Será la número '+(orden.length+1)+'.' : '¿Cuál rendís primero? Será la número 1.') + '</label>';
+    if (libres.length) h += '<select id="ordenMateria" class="in" onchange="agregarOrdenTuti(this.value)"><option value="">Elegí una materia…</option>' + libres.map(function(m){return '<option value="'+m.id+'">'+esc(m.nombre)+'</option>';}).join('') + '</select>';
+    else h += '<p>Ya ordenaste todas las materias.</p>';
+    h += '<ol class="orden-lista">' + orden.map(function(id,i){
+      var m=CONTENIDO.materias.find(function(x){return x.id===id;});
+      return '<li><span><b>'+(i+1)+'.</b> '+esc(m.nombre)+'</span><div class="orden-acciones">' +
+        '<button id="ordenSubir_'+id+'" aria-label="Subir '+esc(m.nombre)+'" onclick="moverOrdenTuti(\''+id+'\',-1)"'+(i===0?' disabled':'')+'>↑</button>' +
+        '<button id="ordenBajar_'+id+'" aria-label="Bajar '+esc(m.nombre)+'" onclick="moverOrdenTuti(\''+id+'\',1)"'+(i===orden.length-1?' disabled':'')+'>↓</button>' +
+        '<button aria-label="Quitar '+esc(m.nombre)+' del orden de exámenes" onclick="quitarOrdenTuti(\''+id+'\')">Quitar</button></div></li>';
+    }).join('') + '</ol><p class="note" role="status">'+(orden.length?'Orden guardado. Las materias elegidas aparecen primero; las demás siguen disponibles.':'Elegí solo las materias que vas a rendir.')+'</p>';
+    h += '<button class="bigbtn" onclick="cerrarOrdenTuti()">'+(orden.length?'Listo, empezar a estudiar':'Ahora no')+'</button>';
+  }
+  return h+'</section>';
+}
+function refrescarOrdenTuti(){
+  var foco = document.activeElement && document.activeElement.id;
+  home();
+  var el = foco && document.getElementById(foco);
+  if (!el || el.disabled) el = document.getElementById('ordenMateria');
+  if (el) el.focus();
+}
+function editarOrdenTuti(){ _ordenUid=estUid();_ordenAbierto=true;refrescarOrdenTuti(); }
+function agregarOrdenTuti(id){
+  var orden=ordenMaterias();
+  if (typeof id !== 'string' || !/^[a-zA-Z0-9_-]+$/.test(id) || orden.indexOf(id)>=0 || !(CONTENIDO.materias || []).some(function(m){return m.id===id;})) return;
+  orden.push(id);LS.set(KEYORDEN(),orden);refrescarOrdenTuti();
+}
+function moverOrdenTuti(id,delta){
+  var orden=ordenMaterias(),i=orden.indexOf(id),j=i+delta;
+  if ((delta!==1 && delta!==-1) || i<0 || j<0 || j>=orden.length) return;
+  var tmp=orden[i];orden[i]=orden[j];orden[j]=tmp;LS.set(KEYORDEN(),orden);refrescarOrdenTuti();
+}
+function quitarOrdenTuti(id){LS.set(KEYORDEN(),ordenMaterias().filter(function(x){return x!==id;}));refrescarOrdenTuti();}
+function cerrarOrdenTuti(){LS.set(KEYORDEN(),ordenMaterias());_ordenAbierto=false;home();}
+
 function home(){
   curMateria = null;
   var u = estUsuario();
   if (!u){ pintarLogin(); return; }
   document.getElementById('hdTitle').textContent = CONTENIDO.titulo;
-  var materias = CONTENIDO.materias || [];
+  var materias = materiasOrdenadas();
   var enMateria = {};
   materias.forEach(function(m){ m.unidades.forEach(function(id){ enMateria[id] = true; }); });
   var sueltos = CONTENIDO.temas.filter(function(t){ return !enMateria[t.id]; });
@@ -11603,6 +11671,7 @@ function home(){
     '<div class="caja"><div class="num">' + conQ.length + '/' + todos.length + '</div><div class="lab">temas con quiz</div></div>' +
     '<div class="caja"><div class="num">' + fN + '</div><div class="lab">repasos pendientes</div></div>' +
     '</div></div>';
+  h += cardOrdenTuti();
   h += cardProximo();
   h += '<div class="hdiv"><h3>🗓 Calendario</h3><div class="line"></div></div><div id="almWrap"></div>';
   var pend = todos.filter(function(t){
