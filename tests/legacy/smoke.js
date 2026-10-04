@@ -62,7 +62,7 @@ try {
     querySelector(){ return null; }
   }
   const realBody = new RealEl();
-  const temaLog = CONTENIDO.temas.find(t=>t.id==='log_pers');
+  const temaLog = CONTENIDO.temas.find(t=>t.id==='log_villar');
   global.document.getElementById = (id)=> {
     if (id==='view') return els.view;
     if (id==='bodyVista' || id==='bodyEx') return realBody;
@@ -116,7 +116,7 @@ try {
   evSet([
     { id:'a1', titulo:'Examen Técnica', tipo:'examen', tema:'tec_esp', fecha:iso(d5), nota:'', hecho:false },
     { id:'a2', titulo:'Entrega TP Didáctica', tipo:'tp', tema:'dem_g3', fecha:iso(d5), nota:'', hecho:false },
-    { id:'a3', titulo:'Parcial Historia', tipo:'parcial', tema:'historia', fecha:iso(d20), nota:'', hecho:false }
+    { id:'a3', titulo:'Parcial Historia', tipo:'parcial', tema:'hist_repaso', fecha:iso(d20), nota:'', hecho:false }
   ]);
   renderAlmanaque();
   const alm = els.almWrap.innerHTML;

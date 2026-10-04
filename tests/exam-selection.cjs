@@ -17,5 +17,5 @@ for(const tema of ctx.CONTENIDO.temas)for(const original of tema.preguntas){
 }
 assert(ctx.parecidas('comando','El comando.'));
 assert(html.includes("+ (q.enunciadoSeleccion || q.p) + '</h2>'"));
-assert.equal(count,888);
-console.log('PASS: 888 questions, four distinct choices, canonical correct answers, synonym filtering and stable progress IDs');
+assert.equal(count,638);
+console.log('PASS: 638 questions, four distinct choices, canonical correct answers, synonym filtering and stable progress IDs');
