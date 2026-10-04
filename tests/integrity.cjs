@@ -11,6 +11,7 @@ const fixture=JSON.parse(fs.readFileSync(path.join(root,'tests/fixtures/historia
 const t=normalized.CONTENIDO.temas.find(t=>t.id==='hist_repaso'),old=original.CONTENIDO.temas.find(t=>t.id==='hist_repaso');
 assert.equal(t.preguntas.length,30);assert.equal(t.secciones.length,22);assert.equal(t.conceptos.length,20);assert.equal(JSON.stringify(t.preguntas.slice(20)),JSON.stringify(fixture.visualQuestions));
 for(const x of fixture.images){assert(normalized.PIC[x.key].startsWith('data:image/png;base64,'));assert.equal(crypto.createHash('sha256').update(Buffer.from(normalized.PIC[x.key].split(',')[1],'base64')).digest('hex'),x.sha256);assert.equal(t.secciones[x.point].pic,x.key);delete normalized.PIC[x.key];delete normalized.PICLAB[x.key];if(old.secciones[x.point].pic)t.secciones[x.point].pic=old.secciones[x.point].pic;else delete t.secciones[x.point].pic;}
+assert.equal(t.secciones[fixture.sourceNote.point].parrafos.pop(),fixture.sourceNote.text);
 t.preguntas=t.preguntas.slice(0,20);t.secciones=t.secciones.slice(0,21);t.desc=old.desc;
 assert.equal(hash(normalized),hash(original),'Original source answers and all other academic content and images must be preserved');
 assert.equal(actual.CONTENIDO.temas.length,30);assert.equal(actual.CONTENIDO.materias.length,9);assert.equal(actual.CONTENIDO.temas.reduce((n,t)=>n+t.preguntas.length,0),648);
@@ -22,4 +23,4 @@ for(const s of scripts)new vm.Script(s[1]);
 assert.equal((current.match(/serviceWorker\.register/g)||[]).length,1);
 for(const p of ['sw.js','source-entry/sw.js'])new vm.Script(fs.readFileSync(path.join(root,p),'utf8'));
 for(const p of ['manifest.webmanifest','source-entry/manifest.webmanifest'])JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
-console.log('PASS: 8 exact source images, 10 visual questions, original answers and other subjects preserved; 9/30/648 counts, credential scan and syntax');
+console.log('PASS: 9 exact source images, 10 visual questions, original answers and other subjects preserved; 9/30/648 counts, credential scan and syntax');

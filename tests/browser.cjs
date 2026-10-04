@@ -43,10 +43,10 @@ function pass(message){ report.push(message); console.log('PASS: '+message); }
     swVersion = 'new';
     await page.evaluate(async()=>{const r=await navigator.serviceWorker.getRegistration();await r.update();});
     await page.waitForFunction(async()=>{
-      const keys=await caches.keys();return keys.includes('estudio-v21')&&!keys.includes('estudio-v11');
+      const keys=await caches.keys();return keys.includes('estudio-v22')&&!keys.includes('estudio-v11');
     });
     assert((await page.evaluate(()=>caches.keys())).includes('otra-app-preservar'));
-    pass('Real service-worker update v11→v21 removes only Estudio caches');
+    pass('Real service-worker update v11→v22 removes only Estudio caches');
     const name = 'Prueba & <perfil> " \' local';
     await page.locator('#nuevoNom').fill(name);
     await page.locator('#nuevoPin').fill('1234');
@@ -157,7 +157,7 @@ function pass(message){ report.push(message); console.log('PASS: '+message); }
     await page.evaluate(async()=>{
       if(!Array.isArray(LS.get(KEYEV(),[]))||LS.get(KEYEV(),[]).length!==1)throw new Error('Event persistence lost');
       if(LS.get(KEYQ('lre_contexto'),null)===null)throw new Error('Quiz persistence lost');
-      await caches.delete('estudio-v21');
+      await caches.delete('estudio-v22');
     });
     const unavailable=await page.goto(origin+'/estudio/');
     assert.equal(unavailable.status(),503);
@@ -172,7 +172,7 @@ function pass(message){ report.push(message); console.log('PASS: '+message); }
     await context.setOffline(true);
     await page.reload();
     assert(await page.locator('#selUsuario').count());
-    assert((await page.evaluate(()=>caches.keys())).includes('estudio-source-v21'));
+    assert((await page.evaluate(()=>caches.keys())).includes('estudio-source-v22'));
     pass('Original estudio.html entry point also installs and reloads offline through HTTP');
     fs.writeFileSync(path.join(RESULTS,'browser-results.json'),JSON.stringify({passed:report,errors,external},null,2));
     await context.close();

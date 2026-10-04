@@ -63,6 +63,14 @@
       "label": "Curupaytí · esquema original de la clase UD 3 (2026), página 87",
       "sha256": "9cb626b7a8c880697adde16666dec226367e91ee1019904360a4778a5a0a5e80",
       "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Cuestinario ud 2 y 3\\Guia_Estudio_UD3_Triple_Alianza_2026_Organizada.docx"
+    },
+    {
+      "file": "nuevo_06.png",
+      "key": "hist_repaso_obligado_consecuencias",
+      "point": 17,
+      "label": "Vuelta de Obligado · consecuencias estratégicas y diplomáticas · Clase 3, diapositiva 68 · imagen original del nuevo repaso",
+      "sha256": "1999fb1a4e7f427d8ff37b89573357f63f308c83bc20ac04d77731d15c576b88",
+      "source": "D:/Eve/CFE/MATERIAS/HISTORIA/REPASO/Guia_Historia_Preguntas_Respuestas_con_Imagenes_Originales_FINAL.docx"
     }
   ],
   "visualQuestions": [
@@ -206,5 +214,9 @@
       "c": 0,
       "e": "La guía describe un bombardeo naval previo y un asalto frontal aliado contra defensas paraguayas con fosos, abatís y artillería. El terreno pantanoso y la preparación insuficiente favorecieron a los defensores. Fuente: Guia_Estudio_UD3_Triple_Alianza_2026_Organizada.docx · Curupaytí, plan aliado y esquema de página 87; Repaso, punto 20."
     }
-  ]
+  ],
+  "sourceNote": {
+    "point": 16,
+    "text": "Comparación de fuentes: la respuesta transcrita nombra las baterías «Manso, Rosas, Brown y General Manuelita», mientras que la infografía original muestra «Manuelita, Mansilla, Brown y Rosas». Se conserva la respuesta de la guía; tené presente esta diferencia entre el texto y la imagen al estudiar."
+  }
 }
