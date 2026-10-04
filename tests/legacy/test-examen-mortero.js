@@ -79,7 +79,7 @@ LS.set('est_uid', 'u1');
 const cur = () => els.bodyEx.innerHTML.replace(/\s+/g,' ').slice(0,110);
 
 examenMateria('m_tactica');
-if (els.bodyEx.innerHTML.indexOf('preguntas cargadas')===-1) throw new Error('intro mal: '+cur());
+if (els.bodyEx.innerHTML.indexOf('preguntas de opción múltiple')===-1) throw new Error('intro mal: '+cur());
 console.log('OK intro (64 preguntas)');
 
 const corta = els.bodyEx.buttons.find(b=>b.dataset.cant==='corta');

@@ -11,8 +11,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Estudio">
 <style>
-:root{ --bg:#f4f6fb; --card:#ffffff; --ink:#1c2333; --muted:#6b7790; --line:#dfe4ef; --accent:#3d5afe; --accent2:#7c4dff; --ok:#1f9d55; --bad:#e5484d; --soft:#eef1fb; --gold:#b46a00; --inp:#ffffff; }
-html.dark{ --bg:#11141d; --card:#1a2030; --ink:#e6eaf5; --muted:#98a4bd; --line:#2b3347; --accent:#7d92ff; --accent2:#a06bff; --ok:#34c76b; --bad:#ff6b6e; --soft:#232a3d; --gold:#ffc25a; --inp:#232a3d; }
+:root{ color-scheme:light; --bg:#f4f6fb; --card:#ffffff; --ink:#1c2333; --muted:#6b7790; --line:#dfe4ef; --accent:#3d5afe; --accent2:#7c4dff; --ok:#1f9d55; --bad:#e5484d; --soft:#eef1fb; --gold:#b46a00; --inp:#ffffff; }
+html.dark{ color-scheme:dark; --bg:#11141d; --card:#1a2030; --ink:#e6eaf5; --muted:#98a4bd; --line:#2b3347; --accent:#7d92ff; --accent2:#a06bff; --ok:#34c76b; --bad:#ff6b6e; --soft:#232a3d; --gold:#ffc25a; --inp:#232a3d; }
 html.dark .msg{ background:#2a2414; border-color:#4a3f1f; }
 html.dark .qbtn.sel-ok{ background:#10301f; }
 html.dark .qbtn.sel-bad{ background:#3a1517; }
@@ -20,6 +20,7 @@ html.dark .correc{ background:#3a1517; border-color:rgba(255,107,110,.4); }
 html.dark .ficha{ box-shadow:0 -6px 24px rgba(0,0,0,.5); }
 html.dark header{ background:linear-gradient(120deg,#2d43c9,#5b32c9); }
 *{ box-sizing:border-box; }
+:where(button,input,select,textarea){ color:var(--ink); }
 body{ margin:0; font-family:Segoe UI,system-ui,-apple-system,Arial,sans-serif; background:var(--bg); color:var(--ink); }
 header{ background:linear-gradient(120deg,#3d5afe,#7c4dff); color:#fff; padding:12px 18px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:20; }
 header h1{ font-size:18px; margin:0; font-weight:700; }
@@ -63,7 +64,7 @@ h3{ font-size:16px; margin:0 0 10px; color:var(--accent); }
 .flip .face{ backface-visibility:hidden; background:var(--soft); border:1px solid var(--line); border-radius:14px; padding:26px 18px; min-height:170px; display:flex; align-items:center; justify-content:center; text-align:center; font-size:18px; }
 .flip .back{ position:absolute; inset:0; transform:rotateX(180deg); background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; }
 .flip .back small{ display:block; font-size:12px; opacity:.85; margin-bottom:10px; }
-.qbtn{ display:block; width:100%; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:11px 13px; margin:7px 0; font-size:14px; cursor:pointer; }
+.qbtn{ display:block; width:100%; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:11px 13px; margin:7px 0; font-size:14px; cursor:pointer;  color:var(--ink);}
 .qbtn.sel-ok{ border-color:var(--ok); background:#e7f6ec; }
 .qbtn.sel-bad{ border-color:var(--bad); background:#fdeeee; }
 .fdb{ font-size:14px; margin:8px 0; font-weight:700; }
@@ -90,7 +91,7 @@ textarea.txa:focus{ border-color:var(--accent); }
 .row{ display:flex; gap:8px; flex-wrap:wrap; }
 .note{ font-size:12.5px; color:var(--muted); }
 .msg{ background:#fff8e6; border:1px solid #f0ddb0; border-radius:10px; padding:10px 12px; font-size:13px; margin-bottom:12px; }
-.in{ width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:14px; margin-bottom:12px; }
+.in{ width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:14px; margin-bottom:12px; background:var(--inp); color:var(--ink); }
 .lista-card{ border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin:6px 0; background:var(--soft); }
 .lista-card b{ color:var(--accent); }
 .ficha{ position:fixed; left:0; right:0; bottom:0; background:var(--card); border-top:3px solid var(--accent); padding:16px 18px 18px; z-index:30; box-shadow:0 -6px 24px rgba(0,0,0,.12); }
@@ -131,7 +132,7 @@ html.dark .hero{ background:linear-gradient(120deg,#2d43c9,#5b32c9); }
 .hdiv{ display:flex; align-items:center; gap:8px; margin:18px 0 10px; }
 .hdiv h3{ margin:0; }
 .hdiv .line{ flex:1; height:1px; background:var(--line); }
-.starBtn{ background:var(--card); border:1px solid var(--line); border-radius:8px; padding:7px 10px; font-size:12.5px; cursor:pointer; }
+.starBtn{ background:var(--card); border:1px solid var(--line); border-radius:8px; padding:7px 10px; font-size:12.5px; cursor:pointer;  color:var(--ink);}
 .starBtn.on{ border-color:var(--gold); color:var(--gold); }
 html.dark .starBtn.on{ border-color:var(--gold); color:#ffc25a; }
 .sec-badge{ font-size:11.5px; border-radius:20px; padding:2px 9px; background:var(--soft); color:var(--muted); }
@@ -7955,6 +7956,68 @@ function fraseConInput(p){
   return html;
 }
 
+function opcionCanonica(q){
+  if (q.tipo === 'guia') return String(q.r || '').trim();
+  if (q.tipo === 'completar') return String((q.o || [])[0] || '').trim();
+  if (q.tipo === 'vf') return (q.v ? 'La afirmación es correcta. ' : 'La afirmación es incorrecta. ') + String(q.e || '').trim();
+  return String((q.o || [])[q.c] || '').trim();
+}
+function normalizarOpcion(s){ return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim(); }
+function opcionesAlternativas(q, correcta){
+  var p=normalizarOpcion(q.p);
+  if(q.tipo==='completar' && /^\d{4}$/.test(correcta)){var n=Number(correcta);return [String(n-1),String(n+1),String(n+5)];}
+  if(q.tipo==='completar' && /^\d+$/.test(correcta)){var n=Number(correcta);return [String(n+1),String(n+2),String(n+3)];}
+  if(q.tipo==='completar' && /^1\.[1-6]$/.test(correcta))return ['1.1','1.2','1.3','1.4','1.5','1.6'].filter(function(x){return x!==correcta;}).slice(0,3);
+  if(q.tipo!=='guia')return null;
+  if(p.includes('ordenada al origen'))return ['Es el valor de x para el que f(x)=0, donde el gráfico corta el eje x.','Es la pendiente de la recta, que indica su inclinación.','Es el máximo o mínimo que alcanza la función.'];
+  if(p.includes('pendiente entre dos puntos'))return ['Se divide la diferencia de coordenadas x por la diferencia de coordenadas y: (x₂−x₁)/(y₂−y₁).','Se suman las coordenadas y y se divide por la suma de las coordenadas x.','Se reemplaza x=0 y se toma el valor de la ordenada al origen como pendiente.'];
+  if(p.includes('rectas paralelas')&&p.includes('perpendiculares'))return ['Paralelas: pendientes opuestas; perpendiculares: pendientes iguales.','Paralelas: producto de pendientes −1; perpendiculares: pendientes iguales.','Paralelas y perpendiculares: siempre tienen ambas la misma pendiente.'];
+  if(p.includes('raiz de una recta'))return ['Se reemplaza x=0 y se obtiene la raíz como el valor de b.','Se suma m+b sin igualar la función a cero.','Se calcula el vértice mediante −b/(2a), como si toda recta fuera una parábola.'];
+  if(p.includes('parabola y = −x² + 6x − 5')||p.includes('parabola y = -x² + 6x - 5'))return ['Raíces 1 y 5; vértice (3,−4), que es un mínimo; la parábola abre hacia arriba.','Raíces −1 y −5; vértice (−3,4); la función es positiva fuera de las raíces.','No tiene raíces reales; su vértice es (6,−5) y su imagen son todos los reales.'];
+  if(p.includes('dominio, la imagen, los ceros'))return ['Dominio: valores de y; imagen: valores de x; ceros: puntos donde x=0; positividad: f(x)<0.','Dominio e imagen son siempre el mismo conjunto; los ceros son los máximos de la función.','Dominio: valores donde f(x)>0; imagen: raíces; ceros: extremos; positividad: valores donde x>0.'];
+  return null;
+}
+function parecidas(a,b){
+  var x=normalizarOpcion(a).replace(/^la afirmacion es (correcta|incorrecta)\. /,''), y=normalizarOpcion(b).replace(/^la afirmacion es (correcta|incorrecta)\. /,'');
+  x=x.replace(/^(el|la|los|las|un|una|unos|unas)\s+/,'').replace(/[.,;:!?]+$/,'').trim();
+  y=y.replace(/^(el|la|los|las|un|una|unos|unas)\s+/,'').replace(/[.,;:!?]+$/,'').trim();
+  if(x===y || (x.length>18&&y.includes(x)) || (y.length>18&&x.includes(y)))return true;
+  if(/f\s*\(\s*0\s*\)/.test(x)&&/f\s*\(\s*0\s*\)/.test(y))return true;
+  var stop=new Set(['para','como','entre','debe','puede','segun','guia','porque','mediante','forma','parte','cuando','siempre','tambien','mismo','material']);
+  var xs=new Set((x.match(/[a-z0-9]{4,}/g)||[]).filter(function(w){return !stop.has(w);})),ys=new Set((y.match(/[a-z0-9]{4,}/g)||[]).filter(function(w){return !stop.has(w);}));
+  var common=Array.from(xs).filter(function(w){return ys.has(w);}).length;
+  return xs.size>2&&ys.size>2&&common/Math.min(xs.size,ys.size)>.45;
+}
+function preguntaSeleccion(q, banco){
+  if (!q.tipo || q.tipo === 'mc') return q;
+  var correcta = opcionCanonica(q);
+  if (!correcta) throw new Error('Falta la respuesta de una pregunta de estudio.');
+  var excluidas = [correcta].concat(q.tipo === 'completar' ? q.o : []).map(normalizarOpcion);
+  var candidatos = [], usados = new Set(excluidas);
+  function agregar(item){
+    if (item === q || item.p === q.p) return;
+    var respuesta = opcionCanonica(item), clave = normalizarOpcion(respuesta);
+    if (!clave || usados.has(clave) || parecidas(correcta,respuesta)) return;
+    if(q.tipo==='guia' && item.tipo && item.tipo!=='guia')return;
+    usados.add(clave); candidatos.push(respuesta);
+  }
+  var alternativas=opcionesAlternativas(q,correcta);
+  if(alternativas)alternativas.forEach(function(respuesta){if(!usados.has(normalizarOpcion(respuesta))){usados.add(normalizarOpcion(respuesta));candidatos.push(respuesta);}});
+  if(!alternativas)banco.filter(function(item){ return item.tipo === q.tipo; }).forEach(agregar);
+  banco.forEach(agregar);
+  if (candidatos.length < 3) CONTENIDO.temas.forEach(function(t){ t.preguntas.forEach(agregar); });
+  if (candidatos.length < 3) throw new Error('No hay suficientes opciones distintas.');
+  if(!alternativas)candidatos.sort(function(a,b){ return Math.abs(a.length-correcta.length)-Math.abs(b.length-correcta.length); });
+  var opciones = candidatos.slice(0,3), posicion = 0;
+  for (var i=0;i<q.p.length;i++) posicion = (posicion + q.p.charCodeAt(i)) % 4;
+  opciones.splice(posicion,0,correcta);
+  var visible=q.p;
+  if(q.tipo==='vf')visible='Elegí la evaluación y explicación de esta afirmación: '+q.p;
+  if(q.tipo==='guia'&&normalizarOpcion(q.p).includes('rectas paralelas'))visible=q.p+' (Rectas no verticales expresadas como y = mx + b.)';
+  if(q.tipo==='guia'&&normalizarOpcion(q.p).includes('raiz de una recta'))visible=q.p+' (Para y = mx + b, con m distinto de cero.)';
+  return Object.assign({},q,{tipo:'mc',o:opciones,c:posicion,e:q.e || q.r || correcta,enunciadoSeleccion:visible});
+}
+
 function quiz(t, body){
   var idx = 0, ok = 0, done = false, iniciado = false, fallos = [];
   var totTipo = { mc: 0, vf: 0, completar: 0, guia: 0 }, okTipo = { mc: 0, vf: 0, completar: 0, guia: 0 };
@@ -7986,7 +8049,7 @@ function quiz(t, body){
       var n = ({ corta: 5, media: 10, larga: 15, completa: 20 })[cant];
       base = (cant === 'todas' || n === undefined) ? barajadas : barajadas.slice(0, n);
     }
-    cola = base.map(prepPregunta);
+    cola = base.map(function(q){ return prepPregunta(preguntaSeleccion(q, t.preguntas)); });
     totTipo = { mc: 0, vf: 0, completar: 0, guia: 0 };
     okTipo = { mc: 0, vf: 0, completar: 0, guia: 0 };
     cola.forEach(function(c){ totTipo[c.tipo]++; });
@@ -8000,7 +8063,7 @@ function quiz(t, body){
       var nEstr = estrellasTema(t.id).length;
       var opts = [['corta', 5], ['media', 10], ['larga', 15], ['completa', 20], ['todas', barajadas.length]];
       body.innerHTML = '<div class="card"><h2>Examen · ' + t.nombre + '</h2>' +
-        '<p class="sub">Hay ' + barajadas.length + ' preguntas cargadas. ¿Cuántas querés responder?</p>' +
+        '<p class="sub">Hay ' + barajadas.length + ' preguntas de opción múltiple. Elegí una respuesta por pregunta. ¿Cuántas querés responder?</p>' +
         '<div class="row" id="qOpts">' + opts.map(function(o){
           return '<button class="bigbtn" data-cant="' + o[0] + '">' + (o[0] === 'todas' ? 'Todas (' + o[1] + ')' : o[1]) + ' preguntas</button>';
         }).join('') +
@@ -8063,13 +8126,13 @@ function quiz(t, body){
       (q.img ? picHTML(q.img, 'picQ') : '') +
       (q.img2 ? picHTML(q.img2, 'picQ') : '');
     if (tipo === 'mc'){
-      html += '<h2 style="font-size:17px;line-height:1.5">' + q.p + '</h2>' +
+      html += '<h2 style="font-size:17px;line-height:1.5">' + (q.enunciadoSeleccion || q.p) + '</h2>' +
         c.orden.map(function(op, oi){ return '<button class="qbtn" data-v="' + oi + '">' + String.fromCharCode(65 + oi) + ') ' + esc(op.t) + '</button>'; }).join('');
     } else if (tipo === 'vf'){
-      html += '<h2 style="font-size:17px;line-height:1.5">' + q.p + '</h2>' +
+      html += '<h2 style="font-size:17px;line-height:1.5">' + (q.enunciadoSeleccion || q.p) + '</h2>' +
         '<button class="qbtn" data-v="0">Verdadero</button><button class="qbtn" data-v="1">Falso</button>';
     } else if (tipo === 'guia'){
-      html += '<h2 style="font-size:17px;line-height:1.5">' + q.p + '</h2>' +
+      html += '<h2 style="font-size:17px;line-height:1.5">' + (q.enunciadoSeleccion || q.p) + '</h2>' +
         '<div class="sub" style="margin:6px 0">Resolvela vos primero y después comparala con la respuesta modelo:</div>' +
         '<textarea class="txa" id="qGui" aria-label="Tu respuesta a la pregunta de la guía" rows="4" placeholder="Escribí tu respuesta (o pensala)..."></textarea>' +
         '<div class="row"><button class="bigbtn" id="qRevelar">🔎 Revelar respuesta modelo</button></div>' +
