@@ -122,7 +122,7 @@ try {
   chk(CONTENIDO.temas.length === 30, 'CONTENIDO.temas = 30 (22 previos + 6 LRE + Villar + Repaso)');
   chk(CONTENIDO.materias.length === 9, 'CONTENIDO.materias = 9 (8 previas + m_lre)');
   const tot = CONTENIDO.temas.reduce((a,t)=>a+t.preguntas.length,0);
-  chk(tot === 638, 'total de preguntas = 638 (508 previas + 97 LRE + 13 Villar + 20 Repaso)');
+  chk(tot === 648, 'total de preguntas = 648 (508 previas + 97 LRE + 13 Villar + 30 Repaso)');
   const st = CONTENIDO.temas.find(t => t.id === 'sust_peligrosas');
   const stGrids = st ? st.secciones.filter(s => s.grid).length : 0;
   chk(stGrids > 0, 'Sustancias Peligrosas sigue intacta (' + stGrids + ' secciones con grilla)');

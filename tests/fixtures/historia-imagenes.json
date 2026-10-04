@@ -1,0 +1,210 @@
+{
+  "images": [
+    {
+      "file": "hist_06.png",
+      "key": "hist_repaso_ituzaingo_inicial",
+      "point": 5,
+      "label": "Ituzaingó · dispositivo inicial · Clase 3, diapositiva 31",
+      "sha256": "0785897121cbde5fa12f72c31520e0f2a1c3cf635fe1a604bc85f6291c3cffad",
+      "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Unidad 2\\03_Bloque_3_Batalla_de_Ituzaingo.docx"
+    },
+    {
+      "file": "hist_07.png",
+      "key": "hist_repaso_ituzaingo_movimientos",
+      "point": 6,
+      "label": "Ituzaingó · primeros movimientos y cuadros defensivos · Clase 3, diapositiva 32",
+      "sha256": "e76fe234a27c911e4caf71a8cf73eb15324e1e7ad8176ef60f392a14c9fb0f8c",
+      "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Unidad 2\\03_Bloque_3_Batalla_de_Ituzaingo.docx"
+    },
+    {
+      "file": "hist_08.png",
+      "key": "hist_repaso_ituzaingo_ruptura",
+      "point": 7,
+      "label": "Ituzaingó · ruptura del dispositivo imperial · Clase 3, diapositiva 33",
+      "sha256": "abea845598eb0205f909ee42dbad6bdfa8218926a6d9d86308e2a09eb7ce1174",
+      "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Unidad 2\\03_Bloque_3_Batalla_de_Ituzaingo.docx"
+    },
+    {
+      "file": "hist_09.png",
+      "key": "hist_repaso_patagones",
+      "point": 10,
+      "label": "Carmen de Patagones · escenario y principales acciones · Clase 3, diapositiva 48",
+      "sha256": "81952b56b22bec06a8820c6cf26a8fcc12f7c1f6a7c9662e07c96ef9f6cc33f2",
+      "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Unidad 2\\04_Bloque_4_Carmen_de_Patagones_y_Fin_de_la_Guerra.docx"
+    },
+    {
+      "file": "hist_10.png",
+      "key": "hist_repaso_obligado_terreno",
+      "point": 14,
+      "label": "Vuelta de Obligado · emplazamiento y cadenas · Clase 3, diapositiva 61",
+      "sha256": "7a7de75b89b776f48269b5fdf84d878f1d8c7e7e1f0f32756fa155f77e9ad613",
+      "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Unidad 2\\06_Bloque_6_Vuelta_de_Obligado_y_Consecuencias.docx"
+    },
+    {
+      "file": "hist_11.png",
+      "key": "hist_repaso_obligado_dispositivo",
+      "point": 16,
+      "label": "Vuelta de Obligado · dispositivo de la defensa · Clase 3, diapositiva 66",
+      "sha256": "c43b2b74801b7a585d762a3b41f49bae57cf38f0ac233b7cfc24532d0cf99a14",
+      "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Unidad 2\\06_Bloque_6_Vuelta_de_Obligado_y_Consecuencias.docx"
+    },
+    {
+      "file": "hist_18.png",
+      "key": "hist_repaso_tuyuti",
+      "point": 19,
+      "label": "Tuyutí · esquema original de la clase UD 3 (2026), página 66",
+      "sha256": "6f5714f29132e6e2815a66af2769bf8652b4b52a2cd39f1f2840c0c74f420b9a",
+      "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Cuestinario ud 2 y 3\\Guia_Estudio_UD3_Triple_Alianza_2026_Organizada.docx"
+    },
+    {
+      "file": "hist_19.png",
+      "key": "hist_repaso_curupayti",
+      "point": 20,
+      "label": "Curupaytí · esquema original de la clase UD 3 (2026), página 87",
+      "sha256": "9cb626b7a8c880697adde16666dec226367e91ee1019904360a4778a5a0a5e80",
+      "source": "D:\\Eve\\CFE\\MATERIAS\\HISTORIA\\Cuestinario ud 2 y 3\\Guia_Estudio_UD3_Triple_Alianza_2026_Organizada.docx"
+    }
+  ],
+  "visualQuestions": [
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_ituzaingo_ruptura",
+      "p": "Reconocimiento visual 1 · ¿Qué batalla o combate corresponde al esquema?",
+      "o": [
+        "Ituzaingó",
+        "Carmen de Patagones",
+        "Vuelta de Obligado",
+        "Tuyutí"
+      ],
+      "c": 0,
+      "e": "Ituzaingó. El bloque de Ituzaingó explica las cargas de caballería, el apoyo de artillería y la presión sobre los flancos que quebró el dispositivo imperial. El esquema muestra la ruptura y la muerte de Brandsen. Fuente: 03_Bloque_3_Batalla_de_Ituzaingo.docx · Desarrollo · Clase 3, diapositiva 33."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_ituzaingo_ruptura",
+      "p": "Reconocimiento táctico 1 · ¿Qué combinación de batalla y operación corresponde a la batalla representada?",
+      "o": [
+        "Ituzaingó — Cargas de caballería republicana apoyadas por artillería y desborde de flancos.",
+        "Ituzaingó — Defensa local basada en terreno, engaño y combinación de fuego terrestre y naval.",
+        "Carmen de Patagones — Cargas de caballería republicana apoyadas por artillería y desborde de flancos.",
+        "Carmen de Patagones — Defensa local basada en terreno, engaño y combinación de fuego terrestre y naval."
+      ],
+      "c": 0,
+      "e": "El bloque de Ituzaingó explica las cargas de caballería, el apoyo de artillería y la presión sobre los flancos que quebró el dispositivo imperial. El esquema muestra la ruptura y la muerte de Brandsen. Fuente: 03_Bloque_3_Batalla_de_Ituzaingo.docx · Desarrollo · Clase 3, diapositiva 33."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_patagones",
+      "p": "Reconocimiento visual 2 · ¿Qué batalla o combate corresponde al esquema?",
+      "o": [
+        "Ituzaingó",
+        "Carmen de Patagones",
+        "Vuelta de Obligado",
+        "Tuyutí"
+      ],
+      "c": 1,
+      "e": "Carmen de Patagones. La guía describe una victoria defensiva asimétrica: terreno, engaño, corsarios y participación local. El mapa ubica el escenario y las acciones; el empleo del engaño se estudia con el texto del repaso. Fuente: 04_Bloque_4_Carmen_de_Patagones_y_Fin_de_la_Guerra.docx · Secuencia del combate y conclusión táctica."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_patagones",
+      "p": "Reconocimiento táctico 2 · ¿Qué combinación de batalla y operación corresponde a la batalla representada?",
+      "o": [
+        "Carmen de Patagones — Defensa fluvial con cadenas, pontones y baterías costeras para obstaculizar el paso naval.",
+        "Carmen de Patagones — Defensa local basada en terreno, engaño y combinación de fuego terrestre y naval.",
+        "Vuelta de Obligado — Defensa local basada en terreno, engaño y combinación de fuego terrestre y naval.",
+        "Vuelta de Obligado — Defensa fluvial con cadenas, pontones y baterías costeras para obstaculizar el paso naval."
+      ],
+      "c": 1,
+      "e": "La guía describe una victoria defensiva asimétrica: terreno, engaño, corsarios y participación local. El mapa ubica el escenario y las acciones; el empleo del engaño se estudia con el texto del repaso. Fuente: 04_Bloque_4_Carmen_de_Patagones_y_Fin_de_la_Guerra.docx · Secuencia del combate y conclusión táctica."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_obligado_terreno",
+      "p": "Reconocimiento visual 3 · ¿Qué batalla o combate corresponde al esquema?",
+      "o": [
+        "Ituzaingó",
+        "Carmen de Patagones",
+        "Vuelta de Obligado",
+        "Tuyutí"
+      ],
+      "c": 2,
+      "e": "Vuelta de Obligado. El dispositivo defensivo aprovecha el angostamiento y la curva del Paraná. Cadenas sobre pontones y baterías en las barrancas dificultan el paso y exponen los buques al fuego costero. Fuente: 06_Bloque_6_Vuelta_de_Obligado_y_Consecuencias.docx · Organización de la defensa."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_obligado_terreno",
+      "p": "Reconocimiento táctico 3 · ¿Qué combinación de batalla y operación corresponde a la batalla representada?",
+      "o": [
+        "Vuelta de Obligado — Ataque paraguayo por sorpresa y envolvimiento contra el campamento aliado.",
+        "Tuyutí — Defensa fluvial con cadenas, pontones y baterías costeras para obstaculizar el paso naval.",
+        "Vuelta de Obligado — Defensa fluvial con cadenas, pontones y baterías costeras para obstaculizar el paso naval.",
+        "Tuyutí — Ataque paraguayo por sorpresa y envolvimiento contra el campamento aliado."
+      ],
+      "c": 2,
+      "e": "El dispositivo defensivo aprovecha el angostamiento y la curva del Paraná. Cadenas sobre pontones y baterías en las barrancas dificultan el paso y exponen los buques al fuego costero. Fuente: 06_Bloque_6_Vuelta_de_Obligado_y_Consecuencias.docx · Organización de la defensa."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_tuyuti",
+      "p": "Reconocimiento visual 4 · ¿Qué batalla o combate corresponde al esquema?",
+      "o": [
+        "Ituzaingó",
+        "Carmen de Patagones",
+        "Vuelta de Obligado",
+        "Tuyutí"
+      ],
+      "c": 3,
+      "e": "Tuyutí. El repaso destaca la sorpresa y el envolvimiento paraguayo; la guía organizada de UD 3 desarrolla un plan de doble envolvimiento. No confundirlo con el asalto frontal aliado de Curupaytí. La cantidad de columnas no se evalúa en esta pregunta. Fuente: Guia_Estudio_UD3_Triple_Alianza_2026_Organizada.docx · Tuyutí, plan ofensivo y esquema de página 66; Repaso, punto 19."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_tuyuti",
+      "p": "Reconocimiento táctico 4 · ¿Qué combinación de batalla y operación corresponde a la batalla representada?",
+      "o": [
+        "Tuyutí — Asalto frontal aliado contra posiciones paraguayas fortificadas, por terreno pantanoso.",
+        "Curupaytí — Ataque paraguayo por sorpresa y envolvimiento contra el campamento aliado.",
+        "Curupaytí — Asalto frontal aliado contra posiciones paraguayas fortificadas, por terreno pantanoso.",
+        "Tuyutí — Ataque paraguayo por sorpresa y envolvimiento contra el campamento aliado."
+      ],
+      "c": 3,
+      "e": "El repaso destaca la sorpresa y el envolvimiento paraguayo; la guía organizada de UD 3 desarrolla un plan de doble envolvimiento. No confundirlo con el asalto frontal aliado de Curupaytí. La cantidad de columnas no se evalúa en esta pregunta. Fuente: Guia_Estudio_UD3_Triple_Alianza_2026_Organizada.docx · Tuyutí, plan ofensivo y esquema de página 66; Repaso, punto 19."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_curupayti",
+      "p": "Reconocimiento visual 5 · ¿Qué batalla o combate corresponde al esquema?",
+      "o": [
+        "Curupaytí",
+        "Ituzaingó",
+        "Carmen de Patagones",
+        "Vuelta de Obligado"
+      ],
+      "c": 0,
+      "e": "Curupaytí. La guía describe un bombardeo naval previo y un asalto frontal aliado contra defensas paraguayas con fosos, abatís y artillería. El terreno pantanoso y la preparación insuficiente favorecieron a los defensores. Fuente: Guia_Estudio_UD3_Triple_Alianza_2026_Organizada.docx · Curupaytí, plan aliado y esquema de página 87; Repaso, punto 20."
+    },
+    {
+      "tipo": "mc",
+      "visual": true,
+      "img": "hist_repaso_curupayti",
+      "p": "Reconocimiento táctico 5 · ¿Qué combinación de batalla y operación corresponde a la batalla representada?",
+      "o": [
+        "Curupaytí — Asalto frontal aliado contra posiciones paraguayas fortificadas, por terreno pantanoso.",
+        "Curupaytí — Cargas de caballería republicana apoyadas por artillería y desborde de flancos.",
+        "Ituzaingó — Asalto frontal aliado contra posiciones paraguayas fortificadas, por terreno pantanoso.",
+        "Ituzaingó — Cargas de caballería republicana apoyadas por artillería y desborde de flancos."
+      ],
+      "c": 0,
+      "e": "La guía describe un bombardeo naval previo y un asalto frontal aliado contra defensas paraguayas con fosos, abatís y artillería. El terreno pantanoso y la preparación insuficiente favorecieron a los defensores. Fuente: Guia_Estudio_UD3_Triple_Alianza_2026_Organizada.docx · Curupaytí, plan aliado y esquema de página 87; Repaso, punto 20."
+    }
+  ]
+}

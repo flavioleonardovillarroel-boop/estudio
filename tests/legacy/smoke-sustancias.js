@@ -40,7 +40,7 @@ try {
   if (!t) throw new Error('tema sust_peligrosas no encontrado');
 
   // ---- 1. PIC registry integrity (solo los pictogramas ADR: el registro tambien tiene las imagenes LRE)
-  const keys = Object.keys(PIC).filter(k => k.indexOf('lre_') !== 0);
+  const keys = Object.keys(PIC).filter(k => k.indexOf('lre_') !== 0 && k.indexOf('hist_repaso_') !== 0);
   if (keys.length !== 13) throw new Error('esperaba 13 pictogramas ADR, hay ' + keys.length);
   keys.forEach(k => { if (!PIC[k].startsWith('data:image/png;base64,iVBORw0KGgo')) throw new Error('data-URI inválida: ' + k); });
   console.log('PIC registry OK (13 data-URIs)');
