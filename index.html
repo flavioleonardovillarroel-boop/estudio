@@ -11428,7 +11428,8 @@ function fechaLarga(){
 var curMateria = null;
 function volver(temaId){
   var ms = (CONTENIDO.materias || []).filter(function(m){ return m.unidades.indexOf(temaId) !== -1; });
-  var destino = ms[0] ? ms[0].id : (curMateria && (CONTENIDO.materias || []).some(function(m){ return m.id === curMateria; }) ? curMateria : null);
+  var origen = ms.filter(function(m){ return m.id === curMateria; })[0];
+  var destino = origen ? origen.id : (ms[0] ? ms[0].id : null);
   if (destino) abrirMateria(destino);
   else home();
 }
@@ -11583,6 +11584,7 @@ function renderAlmanaque(){
   w.innerHTML = h;
 }
 function home(){
+  curMateria = null;
   var u = estUsuario();
   if (!u){ pintarLogin(); return; }
   document.getElementById('hdTitle').textContent = CONTENIDO.titulo;
