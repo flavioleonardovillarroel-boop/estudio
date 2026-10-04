@@ -1,0 +1,167 @@
+[
+  {
+    "id": "lre_novedades",
+    "key": "lre_ejemplo_novedades",
+    "title": "SRE 2408-14 · Ejemplo de llenado",
+    "rows": [
+      [
+        "Encabezamiento",
+        "INE, NI y número de serie del efecto real"
+      ],
+      [
+        "A · Referencias",
+        "Marca / modelo para identificar el efecto"
+      ],
+      [
+        "B · Estado",
+        "Símbolo que corresponda al estado real"
+      ],
+      [
+        "8 · INE de la novedad",
+        "INE del efecto que presenta la novedad"
+      ],
+      [
+        "C · Novedad",
+        "Motor recalienta (copiar del SRE 2404, col. F)"
+      ],
+      [
+        "D · Demora",
+        "Falta de repuesto · pedido ficticio REP-015"
+      ],
+      [
+        "E · Fecha de origen",
+        "04/10/2026 (ejemplo, fecha del registro de origen)"
+      ],
+      [
+        "F · Supervisor",
+        "Revisión y firma del supervisor responsable"
+      ],
+      [
+        "G · Cierre",
+        "05/10/2026 (ejemplo de corrección) + inicial en B"
+      ]
+    ],
+    "paragraphs": [
+      "Ejemplo de práctica con datos ficticios para efectos distintos de aeronaves. Primero se registra la novedad; luego, cuando se corrige, se completa el cierre. Las fechas y el número de pedido son ilustrativos.",
+      "1. Identificá el efecto con INE, NI, serie y referencias. En B usá el símbolo que corresponda al estado real según el material; no reemplaces el símbolo por una descripción inventada. En el campo 8 del bloque Novedades, repetí la INE del efecto que presenta la novedad.",
+      "2. En C transcribí la descripción de la columna F del SRE 2404. En el ejemplo: «Motor recalienta». Si todavía no se repara por falta de repuesto, explicalo en D y anotá el número del pedido de reposición.",
+      "3. En E colocá la fecha del registro de origen. El supervisor revisa y firma en F. Una vez corregido, anotá la fecha correspondiente en G; el responsable coloca su inicial sobre el símbolo de B para anularlo.",
+      "Fuente: guía SRE 2408-14 y 2408-3, bloques Encabezamiento y Novedades. Para aeronaves, consultá las instrucciones particulares del documento."
+    ]
+  },
+  {
+    "id": "lre_correctivo",
+    "key": "lre_ejemplo_correctivo",
+    "title": "SRE 2408-3 · Ejemplo de llenado",
+    "rows": [
+      [
+        "A / B · Encabezamiento",
+        "Costo del efecto y topes reales aplicables"
+      ],
+      [
+        "C · Detección / síntoma",
+        "D: operación normal / 258: recalienta"
+      ],
+      [
+        "D · Ejecutor",
+        "Sigla de la unidad que realiza el trabajo"
+      ],
+      [
+        "E · Acción",
+        "K: reparado (ejemplo de acción)"
+      ],
+      [
+        "F · Tipo / causa",
+        "Código de Tablas I y II según la falla real"
+      ],
+      [
+        "G · Trabajo",
+        "Reparación del sistema de refrigeración"
+      ],
+      [
+        "H · OT / SRE",
+        "OT-001 (número ficticio del pedido SRE 2407)"
+      ],
+      [
+        "J · Horas-hombre",
+        "2 horas-hombre enteras (ejemplo)"
+      ],
+      [
+        "K / L · Costos",
+        "Mano de obra: $3.000 / repuestos: $1.000"
+      ],
+      [
+        "M · Acumulado",
+        "Anterior $10.000 + $3.000 + $1.000 = $14.000"
+      ]
+    ],
+    "paragraphs": [
+      "Esquema de práctica con datos ficticios; no es una orden de trabajo real ni una tabla de tarifas. El ejemplo supone una falla de recalentamiento detectada durante la operación normal y una reparación posterior.",
+      "1. Completá el costo de adquisición y los topes aplicables con los datos reales del efecto. En C, elegí la actividad en la Tabla III y el síntoma en la Tabla IV: D = operación normal; 258 = recalienta.",
+      "2. En D anotá la sigla de la unidad ejecutora. En E, la acción de Tabla V: K = reparado. En F consultá las Tablas I y II según la causa realmente diagnosticada; el síntoma por sí solo no permite inventar ese código.",
+      "3. Describí el trabajo e identificá la parte en G. Vinculá H con el número del pedido SRE 2407. En J registrá las horas-hombre enteras empleadas.",
+      "4. Calculá M sumando K + L + el acumulado del renglón anterior. Ejemplo: $3.000 de mano de obra + $1.000 de repuestos + $10.000 anteriores = $14.000.",
+      "Fuente: guía SRE 2408-14 y 2408-3, Encabezamiento, Reparaciones / Inspecciones y Anexo 4 del material. El SRE 2407 no lo confecciona el usuario."
+    ]
+  },
+  {
+    "id": "lre_preventivo",
+    "key": "lre_ejemplo_preventivo",
+    "title": "SRE 2408-1 · Ejemplo de llenado",
+    "rows": [
+      [
+        "A / B · Próximos servicios",
+        "Lecturas previstas por el plan y guía aplicables"
+      ],
+      [
+        "C · Combustible",
+        "20 litros agregados (ejemplo)"
+      ],
+      [
+        "D / E · Mantenimiento",
+        "Servicio realizado / símbolo según SRE 2403"
+      ],
+      [
+        "F · Novedades pendientes",
+        "Transcribir las pendientes que figuren en SRE 2404"
+      ],
+      [
+        "G · En servicio",
+        "Tilde si está disponible; si no, símbolo de estado"
+      ],
+      [
+        "H / J · Fuera de servicio",
+        "Días reales en Orgánico / Apoyo"
+      ],
+      [
+        "K / L · Lubricación / aceite",
+        "Servicio efectuado / motor: 2 litros (ejemplo)"
+      ],
+      [
+        "M · Filtros",
+        "C · 1 cambio (ejemplo de resumen por período)"
+      ],
+      [
+        "N / P · Engrase / observaciones",
+        "1 servicio (ejemplo) / observaciones pertinentes"
+      ],
+      [
+        "Resumen por período",
+        "Mensual: doble raya negra; semestral: verde; anual: rojo"
+      ],
+      [
+        "Totales del período",
+        "Combustible, aceite por componente, servicios y días"
+      ]
+    ],
+    "paragraphs": [
+      "Ejemplo de práctica con cantidades ficticias. No establece frecuencias de mantenimiento ni tipos de aceite: A y B se completan según el plan y la guía que correspondan al efecto real.",
+      "1. En el encabezamiento, colocá las lecturas previstas para el próximo mantenimiento y la próxima lubricación. En C anotá el combustible agregado: en este ejemplo, 20 litros.",
+      "2. Registrá el mantenimiento en D y su tipo en E con el símbolo del SRE 2403. Las novedades pendientes de F deben figurar en el SRE 2404. En G marcá disponibilidad; en H y J anotá los días fuera de servicio que correspondan.",
+      "3. En K registrá el servicio de lubricación. En L separá los litros de aceite por componente: el ejemplo indica 2 litros para motor. Para el resumen de filtros, C = cambio y S = servicio, junto a la cantidad de veces; el ejemplo muestra un cambio.",
+      "4. En N anotá la cantidad de servicios de engrase y en P las observaciones. Consolidá las lecturas y la actividad del período; distinguí el resumen mensual con doble raya negra, el semestral en verde y el anual en rojo.",
+      "Fuente: guía SRE 2408-1, bloques de próximos servicios, registro de servicios y resumen por períodos.",
+      "5. En el resumen del período, totalizá combustible agregado y litros de aceite por componente. Contabilizá servicios de mantenimiento por tipo, las novedades más importantes, días disponibles y días fuera de servicio en Orgánico y Apoyo. Consolidá también lubricación, filtros (C o S y cantidad), engrase y las lecturas de distancia, horas, disparos o acciones que correspondan."
+    ]
+  }
+]

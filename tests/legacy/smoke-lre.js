@@ -71,7 +71,7 @@ try {
 
   // ---- 3. imagenes
   const lreKeys = Object.keys(PIC).filter(k => k.indexOf('lre_') === 0);
-  chk(lreKeys.length === 23, 'PIC tiene 23 imagenes LRE (hay ' + lreKeys.length + ')');
+  chk(lreKeys.length === 26, 'PIC tiene 26 imagenes LRE (hay ' + lreKeys.length + ')');
   chk(lreKeys.every(k => /^data:image\/jpeg;base64,/.test(PIC[k])), 'todas son JPEG data-URI validas');
   chk(lreKeys.every(k => !!PICLAB[k]), 'toda imagen LRE tiene rotulo en PICLAB');
   chk(!Object.keys(PICLAB).some(k => k.indexOf('lre_') !== 0 && !Object.keys(PIC).includes(k)),

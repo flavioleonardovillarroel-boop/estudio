@@ -75,7 +75,7 @@ try {
   }
   const enM = {};
   materias.forEach(m => m.unidades.forEach(u => enM[u] = (enM[u] || 0) + 1));
-  for (const k in enM) if (enM[k] > 1) { console.log("ERROR: tema en 2 materias:", k); process.exit(1); }
+  for (const k in enM) if (enM[k] > 1) { const owners=materias.filter(m=>m.unidades.includes(k)).map(m=>m.id).sort(); const lre=materias.find(m=>m.id==="m_lre"); const sharedLRE=lre.unidades.includes(k)&&owners.join(",")==="m_logistica,m_lre"; if(!sharedLRE){ console.log("ERROR: tema compartido fuera de LRE y Logistica:", k); process.exit(1); } }
   console.log("TOTAL preguntas:", c.temas.reduce((a, t) => a + t.preguntas.length, 0));
 } catch (e) {
   console.log("ERROR eval:", e.message);
