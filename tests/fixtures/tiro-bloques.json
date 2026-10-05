@@ -1,0 +1,1347 @@
+[
+  {
+    "tipo": "p",
+    "texto": "GUÍA DE ESTUDIO"
+  },
+  {
+    "tipo": "p",
+    "texto": "EXAMEN PARCIAL — TIRO"
+  },
+  {
+    "tipo": "p",
+    "texto": "Sesión MOTE · Sectores · Seguridad · Condiciones Básicas e Intermedias · FAL · Browning 9 mm"
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Objetivo: Repasar los conceptos que tienen más probabilidad de aparecer en el parcial, con cuadros comparativos y preguntas de autocorrección."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Base: RFD 51-03 para la progresión MOTE; complemento con RFP 79-03 (FAL/FAP) y RFP 79-08 (pistola) disponibles públicamente. Cuando una exigencia depende de la versión del reglamento o de la orden de tiro local, se indica expresamente."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "1. SESIÓN DE TIRO MOTE"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "MOTE significa Método Optimizado para el Tiro de Escuela. La progresión es el eje de la instrucción: primero se consolidan destrezas básicas y luego se incorporan exigencias mayores. La instrucción preparatoria y la ejecución del tiro forman un circuito continuo de diagnóstico, corrección y evaluación."
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Idea central: MOTE = instruir → ejecutar → evaluar → detectar errores → corregir → volver a ejecutar."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "Cuatro fundamentos que tenés que asociar al MOTE"
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "FUNDAMENTO"
+        ],
+        [
+          "IDEA PARA RECORDAR"
+        ]
+      ],
+      [
+        [
+          "Adaptación del arma al hombre"
+        ],
+        [
+          "El arma y sus órganos de puntería se ajustan al tirador; no se busca forzar al hombre a adaptarse de manera artificial."
+        ]
+      ],
+      [
+        [
+          "Reducción de la dispersión"
+        ],
+        [
+          "La agrupación permite medir la precisión y detectar errores de ejecución."
+        ]
+      ],
+      [
+        [
+          "Imagen de puntería normalizada"
+        ],
+        [
+          "Se busca una referencia de puntería uniforme y repetible."
+        ]
+      ],
+      [
+        [
+          "Integración instrucción–tiro"
+        ],
+        [
+          "Lo practicado en seco y en la instrucción se comprueba con tiro real; los errores vuelven al circuito correctivo."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "p",
+    "texto": "Destrezas básicas del tirador"
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "N.º"
+        ],
+        [
+          "DESTREZA"
+        ],
+        [
+          "CLAVE"
+        ]
+      ],
+      [
+        [
+          "1"
+        ],
+        [
+          "Posición del tirador"
+        ],
+        [
+          "Estabilidad y naturalidad."
+        ]
+      ],
+      [
+        [
+          "2"
+        ],
+        [
+          "Puntería"
+        ],
+        [
+          "Alineación correcta de los órganos de puntería y punto para apuntar."
+        ]
+      ],
+      [
+        [
+          "3"
+        ],
+        [
+          "Respiración"
+        ],
+        [
+          "Control respiratorio para evitar movimientos innecesarios."
+        ]
+      ],
+      [
+        [
+          "4"
+        ],
+        [
+          "Acción del dedo"
+        ],
+        [
+          "Presión controlada sobre la cola del disparador, sin tironear."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Mnemotecnia: P – P – R – D: Posición, Puntería, Respiración, Dedo."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "2. SECTORES DE UNA SESIÓN MOTE"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "La sesión se organiza como un sistema de TRES sectores interdependientes. Cada sector cumple una función específica y permite integrar ejecución, apoyo, corrección, mantenimiento y administración."
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "SECTOR"
+        ],
+        [
+          "RESPONSABLE"
+        ],
+        [
+          "LUGARES / COMPONENTES"
+        ]
+      ],
+      [
+        [
+          "Sector de tiro"
+        ],
+        [
+          "Director de tiro"
+        ],
+        [
+          "Línea de blancos · línea(s) de tiro · línea de espera."
+        ]
+      ],
+      [
+        [
+          "Sector de preparación"
+        ],
+        [
+          "Coordinador"
+        ],
+        [
+          "Entrega/recepción de blancos · escribiente · entrega de munición · limpieza de armamento."
+        ]
+      ],
+      [
+        [
+          "Sector de instrucción"
+        ],
+        [
+          "Instructor"
+        ],
+        [
+          "Pelotones de instrucción/correctivos · práctica en seco."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "p",
+    "texto": "¿Qué se hace en cada sector?"
+  },
+  {
+    "tipo": "p",
+    "texto": "Sector de tiro: se ejecutan las condiciones previstas, se cumplen órdenes del Director de Tiro y se controla la seguridad."
+  },
+  {
+    "tipo": "p",
+    "texto": "Línea de espera: se reúnen las tandas próximas a tirar, ya preparadas con los elementos necesarios."
+  },
+  {
+    "tipo": "p",
+    "texto": "Sector de preparación: sostiene el circuito administrativo y logístico de la sesión."
+  },
+  {
+    "tipo": "p",
+    "texto": "Sector de instrucción: perfecciona destrezas; incluye instrucción preparatoria, correctiva y práctica en seco."
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Pregunta probable: ¿Cuántos sectores tiene una sesión MOTE? → TRES: tiro, preparación e instrucción."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "3. MEDIDAS DE SEGURIDAD"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "La seguridad es prioritaria durante toda la sesión. Las medidas deben ser conocidas, comprendidas y aplicadas en forma práctica. Las órdenes del Director de Tiro y del Oficial de Seguridad se cumplen estrictamente."
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "REGLA"
+        ],
+        [
+          "FORMULACIÓN PARA EL EXAMEN"
+        ]
+      ],
+      [
+        [
+          "1"
+        ],
+        [
+          "Tratar toda arma como si estuviera cargada."
+        ]
+      ],
+      [
+        [
+          "2"
+        ],
+        [
+          "Mantener siempre la boca del arma en una dirección segura; no apuntar a aquello que no corresponda batir."
+        ]
+      ],
+      [
+        [
+          "3"
+        ],
+        [
+          "Mantener el dedo fuera del arco guardamonte y el seguro colocado hasta el momento de efectuar el disparo."
+        ]
+      ],
+      [
+        [
+          "4"
+        ],
+        [
+          "Identificar claramente el blanco y considerar lo que se encuentra detrás de él."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "p",
+    "texto": "En el polígono"
+  },
+  {
+    "tipo": "p",
+    "texto": "No manipular el arma fuera de la orden o procedimiento establecido para la sesión."
+  },
+  {
+    "tipo": "p",
+    "texto": "Respetar la línea de espera, la línea de tiro y las voces de mando."
+  },
+  {
+    "tipo": "p",
+    "texto": "Antes de tirar, realizar la práctica en seco de la condición cuando corresponda."
+  },
+  {
+    "tipo": "p",
+    "texto": "Ante una interrupción o novedad, mantener la disciplina de seguridad y actuar según las órdenes del personal responsable."
+  },
+  {
+    "tipo": "p",
+    "texto": "La condición de tiro no tiene prioridad sobre la seguridad: ante una situación insegura, la actividad se detiene."
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Regla de oro: SEGURIDAD primero; condición de tiro después."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "4. CONDICIONES DE TIRO — BÁSICAS E INTERMEDIAS"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "En el tiro escuela las condiciones se agrupan por categorías progresivas. Para FAL/FAP, el reglamento organiza la progresión en Básica, Intermedia y Avanzada. El parcial pedido se centra en Básicas e Intermedias."
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "CATEGORÍA"
+        ],
+        [
+          "FINALIDAD GENERAL"
+        ],
+        [
+          "QUÉ AUMENTA"
+        ]
+      ],
+      [
+        [
+          "Básica"
+        ],
+        [
+          "Formar destrezas individuales y certificar el dominio elemental del conjunto hombre–arma."
+        ],
+        [
+          "Posiciones básicas, puntería, control del disparo y precisión."
+        ]
+      ],
+      [
+        [
+          "Intermedia"
+        ],
+        [
+          "Consolidar eficacia y destreza desde posiciones más estables, a distancias largas y medias."
+        ],
+        [
+          "Multiplicidad de blancos, exigencia de tiempo, cambios de posición/cargador, agitación y resolución de problemas."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "p",
+    "texto": "Secuencia general del tiro escuela con FAL"
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Secuencia: Adaptación → Diagnóstico I / Diagnóstico II → condiciones de categoría → evaluación."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "Categoría Básica — puntos que conviene memorizar"
+  },
+  {
+    "tipo": "p",
+    "texto": "La evaluación básica anual del FAL corresponde a la condición B9 en la edición consultada."
+  },
+  {
+    "tipo": "p",
+    "texto": "La B9 evalúa el conjunto hombre–arma desde las cuatro posiciones básicas."
+  },
+  {
+    "tipo": "p",
+    "texto": "La evaluación básica combina blancos a distintas distancias, cambios de posición y control del arma."
+  },
+  {
+    "tipo": "p",
+    "texto": "La clasificación se realiza según cantidad de impactos; en el examen escrito suele importar más la finalidad y la progresión que memorizar cada dato numérico."
+  },
+  {
+    "tipo": "p",
+    "texto": "Categoría Intermedia — puntos que conviene memorizar"
+  },
+  {
+    "tipo": "p",
+    "texto": "La edición consultada registra condiciones I1 a I6 y una evaluación I7."
+  },
+  {
+    "tipo": "p",
+    "texto": "Las primeras condiciones trabajan efectividad sobre blancos múltiples a distancias largas y medias, con exigencia de tiempo."
+  },
+  {
+    "tipo": "p",
+    "texto": "Luego aumenta la destreza: adopción/cambio de posiciones, cambios de cargador, agitación respiratoria, blancos semidescubiertos y resolución de interrupciones."
+  },
+  {
+    "tipo": "p",
+    "texto": "La evaluación I7 certifica la categoría intermedia en la edición consultada."
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Ojo: La numeración exacta de condiciones puede variar entre ediciones/órdenes de tiro. Para el parcial, priorizá finalidad, progresión y diferencias entre Básica e Intermedia."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "5. FUSIL FAL — DATOS PARA ESTUDIAR"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "CARACTERÍSTICA"
+        ],
+        [
+          "DATO"
+        ]
+      ],
+      [
+        [
+          "Denominación"
+        ],
+        [
+          "Fusil Automático Liviano (FAL)."
+        ]
+      ],
+      [
+        [
+          "Calibre / munición"
+        ],
+        [
+          "7,62 × 51 mm OTAN."
+        ]
+      ],
+      [
+        [
+          "Tipo"
+        ],
+        [
+          "Fusil de hombro, enfriado por aire; puede operar en semiautomático o automático según versión/configuración."
+        ]
+      ],
+      [
+        [
+          "Capacidad del cargador"
+        ],
+        [
+          "20 cartuchos."
+        ]
+      ],
+      [
+        [
+          "Longitud del cañón"
+        ],
+        [
+          "533 mm."
+        ]
+      ],
+      [
+        [
+          "Rayado"
+        ],
+        [
+          "4 estrías de paso derecho."
+        ]
+      ],
+      [
+        [
+          "Cadencia automática teórica"
+        ],
+        [
+          "Aproximadamente 650–700 disparos por minuto."
+        ]
+      ],
+      [
+        [
+          "Sistema de puntería"
+        ],
+        [
+          "Guión y alza; en FAL II/IV el alza es graduable por distancias."
+        ]
+      ],
+      [
+        [
+          "Principio de funcionamiento"
+        ],
+        [
+          "Toma de gases."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Para memorizar: FAL = 7,62 × 51 · cargador 20 · toma de gases · semiautomático/automático."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "Posiciones básicas asociadas al tiro escuela con FAL"
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "POSICIÓN"
+        ],
+        [
+          "ABREVIATURA HABITUAL"
+        ],
+        [
+          "IDEA"
+        ]
+      ],
+      [
+        [
+          "Tendido con apoyo"
+        ],
+        [
+          "TAP / TAG según variante"
+        ],
+        [
+          "Mayor estabilidad."
+        ]
+      ],
+      [
+        [
+          "Tendido sin apoyo"
+        ],
+        [
+          "TSA"
+        ],
+        [
+          "Estable, sin apoyo externo."
+        ]
+      ],
+      [
+        [
+          "Rodilla a tierra"
+        ],
+        [
+          "RAT"
+        ],
+        [
+          "Posición intermedia."
+        ]
+      ],
+      [
+        [
+          "Pie a brazo libre"
+        ],
+        [
+          "PBL"
+        ],
+        [
+          "Menor estabilidad; exige mayor control."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "6. PISTOLA BROWNING 9 mm — DATOS PARA ESTUDIAR"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "CARACTERÍSTICA"
+        ],
+        [
+          "DATO"
+        ]
+      ],
+      [
+        [
+          "Denominación habitual"
+        ],
+        [
+          "Browning GP-35 / FM licencia Browning, según modelo de dotación."
+        ]
+      ],
+      [
+        [
+          "Clasificación"
+        ],
+        [
+          "Arma corta, portátil y de puño."
+        ]
+      ],
+      [
+        [
+          "Funcionamiento"
+        ],
+        [
+          "Semiautomático."
+        ]
+      ],
+      [
+        [
+          "Acción"
+        ],
+        [
+          "Simple acción en la GP-35 clásica."
+        ]
+      ],
+      [
+        [
+          "Calibre"
+        ],
+        [
+          "9 × 19 mm."
+        ]
+      ],
+      [
+        [
+          "Capacidad habitual del cargador"
+        ],
+        [
+          "13 cartuchos en la GP-35 clásica."
+        ]
+      ],
+      [
+        [
+          "Longitud total"
+        ],
+        [
+          "Aproximadamente 197 mm."
+        ]
+      ],
+      [
+        [
+          "Longitud del cañón"
+        ],
+        [
+          "Aproximadamente 118 mm."
+        ]
+      ],
+      [
+        [
+          "Aparato de puntería"
+        ],
+        [
+          "Abierto."
+        ]
+      ],
+      [
+        [
+          "Peso con cargador vacío"
+        ],
+        [
+          "Aproximadamente 910 g."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Para memorizar: Browning GP-35 = 9 × 19 · semiautomática · simple acción · cargador de 13."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "Condiciones de tiro con pistola"
+  },
+  {
+    "tipo": "p",
+    "texto": "El RFP 79-08 establece una progresión por niveles. Las condiciones básicas son obligatorias y comunes; las intermedias corresponden al personal cuyo rol de combate requiere portar pistola. La condición B6 certifica al tirador para guardia en instalaciones fijas u otros servicios de armas con pistola."
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "Importante: No memorices números de condiciones de pistola que no te haya dado el instructor: usá la orden de tiro o el RFP 79-08 vigente para confirmar la tabla exacta."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "7. FAL vs BROWNING — CUADRO RÁPIDO"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "ASPECTO"
+        ],
+        [
+          "FAL"
+        ],
+        [
+          "BROWNING 9 mm"
+        ]
+      ],
+      [
+        [
+          "Tipo"
+        ],
+        [
+          "Arma larga / fusil"
+        ],
+        [
+          "Arma corta / pistola"
+        ]
+      ],
+      [
+        [
+          "Calibre"
+        ],
+        [
+          "7,62 × 51 mm"
+        ],
+        [
+          "9 × 19 mm"
+        ]
+      ],
+      [
+        [
+          "Cargador"
+        ],
+        [
+          "20 cartuchos"
+        ],
+        [
+          "13 cartuchos (GP-35 clásica)"
+        ]
+      ],
+      [
+        [
+          "Funcionamiento"
+        ],
+        [
+          "Toma de gases; semiautomático/automático"
+        ],
+        [
+          "Semiautomático; simple acción clásica"
+        ]
+      ],
+      [
+        [
+          "MOTE"
+        ],
+        [
+          "Adaptación, diagnóstico, categorías y evaluación"
+        ],
+        [
+          "Progresión por niveles/condiciones de tiro"
+        ]
+      ],
+      [
+        [
+          "Prioridad común"
+        ],
+        [
+          "Seguridad, disciplina de tiro, puntería y control"
+        ],
+        [
+          "Seguridad, disciplina de tiro, puntería y control"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "8. REPASO DE 2 MINUTOS"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "TEMA"
+        ],
+        [
+          "RESPUESTA CORTA"
+        ]
+      ],
+      [
+        [
+          "¿Qué es MOTE?"
+        ],
+        [
+          "Método Optimizado para el Tiro de Escuela."
+        ]
+      ],
+      [
+        [
+          "¿Cuántos sectores?"
+        ],
+        [
+          "Tres: tiro, preparación e instrucción."
+        ]
+      ],
+      [
+        [
+          "Sector de tiro"
+        ],
+        [
+          "Línea de blancos, línea(s) de tiro y línea de espera."
+        ]
+      ],
+      [
+        [
+          "Sector de preparación"
+        ],
+        [
+          "Blancos, escribiente, munición y limpieza."
+        ]
+      ],
+      [
+        [
+          "Sector de instrucción"
+        ],
+        [
+          "Pelotones de instrucción/correctivos y práctica en seco."
+        ]
+      ],
+      [
+        [
+          "4 destrezas"
+        ],
+        [
+          "Posición, puntería, respiración, acción del dedo."
+        ]
+      ],
+      [
+        [
+          "Categoría Básica"
+        ],
+        [
+          "Destrezas individuales y dominio elemental."
+        ]
+      ],
+      [
+        [
+          "Categoría Intermedia"
+        ],
+        [
+          "Mayor eficacia/destreza, distancias largas-medias y exigencias adicionales."
+        ]
+      ],
+      [
+        [
+          "FAL"
+        ],
+        [
+          "7,62×51 · cargador 20 · toma de gases."
+        ]
+      ],
+      [
+        [
+          "Browning"
+        ],
+        [
+          "9×19 · semiautomática · simple acción · cargador 13."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "9. AUTOEVALUACIÓN CON RESPUESTAS"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "1. ¿Qué significa MOTE?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Método Optimizado para el Tiro de Escuela."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "2. ¿Cuál es la idea central del método?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Integrar instrucción, ejecución, evaluación, diagnóstico y corrección de manera progresiva."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "3. ¿Cuáles son los tres sectores de una sesión MOTE?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Sector de tiro, sector de preparación y sector de instrucción."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "4. ¿Qué integra el sector de tiro?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Línea de blancos, línea(s) de tiro y línea de espera."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "5. ¿Qué integra el sector de preparación?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Entrega/recepción de blancos, escribiente, entrega de munición y limpieza de armamento."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "6. ¿Qué integra el sector de instrucción?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Pelotones de instrucción/correctivos y práctica en seco."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "7. ¿Cuáles son las cuatro destrezas básicas?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Posición del tirador, puntería, respiración y acción del dedo."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "8. Enumere las cuatro reglas de seguridad."
+        ]
+      ],
+      [
+        [
+          "Respuesta: Tratar el arma como cargada; boca en dirección segura; dedo fuera del guardamonte y seguro hasta el disparo; identificar blanco y lo que hay detrás."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "9. ¿Qué finalidad general tiene la categoría Básica?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Capacitar y certificar destrezas individuales del tirador."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "10. ¿Qué aumenta en la categoría Intermedia?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: Distancias largas/medias, blancos múltiples, tiempo, cambios de posición/cargador y otras exigencias de destreza."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "11. ¿Calibre y capacidad del FAL?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: 7,62 × 51 mm OTAN y cargador de 20 cartuchos."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "12. ¿Calibre y capacidad de la Browning GP-35?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: 9 × 19 mm y cargador clásico de 13 cartuchos."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "13. ¿Qué condición evalúa la categoría Básica del FAL en la edición consultada?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: B9."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "14. ¿Qué condición evalúa la categoría Intermedia del FAL en la edición consultada?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: I7."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "15. ¿Qué condición de pistola certifica para guardia en instalaciones fijas según RFP 79-08?"
+        ]
+      ],
+      [
+        [
+          "Respuesta: B6."
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": ""
+  },
+  {
+    "tipo": "tabla",
+    "filas": [
+      [
+        [
+          "10. FUENTES Y ALCANCE"
+        ]
+      ]
+    ]
+  },
+  {
+    "tipo": "p",
+    "texto": "Fuente doctrinaria disponible en tus archivos: RFD 51-03 “Didáctica Especial Militar”, que identifica al MOTE como técnica de enseñanza del tiro y remite al reglamento de tiro con armas portátiles."
+  },
+  {
+    "tipo": "p",
+    "texto": "Complemento utilizado: copias públicas del RFP 79-03 “Tiro con FAL y FAP” para organización de la sesión MOTE, seguridad y categorías; RFP 79-08 para la progresión con pistola; Norma DEF AyE 0896-B para datos técnicos del FAL; ficha técnica pública de la Browning GP-35 para datos generales."
+  }
+]

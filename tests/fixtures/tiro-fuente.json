@@ -1,0 +1,75 @@
+{
+  "documento": "Guia_Estudio_Parcial_Tiro_MOTE_FAL_Browning.docx",
+  "graficas": [
+    {
+      "archivo": "Infografía de instrucción de tiro MOTE.png",
+      "sha256": "4634f885712064fccc136842308d4a25117c0805e073d6ef5cddf66a798dcdf9"
+    },
+    {
+      "archivo": "Organización MOTE del polígono de tiro.png",
+      "sha256": "9b31ed1020e27a7ce60984909e10da19c1ebdbb6ca113bbdea89185db1dd8516"
+    }
+  ],
+  "pares": [
+    {
+      "p": "¿Qué significa MOTE?",
+      "a": "Método Optimizado para el Tiro de Escuela."
+    },
+    {
+      "p": "¿Cuál es la idea central del método?",
+      "a": "Integrar instrucción, ejecución, evaluación, diagnóstico y corrección de manera progresiva."
+    },
+    {
+      "p": "¿Cuáles son los tres sectores de una sesión MOTE?",
+      "a": "Sector de tiro, sector de preparación y sector de instrucción."
+    },
+    {
+      "p": "¿Qué integra el sector de tiro?",
+      "a": "Línea de blancos, línea(s) de tiro y línea de espera."
+    },
+    {
+      "p": "¿Qué integra el sector de preparación?",
+      "a": "Entrega/recepción de blancos, escribiente, entrega de munición y limpieza de armamento."
+    },
+    {
+      "p": "¿Qué integra el sector de instrucción?",
+      "a": "Pelotones de instrucción/correctivos y práctica en seco."
+    },
+    {
+      "p": "¿Cuáles son las cuatro destrezas básicas?",
+      "a": "Posición del tirador, puntería, respiración y acción del dedo."
+    },
+    {
+      "p": "Enumere las cuatro reglas de seguridad.",
+      "a": "Tratar el arma como cargada; boca en dirección segura; dedo fuera del guardamonte y seguro hasta el disparo; identificar blanco y lo que hay detrás."
+    },
+    {
+      "p": "¿Qué finalidad general tiene la categoría Básica?",
+      "a": "Capacitar y certificar destrezas individuales del tirador."
+    },
+    {
+      "p": "¿Qué aumenta en la categoría Intermedia?",
+      "a": "Distancias largas/medias, blancos múltiples, tiempo, cambios de posición/cargador y otras exigencias de destreza."
+    },
+    {
+      "p": "¿Calibre y capacidad del FAL?",
+      "a": "7,62 × 51 mm OTAN y cargador de 20 cartuchos."
+    },
+    {
+      "p": "¿Calibre y capacidad de la Browning GP-35?",
+      "a": "9 × 19 mm y cargador clásico de 13 cartuchos."
+    },
+    {
+      "p": "¿Qué condición evalúa la categoría Básica del FAL en la edición consultada?",
+      "a": "B9."
+    },
+    {
+      "p": "¿Qué condición evalúa la categoría Intermedia del FAL en la edición consultada?",
+      "a": "I7."
+    },
+    {
+      "p": "¿Qué condición de pistola certifica para guardia en instalaciones fijas según RFP 79-08?",
+      "a": "B6."
+    }
+  ]
+}

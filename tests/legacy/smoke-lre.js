@@ -119,10 +119,10 @@ try {
   chk(bodyEx.html.indexOf('LRE') !== -1, 'quiz(): muestra la materia LRE');
 
   // ---- 7. regresion: otros modulos intactos
-  chk(CONTENIDO.temas.length === 30, 'CONTENIDO.temas = 30 (22 previos + 6 LRE + Villar + UD4)');
-  chk(CONTENIDO.materias.length === 9, 'CONTENIDO.materias = 9 (8 previas + m_lre)');
+  chk(CONTENIDO.temas.length === 31, 'CONTENIDO.temas = 30 (22 previos + 6 LRE + Villar + UD4)');
+  chk(CONTENIDO.materias.length === 10, 'CONTENIDO.materias = 9 (8 previas + m_lre)');
   const tot = CONTENIDO.temas.reduce((a,t)=>a+t.preguntas.length,0);
-  chk(tot === 648, 'total de preguntas = 648 (508 previas + 97 LRE + 13 Villar + 30 UD4)');
+  chk(tot === 663, 'total de preguntas = 663 (508 previas + 97 LRE + 13 Villar + 30 UD4)');
   const st = CONTENIDO.temas.find(t => t.id === 'sust_peligrosas');
   const stGrids = st ? st.secciones.filter(s => s.grid).length : 0;
   chk(stGrids > 0, 'Sustancias Peligrosas sigue intacta (' + stGrids + ' secciones con grilla)');
