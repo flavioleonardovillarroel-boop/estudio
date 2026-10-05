@@ -214,6 +214,7 @@ html.dark .starBtn.on{ border-color:var(--gold); color:#ffc25a; }
 .ay-panel:not(.on){visibility:hidden}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 .tuti-orden label{display:block;font-weight:700;margin-bottom:8px}.tuti-orden .in{width:100%;box-sizing:border-box}.orden-lista{list-style:none;padding:0;margin:12px 0}.orden-lista li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}.orden-lista li>span{flex:1;min-width:150px}.orden-acciones{display:flex;gap:6px}.orden-acciones button{min-width:40px;min-height:40px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;cursor:pointer}.orden-acciones button:disabled{opacity:.4;cursor:default}.orden-numero{display:inline-block;align-self:flex-start;border:1px solid var(--accent);color:var(--ink);border-radius:20px;padding:3px 10px;font-size:12px;font-weight:800}.tuti-orden h3{margin-top:0}
+.cal-toggle{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;font-size:24px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);cursor:pointer}#almWrap[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -11651,6 +11652,18 @@ function moverOrdenTuti(id,delta){
 function quitarOrdenTuti(id){LS.set(KEYORDEN(),ordenMaterias().filter(function(x){return x!==id;}));refrescarOrdenTuti();}
 function cerrarOrdenTuti(){LS.set(KEYORDEN(),ordenMaterias());_ordenAbierto=false;home();}
 
+function calendarioInicioPlegado(){ return LS.get('est_' + KEYU() + 'calendario_plegado', false) === true; }
+function alternarCalendarioInicio(){
+  var w = document.getElementById('almWrap'), b = document.getElementById('calToggle');
+  if (!w || !b) return;
+  var plegado = !w.hidden;
+  w.hidden = plegado;
+  LS.set('est_' + KEYU() + 'calendario_plegado', plegado);
+  b.setAttribute('aria-expanded', String(!plegado));
+  b.setAttribute('aria-label', plegado ? 'Mostrar calendario' : 'Minimizar calendario');
+  b.innerHTML = '<span aria-hidden="true">' + (plegado ? '▸' : '▾') + '</span>';
+}
+
 function home(){
   curMateria = null;
   var u = estUsuario();
@@ -11673,7 +11686,8 @@ function home(){
     '</div></div>';
   h += cardOrdenTuti();
   h += cardProximo();
-  h += '<div class="hdiv"><h3>🗓 Calendario</h3><div class="line"></div></div><div id="almWrap"></div>';
+  var calPlegado = calendarioInicioPlegado();
+  h += '<div class="hdiv"><h3>🗓 Calendario</h3><button id="calToggle" class="cal-toggle" type="button" aria-controls="almWrap" aria-expanded="'+(!calPlegado)+'" aria-label="'+(calPlegado?'Mostrar calendario':'Minimizar calendario')+'" onclick="alternarCalendarioInicio()"><span aria-hidden="true">'+(calPlegado?'▸':'▾')+'</span></button><div class="line"></div></div><div id="almWrap"'+(calPlegado?' hidden':'')+'></div>';
   var pend = todos.filter(function(t){
     var f = fallosTema(t.id); for (var k in f){ if (f[k] > 0) return true; } return false;
   }).sort(function(a, b){
