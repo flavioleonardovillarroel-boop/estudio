@@ -116,7 +116,7 @@ try {
   evSet([
     { id:'a1', titulo:'Examen Técnica', tipo:'examen', tema:'tec_esp', fecha:iso(d5), nota:'', hecho:false },
     { id:'a2', titulo:'Entrega TP Didáctica', tipo:'tp', tema:'dem_g3', fecha:iso(d5), nota:'', hecho:false },
-    { id:'a3', titulo:'Parcial Historia', tipo:'parcial', tema:'hist_repaso', fecha:iso(d20), nota:'', hecho:false }
+    { id:'a3', titulo:'Parcial Historia', tipo:'parcial', tema:'hist_ud4', fecha:iso(d20), nota:'', hecho:false }
   ]);
   renderAlmanaque();
   const alm = els.almWrap.innerHTML;
