@@ -1,4 +1,4 @@
-const CACHE = 'estudio-v30';
+const CACHE = 'estudio-v31';
 const CACHE_PREFIX = 'estudio-v';
 const PRECACHE = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 const APP_ROOT = new URL('./', self.location.href);
