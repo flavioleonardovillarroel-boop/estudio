@@ -11093,6 +11093,16 @@ var CONTENIDO = {
   ],
   "materias": [
     {
+      "id": "m_sre_lre",
+      "nombre": "SRE y LRE",
+      "icono": "📋",
+      "clr": "#596d9b",
+      "descripcion": "Libro Registro de Efectos: formularios SRE 2408-14 y 2408-3, códigos, relación entre registros y práctica de examen.",
+      "unidades": [
+        "sre_lre_2408"
+      ]
+    },
+    {
       "id": "m_lre",
       "nombre": "LRE · Régimen Funcional de Arsenales",
       "icono": "📋",
@@ -11220,16 +11230,6 @@ var CONTENIDO = {
       "descripcion": "Parcial TG: disciplina, sanciones, seguridad, servicio interno y problemática social.",
       "unidades": [
         "teoria_general_parcial_tg"
-      ]
-    },
-    {
-      "id": "m_sre_lre",
-      "nombre": "SRE y LRE",
-      "icono": "📋",
-      "clr": "#596d9b",
-      "descripcion": "Libro Registro de Efectos: formularios SRE 2408-14 y 2408-3, códigos, relación entre registros y práctica de examen.",
-      "unidades": [
-        "sre_lre_2408"
       ]
     }
   ]
@@ -11890,7 +11890,7 @@ function picHTML(k, cls, marcaFila){
   var c = cls || 'picBig';if(esLRE || esHistoria || esTiro)c=(cls==='picQ')?'picForm picFormQ':'picForm';
   var ocultar=esHistoria && cls==='picQ',lab=ocultar?'Esquema histórico original del material de estudio':(PICLAB[k] || k);
   var maxw=(cls==='picQ')?'760px':'900px',marcas=(k==='tiro_mote_poligono'&&Number.isInteger(marcaFila))?mascaraSectorTiro(marcaFila):'';
-  return '<div class="'+c+'"><span style="display:inline-block;position:relative;width:100%;max-width:'+maxw+';line-height:0"><img src="'+PIC[k]+'" alt="'+esc(lab)+'" loading="lazy">'+marcas+(ocultar?mascaraHistoria(k):'')+'</span></div>' +
+  return '<div class="'+c+'"><span style="display:inline-block;position:relative;width:100%;max-width:'+maxw+';line-height:0"><img src="'+PIC[k]+'" alt="'+esc(lab)+'" loading="lazy" role="button" tabindex="0" title="Tocá para ampliar" style="cursor:zoom-in" onclick="ampliarLRE(\''+k+'\','+(ocultar?'true':'false')+','+(Number.isInteger(marcaFila)?marcaFila:'null')+')" onkeydown="if(event.keyCode===13||event.keyCode===32){event.preventDefault();this.click()}">'+marcas+(ocultar?mascaraHistoria(k):'')+'</span></div>' +
     (!ocultar && PICLAB[k]?'<div class="picCap">'+esc(lab)+'</div>':'') +
     ((esLRE || esHistoria || esTiro)?'<button type="button" class="ghost bigbtn" onclick="ampliarLRE(\''+k+'\','+(ocultar?'true':'false')+','+(Number.isInteger(marcaFila)?marcaFila:'null')+')">Ampliar imagen</button>':'');
 }
