@@ -1,6 +1,6 @@
-const CACHE = 'estudio-source-v38';
+const CACHE = 'estudio-source-v39';
 const CACHE_PREFIX = 'estudio-source-v';
-const PRECACHE = ["./", "./estudio.html", "./manifest.webmanifest", "./icon.svg", "./materiales/logistica-repaso-final.docx", "./materiales/mecanica-automotriz-16-preguntas.docx"];
+const PRECACHE = ["./", "./estudio.html", "./manifest.webmanifest", "./icon.svg", "./materiales/logistica-repaso-final.docx", "./materiales/mecanica-automotriz-16-preguntas.docx", "./materiales/logistica-repaso-dirigido.pdf"];
 const APP_ROOT = new URL('./', self.location.href);
 const INDEX_URL = new URL('./estudio.html', APP_ROOT).href;
 const APP_RESOURCES = new Set(PRECACHE.map(path => new URL(path, APP_ROOT).href));

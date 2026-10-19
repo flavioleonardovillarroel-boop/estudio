@@ -1,0 +1,747 @@
+{
+  "title": "Repaso dirigido de Logística",
+  "subtitle": "Servicios efectos de Arsenales y formularios SRE 2408",
+  "intro": "Repaso para el examen del 20 de octubre de 2026. Preguntas directas, respuestas breves y ejemplos para reconocer los efectos.",
+  "pending": "Para estudiar se reúnen 11 bloques del RFD-20-01: las ocho funciones del art. 1.010, más salud del personal (cap. IV), apoyo de finanzas (cap. VIII) y apoyo SUCOM/SUIE (cap. IX). Es una organización de este repaso; el reglamento no enumera literalmente 11 funciones de Material en el art. 1.010. Finanzas y SUCOM son apoyos generales.",
+  "services": [
+    [
+      "Arsenales",
+      "Abastece y mantiene los efectos de Arsenales, como armamento, vehículos, equipos electrónicos y herramientas."
+    ],
+    [
+      "Intendencia",
+      "Atiende el abastecimiento y apoyo para la vida de la tropa, como alimentación, vestuario y alojamiento."
+    ],
+    [
+      "Construcciones",
+      "Construye, mantiene y repara las instalaciones e infraestructura necesarias."
+    ],
+    [
+      "Transporte",
+      "Satisface los requerimientos de traslado de personal y abastecimientos."
+    ],
+    [
+      "Sanidad",
+      "Conserva y recupera la salud del personal mediante prevención, atención, evacuación y tratamiento."
+    ]
+  ],
+  "service_note": "Esta es la lista indicada por Eve para el examen. El RFD-20-01, art. 1.009, también incluye Veterinaria entre los servicios de Material y desarrolla Sanidad en el capítulo IV. No confundir la lista de servicios con la de funciones.",
+  "groups": [
+    [
+      "Armamento",
+      "Fusil o pistola completos."
+    ],
+    [
+      "Munición y explosivos",
+      "Munición, explosivos y efectos pirotécnicos."
+    ],
+    [
+      "Aviación",
+      "Avión, helicóptero y componentes específicos de aeronaves."
+    ],
+    [
+      "Automotores",
+      "Camión, remolque y motocicleta completos."
+    ],
+    [
+      "Ingenieros",
+      "Pontón, excavadora, bomba de agua y equipos de construcción."
+    ],
+    [
+      "Electrónica y electricidad",
+      "Radio, radar y generador eléctrico."
+    ],
+    [
+      "Equipos de taller, máquinas y herramientas",
+      "Torno, equipo de reparación y herramientas de mano."
+    ],
+    [
+      "Componentes, conjuntos, partes, accesorios y materias primas",
+      "Cubierta, cámara, motor separado del vehículo, cojinete y cadena."
+    ],
+    [
+      "Instrumental óptico y equipos de laboratorio",
+      "Instrumento óptico de observación o medición y equipo de laboratorio."
+    ],
+    [
+      "Materiales generales",
+      "Material de embalaje, publicaciones y equipos de recreación."
+    ]
+  ],
+  "functions_reference": "El RFD-20-01, art. 1.010, enumera ocho funciones: abastecimiento, mantenimiento, construcciones, transporte, veterinaria, bienes raíces, lucha contra el fuego y control de daños zonal. Sus capítulos IV, VIII y IX permiten añadir al repaso los temas de salud del personal, finanzas y apoyo SUCOM/SUIE. El ROD-19-02 desarrolla en su capítulo VIII lucha contra el fuego, bienes raíces, SZR/SZC y control de daños zonal; los nombres que se repiten no se suman otra vez.",
+  "function_blocks": [
+    [
+      "Abastecimiento",
+      "Proporcionar los efectos necesarios para sostener a la fuerza.",
+      "Función del art. 1.010."
+    ],
+    [
+      "Mantenimiento",
+      "Conservar el material eficiente o restituirlo a condición de servicio.",
+      "Función del art. 1.010."
+    ],
+    [
+      "Construcciones",
+      "Construir, mantener y reparar instalaciones e infraestructura.",
+      "Función del art. 1.010."
+    ],
+    [
+      "Transporte",
+      "Satisfacer el traslado de personal y abastecimientos.",
+      "Función del art. 1.010."
+    ],
+    [
+      "Veterinaria",
+      "Conservar y recuperar la salud de los animales y atender los efectos de veterinaria.",
+      "Función del art. 1.010."
+    ],
+    [
+      "Bienes raíces",
+      "Obtener, administrar y controlar los inmuebles necesarios para la fuerza.",
+      "Función del art. 1.010."
+    ],
+    [
+      "Lucha contra el fuego",
+      "Prevenir, combatir y limitar las consecuencias de incendios.",
+      "Función del art. 1.010."
+    ],
+    [
+      "Control de daños zonal",
+      "Reducir daños y facilitar el restablecimiento de servicios esenciales.",
+      "Función del art. 1.010."
+    ],
+    [
+      "Conservación y recuperación de la salud del personal",
+      "Prevenir problemas de salud, atender, evacuar y recuperar al personal herido o enfermo.",
+      "Capítulo IV, art. 4.001 y Anexo 4."
+    ],
+    [
+      "Apoyo de finanzas",
+      "Asegurar recursos financieros y asesoramiento para sostener las funciones logísticas.",
+      "Apoyo general del capítulo VIII, art. 8.003."
+    ],
+    [
+      "Apoyo SUCOM/SUIE",
+      "Integrar información confiable y actualizada para planear, gestionar y decidir en logística.",
+      "Apoyo general del capítulo IX, arts. 9.001-9.002."
+    ]
+  ],
+  "other_functions": [
+    [
+      "Lucha contra el fuego",
+      "Previene incendios, combate sus efectos y atiende las acciones posteriores a su extinción. Ya está en el art. 1011."
+    ],
+    [
+      "Bienes raíces",
+      "Determina necesidades y gestiona la obtención, administración, control patrimonial y disposición de los inmuebles de la fuerza. Ya está en el art. 1011."
+    ],
+    [
+      "Seguridad en la zona de retaguardia / zona de comunicaciones",
+      "Protege los medios e instalaciones de esas zonas frente a acciones enemigas. La sección III define SZR y SZC; es el tema que no aparece en la lista inicial."
+    ],
+    [
+      "Control de daños zonal",
+      "Reduce los efectos de ataques o desastres y facilita conservar o restablecer los servicios logísticos y públicos esenciales. Ya está en el art. 1011."
+    ]
+  ],
+  "forms": [
+    [
+      "SRE 2408-1",
+      "Registro de Mantenimiento Preventivo",
+      "Registra los servicios de mantenimiento y lubricación realizados, sean programados o especiales, y sus antecedentes. Sirve para llevar el seguimiento del mantenimiento preventivo del efecto.",
+      "Servicios preventivos y lubricación."
+    ],
+    [
+      "SRE 2408-3",
+      "Registro de Mantenimiento Correctivo",
+      "Registra reparaciones y servicios que emplean repuestos o generan gastos, con sus costos acumulados. Sirve para conocer los antecedentes y el costo del mantenimiento del efecto.",
+      "Reparaciones, repuestos y costos."
+    ],
+    [
+      "SRE 2408-14",
+      "Registro de Novedades",
+      "Registra desperfectos sin corregir, componentes faltantes y causas de demora. Sirve para conocer las novedades que siguen pendientes de solución.",
+      "Fallas y faltantes pendientes."
+    ]
+  ],
+  "questions": [
+    [
+      "¿Qué es la Logística de Material?",
+      "Es el campo de la conducción que planea y ejecuta el apoyo con bienes y servicios para sostener materialmente a la fuerza de forma permanente."
+    ],
+    [
+      "¿Qué servicios hay que nombrar para este examen?",
+      "Arsenales, Intendencia, Construcciones, Transporte y Sanidad, según los lineamientos de clase transmitidos por Eve."
+    ],
+    [
+      "¿Qué es un efecto?",
+      "Es un elemento necesario para el equipamiento, mantenimiento u operaciones de las tropas. Puede ser un equipo completo, un repuesto, un material o un artículo de consumo."
+    ],
+    [
+      "¿Cómo se reconocen los efectos de Arsenales?",
+      "Se agrupan en diez familias o grupos de comodidad. Se elige por el tipo de efecto: un camión completo pertenece a Automotores; una cubierta o un motor suelto pertenece a Componentes y repuestos."
+    ],
+    [
+      "¿Qué es un efecto final regulado?",
+      "Es un efecto cuya importancia para la capacidad operacional, costo, complejidad, peligrosidad, escasez o dificultad de obtención exige administración centralizada. Su condición se determina por el índice correspondiente."
+    ],
+    [
+      "¿Qué es un efecto final no regulado?",
+      "Es un efecto final que no figura en el índice de regulados. También está sujeto al control patrimonial y a los procedimientos de abastecimiento."
+    ],
+    [
+      "¿Qué diferencia hay entre un repuesto controlado y uno no controlado?",
+      "El controlado requiere administración del nivel superior por su importancia, costo o dificultad de obtención. El no controlado no está incluido en esa lista. Regulado se refiere a efectos finales; controlado, a repuestos."
+    ],
+    [
+      "¿Qué es y para qué sirve el SRE 2408-1?",
+      "Registro de Mantenimiento Preventivo. Registra los servicios de mantenimiento y lubricación realizados, sean programados o especiales, y sus antecedentes. Sirve para llevar el seguimiento del mantenimiento preventivo del efecto."
+    ],
+    [
+      "¿Qué es y para qué sirve el SRE 2408-3?",
+      "Registro de Mantenimiento Correctivo. Registra reparaciones y servicios que emplean repuestos o generan gastos, con sus costos acumulados. Sirve para conocer los antecedentes y el costo del mantenimiento del efecto."
+    ],
+    [
+      "¿Qué es y para qué sirve el SRE 2408-14?",
+      "Registro de Novedades. Registra desperfectos sin corregir, componentes faltantes y causas de demora. Sirve para conocer las novedades que siguen pendientes de solución."
+    ],
+    [
+      "¿Cuál es la Hoja de Trabajo para Inspección y Mantenimiento?",
+      "Es el SRE 2404. Registra resultados de inspecciones, servicios y novedades detectadas y aporta datos para otros formularios. Es distinto de las tres variantes 2408 del repaso."
+    ],
+    [
+      "¿El SRE 2408 sin sufijo es la Hoja de Trabajo?",
+      "No. El SRE 2408 sin sufijo contiene las instrucciones del Libro Registro de Efecto (LRE). La Hoja de Trabajo para Inspección y Mantenimiento es el 2404."
+    ]
+  ],
+  "sources": [
+    {
+      "path": "D:/Eve/CFE/reglamentos/RFD-20-01 regimen funcional de logistica de material.pdf",
+      "label": "RFD-20-01, edición 2009: arts. 1.009-1.010, PDF 21-22; salud, cap. IV, PDF 63 y Anexo 4; finanzas, art. 8.003, PDF 101; SUCOM/SUIE, arts. 9.001-9.002, PDF 105."
+    },
+    {
+      "path": "D:/Eve/CFE/reglamentos/ROD-19-02 logistica de material.pdf",
+      "label": "ROD-19-02, edición 2004: arts. 1006, 1010 y 1011, PDF 16, 18-19; capítulo VIII, arts. 8002, 8012, 8015 y 8024, PDF 121, 127-128 y 133."
+    },
+    {
+      "path": "D:/Eve/CFE/reglamentos/RFD-21-01-I regimen funcional de arsenales tomo 1.pdf",
+      "label": "RFD-21-01-I: art. 1.002 y arts. 6.001 a 6.003; páginas PDF 11-12 y 83-86."
+    },
+    {
+      "path": "D:/Eve/CFE/reglamentos/RFD-21-01-III Arsenales tomo III.pdf",
+      "label": "RFD-21-01-III: agrupamiento administrativo, introducción; art. 3.056, PDF 100; arts. 4.054 a 4.056 y 4.060, PDF 155-159."
+    },
+    {
+      "path": "D:/Eve/CFE/MATERIAS/TAC Y TEC ESP/#5 - LRE - SRE 2408-1.pdf",
+      "label": "Clase #5: SRE 2408-1, páginas 1-3."
+    },
+    {
+      "path": "D:/Eve/CFE/MATERIAS/TAC Y TEC ESP/#6 - LRE - SRE 2408-14 y 2408-3.pdf",
+      "label": "Clase #6: SRE 2408-14 y 2408-3, páginas 1-4."
+    }
+  ],
+  "exam": [
+    {
+      "tipo": "mc",
+      "p": "¿Qué finalidad tiene la Logística de Material?",
+      "o": [
+        "Sostener materialmente a la fuerza mediante bienes y servicios.",
+        "Administrar exclusivamente las sanciones disciplinarias.",
+        "Llevar sólo el registro de bajas del personal.",
+        "Reemplazar la conducción de las operaciones."
+      ],
+      "c": 0,
+      "e": "Es el campo de la conducción que planea y ejecuta el apoyo con bienes y servicios para sostener materialmente a la fuerza de forma permanente."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los lineamientos de este examen, ¿qué lista de servicios debe repasarse?",
+      "o": [
+        "Arsenales, Intendencia, Justicia Militar, Postal y Religioso.",
+        "Arsenales, Intendencia, Construcciones, Transporte y Sanidad.",
+        "Abastecimiento, mantenimiento, construcciones, transporte y bienes raíces.",
+        "Efectivos, reemplazos, moral, necrología y personal civil."
+      ],
+      "c": 1,
+      "e": "Arsenales, Intendencia, Construcciones, Transporte y Sanidad, según los lineamientos de clase transmitidos por Eve. No se confunden servicios con funciones."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿Qué servicio corresponde a esta tarea? Abastece y mantiene los efectos de Arsenales, como armamento, vehículos, equipos electrónicos y herramientas.",
+      "o": [
+        "Intendencia",
+        "Construcciones",
+        "Arsenales",
+        "Transporte"
+      ],
+      "c": 2,
+      "e": "Corresponde a Arsenales. Abastece y mantiene los efectos de Arsenales, como armamento, vehículos, equipos electrónicos y herramientas."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿Qué servicio corresponde a esta tarea? Atiende el abastecimiento y apoyo para la vida de la tropa, como alimentación, vestuario y alojamiento.",
+      "o": [
+        "Arsenales",
+        "Construcciones",
+        "Transporte",
+        "Intendencia"
+      ],
+      "c": 3,
+      "e": "Corresponde a Intendencia. Atiende el abastecimiento y apoyo para la vida de la tropa, como alimentación, vestuario y alojamiento."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿Qué servicio corresponde a esta tarea? Construye, mantiene y repara las instalaciones e infraestructura necesarias.",
+      "o": [
+        "Construcciones",
+        "Arsenales",
+        "Intendencia",
+        "Transporte"
+      ],
+      "c": 0,
+      "e": "Corresponde a Construcciones. Construye, mantiene y repara las instalaciones e infraestructura necesarias."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿Qué servicio corresponde a esta tarea? Satisface los requerimientos de traslado de personal y abastecimientos.",
+      "o": [
+        "Arsenales",
+        "Transporte",
+        "Intendencia",
+        "Construcciones"
+      ],
+      "c": 1,
+      "e": "Corresponde a Transporte. Satisface los requerimientos de traslado de personal y abastecimientos."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿Qué servicio corresponde a esta tarea? Conserva y recupera la salud del personal mediante prevención, atención, evacuación y tratamiento.",
+      "o": [
+        "Arsenales",
+        "Intendencia",
+        "Sanidad",
+        "Construcciones"
+      ],
+      "c": 2,
+      "e": "Corresponde a Sanidad. Conserva y recupera la salud del personal mediante prevención, atención, evacuación y tratamiento."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Fusil o pistola completos.",
+      "o": [
+        "Munición y explosivos",
+        "Automotores",
+        "Electrónica y electricidad",
+        "Armamento"
+      ],
+      "c": 3,
+      "e": "Grupo: Armamento. Fusil o pistola completos. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Munición, explosivos y efectos pirotécnicos.",
+      "o": [
+        "Munición y explosivos",
+        "Aviación",
+        "Ingenieros",
+        "Equipos de taller, máquinas y herramientas"
+      ],
+      "c": 0,
+      "e": "Grupo: Munición y explosivos. Munición, explosivos y efectos pirotécnicos. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Avión, helicóptero y componentes específicos de aeronaves.",
+      "o": [
+        "Automotores",
+        "Aviación",
+        "Electrónica y electricidad",
+        "Componentes, conjuntos, partes, accesorios y materias primas"
+      ],
+      "c": 1,
+      "e": "Grupo: Aviación. Avión, helicóptero y componentes específicos de aeronaves. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Camión, remolque y motocicleta completos.",
+      "o": [
+        "Ingenieros",
+        "Equipos de taller, máquinas y herramientas",
+        "Automotores",
+        "Instrumental óptico y equipos de laboratorio"
+      ],
+      "c": 2,
+      "e": "Grupo: Automotores. Camión, remolque y motocicleta completos. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Pontón, excavadora, bomba de agua y equipos de construcción.",
+      "o": [
+        "Electrónica y electricidad",
+        "Componentes, conjuntos, partes, accesorios y materias primas",
+        "Materiales generales",
+        "Ingenieros"
+      ],
+      "c": 3,
+      "e": "Grupo: Ingenieros. Pontón, excavadora, bomba de agua y equipos de construcción. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Radio, radar y generador eléctrico.",
+      "o": [
+        "Electrónica y electricidad",
+        "Equipos de taller, máquinas y herramientas",
+        "Instrumental óptico y equipos de laboratorio",
+        "Armamento"
+      ],
+      "c": 0,
+      "e": "Grupo: Electrónica y electricidad. Radio, radar y generador eléctrico. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Torno, equipo de reparación y herramientas de mano.",
+      "o": [
+        "Componentes, conjuntos, partes, accesorios y materias primas",
+        "Equipos de taller, máquinas y herramientas",
+        "Materiales generales",
+        "Munición y explosivos"
+      ],
+      "c": 1,
+      "e": "Grupo: Equipos de taller, máquinas y herramientas. Torno, equipo de reparación y herramientas de mano. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Cubierta, cámara, motor separado del vehículo, cojinete y cadena.",
+      "o": [
+        "Instrumental óptico y equipos de laboratorio",
+        "Armamento",
+        "Componentes, conjuntos, partes, accesorios y materias primas",
+        "Aviación"
+      ],
+      "c": 2,
+      "e": "Grupo: Componentes, conjuntos, partes, accesorios y materias primas. Cubierta, cámara, motor separado del vehículo, cojinete y cadena. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Instrumento óptico de observación o medición y equipo de laboratorio.",
+      "o": [
+        "Materiales generales",
+        "Munición y explosivos",
+        "Automotores",
+        "Instrumental óptico y equipos de laboratorio"
+      ],
+      "c": 3,
+      "e": "Grupo: Instrumental óptico y equipos de laboratorio. Instrumento óptico de observación o medición y equipo de laboratorio. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Según los grupos de comodidad del RFD-21-01-I, ¿a qué grupo corresponden estos ejemplos? Material de embalaje, publicaciones y equipos de recreación.",
+      "o": [
+        "Materiales generales",
+        "Armamento",
+        "Aviación",
+        "Ingenieros"
+      ],
+      "c": 0,
+      "e": "Grupo: Materiales generales. Material de embalaje, publicaciones y equipos de recreación. La clasificación se refiere a familias de Arsenales, no a la lista de servicios."
+    },
+    {
+      "tipo": "mc",
+      "p": "Un efecto final figura en el índice de regulados. ¿Cómo se clasifica?",
+      "o": [
+        "Repuesto no controlado.",
+        "Efecto final regulado.",
+        "Efecto final no regulado.",
+        "Registro de mantenimiento preventivo."
+      ],
+      "c": 1,
+      "e": "Es un efecto cuya importancia para la capacidad operacional, costo, complejidad, peligrosidad, escasez o dificultad de obtención exige administración centralizada. Su condición se determina por el índice correspondiente."
+    },
+    {
+      "tipo": "mc",
+      "p": "Un efecto final no figura en el índice de regulados. ¿Cómo se clasifica?",
+      "o": [
+        "Efecto sin control patrimonial.",
+        "Repuesto controlado.",
+        "Efecto final no regulado.",
+        "Efecto final regulado."
+      ],
+      "c": 2,
+      "e": "Es un efecto final que no figura en el índice de regulados. También está sujeto al control patrimonial y a los procedimientos de abastecimiento."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿A qué se aplica la distinción controlado / no controlado?",
+      "o": [
+        "A la cantidad de hojas del LRE.",
+        "A todos los efectos finales en lugar de regulado / no regulado.",
+        "Al grado del operador del equipo.",
+        "A los repuestos."
+      ],
+      "c": 3,
+      "e": "El controlado requiere administración del nivel superior por su importancia, costo o dificultad de obtención. El no controlado no está incluido en esa lista. Regulado se refiere a efectos finales; controlado, a repuestos."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿Qué registro del LRE lleva el seguimiento de: Servicios preventivos y lubricación.",
+      "o": [
+        "SRE 2408-1",
+        "SRE 2408-3",
+        "SRE 2408-14",
+        "SRE 2404"
+      ],
+      "c": 0,
+      "e": "SRE 2408-1: Registro de Mantenimiento Preventivo. Registra los servicios de mantenimiento y lubricación realizados, sean programados o especiales, y sus antecedentes. Sirve para llevar el seguimiento del mantenimiento preventivo del efecto."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿Qué registro del LRE lleva el seguimiento de: Reparaciones, repuestos y costos.",
+      "o": [
+        "SRE 2408-1",
+        "SRE 2408-3",
+        "SRE 2408-14",
+        "SRE 2404"
+      ],
+      "c": 1,
+      "e": "SRE 2408-3: Registro de Mantenimiento Correctivo. Registra reparaciones y servicios que emplean repuestos o generan gastos, con sus costos acumulados. Sirve para conocer los antecedentes y el costo del mantenimiento del efecto."
+    },
+    {
+      "tipo": "mc",
+      "p": "¿Qué registro del LRE lleva el seguimiento de: Fallas y faltantes pendientes.",
+      "o": [
+        "SRE 2408-1",
+        "SRE 2408-3",
+        "SRE 2408-14",
+        "SRE 2404"
+      ],
+      "c": 2,
+      "e": "SRE 2408-14: Registro de Novedades. Registra desperfectos sin corregir, componentes faltantes y causas de demora. Sirve para conocer las novedades que siguen pendientes de solución."
+    },
+    {
+      "tipo": "mc",
+      "p": "La reparación sigue pendiente por falta de un componente. ¿Qué registro de novedades del LRE conserva ese pendiente?",
+      "o": [
+        "SRE 2408-1.",
+        "SRE 2408-3 como si la reparación ya estuviera hecha.",
+        "SRE 2408 sin sufijo, escribiendo sobre sus instrucciones.",
+        "SRE 2408-14."
+      ],
+      "c": 3,
+      "e": "Registra desperfectos sin corregir, componentes faltantes y causas de demora. Sirve para conocer las novedades que siguen pendientes de solución."
+    },
+    {
+      "tipo": "mc",
+      "p": "Se realizó un servicio de lubricación. ¿Qué formulario lleva el seguimiento preventivo?",
+      "o": [
+        "SRE 2408-1.",
+        "SRE 2408-14.",
+        "SRE 2408 sin sufijo.",
+        "SRE 2404 como sustituto permanente del LRE."
+      ],
+      "c": 0,
+      "e": "Registra los servicios de mantenimiento y lubricación realizados, sean programados o especiales, y sus antecedentes. Sirve para llevar el seguimiento del mantenimiento preventivo del efecto."
+    },
+    {
+      "tipo": "mc",
+      "p": "Se efectuó una reparación con repuestos y costos. ¿Qué registro del LRE conserva esos antecedentes y el costo acumulado?",
+      "o": [
+        "SRE 2408-14 solamente.",
+        "SRE 2408-3.",
+        "SRE 2408 sin sufijo.",
+        "SRE 2408-1 solamente, sin registrar los gastos."
+      ],
+      "c": 1,
+      "e": "Registra reparaciones y servicios que emplean repuestos o generan gastos, con sus costos acumulados. Sirve para conocer los antecedentes y el costo del mantenimiento del efecto."
+    },
+    {
+      "tipo": "mc",
+      "p": "En el capítulo VIII del ROD-19-02, ¿qué función corresponde a esta finalidad? Previene incendios, combate sus efectos y atiende las acciones posteriores a su extinción.",
+      "o": [
+        "Bienes raíces",
+        "Seguridad en la zona de retaguardia / zona de comunicaciones",
+        "Lucha contra el fuego",
+        "Control de daños zonal"
+      ],
+      "c": 2,
+      "e": "Previene incendios, combate sus efectos y atiende las acciones posteriores a su extinción. Ya está en el art. 1011."
+    },
+    {
+      "tipo": "mc",
+      "p": "En el capítulo VIII del ROD-19-02, ¿qué función corresponde a esta finalidad? Determina necesidades y gestiona la obtención, administración, control patrimonial y disposición de los inmuebles de la fuerza.",
+      "o": [
+        "Lucha contra el fuego",
+        "Seguridad en la zona de retaguardia / zona de comunicaciones",
+        "Control de daños zonal",
+        "Bienes raíces"
+      ],
+      "c": 3,
+      "e": "Determina necesidades y gestiona la obtención, administración, control patrimonial y disposición de los inmuebles de la fuerza. Ya está en el art. 1011."
+    },
+    {
+      "tipo": "mc",
+      "p": "En el capítulo VIII del ROD-19-02, ¿qué función corresponde a esta finalidad? Protege los medios e instalaciones de esas zonas frente a acciones enemigas.",
+      "o": [
+        "Seguridad en la zona de retaguardia / zona de comunicaciones",
+        "Lucha contra el fuego",
+        "Bienes raíces",
+        "Control de daños zonal"
+      ],
+      "c": 0,
+      "e": "Protege los medios e instalaciones de esas zonas frente a acciones enemigas. La sección III define SZR y SZC; es el tema que no aparece en la lista inicial."
+    },
+    {
+      "tipo": "mc",
+      "p": "En el capítulo VIII del ROD-19-02, ¿qué función corresponde a esta finalidad? Reduce los efectos de ataques o desastres y facilita conservar o restablecer los servicios logísticos y públicos esenciales.",
+      "o": [
+        "Lucha contra el fuego",
+        "Control de daños zonal",
+        "Bienes raíces",
+        "Seguridad en la zona de retaguardia / zona de comunicaciones"
+      ],
+      "c": 1,
+      "e": "Reduce los efectos de ataques o desastres y facilita conservar o restablecer los servicios logísticos y públicos esenciales. Ya está en el art. 1011."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Proporcionar los efectos necesarios para sostener a la fuerza.",
+      "o": [
+        "Mantenimiento",
+        "Construcciones",
+        "Abastecimiento",
+        "Transporte"
+      ],
+      "c": 2,
+      "e": "Proporcionar los efectos necesarios para sostener a la fuerza. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Conservar el material eficiente o restituirlo a condición de servicio.",
+      "o": [
+        "Abastecimiento",
+        "Construcciones",
+        "Transporte",
+        "Mantenimiento"
+      ],
+      "c": 3,
+      "e": "Conservar el material eficiente o restituirlo a condición de servicio. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Construir, mantener y reparar instalaciones e infraestructura.",
+      "o": [
+        "Construcciones",
+        "Abastecimiento",
+        "Mantenimiento",
+        "Transporte"
+      ],
+      "c": 0,
+      "e": "Construir, mantener y reparar instalaciones e infraestructura. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Satisfacer el traslado de personal y abastecimientos.",
+      "o": [
+        "Abastecimiento",
+        "Transporte",
+        "Mantenimiento",
+        "Construcciones"
+      ],
+      "c": 1,
+      "e": "Satisfacer el traslado de personal y abastecimientos. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Conservar y recuperar la salud de los animales y atender los efectos de veterinaria.",
+      "o": [
+        "Abastecimiento",
+        "Mantenimiento",
+        "Veterinaria",
+        "Construcciones"
+      ],
+      "c": 2,
+      "e": "Conservar y recuperar la salud de los animales y atender los efectos de veterinaria. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Obtener, administrar y controlar los inmuebles necesarios para la fuerza.",
+      "o": [
+        "Abastecimiento",
+        "Mantenimiento",
+        "Construcciones",
+        "Bienes raíces"
+      ],
+      "c": 3,
+      "e": "Obtener, administrar y controlar los inmuebles necesarios para la fuerza. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Prevenir, combatir y limitar las consecuencias de incendios.",
+      "o": [
+        "Lucha contra el fuego",
+        "Abastecimiento",
+        "Mantenimiento",
+        "Construcciones"
+      ],
+      "c": 0,
+      "e": "Prevenir, combatir y limitar las consecuencias de incendios. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Reducir daños y facilitar el restablecimiento de servicios esenciales.",
+      "o": [
+        "Abastecimiento",
+        "Control de daños zonal",
+        "Mantenimiento",
+        "Construcciones"
+      ],
+      "c": 1,
+      "e": "Reducir daños y facilitar el restablecimiento de servicios esenciales. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Prevenir problemas de salud, atender, evacuar y recuperar al personal herido o enfermo.",
+      "o": [
+        "Abastecimiento",
+        "Mantenimiento",
+        "Conservación y recuperación de la salud del personal",
+        "Construcciones"
+      ],
+      "c": 2,
+      "e": "Prevenir problemas de salud, atender, evacuar y recuperar al personal herido o enfermo. Capítulo IV, art. 4.001 y Anexo 4. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Asegurar recursos financieros y asesoramiento para sostener las funciones logísticas.",
+      "o": [
+        "Abastecimiento",
+        "Mantenimiento",
+        "Construcciones",
+        "Apoyo de finanzas"
+      ],
+      "c": 3,
+      "e": "Asegurar recursos financieros y asesoramiento para sostener las funciones logísticas. Apoyo general del capítulo VIII, art. 8.003. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    },
+    {
+      "tipo": "mc",
+      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Integrar información confiable y actualizada para planear, gestionar y decidir en logística.",
+      "o": [
+        "Apoyo SUCOM/SUIE",
+        "Abastecimiento",
+        "Mantenimiento",
+        "Construcciones"
+      ],
+      "c": 0,
+      "e": "Integrar información confiable y actualizada para planear, gestionar y decidir en logística. Apoyo general del capítulo IX, arts. 9.001-9.002. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+    }
+  ],
+  "module_id": "log_repaso_dirigido_eve_20oct",
+  "subject_id": "m_logistica",
+  "download": "./materiales/logistica-repaso-dirigido.pdf",
+  "source_sha256": "4ba5b939b522f3c0839f6fbee7b2cfaf35e03e66b71b046bede3b5f3b188cdf3",
+  "cache_names": [
+    "estudio-v39",
+    "estudio-source-v39"
+  ],
+  "corrected_module_id": "log_repaso_final_material",
+  "correction_note": "Corrección del repaso: el ROD-19-02 disponible, edición 2004, art. 1011, enumera ocho funciones e incluye control de daños zonal, omitido en el apunte original descargable. La lista de 11 funciones que la cátedra indicó para el examen sigue pendiente de confirmar; no se sustituye por las funciones de Personal."
+}
