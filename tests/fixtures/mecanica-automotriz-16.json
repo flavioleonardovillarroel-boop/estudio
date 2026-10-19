@@ -1,0 +1,219 @@
+{
+  "module_id": "ppvr_mecanica_automotriz_cuestionario",
+  "subject_id": "m_practica_profesionalizante",
+  "download": "./materiales/mecanica-automotriz-16-preguntas.docx",
+  "source_sha256": "607a60dee11a03106eda2ab688102486242efc690fbbe183b738b1fa25e915d6",
+  "questions": [
+    {
+      "q": "¿Qué es un motor de combustión interna?",
+      "a": "Es una máquina que transforma la energía química del combustible en energía mecánica mediante la combustión que ocurre dentro de sus cilindros o cámara de combustión.",
+      "label": "Motor de combustión interna",
+      "exam": "¿Qué transforma un motor de combustión interna?",
+      "correct": "La energía química del combustible en energía mecánica mediante combustión interna.",
+      "wrong": [
+        "La energía eléctrica de la batería en combustible.",
+        "La presión de los neumáticos en energía eléctrica.",
+        "La energía mecánica de las ruedas en combustible."
+      ]
+    },
+    {
+      "q": "¿Qué significan las posiciones de una caja automática y las siglas FWD, RWD, AWD y 4×4?",
+      "a": "En una caja automática, P (Parking) bloquea la transmisión para estacionar; R (Reverse) es marcha atrás; N (Neutral) es punto muerto; D (Drive) permite avanzar; L (Low) mantiene relaciones bajas para situaciones que requieren más fuerza o control; S (Sport) prioriza una respuesta más deportiva, si el vehículo la incluye. FWD es tracción delantera; RWD, tracción trasera; AWD, tracción integral automática o permanente, según el sistema; y 4×4, tracción en las cuatro ruedas, generalmente seleccionable o con reductora en vehículos todoterreno.",
+      "label": "Caja automática y tracción",
+      "exam": "¿Qué relación entre siglas y significado es correcta?",
+      "correct": "P: estacionamiento; R: marcha atrás; N: neutro; D: avance. FWD: delantera; RWD: trasera.",
+      "wrong": [
+        "P: avance; R: neutro; N: marcha atrás; D: estacionamiento. FWD: trasera; RWD: delantera.",
+        "P: estacionamiento; R: avance; N: marcha atrás; D: neutro. FWD: integral; RWD: delantera.",
+        "P: neutro; R: estacionamiento; N: avance; D: marcha atrás. FWD: trasera; RWD: integral."
+      ]
+    },
+    {
+      "q": "¿Cuál posee más azufre: el gasoil grado 2 o el grado 3? ¿Por qué?",
+      "a": "En general, el gasoil grado 2 admite más azufre que el grado 3. El grado 3 es de muy bajo contenido de azufre, lo que ayuda a reducir emisiones y a proteger los sistemas modernos de tratamiento de gases. Los límites exactos dependen de la normativa vigente y del combustible comercializado.",
+      "label": "Gasoil grado 2 y grado 3",
+      "exam": "En general, ¿qué gasoil admite mayor contenido de azufre?",
+      "correct": "El grado 2; el grado 3 es de muy bajo contenido de azufre.",
+      "wrong": [
+        "El grado 3; el grado 2 siempre tiene menos azufre.",
+        "Los dos tienen necesariamente el mismo contenido de azufre.",
+        "El contenido de azufre depende solamente del tamaño del tanque."
+      ]
+    },
+    {
+      "q": "¿Cada cuántos kilómetros se realiza el servicio a un vehículo particular?",
+      "a": "Depende de la marca, el modelo, el motor, el aceite y las condiciones de uso. Como referencia, muchos vehículos requieren mantenimiento cada 10.000 a 15.000 km o una vez al año, pero siempre se debe respetar el manual del fabricante. En uso severo puede necesitarse antes.",
+      "label": "Intervalos de mantenimiento",
+      "exam": "¿Cómo se determina el intervalo de mantenimiento de un vehículo particular?",
+      "correct": "Según el manual del fabricante y las condiciones de uso; 10.000 a 15.000 km o un año es sólo una referencia frecuente.",
+      "wrong": [
+        "Siempre cada 50.000 km, sin importar el modelo.",
+        "Sólo cuando se enciende una luz de avería.",
+        "Todos los vehículos tienen exactamente el mismo intervalo y el uso no influye."
+      ]
+    },
+    {
+      "q": "¿Qué es la ECU y qué función cumple?",
+      "a": "La ECU (unidad electrónica de control) es una computadora del vehículo. Recibe información de sensores y controla sistemas como la inyección, el encendido y, según el modelo, otras funciones del motor. Ayuda a optimizar el funcionamiento, el consumo y las emisiones.",
+      "label": "ECU",
+      "exam": "¿Qué función cumple la ECU?",
+      "correct": "Recibe información de sensores y controla funciones del motor, como la inyección y el encendido.",
+      "wrong": [
+        "Almacena combustible para enviarlo directamente a los neumáticos.",
+        "Genera por sí sola toda la electricidad del vehículo.",
+        "Reemplaza mecánicamente al cigüeñal y al árbol de levas."
+      ]
+    },
+    {
+      "q": "¿Qué significan CKP, CMP, MAF, MAP, OPS, ECT, TPS, ABS y TPMS?",
+      "a": "CKP: sensor de posición y velocidad del cigüeñal. CMP: sensor de posición del árbol de levas. MAF: mide la masa de aire que ingresa al motor. MAP: mide la presión absoluta del múltiple de admisión. OPS: sensor o interruptor de presión de aceite. ECT: sensor de temperatura del refrigerante. TPS: sensor de posición de la mariposa del acelerador. ABS: sistema antibloqueo de frenos, que utiliza sensores de velocidad de rueda. TPMS: sistema de monitoreo de presión de los neumáticos.",
+      "label": "Sensores y sistemas electrónicos",
+      "exam": "¿Qué conjunto de relaciones es correcto?",
+      "correct": "CKP: cigüeñal; CMP: árbol de levas; MAF: masa de aire; MAP: presión de admisión; ABS: sistema antibloqueo; TPMS: presión de neumáticos.",
+      "wrong": [
+        "CKP: presión de neumáticos; CMP: combustible; MAF: temperatura del aceite; MAP: velocidad; ABS: alternador; TPMS: arranque.",
+        "CKP: temperatura del refrigerante; CMP: masa de aire; MAF: cigüeñal; MAP: aceite; ABS: batería; TPMS: transmisión.",
+        "CKP: árbol de levas; CMP: cigüeñal; MAF: presión de admisión; MAP: masa de aire; ABS: combustible; TPMS: escape."
+      ]
+    },
+    {
+      "q": "¿Cuál es el orden de encendido de un motor de 6 cilindros y de 4 cilindros?",
+      "a": "Depende del diseño y del fabricante. Como ejemplos comunes, un motor de 4 cilindros en línea puede usar 1-3-4-2, y uno de 6 cilindros en línea, 1-5-3-6-2-4. Antes de aplicarlo se debe verificar el manual del motor específico.",
+      "label": "Orden de encendido",
+      "exam": "¿Qué órdenes de encendido son ejemplos comunes, sujetos a verificación en el manual?",
+      "correct": "4 cilindros en línea: 1-3-4-2; 6 cilindros en línea: 1-5-3-6-2-4.",
+      "wrong": [
+        "Todos los motores encienden sus cilindros simultáneamente.",
+        "4 cilindros en línea: 1-2-3-4; 6 cilindros en línea: 1-2-3-4-5-6, obligatoriamente en todos los modelos.",
+        "El orden de encendido se elige al azar durante el mantenimiento."
+      ]
+    },
+    {
+      "q": "¿Qué es una batería? Explique la conexión en serie y en paralelo.",
+      "a": "La batería almacena energía química y la transforma en energía eléctrica para alimentar los sistemas del vehículo y permitir el arranque. En serie, se conecta el positivo de una batería con el negativo de la siguiente: se suman los voltajes y, con baterías iguales, se mantiene la capacidad en Ah. En paralelo, se unen los positivos entre sí y los negativos entre sí: se mantiene el voltaje y se suman las capacidades. Las baterías interconectadas deben ser compatibles; para el paralelo deben tener el mismo voltaje nominal.",
+      "label": "Baterías en serie y paralelo",
+      "exam": "Con dos baterías iguales, ¿qué ocurre al conectarlas en serie o en paralelo?",
+      "correct": "En serie se suman los voltajes; en paralelo se mantiene el voltaje y se suman las capacidades en Ah.",
+      "wrong": [
+        "En serie se mantiene el voltaje y se suman los Ah; en paralelo se suman los voltajes.",
+        "En ambas conexiones se duplican necesariamente el voltaje y la capacidad en Ah.",
+        "En serie y en paralelo se unen siempre positivo con negativo de la misma forma."
+      ]
+    },
+    {
+      "q": "¿Cuál es la función del termostato y cómo influye la temperatura en el aceite?",
+      "a": "El termostato regula el paso del refrigerante hacia el radiador para que el motor alcance y mantenga su temperatura de trabajo. El aceite frío es más viscoso; al calentarse alcanza su viscosidad de funcionamiento prevista. El exceso de temperatura puede degradarlo y reducir su capacidad de lubricación.",
+      "label": "Termostato y aceite",
+      "exam": "¿Qué relación entre termostato, temperatura y aceite es correcta?",
+      "correct": "El termostato regula el paso del refrigerante al radiador; el aceite frío es más viscoso y el exceso de temperatura puede degradarlo.",
+      "wrong": [
+        "El termostato regula la presión de los neumáticos y el aceite no cambia con la temperatura.",
+        "El termostato reemplaza a la bomba de combustible; el aceite se vuelve siempre más espeso al calentarse.",
+        "El aceite sólo lubrica cuando el motor está completamente frío y deja de hacerlo al alcanzar su temperatura normal."
+      ]
+    },
+    {
+      "q": "¿Qué elemento se encarga de abrir y cerrar las válvulas?",
+      "a": "El árbol de levas coordina el accionamiento de las válvulas en el momento adecuado. En los motores convencionales, sus levas las abren directamente o mediante botadores y balancines, mientras que los resortes las cierran. El diseño puede variar según el motor.",
+      "label": "Accionamiento de las válvulas",
+      "exam": "En un motor convencional, ¿cómo se abren y cierran las válvulas?",
+      "correct": "Las levas accionan su apertura, directamente o mediante otros elementos, y los resortes producen su cierre.",
+      "wrong": [
+        "El alternador abre las válvulas y la batería las cierra.",
+        "Las válvulas se abren por la presión de los neumáticos y se cierran con combustible.",
+        "Los resortes abren las válvulas y el radiador las cierra."
+      ]
+    },
+    {
+      "q": "¿Qué significan V8 y 8V?",
+      "a": "V8 significa que el motor tiene ocho cilindros dispuestos en dos bancadas formando una V. 8V suele indicar ocho válvulas en total; por ejemplo, un motor de cuatro cilindros puede tener dos válvulas por cilindro. La sigla debe interpretarse según el contexto técnico.",
+      "label": "V8 y 8V",
+      "exam": "¿Qué diferencia hay entre V8 y 8V?",
+      "correct": "V8 indica ocho cilindros dispuestos en V; 8V suele indicar ocho válvulas en total.",
+      "wrong": [
+        "V8 indica ocho válvulas y 8V, ocho cilindros en V.",
+        "V8 y 8V indican siempre la misma característica.",
+        "V8 indica el voltaje de la batería y 8V, la cantidad de marchas."
+      ]
+    },
+    {
+      "q": "¿En qué influye la disposición de los cilindros en motores V8, en línea, bóxer y Wankel?",
+      "a": "Influye en el tamaño y la forma del motor, su equilibrio y vibraciones, el centro de gravedad, la refrigeración y el mantenimiento. En línea, los cilindros están en una fila; en V, en dos bancadas inclinadas; en bóxer, los cilindros están opuestos horizontalmente. El Wankel es distinto: utiliza un rotor dentro de una cámara, en lugar de pistones alternativos.",
+      "label": "Disposición de cilindros y motor Wankel",
+      "exam": "¿Qué descripción de los motores es correcta?",
+      "correct": "En línea: una fila de cilindros; en V: dos bancadas inclinadas; bóxer: cilindros opuestos; Wankel: rotor.",
+      "wrong": [
+        "En línea: rotor; en V: cilindros opuestos horizontales; bóxer: una fila; Wankel: dos bancadas.",
+        "Todos tienen exactamente la misma disposición y sólo cambia su nombre.",
+        "Bóxer indica combustible diésel y Wankel indica ocho válvulas."
+      ]
+    },
+    {
+      "q": "Explique el circuito de alimentación de un motor diésel Common Rail, desde el tanque hasta los inyectores.",
+      "a": "El combustible sale del tanque y pasa por las tuberías de baja presión. Una bomba de alimentación lo envía a través del filtro, que retiene impurezas y separa agua si está equipado. Luego, la bomba de alta presión lo comprime y lo envía al riel común (Common Rail), que lo distribuye a los inyectores. La ECU controla el momento y la cantidad de inyección mediante señales de sensores y actuadores. El combustible sobrante retorna al sistema o al tanque según el diseño. Por las elevadas presiones, no se deben aflojar conductos con el motor en marcha.",
+      "label": "Alimentación Common Rail",
+      "exam": "¿Cuál es el recorrido general del combustible en un sistema diésel Common Rail?",
+      "correct": "Tanque, circuito de baja presión y filtrado, bomba de alta presión, riel común e inyectores; puede existir retorno.",
+      "wrong": [
+        "Tanque, radiador, alternador y neumáticos.",
+        "Tanque, inyectores y después filtro y bomba de alta presión, sin riel común.",
+        "La batería fabrica combustible y lo envía directamente a las válvulas."
+      ]
+    },
+    {
+      "q": "¿Qué es un alternador y qué es un motor de arranque?",
+      "a": "El alternador transforma la energía mecánica del motor en energía eléctrica para alimentar los sistemas del vehículo y recargar la batería. El motor de arranque utiliza energía eléctrica de la batería para hacer girar el motor hasta que comienza a funcionar por sí mismo.",
+      "label": "Alternador y motor de arranque",
+      "exam": "¿Qué funciones cumplen el alternador y el motor de arranque?",
+      "correct": "El alternador genera electricidad con el motor funcionando; el arranque utiliza electricidad de la batería para iniciar el giro del motor.",
+      "wrong": [
+        "El alternador almacena combustible y el arranque enfría el radiador.",
+        "El arranque recarga permanentemente la batería y el alternador sólo funciona antes de encender el motor.",
+        "Ambos tienen exactamente la misma función y no dependen del sistema eléctrico."
+      ]
+    },
+    {
+      "q": "Mencione cinco diferencias entre un vehículo naftero y uno diésel.",
+      "a": "1) Combustible: el naftero usa nafta y el diésel, gasoil. 2) Encendido: el naftero utiliza bujías de encendido; el diésel enciende el combustible por la alta temperatura del aire comprimido. 3) Alimentación: el naftero suele formar una mezcla de aire y combustible; el diésel inyecta gasoil a alta presión en aire comprimido. 4) Compresión: normalmente es mayor en el diésel. 5) Funcionamiento: el diésel suele ofrecer más torque a bajas revoluciones y menor consumo en muchos usos, mientras que el naftero suele ser más silencioso y subir de revoluciones con mayor facilidad. Hay excepciones según el diseño.",
+      "label": "Naftero y diésel",
+      "exam": "¿Cuál es una diferencia básica entre el encendido naftero y el diésel?",
+      "correct": "El naftero usa una chispa de bujía; el diésel enciende el combustible por la temperatura del aire comprimido.",
+      "wrong": [
+        "El diésel usa siempre bujías de encendido como fuente de chispa y el naftero se enciende sólo por compresión.",
+        "Ambos usan necesariamente gasoil y el mismo sistema de encendido.",
+        "El naftero no necesita combustible y el diésel funciona con electricidad del alternador."
+      ]
+    },
+    {
+      "q": "¿A qué hacen referencia las nomenclaturas 195/60 R15 88H de un neumático?",
+      "a": "195: ancho nominal del neumático en milímetros. 60: relación entre la altura del perfil y el ancho, expresada en porcentaje (60 % de 195 mm). R: construcción radial. 15: diámetro de la llanta en pulgadas. 88: índice de carga, equivalente a 560 kg por neumático en las condiciones especificadas. H: código de velocidad, hasta 210 km/h en las condiciones especificadas. Se deben respetar las medidas e índices indicados por el fabricante del vehículo.",
+      "label": "Nomenclatura del neumático",
+      "exam": "En 195/60 R15 88H, ¿qué indican 195, 60, R y 15?",
+      "correct": "195: ancho en mm; 60: perfil como porcentaje del ancho; R: radial; 15: diámetro de llanta en pulgadas.",
+      "wrong": [
+        "195: diámetro en pulgadas; 60: presión de inflado; R: trasero; 15: velocidad máxima.",
+        "195: carga en kg; 60: diámetro en cm; R: reforzado en todos los casos; 15: presión en bar.",
+        "195: año de fabricación; 60: ancho en pulgadas; R: radio en mm; 15: cantidad de telas."
+      ]
+    }
+  ],
+  "note": "Los intervalos de mantenimiento, el orden de encendido y algunos significados de siglas pueden variar según el vehículo. Confirmá los datos específicos en el manual del fabricante y con el material de clase.",
+  "sources": [
+    {
+      "name": "Bosch Mobility — sensores de velocidad de rueda y ABS",
+      "url": "https://www.bosch-mobility.com/en/solutions/sensors/wheel-speed-sensor/"
+    },
+    {
+      "name": "Motorservice — árbol de levas y accionamiento de válvulas",
+      "url": "https://www.ms-motorservice.com/MediaAssets/671352_bf_50020042-02_web.pdf"
+    },
+    {
+      "name": "Michelin — índice de carga y código de velocidad del neumático",
+      "url": "https://centroamerica.michelin.com/auto/consejos/aspectos-basicos-de-las-llantas/indice-carga-velocidad-llanta"
+    }
+  ],
+  "cache_names": [
+    "estudio-v37",
+    "estudio-source-v37"
+  ]
+}
