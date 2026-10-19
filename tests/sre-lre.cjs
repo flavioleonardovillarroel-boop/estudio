@@ -8,11 +8,11 @@ const root = path.resolve(__dirname, '..');
 (async () => {
   const server = http.createServer((req, res) => {
     const file = req.url === '/' ? 'index.html' : req.url.split('?')[0].slice(1);
-    if (!['index.html', 'sw.js', 'manifest.webmanifest', 'icon.svg'].includes(file)) {
+    if (!['index.html', 'sw.js', 'manifest.webmanifest', 'icon.svg', 'materiales/logistica-repaso-final.docx'].includes(file)) {
       res.writeHead(404);
       return res.end();
     }
-    res.setHeader('Content-Type', file.endsWith('.js') ? 'application/javascript' : file.endsWith('.html') ? 'text/html; charset=utf-8' : file.endsWith('.svg') ? 'image/svg+xml' : 'application/json');
+    res.setHeader('Content-Type', file.endsWith('.js') ? 'application/javascript' : file.endsWith('.html') ? 'text/html; charset=utf-8' : file.endsWith('.svg') ? 'image/svg+xml' : file.endsWith('.docx') ? 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' : 'application/json');
     res.end(fs.readFileSync(path.join(root, file)));
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));

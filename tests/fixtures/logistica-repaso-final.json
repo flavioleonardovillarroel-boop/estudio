@@ -1,0 +1,139 @@
+{
+  "source": "Apunte_Logistica_de_Material_10_Preguntas_Resueltas_FINAL.docx",
+  "source_sha256": "bbf58d1deb0da1f2a074314b2b06cc474b89e8985cc808a46982826110c01605",
+  "questions": [
+    {
+      "p": "Defina Logística de Material.",
+      "developed": "La Logística de Material es el campo de interés de la conducción que comprende el planeamiento y la ejecución de las acciones necesarias para apoyar con bienes y servicios a la fuerza y asegurar, en forma permanente, su sostén material. En términos prácticos, determina necesidades, obtiene, administra, almacena, distribuye, mantiene y, cuando corresponde, evacua los equipos y efectos necesarios para equipar y sostener a las fuerzas.",
+      "short": "Es el campo de la conducción que planea y ejecuta el apoyo con bienes y servicios para asegurar permanentemente el sostén material de la fuerza.",
+      "memory": "Para memorizar: Determinar → obtener → almacenar → distribuir → mantener → evacuar.",
+      "reference": "ROD-19-02, Capítulo I; síntesis de los apuntes de Logística de Material."
+    },
+    {
+      "p": "Defina y describa las funciones de la Logística de Material.",
+      "developed": "Las funciones de material son agrupamientos convencionales de actividades vinculadas por un objetivo común y desarrolladas mediante procedimientos técnicos homogéneos. Son: 1) Abastecimiento, que proporciona los efectos necesarios; 2) Mantenimiento, que conserva y recupera el material; 3) Construcciones, que ejecuta obras e infraestructura; 4) Transporte, que satisface las necesidades de movimiento; 5) Bienes raíces, que atiende inmuebles y terrenos; 6) Lucha contra el fuego, que previene y combate incendios; y 7) Veterinaria, que conserva y recupera la aptitud de los animales y cumple otras actividades veterinarias logísticas.",
+      "short": "Funciones: abastecimiento, mantenimiento, construcciones, transporte, bienes raíces, lucha contra el fuego y veterinaria.",
+      "memory": "Para memorizar: Abastecer · mantener · construir · transportar · administrar inmuebles · combatir incendios · atender animales.",
+      "reference": "ROD-19-02, Capítulo I, Sección I, funciones de material."
+    },
+    {
+      "p": "Defina y enumere los servicios y especialidades de la Logística de Material.",
+      "developed": "Los servicios y especialidades de material son la parte de la estructura del Instrumento Militar Terrestre organizada, equipada e instruida para planear y ejecutar las actividades de material necesarias para mantener la aptitud combativa de la tropa. Comprenden: Especialidad de Arsenales, Especialidad de Intendencia, Servicio de Transporte, Servicio de Construcciones y Bienes Raíces y Servicio de Veterinaria.",
+      "short": "Son: Arsenales, Intendencia, Transporte, Construcciones y Bienes Raíces, y Veterinaria.",
+      "memory": "Para memorizar: A-I-T-C-V: Arsenales · Intendencia · Transporte · Construcciones/Bienes Raíces · Veterinaria.",
+      "reference": "ROD-19-02, Capítulo I, Servicios y Especialidades de Material; ROB-00-01, servicios de apoyo logístico."
+    },
+    {
+      "p": "Explique qué es el ciclo logístico y describa cada una de sus fases.",
+      "developed": "El ciclo logístico es el proceso obligado mediante el cual se resuelve un problema logístico, cualquiera sea su magnitud. Está integrado por tres fases correlativas e interdependientes: 1) Determinación de requerimientos, que identifica, define y concreta la necesidad; 2) Obtención, que consigue los recursos reales necesarios para satisfacerla; y 3) Distribución, que hace llegar esos recursos al usuario, en el lugar y oportunidad requeridos.",
+      "short": "Ciclo logístico: determinación de requerimientos, obtención y distribución.",
+      "memory": "Para memorizar: Necesidad → recurso → usuario.",
+      "reference": "ROD-19-02, Capítulo I, art. 1003; RFD-20-01, aplicación en abastecimiento."
+    },
+    {
+      "p": "Defina la función de abastecimiento y enumere las actividades que comprende.",
+      "developed": "Abastecimiento es la función logística mediante la cual se determinan, obtienen, administran, almacenan y distribuyen los efectos necesarios para el sostenimiento de la Fuerza; cuando corresponde, también comprende su evacuación o recolección, disposición final y baja. Sus actividades principales son: determinación de necesidades, catalogación, obtención, control de existencias, almacenamiento, distribución, evacuación o recolección, disposición final y baja.",
+      "short": "Abastecimiento: determinar necesidades, catalogar, obtener, controlar, almacenar, distribuir, evacuar, disponer y dar de baja efectos.",
+      "memory": "Para memorizar: Necesidades · catalogación · obtención · control · almacenamiento · distribución · evacuación · disposición · baja.",
+      "reference": "RFD-20-01, Capítulo II, Sección I, arts. 2.001 a 2.003."
+    },
+    {
+      "p": "Defina qué se entiende por efecto y describa las clases de abastecimiento I, II, III, IV y V.",
+      "developed": "Un efecto o abastecimiento es todo elemento necesario para el equipamiento, mantenimiento y operaciones de las tropas. Comprende bienes consumibles, bienes durables, repuestos y materiales de apoyo. Las clases principales son: Clase I, alimentos, agua y artículos de consumo relativamente uniforme; Clase II, efectos de dotación previstos en los Cuadros de Organización; Clase III, combustibles y lubricantes; Clase IV, efectos no previstos en los Cuadros de Organización o de refuerzo a los de Clase II; y Clase V, municiones, explosivos y elementos asociados.",
+      "short": "Efecto: elemento necesario para equipar, mantener y operar a las tropas. I alimentos/agua; II dotación del CO; III combustibles; IV fuera del CO/refuerzo; V municiones/explosivos.",
+      "memory": "Para memorizar: I comer · II equipar · III combustible · IV reforzar/fuera CO · V munición.",
+      "reference": "RFD-20-01, Capítulo II, arts. 2.004 y 2.005."
+    },
+    {
+      "p": "Explique el mantenimiento preventivo y el mantenimiento correctivo, señalando sus diferencias.",
+      "developed": "El mantenimiento es el conjunto de actividades necesarias para conservar el material en forma eficiente o restituirlo a condición de servicio. El mantenimiento preventivo se realiza antes de una falla importante o según un programa; comprende inspección, limpieza, verificación, lubricación y correcciones menores para conservar el material y prevenir averías. El mantenimiento correctivo se ejecuta cuando existe una falla, desperfecto o pérdida de aptitud y busca recuperar el funcionamiento mediante diagnóstico, reparación, reemplazo de partes, ajustes o calibraciones dentro de las capacidades del escalón correspondiente.",
+      "short": "Preventivo: conserva y evita fallas antes de que ocurran. Correctivo: repara y restituye después de una falla.",
+      "memory": "Para memorizar: Preventivo = antes / conservar. Correctivo = después / reparar.",
+      "reference": "RFD-20-01, Capítulo III; RFD-21-01-II y III."
+    },
+    {
+      "p": "Defina los efectos finales de Arsenales regulados y no regulados.",
+      "developed": "Los Efectos Finales de Arsenales regulados son aquellos que influyen notoriamente en la capacidad operacional por su costo, complejidad, dificultad de obtención, peligrosidad y/o escasez; por esa importancia poseen administración centralizada. Los Efectos Finales de Arsenales no regulados son los efectos finales que no se encuentran incluidos en los índices de efectos regulados. Aunque su régimen es menos restrictivo, siguen sujetos al control patrimonial y a los procedimientos de abastecimiento.",
+      "short": "Regulados: efectos críticos por costo, complejidad, peligrosidad, escasez o difícil obtención. No regulados: los que no integran el índice de regulados.",
+      "memory": "Para memorizar: Regulado = efecto final con control centralizado. No regulado = fuera del índice de regulados.",
+      "reference": "RFD-21-01-III, Introducción, apartado VI — Agrupamiento administrativo de efectos de Arsenales."
+    },
+    {
+      "p": "Defina los repuestos controlados y no controlados.",
+      "developed": "Los repuestos controlados son aquellos que, por su importancia, elevado costo y/o difícil obtención, son administrados directamente por el nivel superior correspondiente o por el elemento en el que se delegue expresamente esa responsabilidad. Los repuestos no controlados son los que no figuran en la lista de repuestos controlados; su obtención, provisión, distribución y baja se ejecutan conforme al régimen establecido para ellos, con mayor descentralización.",
+      "short": "Controlados: repuestos importantes, costosos o difíciles de obtener. No controlados: los que no figuran en la lista de controlados.",
+      "memory": "Para memorizar: Regulado se aplica a efectos finales; controlado se aplica a repuestos.",
+      "reference": "RFD-21-01-III, Introducción y Capítulo II, gestión de repuestos."
+    },
+    {
+      "p": "Describa los tipos de inspecciones de mantenimiento: formales e informales.",
+      "developed": "Las inspecciones internas u orgánicas permiten determinar la capacidad operacional de una unidad en lo relativo a su material y equipos. Pueden ser formales o informales. La inspección formal se organiza y prepara con antelación, se ejecuta de acuerdo con una orden, guía o plan de control, emplea formularios o planillas y registra sus resultados. La inspección informal es un control más flexible y frecuente, realizado por el jefe o por personal calificado; puede aplicar total o parcialmente los procedimientos de la formal, pero también debe contar con una guía y dejar asentados sus resultados.",
+      "short": "Formales: planificadas, ordenadas y documentadas. Informales: flexibles y frecuentes, pero guiadas y registradas.",
+      "memory": "Para memorizar: Formal = preparación completa. Informal = control frecuente y flexible.",
+      "reference": "RFD-21-01-III, Capítulo V, Sección II — Inspecciones internas."
+    }
+  ],
+  "sources": [
+    "ROD-19-02 — Logística de Material.",
+    "RFD-20-01 — Régimen Funcional de Logística de Material.",
+    "RFD-21-01-I — Régimen Funcional de Arsenales, Tomo I.",
+    "RFD-21-01-II — Régimen Funcional de Arsenales, Tomo II.",
+    "RFD-21-01-III — Régimen Funcional de Arsenales, Tomo III.",
+    "ROB-00-01 — Conducción para las Fuerzas Terrestres."
+  ],
+  "quick_answers": [
+    [
+      "1",
+      "Logística de Material",
+      "Planea y ejecuta el apoyo con bienes y servicios para sostener materialmente a la fuerza."
+    ],
+    [
+      "2",
+      "Funciones",
+      "Abastecimiento, mantenimiento, construcciones, transporte, bienes raíces, lucha contra el fuego y veterinaria."
+    ],
+    [
+      "3",
+      "Servicios/especialidades",
+      "Arsenales, Intendencia, Transporte, Construcciones y Bienes Raíces, Veterinaria."
+    ],
+    [
+      "4",
+      "Ciclo logístico",
+      "Requerimientos → obtención → distribución."
+    ],
+    [
+      "5",
+      "Abastecimiento",
+      "Necesidades, catalogación, obtención, control, almacenamiento, distribución, evacuación, disposición y baja."
+    ],
+    [
+      "6",
+      "Efectos y clases",
+      "I alimentos; II dotación; III combustibles; IV fuera del CO/refuerzo; V munición."
+    ],
+    [
+      "7",
+      "Mantenimiento",
+      "Preventivo conserva; correctivo repara."
+    ],
+    [
+      "8",
+      "EFA",
+      "Regulados: críticos y centralizados. No regulados: fuera del índice."
+    ],
+    [
+      "9",
+      "Repuestos",
+      "Controlados: importantes/costosos/difíciles. No controlados: fuera de la lista."
+    ],
+    [
+      "10",
+      "Inspecciones",
+      "Formales: planificadas. Informales: frecuentes y flexibles."
+    ]
+  ],
+  "section_count": 21,
+  "concept_count": 27,
+  "question_count": 10
+}
