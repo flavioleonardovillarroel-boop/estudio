@@ -1,6 +1,6 @@
 {
   "module_id": "ppvr_mecanica_automotriz_cuestionario",
-  "subject_id": "m_practica_profesionalizante",
+  "subject_id": "m_mecanica_automotriz",
   "download": "./materiales/mecanica-automotriz-16-preguntas.docx",
   "source_sha256": "607a60dee11a03106eda2ab688102486242efc690fbbe183b738b1fa25e915d6",
   "questions": [
@@ -213,7 +213,7 @@
     }
   ],
   "cache_names": [
-    "estudio-v37",
-    "estudio-source-v37"
+    "estudio-v38",
+    "estudio-source-v38"
   ]
 }

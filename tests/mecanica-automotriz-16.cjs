@@ -7,14 +7,23 @@ const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
 function content(s){const a=s.indexOf('var CONTENIDO = {'),b=s.indexOf('\n};',a),box={};vm.createContext(box);vm.runInContext(s.slice(a,b+3),box);return JSON.parse(JSON.stringify(box.CONTENIDO));}
 function outside(s){const a=s.indexOf('var CONTENIDO = {'),b=s.indexOf('\n};',a);return s.slice(0,a)+s.slice(b+3);}
 const current=content(html),topic=current.temas.find(t=>t.id===fixture.module_id),subject=current.materias.find(m=>m.id===fixture.subject_id);
-const baseline=cp.execFileSync(git,['show','e127478:index.html'],{cwd:root,encoding:'utf8',maxBuffer:25e6}),before=content(baseline),normalized=structuredClone(current);
+const baseline=cp.execFileSync(git,['show','1c19922:index.html'],{cwd:root,encoding:'utf8',maxBuffer:25e6}),before=content(baseline),normalized=structuredClone(current);
 assert.equal(current.temas[0].id,fixture.module_id);
 assert.equal(current.materias[0].id,fixture.subject_id);
 assert.equal(subject.unidades[0],fixture.module_id);
-normalized.temas=normalized.temas.filter(t=>t.id!==fixture.module_id);
-const originalSubject=before.materias.find(m=>m.id===fixture.subject_id),normalizedSubject=normalized.materias.find(m=>m.id===fixture.subject_id);
-normalizedSubject.unidades=normalizedSubject.unidades.filter(id=>id!==fixture.module_id);
-normalizedSubject.descripcion=originalSubject.descripcion;
+assert.equal(subject.nombre,'Mecánica automotriz');
+assert.deepEqual(subject.unidades,[fixture.module_id]);
+assert.equal(current.materias.filter(m=>m.unidades.includes(fixture.module_id)).length,1);
+assert.deepEqual(current.temas,before.temas,'The move must preserve every module and progress ID');
+const practice=current.materias.find(m=>m.id==='m_practica_profesionalizante');
+assert.deepEqual(practice.unidades,['ppvr_parte1']);
+const originalContent=content(cp.execFileSync(git,['show','e127478:index.html'],{cwd:root,encoding:'utf8',maxBuffer:25e6}));
+const originalPractice=originalContent.materias.find(m=>m.id===practice.id);
+assert.deepEqual(practice,originalPractice,'Professional Practice must match its state before the automotive questionnaire');
+assert.deepEqual(current.materias.filter(m=>m.id!==fixture.subject_id).map(m=>m.id),originalContent.materias.map(m=>m.id),'The remaining subjects must retain their original order');
+assert.equal(current.materias.length,before.materias.length+1);
+normalized.materias=normalized.materias.filter(m=>m.id!==fixture.subject_id);
+normalized.materias[normalized.materias.findIndex(m=>m.id===practice.id)]=structuredClone(before.materias.find(m=>m.id===practice.id));
 normalized.materias.sort((a,b)=>before.materias.findIndex(m=>m.id===a.id)-before.materias.findIndex(m=>m.id===b.id));
 assert.deepEqual(normalized,before,'Existing material and IDs must remain intact');
 assert.equal(outside(html).replaceAll('\r\n','\n'),outside(baseline).replaceAll('\r\n','\n'),'App code and embedded images must remain intact');
@@ -51,7 +60,8 @@ console.log('PASS: all 16 answers, MC questions, cards, review entries, identica
    await page.goto(origin+(sourceMode?'/source/estudio.html':'/estudio/'));
    await waitForWorker(page);await page.waitForFunction(()=>navigator.serviceWorker.controller);
    await page.locator('#nuevoNom').fill('Prueba mecánica');await page.locator('#nuevoPin').fill('1234');await page.getByRole('button',{name:'Crear y entrar',exact:true}).tap();
-   await page.locator('.materia').filter({has:page.locator('b').filter({hasText:/^Práctica Profesionalizante$/})}).tap();
+   assert.match(await page.locator('.materia').first().innerText(),/Mecánica automotriz/);
+   await page.locator('.materia').filter({has:page.locator('b').filter({hasText:/^Mecánica automotriz$/})}).tap();
    assert.match(await page.locator('.tema').first().innerText(),/Mecánica automotriz/);assert.equal(await page.locator('.tema').count(),subject.unidades.length);
    await page.locator('.tema').first().tap();
    assert.equal(await page.locator('#secs .sec-blk').count(),topic.secciones.length);
@@ -65,7 +75,9 @@ console.log('PASS: all 16 answers, MC questions, cards, review entries, identica
     await page.evaluate(()=>{barajar=items=>items.slice();});await page.getByRole('button',{name:'Examen',exact:true}).tap();await page.locator('[data-cant="todas"]').tap();
     for(const q of topic.preguntas){assert.equal(await page.locator('.qbtn').count(),4);await page.locator('.qbtn').filter({hasText:q.o[q.c]}).tap();assert.match(await page.locator('#qFdb').innerText(),/correct|bien/i);await page.locator('#qNext').tap();}
     assert.match(await page.locator('#bodyVista').innerText(),/100%/);
-    await page.getByRole('button',{name:'← Volver',exact:true}).tap();await page.locator('.tema').filter({hasText:'Parte 1'}).tap();await page.getByRole('button',{name:'← Volver',exact:true}).tap();assert.match(await page.locator('.tema').first().innerText(),/Mecánica automotriz/);await page.locator('.tema').first().tap();
+    await page.getByRole('button',{name:'← Volver',exact:true}).tap();assert.equal(await page.locator('.tema').count(),1);assert.match(await page.locator('.tema').first().innerText(),/Mecánica automotriz/);
+    await page.getByRole('button',{name:'Inicio',exact:true}).tap();await page.locator('.materia').filter({has:page.locator('b').filter({hasText:/^Práctica Profesionalizante$/})}).tap();assert.equal(await page.locator('.tema').count(),1);await page.locator('.tema').filter({hasText:'Parte 1'}).tap();await page.getByRole('button',{name:'← Volver',exact:true}).tap();assert.equal(await page.locator('.tema').count(),1);
+    await page.getByRole('button',{name:'Inicio',exact:true}).tap();await page.locator('.materia').filter({has:page.locator('b').filter({hasText:/^Mecánica automotriz$/})}).tap();await page.locator('.tema').first().tap();
     await page.setViewportSize({width:1280,height:900});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.screenshot({path:path.join(root,'test-results/mecanica-desktop.png')});
    }
    const word=await page.evaluate(async href=>{const r=await fetch(href);return {ok:r.ok,bytes:Array.from(new Uint8Array(await r.arrayBuffer()))};},fixture.download);
