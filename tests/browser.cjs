@@ -6,6 +6,8 @@ let playwright;
 try { playwright = require('playwright'); } catch { playwright = require('C:/Users/leo_v/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'); }
 const { chromium } = playwright;
 const DEPLOY = path.resolve(__dirname,'..');
+const {pwaResources,waitForWorker}=require('./helpers/pwa-resources.cjs');
+const appResources=pwaResources(DEPLOY),sourceResources=pwaResources(DEPLOY,{sourceMode:true});
 const RESULTS = process.env.ESTUDIO_TEST_OUTPUT || path.join(DEPLOY,'test-results');
 fs.mkdirSync(RESULTS,{recursive:true});
 const OLD_SW = path.join(__dirname,'fixtures','sw-v11.js');
@@ -15,12 +17,13 @@ const server = http.createServer((req,res) => {
   const url = new URL(req.url,'http://localhost');
   const sourceMode = url.pathname.startsWith('/source/');
   const prefix = sourceMode ? '/source/' : '/estudio/';
+  const resources = sourceMode ? sourceResources : appResources;
   let file = url.pathname === prefix ? (sourceMode ? 'estudio.html' : 'index.html') : url.pathname.slice(prefix.length);
-  if (!url.pathname.startsWith(prefix) || !(sourceMode ? ['estudio.html','sw.js','manifest.webmanifest','icon.svg'] : ['index.html','sw.js','manifest.webmanifest','icon.svg']).includes(file)) { res.writeHead(404); res.end(); return; }
+  file=resources.resolveRequest(file);
+  if (!url.pathname.startsWith(prefix) || file===null) { res.writeHead(404); res.end(); return; }
   if (failNavigation && file === 'index.html') {res.writeHead(503);res.end('Unavailable');return;}
-  const types = {'estudio.html':'text/html; charset=utf-8','index.html':'text/html; charset=utf-8','sw.js':'application/javascript; charset=utf-8','manifest.webmanifest':'application/manifest+json','icon.svg':'image/svg+xml'};
-  res.writeHead(200, {'Content-Type':types[file],'Cache-Control':'no-store'});
-  res.end(fs.readFileSync(sourceMode ? (file === 'estudio.html' ? path.join(DEPLOY,'index.html') : path.join(DEPLOY,'source-entry',file)) : file === 'sw.js' && swVersion === 'old' ? OLD_SW : path.join(DEPLOY,file)));
+  res.writeHead(200, {'Content-Type':resources.mimeFor(file),'Cache-Control':'no-store'});
+  res.end(fs.readFileSync(!sourceMode && file === 'sw.js' && swVersion === 'old' ? OLD_SW : resources.pathFor(file)));
 });
 function pass(message){ report.push(message); console.log('PASS: '+message); }
 (async () => {
@@ -35,18 +38,19 @@ function pass(message){ report.push(message); console.log('PASS: '+message); }
       return route.continue();
     });
     const page = await context.newPage();
+    page.setDefaultTimeout(15000);
     page.on('pageerror',error=>errors.push(error.message));
     await page.goto(origin+'/estudio/');
-    await page.evaluate(()=>navigator.serviceWorker.ready);
+    await waitForWorker(page);
     await page.waitForFunction(()=>navigator.serviceWorker.controller);
     await page.evaluate(()=>caches.open('otra-app-preservar'));
     swVersion = 'new';
     await page.evaluate(async()=>{const r=await navigator.serviceWorker.getRegistration();await r.update();});
-    await page.waitForFunction(async()=>{
-      const keys=await caches.keys();return keys.includes('estudio-v27')&&!keys.includes('estudio-v11');
-    });
+    await page.waitForFunction(async(cacheName)=>{
+      const keys=await caches.keys();return keys.includes(cacheName)&&!keys.includes('estudio-v11');
+    },appResources.cache,{timeout:15000});
     assert((await page.evaluate(()=>caches.keys())).includes('otra-app-preservar'));
-    pass('Real service-worker update v11→v27 removes only Estudio caches');
+    pass('Real service-worker update v11→'+appResources.cache+' removes only Estudio caches');
     const name = 'Prueba & <perfil> " \' local';
     await page.locator('#nuevoNom').fill(name);
     await page.locator('#nuevoPin').fill('1234');
@@ -154,11 +158,11 @@ function pass(message){ report.push(message); console.log('PASS: '+message); }
       localStorage.setItem(key,events);home();
     });
     pass('Malformed storage and injected IDs do not crash or enter inline handlers');
-    await page.evaluate(async()=>{
+    await page.evaluate(async(cacheName)=>{
       if(!Array.isArray(LS.get(KEYEV(),[]))||LS.get(KEYEV(),[]).length!==1)throw new Error('Event persistence lost');
       if(LS.get(KEYQ('lre_contexto'),null)===null)throw new Error('Quiz persistence lost');
-      await caches.delete('estudio-v27');
-    });
+      await caches.delete(cacheName);
+    },appResources.cache);
     const unavailable=await page.goto(origin+'/estudio/');
     assert.equal(unavailable.status(),503);
     assert((await page.locator('body').textContent()).includes('No hay conexión'));
@@ -167,12 +171,12 @@ function pass(message){ report.push(message); console.log('PASS: '+message); }
     pass('No external requests, Telegram sends or browser JavaScript errors');
     await context.setOffline(false);
     await page.goto(origin+'/source/estudio.html');
-    await page.evaluate(()=>navigator.serviceWorker.ready);
+    await waitForWorker(page);
     await page.waitForFunction(()=>navigator.serviceWorker.controller&&navigator.serviceWorker.controller.scriptURL.includes('/source/'));
     await context.setOffline(true);
     await page.reload();
     assert(await page.locator('#selUsuario').count());
-    assert((await page.evaluate(()=>caches.keys())).includes('estudio-source-v27'));
+    assert((await page.evaluate(()=>caches.keys())).includes(sourceResources.cache));
     pass('Original estudio.html entry point also installs and reloads offline through HTTP');
     fs.writeFileSync(path.join(RESULTS,'browser-results.json'),JSON.stringify({passed:report,errors,external},null,2));
     await context.close();
