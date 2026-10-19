@@ -1,4 +1,4 @@
-const CACHE = 'estudio-source-v39';
+const CACHE = 'estudio-source-v40';
 const CACHE_PREFIX = 'estudio-source-v';
 const PRECACHE = ["./", "./estudio.html", "./manifest.webmanifest", "./icon.svg", "./materiales/logistica-repaso-final.docx", "./materiales/mecanica-automotriz-16-preguntas.docx", "./materiales/logistica-repaso-dirigido.pdf"];
 const APP_ROOT = new URL('./', self.location.href);

@@ -1,31 +1,31 @@
 {
   "title": "Repaso dirigido de Logística",
-  "subtitle": "Servicios efectos de Arsenales y formularios SRE 2408",
+  "subtitle": "Funciones de Personal servicios efectos y formularios",
   "intro": "Repaso para el examen del 20 de octubre de 2026. Preguntas directas, respuestas breves y ejemplos para reconocer los efectos.",
-  "pending": "Para estudiar se reúnen 11 bloques del RFD-20-01: las ocho funciones del art. 1.010, más salud del personal (cap. IV), apoyo de finanzas (cap. VIII) y apoyo SUCOM/SUIE (cap. IX). Es una organización de este repaso; el reglamento no enumera literalmente 11 funciones de Material en el art. 1.010. Finanzas y SUCOM son apoyos generales.",
+  "pending": "Las 11 funciones que se deben nombrar en este repaso corresponden a Logística de Personal. Las especialidades y servicios de Material del punto 2 se transcriben completos del artículo 1.009.",
   "services": [
     [
       "Arsenales",
-      "Abastece y mantiene los efectos de Arsenales, como armamento, vehículos, equipos electrónicos y herramientas."
+      "es la especialidad organizada, equipada e instruida para proporcionar el abastecimiento y mantenimiento de los efectos que otorgan a las tropas potencia de fuego, movilidad, medios electrónicos, materiales de ingenieros (excepto de construcciones) y equipos químicos, biológicos, radiológicos / nucleares."
     ],
     [
       "Intendencia",
-      "Atiende el abastecimiento y apoyo para la vida de la tropa, como alimentación, vestuario y alojamiento."
+      "es la especialidad organizada, equipada e instruida para abastecer y mantener aquellos efectos relativos a: alimentación del personal, vestuario y equipo, alojamiento, materiales de oficina y escritura, muebles, equipos aéreos de intendencia, combustibles y lubricantes, proporcionar ciertos apoyos de personal, baño, desinfección, descontaminación e impregnación de personal y material, en escala limitada."
     ],
     [
-      "Construcciones",
-      "Construye, mantiene y repara las instalaciones e infraestructura necesarias."
+      "Veterinaria",
+      "es el servicio logístico organizado, equipado e instruido para preservar y recuperar la aptitud física de los animales y satisfacer las necesidades para su abastecimiento; suministrar y mantener los efectos de veterinaria; prevenir la zoonosis e inspeccionar los productos alimenticios que consumirá la tropa cuando se trate de tareas en el campo de la bromatología y contribuir con las tareas emergentes del saneamiento ambiental."
     ],
     [
       "Transporte",
-      "Satisface los requerimientos de traslado de personal y abastecimientos."
+      "es el servicio logístico organizado, equipado e instruido para satisfacer los requerimientos de desplazamientos de personal y abastecimientos, por medios no orgánicos del usuario, así como también los equipos, instalaciones y comunicaciones para ejecutar dichos movimientos."
     ],
     [
-      "Sanidad",
-      "Conserva y recupera la salud del personal mediante prevención, atención, evacuación y tratamiento."
+      "Construcciones",
+      "es el servicio logístico organizado, equipado e instruido para la edificación y/o reparación de las instalaciones permanentes y temporarias requeridas por la fuerza. Incluye la construcción, mantenimiento, reparación y rehabilitación de estructuras, caminos, tuberías, vías navegables interiores, vías férreas, aeródromos, pistas de aterrizaje, trabajos defensivos y barreras."
     ]
   ],
-  "service_note": "Esta es la lista indicada por Eve para el examen. El RFD-20-01, art. 1.009, también incluye Veterinaria entre los servicios de Material y desarrolla Sanidad en el capítulo IV. No confundir la lista de servicios con la de funciones.",
+  "service_note": "Fuente: RFD-20-01, artículo 1.009. Se unieron los renglones y las palabras cortadas por la diagramación del PDF.",
   "groups": [
     [
       "Armamento",
@@ -68,82 +68,65 @@
       "Material de embalaje, publicaciones y equipos de recreación."
     ]
   ],
-  "functions_reference": "El RFD-20-01, art. 1.010, enumera ocho funciones: abastecimiento, mantenimiento, construcciones, transporte, veterinaria, bienes raíces, lucha contra el fuego y control de daños zonal. Sus capítulos IV, VIII y IX permiten añadir al repaso los temas de salud del personal, finanzas y apoyo SUCOM/SUIE. El ROD-19-02 desarrolla en su capítulo VIII lucha contra el fuego, bienes raíces, SZR/SZC y control de daños zonal; los nombres que se repiten no se suman otra vez.",
+  "functions_reference": "ROD-19-01 Logística - Personal, edición 2004, art. 1.003; páginas PDF 11-13, impresas 1-3.",
   "function_blocks": [
     [
-      "Abastecimiento",
-      "Proporcionar los efectos necesarios para sostener a la fuerza.",
-      "Función del art. 1.010."
+      "Mantenimiento de los efectivos",
+      "Consiste en el desarrollo de las acciones necesarias para mantener los efectivos orgánicos de las distintas organizaciones. Comprende la apreciación y evaluación de bajas, y la asignación de personal para cubrir los vacíos que las mismas generan. Los factores a considerar para ello serán: efectivos, bajas, apreciación de bajas, registros e informes de personal.",
+      "ROD-19-01, art. 1.003.a."
     ],
     [
-      "Mantenimiento",
-      "Conservar el material eficiente o restituirlo a condición de servicio.",
-      "Función del art. 1.010."
+      "Reemplazos",
+      "Consiste en el desarrollo de acciones necesarias para completar los efectivos orgánicos o asignados. Comprende la obtención, recepción, clasificación, distribución, instrucción y asignación de los reemplazos individuales y de Unidad",
+      "ROD-19-01, art. 1.003.b."
     ],
     [
-      "Construcciones",
-      "Construir, mantener y reparar instalaciones e infraestructura.",
-      "Función del art. 1.010."
+      "Administración de Personal",
+      "Consiste en la organización y empleo de los recursos humanos disponibles, tanto militares como civiles (incluidas las reservas) con el objeto de lograr su máxima eficiencia, mediante el correcto aprovechamiento de las cualidades y habilidades de los individuos",
+      "ROD-19-01, art. 1.003.c."
     ],
     [
-      "Transporte",
-      "Satisfacer el traslado de personal y abastecimientos.",
-      "Función del art. 1.010."
+      "Disciplina, Ley y Orden",
+      "Consiste en la obtención de un estado disciplinario de orden y obediencia, en base al respeto de los aspectos legales. Comprende la búsqueda y disposición de los ausentes sin permiso, extraviados y desaparecidos, evaluación de conductas personales, sanciones y funcionamiento de instalaciones disciplinarias",
+      "ROD-19-01, art. 1.003.d."
     ],
     [
-      "Veterinaria",
-      "Conservar y recuperar la salud de los animales y atender los efectos de veterinaria.",
-      "Función del art. 1.010."
+      "Prisioneros de Guerra",
+      "Consiste en el conjunto de acciones tendientes a brindar un adecuado tratamiento a los prisioneros de guerra en el marco del cumplimiento de las leyes y usos de la guerra. Es la función vinculada con la reunión, procesamiento, interrogación, clasificación, separación, evacuación, régimen interno, empleo, seguridad, reeducación, tratamiento, internación, liberación y/o repatriación de los prisioneros de guerra.",
+      "ROD-19-01, art. 1.003.e."
     ],
     [
-      "Bienes raíces",
-      "Obtener, administrar y controlar los inmuebles necesarios para la fuerza.",
-      "Función del art. 1.010."
+      "Mantenimiento de la Moral",
+      "Es la función que, basada en principios morales, institucionales y religiosos, busca potenciar los impulsos positivos del personal, y neutralizar los negativos. Se traduce en una mayor predisposición para la acción, una completa adhesión a la organización, una inclinación a cumplir sus obligaciones mas allá de lo ordenado, y una total entrega, evidenciada en la iniciativa, disciplina y satisfacción demostrada por el personal.",
+      "ROD-19-01, art. 1.003.f."
     ],
     [
-      "Lucha contra el fuego",
-      "Prevenir, combatir y limitar las consecuencias de incendios.",
-      "Función del art. 1.010."
+      "Necrológica",
+      "Regula las actividades de búsqueda, rescate, identificación, registro, evacuación y sepultura del personal muerto, disposición final de los restos, cuidado y disposición de los efectos pertenecientes al personal fallecido, con vistas a mantener la moral, crear condiciones adecuadas de sanidad, y cumplir con las leyes y usos de la guerra.",
+      "ROD-19-01, art. 1.003.g."
     ],
     [
-      "Control de daños zonal",
-      "Reducir daños y facilitar el restablecimiento de servicios esenciales.",
-      "Función del art. 1.010."
+      "Administración Interna",
+      "Consiste en el control a realizar y las medidas a adoptar sobre el funcionamiento, administración y organización de un comando, a fin de optimizar su rendimiento.",
+      "ROD-19-01, art. 1.003.h."
     ],
     [
-      "Conservación y recuperación de la salud del personal",
-      "Prevenir problemas de salud, atender, evacuar y recuperar al personal herido o enfermo.",
-      "Capítulo IV, art. 4.001 y Anexo 4."
+      "Personal Civil",
+      "Comprende el manejo de todos aquellos recursos humanos que, en forma permanente o transitoria, realicen trabajos de interés militar y que no formen parte de los efectivos militares permanentes del Ejército o de otras FFAA, con la finalidad de lograr su máxima eficiencia.",
+      "ROD-19-01, art. 1.003.i."
     ],
     [
-      "Apoyo de finanzas",
-      "Asegurar recursos financieros y asesoramiento para sostener las funciones logísticas.",
-      "Apoyo general del capítulo VIII, art. 8.003."
+      "Sanidad",
+      "Es la función relacionada con el mantenimiento y recuperación de la aptitud psicofísica del personal, su evacuación, hospitalización y las tareas afines que hacen a las demás funciones de personal (necrológica, selección psicofísica del personal y reingreso del personal recuperado al elemento de revista).",
+      "ROD-19-01, art. 1.003.j."
     ],
     [
-      "Apoyo SUCOM/SUIE",
-      "Integrar información confiable y actualizada para planear, gestionar y decidir en logística.",
-      "Apoyo general del capítulo IX, arts. 9.001-9.002."
+      "Seguridad contra Accidentes",
+      "Consiste en un conjunto de medidas a adoptar para reducir y mantener en una proporción mínima las bajas de personal y sus consecuencias, debido a accidentes de todo tipo.",
+      "ROD-19-01, art. 1.003.k."
     ]
   ],
-  "other_functions": [
-    [
-      "Lucha contra el fuego",
-      "Previene incendios, combate sus efectos y atiende las acciones posteriores a su extinción. Ya está en el art. 1011."
-    ],
-    [
-      "Bienes raíces",
-      "Determina necesidades y gestiona la obtención, administración, control patrimonial y disposición de los inmuebles de la fuerza. Ya está en el art. 1011."
-    ],
-    [
-      "Seguridad en la zona de retaguardia / zona de comunicaciones",
-      "Protege los medios e instalaciones de esas zonas frente a acciones enemigas. La sección III define SZR y SZC; es el tema que no aparece en la lista inicial."
-    ],
-    [
-      "Control de daños zonal",
-      "Reduce los efectos de ataques o desastres y facilita conservar o restablecer los servicios logísticos y públicos esenciales. Ya está en el art. 1011."
-    ]
-  ],
+  "other_functions": [],
   "forms": [
     [
       "SRE 2408-1",
@@ -170,8 +153,8 @@
       "Es el campo de la conducción que planea y ejecuta el apoyo con bienes y servicios para sostener materialmente a la fuerza de forma permanente."
     ],
     [
-      "¿Qué servicios hay que nombrar para este examen?",
-      "Arsenales, Intendencia, Construcciones, Transporte y Sanidad, según los lineamientos de clase transmitidos por Eve."
+      "Especialidades y servicios de la logística de material (art. 1.009).",
+      "Las especialidades y los servicios del campo logístico de material son:"
     ],
     [
       "¿Qué es un efecto?",
@@ -216,12 +199,16 @@
   ],
   "sources": [
     {
+      "path": "D:/Eve/CFE/reglamentos/ROD-19-01logistica de personal.pdf",
+      "label": "ROD-19-01 Logística - Personal, edición 2004: art. 1.003, páginas PDF 11-13 (impresas 1-3); definición y once funciones."
+    },
+    {
       "path": "D:/Eve/CFE/reglamentos/RFD-20-01 regimen funcional de logistica de material.pdf",
-      "label": "RFD-20-01, edición 2009: arts. 1.009-1.010, PDF 21-22; salud, cap. IV, PDF 63 y Anexo 4; finanzas, art. 8.003, PDF 101; SUCOM/SUIE, arts. 9.001-9.002, PDF 105."
+      "label": "RFD-20-01, edición 2009: art. 1.009, páginas PDF 21-22; especialidades y servicios de la logística de material."
     },
     {
       "path": "D:/Eve/CFE/reglamentos/ROD-19-02 logistica de material.pdf",
-      "label": "ROD-19-02, edición 2004: arts. 1006, 1010 y 1011, PDF 16, 18-19; capítulo VIII, arts. 8002, 8012, 8015 y 8024, PDF 121, 127-128 y 133."
+      "label": "ROD-19-02, edición 2004: art. 1006, página PDF 16; campo de interés de Material."
     },
     {
       "path": "D:/Eve/CFE/reglamentos/RFD-21-01-I regimen funcional de arsenales tomo 1.pdf",
@@ -255,75 +242,75 @@
     },
     {
       "tipo": "mc",
-      "p": "Según los lineamientos de este examen, ¿qué lista de servicios debe repasarse?",
+      "p": "Según el artículo 1.009, ¿cuáles son las especialidades y servicios del campo logístico de Material?",
       "o": [
-        "Arsenales, Intendencia, Justicia Militar, Postal y Religioso.",
         "Arsenales, Intendencia, Construcciones, Transporte y Sanidad.",
-        "Abastecimiento, mantenimiento, construcciones, transporte y bienes raíces.",
-        "Efectivos, reemplazos, moral, necrología y personal civil."
+        "Arsenales, Intendencia, Veterinaria, Transporte y Construcciones.",
+        "Religioso, Justicia Militar, Sanidad, Postal y Especiales.",
+        "Abastecimiento, mantenimiento, reemplazos, moral y necrológica."
       ],
       "c": 1,
-      "e": "Arsenales, Intendencia, Construcciones, Transporte y Sanidad, según los lineamientos de clase transmitidos por Eve. No se confunden servicios con funciones."
+      "e": "El artículo 1.009 enumera Arsenales, Intendencia, Veterinaria, Transporte y Construcciones. Sanidad integra las funciones de Personal de la lista de clase."
     },
     {
       "tipo": "mc",
-      "p": "¿Qué servicio corresponde a esta tarea? Abastece y mantiene los efectos de Arsenales, como armamento, vehículos, equipos electrónicos y herramientas.",
+      "p": "Artículo 1.009: ¿a qué especialidad o servicio corresponde esta definición? Es la especialidad organizada, equipada e instruida para proporcionar el abastecimiento y mantenimiento de los efectos que otorgan a las tropas potencia de fuego, movilidad, medios electrónicos, materiales de ingenieros (excepto de construcciones) y equipos químicos, biológicos, radiológicos / nucleares.",
       "o": [
         "Intendencia",
-        "Construcciones",
+        "Veterinaria",
         "Arsenales",
         "Transporte"
       ],
       "c": 2,
-      "e": "Corresponde a Arsenales. Abastece y mantiene los efectos de Arsenales, como armamento, vehículos, equipos electrónicos y herramientas."
+      "e": "Arsenales: es la especialidad organizada, equipada e instruida para proporcionar el abastecimiento y mantenimiento de los efectos que otorgan a las tropas potencia de fuego, movilidad, medios electrónicos, materiales de ingenieros (excepto de construcciones) y equipos químicos, biológicos, radiológicos / nucleares."
     },
     {
       "tipo": "mc",
-      "p": "¿Qué servicio corresponde a esta tarea? Atiende el abastecimiento y apoyo para la vida de la tropa, como alimentación, vestuario y alojamiento.",
+      "p": "Artículo 1.009: ¿a qué especialidad o servicio corresponde esta definición? Es la especialidad organizada, equipada e instruida para abastecer y mantener aquellos efectos relativos a: alimentación del personal, vestuario y equipo, alojamiento, materiales de oficina y escritura, muebles, equipos aéreos de intendencia, combustibles y lubricantes, proporcionar ciertos apoyos de personal, baño, desinfección, descontaminación e impregnación de personal y material, en escala limitada.",
       "o": [
         "Arsenales",
-        "Construcciones",
+        "Veterinaria",
         "Transporte",
         "Intendencia"
       ],
       "c": 3,
-      "e": "Corresponde a Intendencia. Atiende el abastecimiento y apoyo para la vida de la tropa, como alimentación, vestuario y alojamiento."
+      "e": "Intendencia: es la especialidad organizada, equipada e instruida para abastecer y mantener aquellos efectos relativos a: alimentación del personal, vestuario y equipo, alojamiento, materiales de oficina y escritura, muebles, equipos aéreos de intendencia, combustibles y lubricantes, proporcionar ciertos apoyos de personal, baño, desinfección, descontaminación e impregnación de personal y material, en escala limitada."
     },
     {
       "tipo": "mc",
-      "p": "¿Qué servicio corresponde a esta tarea? Construye, mantiene y repara las instalaciones e infraestructura necesarias.",
+      "p": "Artículo 1.009: ¿a qué especialidad o servicio corresponde esta definición? Es el servicio logístico organizado, equipado e instruido para preservar y recuperar la aptitud física de los animales y satisfacer las necesidades para su abastecimiento; suministrar y mantener los efectos de veterinaria; prevenir la zoonosis e inspeccionar los productos alimenticios que consumirá la tropa cuando se trate de tareas en el campo de la bromatología y contribuir con las tareas emergentes del saneamiento ambiental.",
       "o": [
-        "Construcciones",
+        "Veterinaria",
         "Arsenales",
         "Intendencia",
         "Transporte"
       ],
       "c": 0,
-      "e": "Corresponde a Construcciones. Construye, mantiene y repara las instalaciones e infraestructura necesarias."
+      "e": "Veterinaria: es el servicio logístico organizado, equipado e instruido para preservar y recuperar la aptitud física de los animales y satisfacer las necesidades para su abastecimiento; suministrar y mantener los efectos de veterinaria; prevenir la zoonosis e inspeccionar los productos alimenticios que consumirá la tropa cuando se trate de tareas en el campo de la bromatología y contribuir con las tareas emergentes del saneamiento ambiental."
     },
     {
       "tipo": "mc",
-      "p": "¿Qué servicio corresponde a esta tarea? Satisface los requerimientos de traslado de personal y abastecimientos.",
+      "p": "Artículo 1.009: ¿a qué especialidad o servicio corresponde esta definición? Es el servicio logístico organizado, equipado e instruido para satisfacer los requerimientos de desplazamientos de personal y abastecimientos, por medios no orgánicos del usuario, así como también los equipos, instalaciones y comunicaciones para ejecutar dichos movimientos.",
       "o": [
         "Arsenales",
         "Transporte",
         "Intendencia",
-        "Construcciones"
+        "Veterinaria"
       ],
       "c": 1,
-      "e": "Corresponde a Transporte. Satisface los requerimientos de traslado de personal y abastecimientos."
+      "e": "Transporte: es el servicio logístico organizado, equipado e instruido para satisfacer los requerimientos de desplazamientos de personal y abastecimientos, por medios no orgánicos del usuario, así como también los equipos, instalaciones y comunicaciones para ejecutar dichos movimientos."
     },
     {
       "tipo": "mc",
-      "p": "¿Qué servicio corresponde a esta tarea? Conserva y recupera la salud del personal mediante prevención, atención, evacuación y tratamiento.",
+      "p": "Artículo 1.009: ¿a qué especialidad o servicio corresponde esta definición? Es el servicio logístico organizado, equipado e instruido para la edificación y/o reparación de las instalaciones permanentes y temporarias requeridas por la fuerza. Incluye la construcción, mantenimiento, reparación y rehabilitación de estructuras, caminos, tuberías, vías navegables interiores, vías férreas, aeródromos, pistas de aterrizaje, trabajos defensivos y barreras.",
       "o": [
         "Arsenales",
         "Intendencia",
-        "Sanidad",
-        "Construcciones"
+        "Construcciones",
+        "Veterinaria"
       ],
       "c": 2,
-      "e": "Corresponde a Sanidad. Conserva y recupera la salud del personal mediante prevención, atención, evacuación y tratamiento."
+      "e": "Construcciones: es el servicio logístico organizado, equipado e instruido para la edificación y/o reparación de las instalaciones permanentes y temporarias requeridas por la fuerza. Incluye la construcción, mantenimiento, reparación y rehabilitación de estructuras, caminos, tuberías, vías navegables interiores, vías férreas, aeródromos, pistas de aterrizaje, trabajos defensivos y barreras."
     },
     {
       "tipo": "mc",
@@ -555,193 +542,204 @@
     },
     {
       "tipo": "mc",
-      "p": "En el capítulo VIII del ROD-19-02, ¿qué función corresponde a esta finalidad? Previene incendios, combate sus efectos y atiende las acciones posteriores a su extinción.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Aprecia y evalúa las bajas y asigna personal para mantener los efectivos orgánicos o asignados.",
       "o": [
-        "Bienes raíces",
-        "Seguridad en la zona de retaguardia / zona de comunicaciones",
-        "Lucha contra el fuego",
-        "Control de daños zonal"
+        "Reemplazos",
+        "Administración de Personal",
+        "Mantenimiento de los efectivos",
+        "Disciplina, Ley y Orden"
       ],
       "c": 2,
-      "e": "Previene incendios, combate sus efectos y atiende las acciones posteriores a su extinción. Ya está en el art. 1011."
+      "e": "Aprecia y evalúa las bajas y asigna personal para mantener los efectivos orgánicos o asignados. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En el capítulo VIII del ROD-19-02, ¿qué función corresponde a esta finalidad? Determina necesidades y gestiona la obtención, administración, control patrimonial y disposición de los inmuebles de la fuerza.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Obtiene, recibe, clasifica, distribuye, instruye y asigna reemplazos para completar los efectivos orgánicos o asignados.",
       "o": [
-        "Lucha contra el fuego",
-        "Seguridad en la zona de retaguardia / zona de comunicaciones",
-        "Control de daños zonal",
-        "Bienes raíces"
+        "Mantenimiento de los efectivos",
+        "Administración de Personal",
+        "Disciplina, Ley y Orden",
+        "Reemplazos"
       ],
       "c": 3,
-      "e": "Determina necesidades y gestiona la obtención, administración, control patrimonial y disposición de los inmuebles de la fuerza. Ya está en el art. 1011."
+      "e": "Obtiene, recibe, clasifica, distribuye, instruye y asigna reemplazos para completar los efectivos orgánicos o asignados. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En el capítulo VIII del ROD-19-02, ¿qué función corresponde a esta finalidad? Protege los medios e instalaciones de esas zonas frente a acciones enemigas.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Administra los recursos humanos de la organización, aprovechando sus cualidades y habilidades para lograr la máxima eficiencia.",
       "o": [
-        "Seguridad en la zona de retaguardia / zona de comunicaciones",
-        "Lucha contra el fuego",
-        "Bienes raíces",
-        "Control de daños zonal"
+        "Administración de Personal",
+        "Mantenimiento de los efectivos",
+        "Reemplazos",
+        "Disciplina, Ley y Orden"
       ],
       "c": 0,
-      "e": "Protege los medios e instalaciones de esas zonas frente a acciones enemigas. La sección III define SZR y SZC; es el tema que no aparece en la lista inicial."
+      "e": "Administra los recursos humanos de la organización, aprovechando sus cualidades y habilidades para lograr la máxima eficiencia. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En el capítulo VIII del ROD-19-02, ¿qué función corresponde a esta finalidad? Reduce los efectos de ataques o desastres y facilita conservar o restablecer los servicios logísticos y públicos esenciales.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Procura un estado de disciplina, orden y obediencia conforme a las normas.",
       "o": [
-        "Lucha contra el fuego",
-        "Control de daños zonal",
-        "Bienes raíces",
-        "Seguridad en la zona de retaguardia / zona de comunicaciones"
+        "Mantenimiento de los efectivos",
+        "Disciplina, Ley y Orden",
+        "Reemplazos",
+        "Administración de Personal"
       ],
       "c": 1,
-      "e": "Reduce los efectos de ataques o desastres y facilita conservar o restablecer los servicios logísticos y públicos esenciales. Ya está en el art. 1011."
+      "e": "Procura un estado de disciplina, orden y obediencia conforme a las normas. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Proporcionar los efectos necesarios para sostener a la fuerza.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Asegura el tratamiento adecuado de los prisioneros de guerra conforme a las leyes y usos de la guerra.",
       "o": [
-        "Mantenimiento",
-        "Construcciones",
-        "Abastecimiento",
-        "Transporte"
+        "Mantenimiento de los efectivos",
+        "Reemplazos",
+        "Prisioneros de Guerra",
+        "Administración de Personal"
       ],
       "c": 2,
-      "e": "Proporcionar los efectos necesarios para sostener a la fuerza. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+      "e": "Asegura el tratamiento adecuado de los prisioneros de guerra conforme a las leyes y usos de la guerra. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Conservar el material eficiente o restituirlo a condición de servicio.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Potencia los impulsos positivos y neutraliza los negativos; se manifiesta en la motivación, la disciplina y el espíritu de cuerpo.",
       "o": [
-        "Abastecimiento",
-        "Construcciones",
-        "Transporte",
-        "Mantenimiento"
+        "Mantenimiento de los efectivos",
+        "Reemplazos",
+        "Administración de Personal",
+        "Mantenimiento de la Moral"
       ],
       "c": 3,
-      "e": "Conservar el material eficiente o restituirlo a condición de servicio. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+      "e": "Potencia los impulsos positivos y neutraliza los negativos; se manifiesta en la motivación, la disciplina y el espíritu de cuerpo. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Construir, mantener y reparar instalaciones e infraestructura.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Regula la búsqueda, identificación, registro, evacuación y sepultura de los fallecidos y el cuidado de sus efectos personales.",
       "o": [
-        "Construcciones",
-        "Abastecimiento",
-        "Mantenimiento",
-        "Transporte"
+        "Necrológica",
+        "Mantenimiento de los efectivos",
+        "Reemplazos",
+        "Administración de Personal"
       ],
       "c": 0,
-      "e": "Construir, mantener y reparar instalaciones e infraestructura. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+      "e": "Regula la búsqueda, identificación, registro, evacuación y sepultura de los fallecidos y el cuidado de sus efectos personales. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Satisfacer el traslado de personal y abastecimientos.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Controla el funcionamiento, la administración y la organización de un comando para optimizar su rendimiento.",
       "o": [
-        "Abastecimiento",
-        "Transporte",
-        "Mantenimiento",
-        "Construcciones"
+        "Mantenimiento de los efectivos",
+        "Administración Interna",
+        "Reemplazos",
+        "Administración de Personal"
       ],
       "c": 1,
-      "e": "Satisfacer el traslado de personal y abastecimientos. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+      "e": "Controla el funcionamiento, la administración y la organización de un comando para optimizar su rendimiento. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Conservar y recuperar la salud de los animales y atender los efectos de veterinaria.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Administra al personal civil que, de forma permanente o transitoria, realiza trabajos de interés militar sin integrar los efectivos militares permanentes.",
       "o": [
-        "Abastecimiento",
-        "Mantenimiento",
-        "Veterinaria",
-        "Construcciones"
+        "Mantenimiento de los efectivos",
+        "Reemplazos",
+        "Personal Civil",
+        "Administración de Personal"
       ],
       "c": 2,
-      "e": "Conservar y recuperar la salud de los animales y atender los efectos de veterinaria. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+      "e": "Administra al personal civil que, de forma permanente o transitoria, realiza trabajos de interés militar sin integrar los efectivos militares permanentes. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Obtener, administrar y controlar los inmuebles necesarios para la fuerza.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Mantiene y recupera la aptitud psicofísica del personal, e incluye su evacuación, hospitalización y tareas afines.",
       "o": [
-        "Abastecimiento",
-        "Mantenimiento",
-        "Construcciones",
-        "Bienes raíces"
+        "Mantenimiento de los efectivos",
+        "Reemplazos",
+        "Administración de Personal",
+        "Sanidad"
       ],
       "c": 3,
-      "e": "Obtener, administrar y controlar los inmuebles necesarios para la fuerza. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+      "e": "Mantiene y recupera la aptitud psicofísica del personal, e incluye su evacuación, hospitalización y tareas afines. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Prevenir, combatir y limitar las consecuencias de incendios.",
+      "p": "¿Qué función de Logística de Personal corresponde a esta finalidad? Adopta medidas para reducir al mínimo las bajas del personal y sus consecuencias por accidentes de todo tipo.",
       "o": [
-        "Lucha contra el fuego",
-        "Abastecimiento",
-        "Mantenimiento",
-        "Construcciones"
+        "Seguridad contra Accidentes",
+        "Mantenimiento de los efectivos",
+        "Reemplazos",
+        "Administración de Personal"
       ],
       "c": 0,
-      "e": "Prevenir, combatir y limitar las consecuencias de incendios. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+      "e": "Adopta medidas para reducir al mínimo las bajas del personal y sus consecuencias por accidentes de todo tipo. Fuente: ROD-19-01, art. 1.003."
     },
     {
       "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Reducir daños y facilitar el restablecimiento de servicios esenciales.",
+      "p": "¿Cuántas funciones de Logística de Personal enumera la lista de clase?",
       "o": [
-        "Abastecimiento",
-        "Control de daños zonal",
-        "Mantenimiento",
-        "Construcciones"
+        "Ocho.",
+        "Once.",
+        "Cinco.",
+        "Catorce."
       ],
       "c": 1,
-      "e": "Reducir daños y facilitar el restablecimiento de servicios esenciales. Función del art. 1.010. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
-    },
-    {
-      "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Prevenir problemas de salud, atender, evacuar y recuperar al personal herido o enfermo.",
-      "o": [
-        "Abastecimiento",
-        "Mantenimiento",
-        "Conservación y recuperación de la salud del personal",
-        "Construcciones"
-      ],
-      "c": 2,
-      "e": "Prevenir problemas de salud, atender, evacuar y recuperar al personal herido o enfermo. Capítulo IV, art. 4.001 y Anexo 4. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
-    },
-    {
-      "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Asegurar recursos financieros y asesoramiento para sostener las funciones logísticas.",
-      "o": [
-        "Abastecimiento",
-        "Mantenimiento",
-        "Construcciones",
-        "Apoyo de finanzas"
-      ],
-      "c": 3,
-      "e": "Asegurar recursos financieros y asesoramiento para sostener las funciones logísticas. Apoyo general del capítulo VIII, art. 8.003. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
-    },
-    {
-      "tipo": "mc",
-      "p": "En los bloques de estudio del RFD-20-01, ¿a qué tema corresponde esta finalidad? Integrar información confiable y actualizada para planear, gestionar y decidir en logística.",
-      "o": [
-        "Apoyo SUCOM/SUIE",
-        "Abastecimiento",
-        "Mantenimiento",
-        "Construcciones"
-      ],
-      "c": 0,
-      "e": "Integrar información confiable y actualizada para planear, gestionar y decidir en logística. Apoyo general del capítulo IX, arts. 9.001-9.002. El repaso distingue las ocho funciones iniciales de los capítulos complementarios."
+      "e": "El artículo 1.003 enumera once funciones de Logística de Personal: Mantenimiento de los efectivos, Reemplazos, Administración de Personal, Disciplina, Ley y Orden, Prisioneros de Guerra, Mantenimiento de la Moral, Necrológica, Administración Interna, Personal Civil, Sanidad, Seguridad contra Accidentes."
     }
+  ],
+  "personal_definition": "Son los agrupamientos convencionales y convenientes de las actividades de personal que persiguen un objetivo común, y responden a características técnicas homogéneas, para hacer efectivo el apoyo a las fuerzas mediante la prestación de servicios. Éstas son:",
+  "personal_short": [
+    [
+      "Mantenimiento de los efectivos",
+      "Aprecia y evalúa las bajas y asigna personal para mantener los efectivos orgánicos o asignados."
+    ],
+    [
+      "Reemplazos",
+      "Obtiene, recibe, clasifica, distribuye, instruye y asigna reemplazos para completar los efectivos orgánicos o asignados."
+    ],
+    [
+      "Administración de Personal",
+      "Administra los recursos humanos de la organización, aprovechando sus cualidades y habilidades para lograr la máxima eficiencia."
+    ],
+    [
+      "Disciplina, Ley y Orden",
+      "Procura un estado de disciplina, orden y obediencia conforme a las normas."
+    ],
+    [
+      "Prisioneros de Guerra",
+      "Asegura el tratamiento adecuado de los prisioneros de guerra conforme a las leyes y usos de la guerra."
+    ],
+    [
+      "Mantenimiento de la Moral",
+      "Potencia los impulsos positivos y neutraliza los negativos; se manifiesta en la motivación, la disciplina y el espíritu de cuerpo."
+    ],
+    [
+      "Necrológica",
+      "Regula la búsqueda, identificación, registro, evacuación y sepultura de los fallecidos y el cuidado de sus efectos personales."
+    ],
+    [
+      "Administración Interna",
+      "Controla el funcionamiento, la administración y la organización de un comando para optimizar su rendimiento."
+    ],
+    [
+      "Personal Civil",
+      "Administra al personal civil que, de forma permanente o transitoria, realiza trabajos de interés militar sin integrar los efectivos militares permanentes."
+    ],
+    [
+      "Sanidad",
+      "Mantiene y recupera la aptitud psicofísica del personal, e incluye su evacuación, hospitalización y tareas afines."
+    ],
+    [
+      "Seguridad contra Accidentes",
+      "Adopta medidas para reducir al mínimo las bajas del personal y sus consecuencias por accidentes de todo tipo."
+    ]
   ],
   "module_id": "log_repaso_dirigido_eve_20oct",
   "subject_id": "m_logistica",
   "download": "./materiales/logistica-repaso-dirigido.pdf",
-  "source_sha256": "4ba5b939b522f3c0839f6fbee7b2cfaf35e03e66b71b046bede3b5f3b188cdf3",
+  "source_sha256": "fc80206dcb60068c8cbe896d44f145dcbf830717e7f117b49a35a4f5455dc517",
   "cache_names": [
-    "estudio-v39",
-    "estudio-source-v39"
+    "estudio-v40",
+    "estudio-source-v40"
   ],
   "corrected_module_id": "log_repaso_final_material",
-  "correction_note": "Corrección del repaso: el ROD-19-02 disponible, edición 2004, art. 1011, enumera ocho funciones e incluye control de daños zonal, omitido en el apunte original descargable. La lista de 11 funciones que la cátedra indicó para el examen sigue pendiente de confirmar; no se sustituye por las funciones de Personal."
+  "correction_note": "Corrección del repaso: el ROD-19-02 disponible, edición 2004, art. 1011, enumera ocho funciones de Material e incluye control de daños zonal, omitido en el apunte original descargable. Las 11 funciones solicitadas para este examen son de Logística de Personal; están desarrolladas en el Repaso dirigido."
 }

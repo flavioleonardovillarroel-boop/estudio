@@ -1,4 +1,4 @@
-const CACHE = 'estudio-v39';
+const CACHE = 'estudio-v40';
 const CACHE_PREFIX = 'estudio-v';
 const PRECACHE = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./materiales/logistica-repaso-final.docx", "./materiales/mecanica-automotriz-16-preguntas.docx", "./materiales/logistica-repaso-dirigido.pdf"];
 const APP_ROOT = new URL('./', self.location.href);

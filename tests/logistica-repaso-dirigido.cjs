@@ -37,15 +37,23 @@ for(const field of ['conceptos','cronologia']){
 }
 restored.preguntas[1]=structuredClone(previous.preguntas[1]);assert.deepEqual(restored,previous);
 assert.deepEqual(current.temas.filter(t=>t.id!==fixture.module_id).map(t=>t.id===fixed.id?previous:t),before.temas);
-assert.equal(fixture.function_blocks.length,11);assert.match(fixture.pending,/no enumera literalmente 11/);
-assert.equal(topic.preguntas.length,41);assert.equal(topic.conceptos.length,37);assert.equal(topic.cronologia.length,12);
+assert.equal(fixture.function_blocks.length,11);assert.match(fixture.pending,/Logística de Personal/);
+assert.deepEqual(fixture.services.map(([name])=>name),['Arsenales','Intendencia','Veterinaria','Transporte','Construcciones']);
+const personal=topic.secciones.find(s=>s.titulo==='1.003. Las 11 funciones de Logística de Personal');
+assert(personal);assert.equal(personal.parrafos[0],fixture.personal_definition);
+fixture.function_blocks.forEach(([name,full],i)=>assert.equal(personal.parrafos[i+1],'<strong>'+String.fromCharCode(97+i)+'. '+name+'.</strong> '+full));
+const services=topic.secciones.find(s=>s.titulo.startsWith('2. '));
+fixture.services.forEach(([name,full],i)=>assert.equal(services.parrafos[i+1],'<strong>'+String.fromCharCode(97+i)+'. '+name+':</strong> '+full));
+assert(!JSON.stringify(topic).includes('11 bloques'));assert(!JSON.stringify(topic).includes('SUCOM'));assert(!JSON.stringify(topic).includes('SZR/SZC'));
+assert.equal(topic.preguntas.length,38);assert.equal(topic.conceptos.length,33);assert.equal(topic.cronologia.length,13);
 fixture.questions.forEach(([q,a])=>{assert(topic.secciones.some(s=>s.parrafos.includes(a)));assert(topic.conceptos.some(c=>c.t===q&&c.d===a));});
 fixture.exam.forEach((q,i)=>{assert.deepEqual(topic.preguntas[i],q);assert.equal(q.tipo,'mc');assert.equal(q.o.length,4);assert.equal(new Set(q.o).size,4);assert(Number.isInteger(q.c)&&q.c>=0&&q.c<4);assert(q.e.trim().length>0);assert.equal(typeof q.o[q.c],'string');});
-assert(topic.preguntas.every(q=>!/cu[aá]ntas.*funciones|11 funciones/i.test(q.p)),'Do not quiz an unsupported doctrinal count');
+assert(topic.preguntas.some(q=>/Cuántas funciones de Logística de Personal/.test(q.p)&&q.o[q.c]==='Once.'));
+assert.deepEqual(fixture.function_blocks.map(([n])=>n),['Mantenimiento de los efectivos','Reemplazos','Administración de Personal','Disciplina, Ley y Orden','Prisioneros de Guerra','Mantenimiento de la Moral','Necrológica','Administración Interna','Personal Civil','Sanidad','Seguridad contra Accidentes']);
 for(const file of ['materiales/logistica-repaso-final.docx','materiales/mecanica-automotriz-16-preguntas.docx','source-entry/materiales/logistica-repaso-final.docx','source-entry/materiales/mecanica-automotriz-16-preguntas.docx'])assert.deepEqual(fs.readFileSync(path.join(root,file)),gitFile(file));
 const main=pwaResources(root),source=pwaResources(root,{sourceMode:true});
 for(const resources of [main,source])assert.equal(crypto.createHash('sha256').update(fs.readFileSync(resources.pathFor(fixture.download.slice(2)))).digest('hex'),fixture.source_sha256);
-console.log('PASS: 11 sourced study blocks, 41 MC, all other subjects/modules/files preserved, precise correction of old functions omission');
+console.log('PASS: 11 Personal functions and five service definitions verbatim, 38 MC, unrelated modules/files preserved');
 (async()=>{
  const server=http.createServer((req,res)=>{let u=new URL(req.url,'http://localhost'),isSource=u.pathname.startsWith('/source/'),prefix=isSource?'/source/':'/estudio/',resources=isSource?source:main;let file=u.pathname.startsWith(prefix)?resources.resolveRequest(u.pathname.slice(prefix.length)):null;if(file===null){res.writeHead(404);return res.end();}res.writeHead(200,{'Content-Type':resources.mimeFor(file),'Cache-Control':'no-store'});res.end(fs.readFileSync(resources.pathFor(file)));});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));let browser;
@@ -61,8 +69,8 @@ console.log('PASS: 11 sourced study blocks, 41 MC, all other subjects/modules/fi
    const text=await page.locator('#secs').innerText();for(const [q,a] of fixture.questions)assert(text.includes(a));for(const [n] of fixture.function_blocks)assert(text.includes(n));assert(text.includes(fixture.pending));assert.equal(await page.locator('a[download]').getAttribute('href'),fixture.download);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
    if(!isSource){
     fs.mkdirSync(path.join(root,'test-results'),{recursive:true});await page.screenshot({path:path.join(root,'test-results/logistica-dirigido-mobile.png')});
-    await page.getByRole('button',{name:'Conceptos',exact:true}).tap();assert.equal(await page.locator('#cBody .inner2').count(),37);
-    await page.getByRole('button',{name:'Cronología',exact:true}).tap();assert.equal(await page.locator('#tlWrap .tl>div').count(),12);
+    await page.getByRole('button',{name:'Conceptos',exact:true}).tap();assert.equal(await page.locator('#cBody .inner2').count(),33);
+    await page.getByRole('button',{name:'Cronología',exact:true}).tap();assert.equal(await page.locator('#tlWrap .tl>div').count(),13);
     await page.evaluate(()=>{barajar=items=>items.slice();});await page.getByRole('button',{name:'Examen',exact:true}).tap();await page.locator('[data-cant="todas"]').tap();
     for(const q of topic.preguntas){assert.equal(await page.locator('.qbtn').count(),4);const option=page.locator('.qbtn').nth(q.c);assert.equal((await option.innerText()).replace(/^[A-D]\)\s*/,''),q.o[q.c]);await option.tap();assert.match(await page.locator('#qFdb').innerText(),/correct|bien/i);await page.locator('#qNext').tap();}assert.match(await page.locator('#bodyVista').innerText(),/100%/);
     await page.getByRole('button',{name:'← Volver',exact:true}).tap();await page.locator('.tema').filter({hasText:'Guía de 13 puntos'}).tap();await page.getByRole('button',{name:'← Volver',exact:true}).tap();assert.match(await page.locator('.tema').first().innerText(),/Repaso dirigido/);await page.locator('.tema').first().tap();
@@ -71,7 +79,7 @@ console.log('PASS: 11 sourced study blocks, 41 MC, all other subjects/modules/fi
    const download=await page.evaluate(async href=>{let r=await fetch(href);return {ok:r.ok,bytes:Array.from(new Uint8Array(await r.arrayBuffer()))};},fixture.download);assert(download.ok);assert.equal(crypto.createHash('sha256').update(Buffer.from(download.bytes)).digest('hex'),fixture.source_sha256);
    await context.setOffline(true);await page.reload();await page.locator('#selPin').fill('1234');await page.getByRole('button',{name:'Entrar 🍀',exact:true}).tap();await page.evaluate(({matter,id})=>{abrirMateria(matter);abrirTema(id);},{matter:fixture.subject_id,id:fixture.module_id});
    const offline=await page.locator('#secs').innerText();for(const [q,a] of fixture.questions)assert(offline.includes(a));const cached=await page.evaluate(async href=>{let r=await fetch(href);return {ok:r.ok,size:(await r.arrayBuffer()).byteLength};},fixture.download);assert(cached.ok);assert.equal(cached.size,download.bytes.length);assert.deepEqual(errors,[]);assert.deepEqual(external,[]);await context.close();
-   console.log('PASS: '+(isSource?'alternative entry':'touch, desktop, 41 quiz answers, return navigation')+', complete reading and PDF download offline');
+   console.log('PASS: '+(isSource?'alternative entry':'touch, desktop, 38 quiz answers, return navigation')+', complete reading and PDF download offline');
   }
  }finally{if(browser)await browser.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1;});
