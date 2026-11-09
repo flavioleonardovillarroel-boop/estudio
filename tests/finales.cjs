@@ -15,6 +15,7 @@ assert.deepEqual(old,baseline.data,'All existing subjects/modules/progress IDs m
 assert.equal(current.data.materias[0].id,fixture.materia);
 assert.deepEqual(current.data.materias[0].unidades,fixture.topics.map(t=>t.id));
 const configurations=[pwaResources(root),pwaResources(root,{sourceMode:true})];
+const totalQuestions=fixture.topics.reduce((sum,t)=>sum+t.questions.length,0);
 for(const f of fixture.topics){
  const topic=current.data.temas.find(t=>t.id===f.id);assert(topic);assert.deepEqual(topic.secciones.slice(1).map(s=>s.titulo),f.headings);assert.deepEqual(topic.preguntas,f.questions);
  for(const q of topic.preguntas){assert.equal(q.tipo,'mc');assert.equal(q.o.length,4);assert.equal(new Set(q.o).size,4);assert(Number.isInteger(q.c)&&q.c>=0&&q.c<4);assert(q.e);}
@@ -42,7 +43,7 @@ async function completeExam(page,questions){
   await page.locator('#nuevoNom').fill('Finales prueba '+mode);await page.locator('#nuevoPin').fill('1234');await page.getByRole('button',{name:'Crear y entrar',exact:true}).click();
   assert((await page.locator('.materia').first().textContent()).includes('FINALES'));
   const preserved=await page.evaluate(()=>{const k=KEYQ('log_villar');LS.set(k,77);return {key:k,value:localStorage.getItem(k)};});
-  await page.locator('.materia').filter({hasText:'FINALES'}).click();assert.equal(await page.locator('.tema').count(),2);assert((await page.locator('#view').textContent()).includes('72 preguntas'));
+  await page.locator('.materia').filter({hasText:'FINALES'}).click();assert.equal(await page.locator('.tema').count(),2);assert((await page.locator('#view').textContent()).includes(totalQuestions+' preguntas'));
   for(const f of fixture.topics){
    await page.locator('.tema').filter({hasText:f.nombre}).click();
    assert.deepEqual(await page.locator('#secs .sec-blk h3').allTextContents(),['Apunte del final',...f.headings]);
@@ -56,7 +57,7 @@ async function completeExam(page,questions){
    await page.evaluate(()=>{barajar=x=>x.slice();});await page.getByRole('button',{name:'Examen',exact:true}).click();await completeExam(page,f.questions);
    await page.getByRole('button',{name:'← Volver',exact:true}).click();assert.equal(await page.locator('.tema').count(),2);assert.equal(await page.locator('#hdTitle').textContent(),'FINALES');
   }
-  await page.getByRole('button',{name:'📝 Examen de la materia (72 preguntas)',exact:true}).click();assert((await page.locator('#bodyEx').textContent()).includes('72 preguntas'));await page.getByRole('button',{name:'← Materia',exact:true}).click();
+  await page.getByRole('button',{name:'📝 Examen de la materia ('+totalQuestions+' preguntas)',exact:true}).click();assert((await page.locator('#bodyEx').textContent()).includes(totalQuestions+' preguntas'));await page.getByRole('button',{name:'← Materia',exact:true}).click();
   assert.equal(await page.evaluate(k=>localStorage.getItem(k),preserved.key),preserved.value);
   await context.setOffline(true);await page.reload();await page.locator('#selPin').fill('1234');await page.getByRole('button',{name:'Entrar 🍀',exact:true}).click();
   await page.locator('.materia').filter({hasText:'FINALES'}).click();
@@ -69,7 +70,7 @@ async function completeExam(page,questions){
   assert.equal(await page.evaluate(k=>localStorage.getItem(k),preserved.key),preserved.value);assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
   await page.screenshot({path:path.join(results,'finales-mobile-offline-'+mode+'.png'),fullPage:true});
   await page.setViewportSize({width:1280,height:900});await page.screenshot({path:path.join(results,'finales-desktop-'+mode+'.png'),fullPage:true});
-  const message=(mode?'Alternative':'Main')+' entry: approved full readings, 72/72 correct MC exam answers, cards, back navigation, mobile, offline reload and exact Word downloads, existing progress retained';passed.push(message);console.log('PASS: '+message);await context.close();
+  const message=(mode?'Alternative':'Main')+' entry: approved full readings, '+totalQuestions+'/'+totalQuestions+' correct MC exam answers, cards, back navigation, mobile, offline reload and exact Word downloads, existing progress retained';passed.push(message);console.log('PASS: '+message);await context.close();
  }}finally{await browser.close();}
  fs.writeFileSync(path.join(results,'results.json'),JSON.stringify({passed},null,2));
 })().catch(e=>{console.error(e.stack);process.exitCode=1;}).finally(()=>server.close());

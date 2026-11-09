@@ -617,14 +617,19 @@
         "Son las conductas previstas como graves en la ley y las análogas que causan grave menoscabo a la disciplina y dificultan el servicio. Una falta leve puede ser grave por las circunstancias y sus efectos.",
         "Gravísimas.",
         "Únicamente las expresamente previstas por la ley; se interpretan restrictivamente.",
-        "Las sanciones según su gravedad son:",
-        "Leves.",
-        "Apercibimiento o arresto simple o riguroso hasta 5 días. Pueden corresponder a faltas leves o graves.",
-        "Graves.",
-        "Arresto simple o riguroso hasta 60 días, por faltas graves.",
-        "Gravísimas.",
-        "Destitución por faltas gravísimas; el artículo 23 prevé la recomendación de una sanción menor ante atenuación extraordinaria.",
-        "Las cuatro sanciones que pueden imponerse son apercibimiento, arresto simple, arresto riguroso y destitución. Fuente: Ley 26.394, Anexo IV, artículos 9 a 14 y 21 a 23.",
+        "Los cuatro tipos de sanción y en qué consiste cada uno:",
+        "Apercibimiento.",
+        "Reprobación formal y expresa por escrito del superior al subordinado por su conducta o proceder. Se deja constancia en el legajo personal.",
+        "Arresto simple.",
+        "Permanencia en el domicilio, buque o unidad que se indique. El sancionado participa en las actividades que determine su jefe y permanece en los lugares señalados el resto del tiempo.",
+        "Arresto riguroso.",
+        "Internamiento en el buque o unidad que se determine. El sancionado no participa en las actividades de la unidad y queda relevado del mando y del servicio pertinente.",
+        "Destitución.",
+        "Pérdida definitiva del grado y baja de las Fuerzas Armadas. Impide readquirir el estado militar, salvo el cumplimiento de las obligaciones del servicio militar que correspondan como ciudadano.",
+        "¿Qué duración puede tener el arresto?",
+        "El arresto, simple o riguroso, restringe la libertad entre 1 y 60 días, según la gravedad de la falta.",
+        "Gravedad de las sanciones: leve, apercibimiento o arresto simple o riguroso hasta 5 días, por faltas leves o graves; grave, arresto simple o riguroso hasta 60 días, por faltas graves; gravísima, destitución por faltas gravísimas. Ante atenuación extraordinaria, el Consejo de Disciplina puede recomendar una sanción menor.",
+        "Fuente: Ley 26.394, Anexo IV, artículos 9 a 19 y 21 a 23.",
         "¿Qué son?",
         "Circunstancias que se valoran para determinar una sanción de menor severidad.",
         "Los ocho atenuantes son:",
@@ -1098,10 +1103,70 @@
           ],
           "c": 3,
           "e": "El servicio de semana depende del jefe de subunidad de diana a retreta; desde retreta, directamente del oficial de servicio. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿En qué consiste el apercibimiento?",
+          "o": [
+            "Reprobación formal y expresa por escrito del superior al subordinado por su conducta o proceder. Se deja constancia en el legajo personal.",
+            "En la pérdida definitiva del grado y la baja de las Fuerzas Armadas.",
+            "En un internamiento sin participación en las actividades de la unidad.",
+            "En una advertencia informal que no se registra en el legajo."
+          ],
+          "c": 0,
+          "e": "El apercibimiento es formal, expreso y escrito, y se registra en el legajo personal. Fuente: Ley 26.394, Anexo IV, artículo 15."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cómo participa en las actividades de la unidad quien cumple arresto simple?",
+          "o": [
+            "No participa en ninguna actividad y siempre queda relevado del mando.",
+            "Participa en las actividades que determine su jefe y permanece en los lugares señalados el resto del tiempo.",
+            "Participa libremente en cualquier actividad y decide dónde permanecer.",
+            "Pierde definitivamente el grado al comenzar el arresto."
+          ],
+          "c": 1,
+          "e": "En el arresto simple el jefe determina las actividades en que participa el sancionado. Fuente: Ley 26.394, Anexo IV, artículo 17."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué caracteriza al arresto riguroso?",
+          "o": [
+            "Consiste únicamente en una reprobación escrita en el legajo.",
+            "Permite participar en todas las actividades por decisión del sancionado.",
+            "Implica internamiento, sin participación en las actividades de la unidad, con relevo del mando y del servicio pertinente.",
+            "Produce automáticamente la baja definitiva de las Fuerzas Armadas."
+          ],
+          "c": 2,
+          "e": "El arresto riguroso implica internamiento y relevo del mando y del servicio pertinente. Fuente: Ley 26.394, Anexo IV, artículo 18."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué consecuencias tiene la destitución?",
+          "o": [
+            "Una reprobación escrita sin modificación del estado militar.",
+            "Una permanencia de hasta cinco días en el domicilio.",
+            "Un internamiento temporal sin pérdida del grado.",
+            "La pérdida definitiva del grado, la baja de las Fuerzas Armadas y la imposibilidad de readquirir estado militar, salvo las obligaciones del servicio militar como ciudadano."
+          ],
+          "c": 3,
+          "e": "La destitución produce las consecuencias previstas en el artículo 19 del Anexo IV de la Ley 26.394."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué duración general establece la ley para el arresto simple o riguroso?",
+          "o": [
+            "Entre 1 y 60 días, según la gravedad de la falta.",
+            "Entre 1 y 5 días en todos los casos.",
+            "Entre 60 y 120 días.",
+            "Una duración indefinida hasta que lo solicite el sancionado."
+          ],
+          "c": 0,
+          "e": "El arresto restringe la libertad entre 1 y 60 días; las sanciones leves tienen el límite específico de cinco días. Fuente: Ley 26.394, Anexo IV, artículos 16 y 21."
         }
       ],
       "download": "materiales/finales/teoria-general-seis-temas.docx",
-      "sha256": "08b990267f21a833e5b25011b37c0151e7547fb8294437c2e90e4f424b062aa2"
+      "sha256": "2cc774b7c9b60b3dc7f79b455da35f687d9eac1d802cc9dfc0baba58f689bdcd"
     }
   ]
 }
