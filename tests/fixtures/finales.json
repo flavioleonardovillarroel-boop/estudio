@@ -1,0 +1,1107 @@
+{
+  "baseline": "1c54d73178b7bb4200c0ef20c774db9f35cc63f3",
+  "materia": "m_finales",
+  "topics": [
+    {
+      "id": "finales_etica_mando_2026",
+      "nombre": "Ética y Mando · Final",
+      "headings": [
+        "Mando comando y principios del mando",
+        "Procedimientos del mando",
+        "Condiciones personales para el mando",
+        "Indicadores básicos del mando"
+      ],
+      "expected": [
+        "¿Qué es el mando?",
+        "Es la acción del jefe sobre el personal subordinado para dirigirlo, persuadirlo e influir sobre él, obteniendo voluntaria obediencia, confianza, respeto y leal y activa cooperación, tanto al desempeñar una función como al cumplir una misión.",
+        "¿Qué es el comando?",
+        "Es el ejercicio de la autoridad y de las responsabilidades legales sobre una organización militar. Es una función del grado y cargo, prescripta, regulada y limitada taxativamente por las leyes y los reglamentos militares.",
+        "¿Qué son los principios del mando?",
+        "Son reglas fundamentales que orientan la aplicación de las condiciones personales del jefe y de los procedimientos para ejercer correctamente el mando.",
+        "Los tres principios son:",
+        "Creer en la causa que se sirve y auxiliarse de la fe en Dios.",
+        "Tener convicción en la causa y transmitir confianza y entusiasmo.",
+        "Entregarse sin limitaciones al régimen del servicio.",
+        "Asumir el servicio con vocación, esfuerzo y responsabilidad.",
+        "Tener sentido de la autoridad y de la dignidad.",
+        "Ejercer la autoridad como una responsabilidad y respetar la dignidad propia y de los subordinados.",
+        "Fuente: MFP 51-13, Introducción V, puntos 1 y 2; capítulo IV, artículos 4.001 a 4.004. PDF: páginas 11 y 43 a 44.",
+        "¿Qué son los procedimientos del mando?",
+        "Son normas basadas en los principios del mando que, aplicadas según cada situación, permiten ejercerlo correctamente.",
+        "Los ocho procedimientos son:",
+        "Crear y mantener el ascendiente.",
+        "Ganar y conservar la autoridad moral y profesional que reconocen los subordinados.",
+        "Dar el ejemplo.",
+        "Mostrar con la propia conducta lo que se exige a los demás, dentro y fuera del servicio.",
+        "Conocerse a sí mismo para perfeccionarse y cultivarse profesionalmente.",
+        "Reconocer virtudes y limitaciones, corregir errores y seguir aprendiendo.",
+        "Conocer a los subordinados, preocuparse por su bienestar y mantenerlos informados.",
+        "Comprender sus capacidades y necesidades, orientarlos y darles la información que corresponda.",
+        "Impartir órdenes inequívocas, correctas, oportunas y comprobar su ejecución.",
+        "Ordenar con claridad, verificar la comprensión y controlar los resultados.",
+        "Emplear a los subordinados de acuerdo con sus capacidades y desarrollar el concepto de trabajo en equipo.",
+        "Asignar tareas adecuadas y coordinar los esfuerzos hacia un objetivo común.",
+        "Desarrollar el sentido de responsabilidad en sí mismo y en los subordinados.",
+        "Asumir las consecuencias de los actos y formar personas capaces de responder por sus tareas.",
+        "Administrar justicia con ecuanimidad.",
+        "Actuar de forma imparcial y equilibrada al valorar conductas, méritos y faltas.",
+        "¿Hay un procedimiento más importante que los demás?",
+        "No hay una prioridad fija. Se relacionan entre sí y se aplican según la situación, con criterio, sentido común, tacto y experiencia.",
+        "Fuente: MFP 51-13, capítulo IV, artículos 4.005 a 4.013. PDF: páginas 44 a 49.",
+        "¿Qué son las condiciones personales para el mando?",
+        "Son cualidades que el jefe desarrolla mediante la educación, la experiencia y el esfuerzo por conocerse y perfeccionarse. Todas son importantes; su aplicación depende de la situación.",
+        "Las 22 condiciones personales son:",
+        "Autocrítica",
+        "Examinarse para reconocer fortalezas, debilidades y errores, y mejorar.",
+        "Abnegación",
+        "Renunciar a beneficios personales en favor del deber y de una finalidad superior.",
+        "Aplomo",
+        "Conservar el dominio de sí mismo y la serenidad ante dificultades.",
+        "Audacia",
+        "Asumir un riesgo calculado cuando la situación y la finalidad lo justifican.",
+        "Capacidad",
+        "Tener las aptitudes y los conocimientos necesarios para cumplir la función.",
+        "Capacidad de resolución",
+        "Decidir, sostener lo resuelto e impartir órdenes claras y oportunas.",
+        "Constancia",
+        "Perseverar en los propósitos y las acciones, manteniendo coherencia entre dichos y hechos.",
+        "Discreción",
+        "Juzgar, hablar y actuar con prudencia, tacto y reserva.",
+        "Energía",
+        "Aplicar con firmeza la voluntad y la vitalidad al cumplimiento de un fin.",
+        "Iniciativa",
+        "Usar el ingenio para cumplir mejor las órdenes y resolver situaciones nuevas.",
+        "Integridad y corrección",
+        "Actuar con honestidad, dignidad y rectitud, y manifestarlo en la conducta.",
+        "Criterio",
+        "Valorar los factores de un problema y elegir una solución adecuada.",
+        "Justicia y ecuanimidad",
+        "Ejercer la autoridad con imparcialidad y equilibrio.",
+        "Lealtad",
+        "Mantener fidelidad a los principios, la Nación, la Institución y sus integrantes.",
+        "Optimismo y entusiasmo",
+        "Confiar de manera realista en la tarea y transmitir esa confianza con la actitud.",
+        "Porte",
+        "Producir una impresión digna mediante la conducta, la apariencia, el lenguaje y los modales.",
+        "Resistencia",
+        "Soportar física y mentalmente la fatiga, las privaciones y la presión.",
+        "Responsabilidad",
+        "Reconocer y aceptar las consecuencias de los propios actos y las obligaciones del cargo.",
+        "Valor",
+        "Superar el miedo físico o moral para obrar correctamente.",
+        "Resiliencia",
+        "Superar la adversidad, adaptarse y fortalecerse de forma constructiva.",
+        "Empatía",
+        "Comprender los sentimientos y las emociones de otras personas.",
+        "Proactividad",
+        "Anticiparse y actuar para mejorar o resolver problemas antes de limitarse a reaccionar.",
+        "Fuente: MFP 51-13, capítulo III, artículos 3.001 a 3.023, PDF páginas 29 a 41. Responsabilidad está desarrollada en el artículo 3.019, aunque no figura en el cuadro inicial del capítulo.",
+        "¿Qué son los indicadores básicos del mando?",
+        "Son manifestaciones que permiten apreciar cómo se ejerce el mando y si la organización está en condiciones de cumplir su misión. Ayudan a detectar problemas que afectan su eficiencia.",
+        "Los cuatro indicadores son:",
+        "Motivación.",
+        "Entrega voluntaria de energía hacia una finalidad. Se observa en el interés y la disposición para cumplir el trabajo.",
+        "Disciplina.",
+        "Obediencia, subordinación y respeto, expresados en el cumplimiento de órdenes, leyes y reglamentos.",
+        "Espíritu de cuerpo.",
+        "Identificación de los integrantes con los valores, intereses y objetivos de su organización.",
+        "Eficiencia.",
+        "Capacidad individual y colectiva para cumplir las funciones y obtener el rendimiento adecuado de las personas y los medios.",
+        "Se evalúan de manera conjunta porque se relacionan entre sí. Permiten conocer la aptitud para cumplir la misión, apreciar el ejercicio del mando y detectar problemas de la organización.",
+        "Fuente: MFP 51-13, Introducción V y capítulo V, artículos 5.001 y 5.004, PDF páginas 11 a 13 y 51 a 53. Bibliografía: Manual del Ejercicio del Mando, proyecto 2023, copia de la carpeta de reglamentos."
+      ],
+      "questions": [
+        {
+          "tipo": "mc",
+          "p": "¿Qué es el mando?",
+          "o": [
+            "Es la acción del jefe sobre el personal subordinado para dirigirlo, persuadirlo e influir sobre él, obteniendo voluntaria obediencia, confianza, respeto y leal y activa cooperación, tanto al desempeñar una función como al cumplir una misión.",
+            "Es únicamente la administración del material asignado a una organización.",
+            "Es una condición que se obtiene automáticamente al recibir un grado.",
+            "Es la aplicación de sanciones como herramienta principal de conducción."
+          ],
+          "c": 0,
+          "e": "Es la acción del jefe sobre el personal subordinado para dirigirlo, persuadirlo e influir sobre él, obteniendo voluntaria obediencia, confianza, respeto y leal y activa cooperación, tanto al desempeñar una función como al cumplir una misión. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué es el comando?",
+          "o": [
+            "Es solamente la influencia informal de una persona sobre sus compañeros.",
+            "Es el ejercicio de la autoridad y de las responsabilidades legales sobre una organización militar. Es una función del grado y cargo, prescripta, regulada y limitada taxativamente por las leyes y los reglamentos militares.",
+            "Es una facultad personal sin límites legales ni reglamentarios.",
+            "Es una cualidad que depende exclusivamente del entusiasmo del jefe."
+          ],
+          "c": 1,
+          "e": "Es el ejercicio de la autoridad y de las responsabilidades legales sobre una organización militar. Es una función del grado y cargo, prescripta, regulada y limitada taxativamente por las leyes y los reglamentos militares. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué son los principios del mando?",
+          "o": [
+            "Son exclusivamente los resultados obtenidos por la organización.",
+            "Son los turnos que debe cumplir cada integrante de una guardia.",
+            "Son reglas fundamentales que orientan la aplicación de las condiciones personales del jefe y de los procedimientos para ejercer correctamente el mando.",
+            "Son cualidades físicas que reemplazan la educación del jefe."
+          ],
+          "c": 2,
+          "e": "Son reglas fundamentales que orientan la aplicación de las condiciones personales del jefe y de los procedimientos para ejercer correctamente el mando. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuál es la lista de los tres principios del mando?",
+          "o": [
+            "Crear ascendiente; dar el ejemplo; impartir órdenes y comprobar su ejecución.",
+            "Motivación; disciplina; espíritu de cuerpo.",
+            "Autocrítica; capacidad de resolución; responsabilidad.",
+            "Creer en la causa que se sirve y auxiliarse de la fe en Dios; entregarse sin limitaciones al régimen del servicio; tener sentido de la autoridad y de la dignidad."
+          ],
+          "c": 3,
+          "e": "Los tres principios son los enunciados en el capítulo IV. Los procedimientos, indicadores y condiciones personales corresponden a otras listas. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué procedimiento del mando se relaciona con esta acción: «Ganar y conservar la autoridad moral y profesional que reconocen los subordinados.»?",
+          "o": [
+            "Crear y mantener el ascendiente",
+            "Dar el ejemplo",
+            "Conocer a los subordinados, preocuparse por su bienestar y mantenerlos informados",
+            "Emplear a los subordinados de acuerdo con sus capacidades y desarrollar el concepto de trabajo en equipo"
+          ],
+          "c": 0,
+          "e": "Crear y mantener el ascendiente. Ganar y conservar la autoridad moral y profesional que reconocen los subordinados. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué procedimiento del mando se relaciona con esta acción: «Mostrar con la propia conducta lo que se exige a los demás, dentro y fuera del servicio.»?",
+          "o": [
+            "Conocerse a sí mismo para perfeccionarse y cultivarse profesionalmente",
+            "Dar el ejemplo",
+            "Impartir órdenes inequívocas, correctas, oportunas y comprobar su ejecución",
+            "Desarrollar el sentido de responsabilidad en sí mismo y en los subordinados"
+          ],
+          "c": 1,
+          "e": "Dar el ejemplo. Mostrar con la propia conducta lo que se exige a los demás, dentro y fuera del servicio. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué procedimiento del mando se relaciona con esta acción: «Reconocer virtudes y limitaciones, corregir errores y seguir aprendiendo.»?",
+          "o": [
+            "Conocer a los subordinados, preocuparse por su bienestar y mantenerlos informados",
+            "Emplear a los subordinados de acuerdo con sus capacidades y desarrollar el concepto de trabajo en equipo",
+            "Conocerse a sí mismo para perfeccionarse y cultivarse profesionalmente",
+            "Administrar justicia con ecuanimidad"
+          ],
+          "c": 2,
+          "e": "Conocerse a sí mismo para perfeccionarse y cultivarse profesionalmente. Reconocer virtudes y limitaciones, corregir errores y seguir aprendiendo. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué procedimiento del mando se relaciona con esta acción: «Comprender sus capacidades y necesidades, orientarlos y darles la información que corresponda.»?",
+          "o": [
+            "Impartir órdenes inequívocas, correctas, oportunas y comprobar su ejecución",
+            "Desarrollar el sentido de responsabilidad en sí mismo y en los subordinados",
+            "Crear y mantener el ascendiente",
+            "Conocer a los subordinados, preocuparse por su bienestar y mantenerlos informados"
+          ],
+          "c": 3,
+          "e": "Conocer a los subordinados, preocuparse por su bienestar y mantenerlos informados. Comprender sus capacidades y necesidades, orientarlos y darles la información que corresponda. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué procedimiento del mando se relaciona con esta acción: «Ordenar con claridad, verificar la comprensión y controlar los resultados.»?",
+          "o": [
+            "Impartir órdenes inequívocas, correctas, oportunas y comprobar su ejecución",
+            "Emplear a los subordinados de acuerdo con sus capacidades y desarrollar el concepto de trabajo en equipo",
+            "Administrar justicia con ecuanimidad",
+            "Dar el ejemplo"
+          ],
+          "c": 0,
+          "e": "Impartir órdenes inequívocas, correctas, oportunas y comprobar su ejecución. Ordenar con claridad, verificar la comprensión y controlar los resultados. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué procedimiento del mando se relaciona con esta acción: «Asignar tareas adecuadas y coordinar los esfuerzos hacia un objetivo común.»?",
+          "o": [
+            "Desarrollar el sentido de responsabilidad en sí mismo y en los subordinados",
+            "Emplear a los subordinados de acuerdo con sus capacidades y desarrollar el concepto de trabajo en equipo",
+            "Crear y mantener el ascendiente",
+            "Conocerse a sí mismo para perfeccionarse y cultivarse profesionalmente"
+          ],
+          "c": 1,
+          "e": "Emplear a los subordinados de acuerdo con sus capacidades y desarrollar el concepto de trabajo en equipo. Asignar tareas adecuadas y coordinar los esfuerzos hacia un objetivo común. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué procedimiento del mando se relaciona con esta acción: «Asumir las consecuencias de los actos y formar personas capaces de responder por sus tareas.»?",
+          "o": [
+            "Administrar justicia con ecuanimidad",
+            "Dar el ejemplo",
+            "Desarrollar el sentido de responsabilidad en sí mismo y en los subordinados",
+            "Conocer a los subordinados, preocuparse por su bienestar y mantenerlos informados"
+          ],
+          "c": 2,
+          "e": "Desarrollar el sentido de responsabilidad en sí mismo y en los subordinados. Asumir las consecuencias de los actos y formar personas capaces de responder por sus tareas. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué procedimiento del mando se relaciona con esta acción: «Actuar de forma imparcial y equilibrada al valorar conductas, méritos y faltas.»?",
+          "o": [
+            "Crear y mantener el ascendiente",
+            "Conocerse a sí mismo para perfeccionarse y cultivarse profesionalmente",
+            "Impartir órdenes inequívocas, correctas, oportunas y comprobar su ejecución",
+            "Administrar justicia con ecuanimidad"
+          ],
+          "c": 3,
+          "e": "Administrar justicia con ecuanimidad. Actuar de forma imparcial y equilibrada al valorar conductas, méritos y faltas. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Examinarse para reconocer fortalezas, debilidades y errores, y mejorar.»?",
+          "o": [
+            "Autocrítica",
+            "Capacidad de resolución",
+            "Criterio",
+            "Resistencia"
+          ],
+          "c": 0,
+          "e": "Autocrítica: Examinarse para reconocer fortalezas, debilidades y errores, y mejorar. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Renunciar a beneficios personales en favor del deber y de una finalidad superior.»?",
+          "o": [
+            "Constancia",
+            "Abnegación",
+            "Justicia y ecuanimidad",
+            "Responsabilidad"
+          ],
+          "c": 1,
+          "e": "Abnegación: Renunciar a beneficios personales en favor del deber y de una finalidad superior. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Conservar el dominio de sí mismo y la serenidad ante dificultades.»?",
+          "o": [
+            "Discreción",
+            "Lealtad",
+            "Aplomo",
+            "Valor"
+          ],
+          "c": 2,
+          "e": "Aplomo: Conservar el dominio de sí mismo y la serenidad ante dificultades. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Asumir un riesgo calculado cuando la situación y la finalidad lo justifican.»?",
+          "o": [
+            "Energía",
+            "Optimismo y entusiasmo",
+            "Resiliencia",
+            "Audacia"
+          ],
+          "c": 3,
+          "e": "Audacia: Asumir un riesgo calculado cuando la situación y la finalidad lo justifican. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Tener las aptitudes y los conocimientos necesarios para cumplir la función.»?",
+          "o": [
+            "Capacidad",
+            "Iniciativa",
+            "Porte",
+            "Empatía"
+          ],
+          "c": 0,
+          "e": "Capacidad: Tener las aptitudes y los conocimientos necesarios para cumplir la función. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Decidir, sostener lo resuelto e impartir órdenes claras y oportunas.»?",
+          "o": [
+            "Integridad y corrección",
+            "Capacidad de resolución",
+            "Resistencia",
+            "Proactividad"
+          ],
+          "c": 1,
+          "e": "Capacidad de resolución: Decidir, sostener lo resuelto e impartir órdenes claras y oportunas. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Perseverar en los propósitos y las acciones, manteniendo coherencia entre dichos y hechos.»?",
+          "o": [
+            "Criterio",
+            "Responsabilidad",
+            "Constancia",
+            "Autocrítica"
+          ],
+          "c": 2,
+          "e": "Constancia: Perseverar en los propósitos y las acciones, manteniendo coherencia entre dichos y hechos. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Juzgar, hablar y actuar con prudencia, tacto y reserva.»?",
+          "o": [
+            "Justicia y ecuanimidad",
+            "Valor",
+            "Abnegación",
+            "Discreción"
+          ],
+          "c": 3,
+          "e": "Discreción: Juzgar, hablar y actuar con prudencia, tacto y reserva. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Aplicar con firmeza la voluntad y la vitalidad al cumplimiento de un fin.»?",
+          "o": [
+            "Energía",
+            "Lealtad",
+            "Resiliencia",
+            "Aplomo"
+          ],
+          "c": 0,
+          "e": "Energía: Aplicar con firmeza la voluntad y la vitalidad al cumplimiento de un fin. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Usar el ingenio para cumplir mejor las órdenes y resolver situaciones nuevas.»?",
+          "o": [
+            "Optimismo y entusiasmo",
+            "Iniciativa",
+            "Empatía",
+            "Audacia"
+          ],
+          "c": 1,
+          "e": "Iniciativa: Usar el ingenio para cumplir mejor las órdenes y resolver situaciones nuevas. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Actuar con honestidad, dignidad y rectitud, y manifestarlo en la conducta.»?",
+          "o": [
+            "Porte",
+            "Proactividad",
+            "Integridad y corrección",
+            "Capacidad"
+          ],
+          "c": 2,
+          "e": "Integridad y corrección: Actuar con honestidad, dignidad y rectitud, y manifestarlo en la conducta. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Valorar los factores de un problema y elegir una solución adecuada.»?",
+          "o": [
+            "Resistencia",
+            "Autocrítica",
+            "Capacidad de resolución",
+            "Criterio"
+          ],
+          "c": 3,
+          "e": "Criterio: Valorar los factores de un problema y elegir una solución adecuada. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Ejercer la autoridad con imparcialidad y equilibrio.»?",
+          "o": [
+            "Justicia y ecuanimidad",
+            "Responsabilidad",
+            "Abnegación",
+            "Constancia"
+          ],
+          "c": 0,
+          "e": "Justicia y ecuanimidad: Ejercer la autoridad con imparcialidad y equilibrio. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Mantener fidelidad a los principios, la Nación, la Institución y sus integrantes.»?",
+          "o": [
+            "Valor",
+            "Lealtad",
+            "Aplomo",
+            "Discreción"
+          ],
+          "c": 1,
+          "e": "Lealtad: Mantener fidelidad a los principios, la Nación, la Institución y sus integrantes. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Confiar de manera realista en la tarea y transmitir esa confianza con la actitud.»?",
+          "o": [
+            "Resiliencia",
+            "Audacia",
+            "Optimismo y entusiasmo",
+            "Energía"
+          ],
+          "c": 2,
+          "e": "Optimismo y entusiasmo: Confiar de manera realista en la tarea y transmitir esa confianza con la actitud. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Producir una impresión digna mediante la conducta, la apariencia, el lenguaje y los modales.»?",
+          "o": [
+            "Empatía",
+            "Capacidad",
+            "Iniciativa",
+            "Porte"
+          ],
+          "c": 3,
+          "e": "Porte: Producir una impresión digna mediante la conducta, la apariencia, el lenguaje y los modales. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Soportar física y mentalmente la fatiga, las privaciones y la presión.»?",
+          "o": [
+            "Resistencia",
+            "Proactividad",
+            "Capacidad de resolución",
+            "Integridad y corrección"
+          ],
+          "c": 0,
+          "e": "Resistencia: Soportar física y mentalmente la fatiga, las privaciones y la presión. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Reconocer y aceptar las consecuencias de los propios actos y las obligaciones del cargo.»?",
+          "o": [
+            "Autocrítica",
+            "Responsabilidad",
+            "Constancia",
+            "Criterio"
+          ],
+          "c": 1,
+          "e": "Responsabilidad: Reconocer y aceptar las consecuencias de los propios actos y las obligaciones del cargo. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Superar el miedo físico o moral para obrar correctamente.»?",
+          "o": [
+            "Abnegación",
+            "Discreción",
+            "Valor",
+            "Justicia y ecuanimidad"
+          ],
+          "c": 2,
+          "e": "Valor: Superar el miedo físico o moral para obrar correctamente. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Superar la adversidad, adaptarse y fortalecerse de forma constructiva.»?",
+          "o": [
+            "Aplomo",
+            "Energía",
+            "Lealtad",
+            "Resiliencia"
+          ],
+          "c": 3,
+          "e": "Resiliencia: Superar la adversidad, adaptarse y fortalecerse de forma constructiva. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Comprender los sentimientos y las emociones de otras personas.»?",
+          "o": [
+            "Empatía",
+            "Audacia",
+            "Iniciativa",
+            "Optimismo y entusiasmo"
+          ],
+          "c": 0,
+          "e": "Empatía: Comprender los sentimientos y las emociones de otras personas. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué condición personal para el mando corresponde a esta definición: «Anticiparse y actuar para mejorar o resolver problemas antes de limitarse a reaccionar.»?",
+          "o": [
+            "Capacidad",
+            "Proactividad",
+            "Integridad y corrección",
+            "Porte"
+          ],
+          "c": 1,
+          "e": "Proactividad: Anticiparse y actuar para mejorar o resolver problemas antes de limitarse a reaccionar. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuántas condiciones personales para el mando incluye el apunte aprobado?",
+          "o": [
+            "8",
+            "4",
+            "22",
+            "3"
+          ],
+          "c": 2,
+          "e": "El apunte incluye las 22 condiciones desarrolladas en los artículos 3.002 a 3.023, incluida responsabilidad. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuáles son los cuatro indicadores básicos del mando?",
+          "o": [
+            "Autocrítica, aplomo, audacia y capacidad.",
+            "Ascendiente, ejemplo, conocimiento personal y justicia.",
+            "Valor, abnegación, lealtad y porte.",
+            "Motivación, disciplina, espíritu de cuerpo y eficiencia."
+          ],
+          "c": 3,
+          "e": "Los cuatro indicadores son motivación, disciplina, espíritu de cuerpo y eficiencia. Se evalúan de manera conjunta. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué indicador básico del mando corresponde a esta descripción: «Entrega voluntaria de energía hacia una finalidad. Se observa en el interés y la disposición para cumplir el trabajo.»?",
+          "o": [
+            "Motivación",
+            "Disciplina",
+            "Espíritu de cuerpo",
+            "Eficiencia"
+          ],
+          "c": 0,
+          "e": "Motivación. Entrega voluntaria de energía hacia una finalidad. Se observa en el interés y la disposición para cumplir el trabajo. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué indicador básico del mando corresponde a esta descripción: «Obediencia, subordinación y respeto, expresados en el cumplimiento de órdenes, leyes y reglamentos.»?",
+          "o": [
+            "Espíritu de cuerpo",
+            "Disciplina",
+            "Eficiencia",
+            "Motivación"
+          ],
+          "c": 1,
+          "e": "Disciplina. Obediencia, subordinación y respeto, expresados en el cumplimiento de órdenes, leyes y reglamentos. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué indicador básico del mando corresponde a esta descripción: «Identificación de los integrantes con los valores, intereses y objetivos de su organización.»?",
+          "o": [
+            "Eficiencia",
+            "Motivación",
+            "Espíritu de cuerpo",
+            "Disciplina"
+          ],
+          "c": 2,
+          "e": "Espíritu de cuerpo. Identificación de los integrantes con los valores, intereses y objetivos de su organización. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué indicador básico del mando corresponde a esta descripción: «Capacidad individual y colectiva para cumplir las funciones y obtener el rendimiento adecuado de las personas y los medios.»?",
+          "o": [
+            "Motivación",
+            "Disciplina",
+            "Espíritu de cuerpo",
+            "Eficiencia"
+          ],
+          "c": 3,
+          "e": "Eficiencia. Capacidad individual y colectiva para cumplir las funciones y obtener el rendimiento adecuado de las personas y los medios. Fuente: MFP 51-13, apunte aprobado de Ética y Mando."
+        }
+      ],
+      "download": "materiales/finales/etica-y-mando-final.docx",
+      "sha256": "69b15fe1129c0d48fc541cea9b87a3fa0bef1d2b265797f3cd9d567f5691afa0"
+    },
+    {
+      "id": "finales_teoria_general_6_temas_2026",
+      "nombre": "Teoría General · Seis temas del final",
+      "headings": [
+        "1 Misiones de la guardia de prevención",
+        "2 Tipos de sanción",
+        "3 Atenuantes",
+        "4 Valores que sustentan la ESESC",
+        "5 Misiones y proceder del cabo de cuarto",
+        "6 Suboficial y auxiliar de semana"
+      ],
+      "expected": [
+        "¿Cuáles son sus misiones?",
+        "Constituir la policía interna del cuartel: custodiar, vigilar, garantizar el orden y la seguridad dentro de la instalación militar, rendir honores y controlar el ingreso y salida de personal, ganado, vehículos y efectos.",
+        "Depende directamente del oficial de servicio. Fuente: RFP 70-01, artículo 5.013.",
+        "Las faltas se clasifican por su gravedad:",
+        "Leves.",
+        "Vulneran los deberes militares y menoscaban la disciplina, poniendo en peligro el cumplimiento eficiente del servicio, sin constituir una infracción más grave.",
+        "Graves.",
+        "Son las conductas previstas como graves en la ley y las análogas que causan grave menoscabo a la disciplina y dificultan el servicio. Una falta leve puede ser grave por las circunstancias y sus efectos.",
+        "Gravísimas.",
+        "Únicamente las expresamente previstas por la ley; se interpretan restrictivamente.",
+        "Las sanciones según su gravedad son:",
+        "Leves.",
+        "Apercibimiento o arresto simple o riguroso hasta 5 días. Pueden corresponder a faltas leves o graves.",
+        "Graves.",
+        "Arresto simple o riguroso hasta 60 días, por faltas graves.",
+        "Gravísimas.",
+        "Destitución por faltas gravísimas; el artículo 23 prevé la recomendación de una sanción menor ante atenuación extraordinaria.",
+        "Las cuatro sanciones que pueden imponerse son apercibimiento, arresto simple, arresto riguroso y destitución. Fuente: Ley 26.394, Anexo IV, artículos 9 a 14 y 21 a 23.",
+        "¿Qué son?",
+        "Circunstancias que se valoran para determinar una sanción de menor severidad.",
+        "Los ocho atenuantes son:",
+        "1.",
+        "Motivos de elevado valor moral o social, u objeción de conciencia razonable.",
+        "2.",
+        "Presentarse ante la autoridad y confesar espontáneamente cuando se desconocía la falta o su autor, o se atribuía a otro.",
+        "3.",
+        "Realizar una acción heroica posterior que repare o impida los efectos de la falta.",
+        "4.",
+        "Impedir o reparar espontáneamente sus consecuencias dañosas o peligrosas.",
+        "5.",
+        "Que la falta ya haya causado daño físico o moral grave al infractor, volviendo innecesaria y desproporcionada la sanción.",
+        "6.",
+        "Escasa antigüedad que haya impedido comprender el significado de los actos.",
+        "7.",
+        "Afectación insignificante a la disciplina militar.",
+        "8.",
+        "Intervención de escasa relevancia en una falta cometida por otro.",
+        "Fuente: Ley 26.394, Anexo IV, artículos 24 y 27.",
+        "La página oficial de la ESESC presenta estos dos grupos de valores:",
+        "Valores institucionales del Ejército Argentino",
+        "Fe en Dios, amor a la Patria y pasión por la libertad.",
+        "Valores del soldado y significado breve:",
+        "Valor.",
+        "Superar el miedo y actuar correctamente.",
+        "Abnegación.",
+        "Renunciar al interés propio por un fin superior.",
+        "Lealtad.",
+        "Fidelidad honrada a la Nación, la Institución y sus integrantes.",
+        "Honor.",
+        "Actuar dignamente y merecer la aprobación de la propia conciencia.",
+        "Profesionalismo militar.",
+        "Prepararse y ejercer la profesión con competencia y ética.",
+        "Espíritu de cuerpo.",
+        "Identificarse con los valores y objetivos de la organización.",
+        "Disciplina.",
+        "Subordinación, respeto y cumplimiento de órdenes, leyes y reglamentos.",
+        "Integridad.",
+        "Honestidad, veracidad y rectitud de carácter.",
+        "Patriotismo.",
+        "Amor a la Patria y prioridad de su bien común.",
+        "Fuente: ESESC, sección Misión, Visión y Valores. https://esesc.ejercito.mil.ar/?p=misionvisionyvalores",
+        "¿Cuál es su misión y de quién depende?",
+        "Vigilar directamente al personal apostado y responder por su buen desempeño ante el sargento de cuarto, su superior inmediato.",
+        "¿Cómo debe proceder?",
+        "Permanencia.",
+        "No alejarse del sector sin permiso del jefe de guardia ni permitir que el personal dependiente lo haga sin autorización.",
+        "Disponibilidad.",
+        "Atender inmediatamente los requerimientos del personal apostado.",
+        "Relevos.",
+        "Efectuarlos y comprobar que el entrante reciba y comprenda las consignas generales y particulares.",
+        "Armamento.",
+        "Realizar los controles y comprobaciones correspondientes en cada relevo.",
+        "¿Cómo se organiza su servicio?",
+        "El más antiguo toma el primer cuarto con la venia del sargento de cuarto. Se releva cada seis horas. El cabo libre queda a disposición del jefe de guardia para cooperar con el sargento de cuarto.",
+        "¿Qué hace el cabo libre?",
+        "De día, cumple las tareas que le encomienda el sargento de cuarto y reemplaza al otro cabo cuando debe alejarse de la guardia. De noche, se aloja allí y puede descansar sin quitarse prendas del uniforme.",
+        "Fuente: RFP 70-01, artículos 5.034 a 5.038.",
+        "¿Qué función cumple el suboficial de semana?",
+        "Colabora con el encargado de subunidad en el orden interno. Tiene como colaboradores inmediatos al auxiliar de semana y a los soldados de vigilancia en el dormitorio.",
+        "Sus once obligaciones generales son:",
+        "1.",
+        "Colaborar con el encargado de subunidad en todos los aspectos del orden interno.",
+        "2.",
+        "Conducir a los enfermos a revista médica y comunicar novedades, salvo la asignación de esa tarea prevista por el reglamento.",
+        "3.",
+        "Controlar la distribución del rancho.",
+        "4.",
+        "Hacer cumplir las medidas higiénicas y profilácticas indicadas por el médico.",
+        "5.",
+        "Tomar las medidas para la limpieza y el arreglo del alojamiento.",
+        "6.",
+        "Instruir diariamente sobre su proceder a los soldados de vigilancia del dormitorio.",
+        "7.",
+        "Estar presente anticipadamente en todas las formaciones y listas de la subunidad.",
+        "8.",
+        "Hacer cumplir las órdenes existentes y las del oficial de semana.",
+        "9.",
+        "Informar al oficial de semana las novedades ocurridas en ausencia de éste y las medidas adoptadas.",
+        "10.",
+        "Comunicar inmediatamente las novedades extraordinarias al oficial de semana, al jefe de subunidad y a los demás oficiales si es necesario.",
+        "11.",
+        "Reemplazar al encargado de subunidad desde el último servicio del día hasta diana.",
+        "¿Cuál es la misión del auxiliar de semana?",
+        "Colaborar con el suboficial de semana en todas las tareas que a éste le competen.",
+        "El servicio de semana depende del jefe de subunidad de diana a retreta; desde retreta, directamente del oficial de servicio. El oficial de semana dirige y vigila el servicio. En la subunidad debe estar siempre presente el oficial o el suboficial de semana.",
+        "Fuente: RFP 70-01, artículos 7.016 a 7.019."
+      ],
+      "questions": [
+        {
+          "tipo": "mc",
+          "p": "¿Cuál es la misión de la guardia de prevención?",
+          "o": [
+            "Constituir la policía interna del cuartel: custodiar, vigilar, garantizar el orden y la seguridad dentro de la instalación militar, rendir honores y controlar el ingreso y salida de personal, ganado, vehículos y efectos.",
+            "Administrar exclusivamente el servicio de semana de la subunidad.",
+            "Preparar únicamente las formaciones de instrucción del elemento.",
+            "Reemplazar permanentemente a todos los jefes de subunidad."
+          ],
+          "c": 0,
+          "e": "Constituir la policía interna del cuartel: custodiar, vigilar, garantizar el orden y la seguridad dentro de la instalación militar, rendir honores y controlar el ingreso y salida de personal, ganado, vehículos y efectos. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿De quién depende directamente la guardia de prevención?",
+          "o": [
+            "Del auxiliar de semana.",
+            "Del oficial de servicio.",
+            "Del encargado de subunidad.",
+            "Del cabo de cuarto."
+          ],
+          "c": 1,
+          "e": "La guardia de prevención depende directamente del oficial de servicio. Artículo 5.013. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cómo se clasifican las faltas por su gravedad?",
+          "o": [
+            "En apercibimiento, arresto y destitución.",
+            "En generales, particulares y de relevo.",
+            "En leves, graves y gravísimas.",
+            "En individuales, colectivas y de semana."
+          ],
+          "c": 2,
+          "e": "Las faltas se clasifican en leves, graves y gravísimas. Las medidas que pueden imponerse son otro concepto. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué caracteriza a las faltas leves?",
+          "o": [
+            "Se determinan únicamente por la opinión personal del infractor.",
+            "Dependen exclusivamente de cuántas personas presenciaron el hecho.",
+            "Son las que se registran primero, sin considerar su naturaleza ni sus efectos.",
+            "Vulneran los deberes militares y menoscaban la disciplina, poniendo en peligro el cumplimiento eficiente del servicio, sin constituir una infracción más grave."
+          ],
+          "c": 3,
+          "e": "Leves. Vulneran los deberes militares y menoscaban la disciplina, poniendo en peligro el cumplimiento eficiente del servicio, sin constituir una infracción más grave. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué caracteriza a las faltas graves?",
+          "o": [
+            "Son las conductas previstas como graves en la ley y las análogas que causan grave menoscabo a la disciplina y dificultan el servicio. Una falta leve puede ser grave por las circunstancias y sus efectos.",
+            "Se determinan únicamente por la opinión personal del infractor.",
+            "Dependen exclusivamente de cuántas personas presenciaron el hecho.",
+            "Son las que se registran primero, sin considerar su naturaleza ni sus efectos."
+          ],
+          "c": 0,
+          "e": "Graves. Son las conductas previstas como graves en la ley y las análogas que causan grave menoscabo a la disciplina y dificultan el servicio. Una falta leve puede ser grave por las circunstancias y sus efectos. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué caracteriza a las faltas gravísimas?",
+          "o": [
+            "Se determinan únicamente por la opinión personal del infractor.",
+            "Únicamente las expresamente previstas por la ley; se interpretan restrictivamente.",
+            "Dependen exclusivamente de cuántas personas presenciaron el hecho.",
+            "Son las que se registran primero, sin considerar su naturaleza ni sus efectos."
+          ],
+          "c": 1,
+          "e": "Gravísimas. Únicamente las expresamente previstas por la ley; se interpretan restrictivamente. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuáles son las cuatro sanciones que pueden imponerse?",
+          "o": [
+            "Falta leve, falta grave, falta gravísima y atenuante.",
+            "Motivación, disciplina, espíritu de cuerpo y eficiencia.",
+            "Apercibimiento, arresto simple, arresto riguroso y destitución.",
+            "Consigna general, consigna particular, relevo y descanso."
+          ],
+          "c": 2,
+          "e": "El artículo 14 enumera apercibimiento, arresto simple, arresto riguroso y destitución. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué corresponde a las sanciones leves según el apunte?",
+          "o": [
+            "Cualquier medida que el superior elija, sin límites establecidos.",
+            "Únicamente una observación verbal sin registro, en todos los casos.",
+            "La suspensión automática de toda obligación militar durante un año.",
+            "Apercibimiento o arresto simple o riguroso hasta 5 días. Pueden corresponder a faltas leves o graves."
+          ],
+          "c": 3,
+          "e": "Leves. Apercibimiento o arresto simple o riguroso hasta 5 días. Pueden corresponder a faltas leves o graves. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué corresponde a las sanciones graves según el apunte?",
+          "o": [
+            "Arresto simple o riguroso hasta 60 días, por faltas graves.",
+            "Cualquier medida que el superior elija, sin límites establecidos.",
+            "Únicamente una observación verbal sin registro, en todos los casos.",
+            "La suspensión automática de toda obligación militar durante un año."
+          ],
+          "c": 0,
+          "e": "Graves. Arresto simple o riguroso hasta 60 días, por faltas graves. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué corresponde a las sanciones gravísimas según el apunte?",
+          "o": [
+            "Cualquier medida que el superior elija, sin límites establecidos.",
+            "Destitución por faltas gravísimas; el artículo 23 prevé la recomendación de una sanción menor ante atenuación extraordinaria.",
+            "Únicamente una observación verbal sin registro, en todos los casos.",
+            "La suspensión automática de toda obligación militar durante un año."
+          ],
+          "c": 1,
+          "e": "Gravísimas. Destitución por faltas gravísimas; el artículo 23 prevé la recomendación de una sanción menor ante atenuación extraordinaria. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué son los atenuantes?",
+          "o": [
+            "Circunstancias que obligan siempre a imponer la sanción máxima.",
+            "Órdenes destinadas a organizar los relevos de guardia.",
+            "Circunstancias que se valoran para determinar una sanción de menor severidad.",
+            "Valores institucionales que sustituyen el régimen disciplinario."
+          ],
+          "c": 2,
+          "e": "Circunstancias que se valoran para determinar una sanción de menor severidad. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué motivo puede constituir un atenuante?",
+          "o": [
+            "El deseo de evitar cualquier tarea del servicio.",
+            "La intención de atribuir la responsabilidad a otra persona.",
+            "La preferencia por incumplir una orden sin razón alguna.",
+            "Motivos de elevado valor moral o social, u objeción de conciencia razonable."
+          ],
+          "c": 3,
+          "e": "Motivos de elevado valor moral o social, u objeción de conciencia razonable. Artículo 27. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuándo la confesión espontánea puede constituir un atenuante?",
+          "o": [
+            "Presentarse ante la autoridad y confesar espontáneamente cuando se desconocía la falta o su autor, o se atribuía a otro.",
+            "Cuando se atribuye deliberadamente la falta a una persona inocente.",
+            "Cuando se oculta la autoría hasta después de concluida la sanción.",
+            "Cuando se comenta el hecho únicamente con un compañero, sin presentarse ante la autoridad."
+          ],
+          "c": 0,
+          "e": "Presentarse ante la autoridad y confesar espontáneamente cuando se desconocía la falta o su autor, o se atribuía a otro. Artículo 27. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué acción posterior a la falta puede constituir un atenuante?",
+          "o": [
+            "Una acción que aumente deliberadamente sus efectos.",
+            "Realizar una acción heroica posterior que repare o impida los efectos de la falta.",
+            "Una acción que impida conocer quién cometió la falta.",
+            "Una acción que elimine la obligación de comunicar cualquier novedad."
+          ],
+          "c": 1,
+          "e": "Realizar una acción heroica posterior que repare o impida los efectos de la falta. Artículo 27. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué conducta respecto de las consecuencias de la falta puede atenuarla?",
+          "o": [
+            "Agravarlas voluntariamente.",
+            "Ocultarlas para que no puedan ser conocidas.",
+            "Impedir o reparar espontáneamente sus consecuencias dañosas o peligrosas.",
+            "Atribuirlas sin fundamento a otro integrante."
+          ],
+          "c": 2,
+          "e": "Impedir o reparar espontáneamente sus consecuencias dañosas o peligrosas. Artículo 27. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuándo el daño sufrido por el propio infractor puede constituir un atenuante?",
+          "o": [
+            "Cuando cualquier incomodidad le provoca desagrado, aunque la sanción siga siendo necesaria y proporcionada.",
+            "Cuando únicamente teme perder un beneficio que no le correspondía.",
+            "Cuando el daño grave fue ajeno a la falta y no guarda relación con ella.",
+            "Que la falta ya haya causado daño físico o moral grave al infractor, volviendo innecesaria y desproporcionada la sanción."
+          ],
+          "c": 3,
+          "e": "Que la falta ya haya causado daño físico o moral grave al infractor, volviendo innecesaria y desproporcionada la sanción. Artículo 27. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuándo la escasa antigüedad puede constituir un atenuante?",
+          "o": [
+            "Escasa antigüedad que haya impedido comprender el significado de los actos.",
+            "Siempre, aunque el infractor comprendiera plenamente sus actos.",
+            "Cuando se utiliza para negar cualquier responsabilidad de manera automática.",
+            "Cuando impide cumplir cualquier orden por simple preferencia personal."
+          ],
+          "c": 0,
+          "e": "Escasa antigüedad que haya impedido comprender el significado de los actos. Artículo 27. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué grado de afectación a la disciplina aparece entre los atenuantes?",
+          "o": [
+            "Una afectación deliberadamente creciente.",
+            "Afectación insignificante a la disciplina militar.",
+            "Una afectación que siempre exige la máxima sanción.",
+            "Una afectación que se presume inexistente sin analizar el hecho."
+          ],
+          "c": 1,
+          "e": "Afectación insignificante a la disciplina militar. Artículo 27. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué participación en una falta cometida por otro puede constituir un atenuante?",
+          "o": [
+            "La participación principal y determinante.",
+            "La dirección completa de la conducta infractora.",
+            "Intervención de escasa relevancia en una falta cometida por otro.",
+            "La atribución falsa del hecho a un tercero."
+          ],
+          "c": 2,
+          "e": "Intervención de escasa relevancia en una falta cometida por otro. Artículo 27. Fuente: Ley 26.394, Anexo IV, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuáles son los tres valores institucionales publicados por la ESESC?",
+          "o": [
+            "Antigüedad, grado y cargo.",
+            "Rapidez, cantidad y comodidad.",
+            "Presentación, puntualidad y descanso.",
+            "Fe en Dios, amor a la Patria y pasión por la libertad."
+          ],
+          "c": 3,
+          "e": "Fe en Dios, amor a la Patria y pasión por la libertad. Fuente: ESESC, Misión, Visión y Valores, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuál de las siguientes denominaciones forma parte de los valores del soldado publicados por la ESESC?",
+          "o": [
+            "Profesionalismo militar.",
+            "Antigüedad en el cargo.",
+            "Número de destino.",
+            "Jerarquía administrativa."
+          ],
+          "c": 0,
+          "e": "El profesionalismo militar es uno de los nueve valores del soldado presentados en el sitio de la ESESC. Fuente: ESESC, Misión, Visión y Valores, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué significa abnegación en el apunte?",
+          "o": [
+            "Buscar primero el beneficio personal en toda situación.",
+            "Renunciar al interés propio por un fin superior.",
+            "Evitar el esfuerzo cuando una tarea presenta dificultades.",
+            "Actuar solamente cuando se obtiene una ventaja material."
+          ],
+          "c": 1,
+          "e": "Abnegación: renunciar al interés propio por un fin superior. Fuente: ESESC, Misión, Visión y Valores, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué expresa el profesionalismo militar?",
+          "o": [
+            "Conservar un cargo sin necesidad de capacitación.",
+            "Confiar únicamente en la antigüedad para resolver las tareas.",
+            "Prepararse y ejercer la profesión con competencia y ética.",
+            "Separar la competencia profesional de toda consideración ética."
+          ],
+          "c": 2,
+          "e": "El profesionalismo militar implica preparación, competencia y ética. Fuente: ESESC, Misión, Visión y Valores, según el apunte aprobado de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Quién es el superior inmediato del cabo de cuarto?",
+          "o": [
+            "El auxiliar de semana.",
+            "El encargado de subunidad.",
+            "El oficial de semana.",
+            "El sargento de cuarto."
+          ],
+          "c": 3,
+          "e": "El cabo de cuarto responde por el personal apostado ante el sargento de cuarto, su superior inmediato. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cada cuánto se releva el cabo de cuarto según el apunte?",
+          "o": [
+            "Cada seis horas.",
+            "Cada doce horas.",
+            "Una vez por semana.",
+            "Solamente al terminar toda la guardia."
+          ],
+          "c": 0,
+          "e": "El relevo del cabo de cuarto se efectúa cada seis horas. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué debe comprobar el cabo de cuarto al efectuar los relevos?",
+          "o": [
+            "Que el entrante redacte consignas nuevas por su cuenta.",
+            "Que el entrante reciba y comprenda las consignas generales y particulares.",
+            "Que las consignas se omitan si el entrante ya conoce el lugar.",
+            "Que el personal salga del sector sin comunicarlo."
+          ],
+          "c": 1,
+          "e": "El cabo de cuarto realiza los relevos y comprueba la correcta recepción y comprensión de las consignas. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué autorización necesita el cabo de cuarto para alejarse del sector?",
+          "o": [
+            "Únicamente el acuerdo del personal apostado.",
+            "Ninguna, si deja una nota.",
+            "Permiso del jefe de guardia.",
+            "Solamente la decisión del cabo libre."
+          ],
+          "c": 2,
+          "e": "No debe alejarse del sector sin permiso del jefe de guardia ni permitir que su personal lo haga sin autorización. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Qué función cumple el suboficial de semana?",
+          "o": [
+            "Confeccionar por sí solo todas las misiones de las unidades.",
+            "Sustituir permanentemente al jefe de guardia.",
+            "Asumir el comando del elemento durante toda la semana.",
+            "Colabora con el encargado de subunidad en el orden interno. Tiene como colaboradores inmediatos al auxiliar de semana y a los soldados de vigilancia en el dormitorio."
+          ],
+          "c": 3,
+          "e": "Colabora con el encargado de subunidad en el orden interno. Tiene como colaboradores inmediatos al auxiliar de semana y a los soldados de vigilancia en el dormitorio. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cuál es la misión del auxiliar de semana?",
+          "o": [
+            "Colaborar con el suboficial de semana en todas las tareas que a éste le competen.",
+            "Dirigir independientemente todo el servicio de seguridad.",
+            "Reemplazar automáticamente al jefe de subunidad.",
+            "Desempeñar únicamente los controles de vehículos de la guardia."
+          ],
+          "c": 0,
+          "e": "Colaborar con el suboficial de semana en todas las tareas que a éste le competen. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿A quién reemplaza el suboficial de semana desde el último servicio del día hasta diana?",
+          "o": [
+            "Al jefe del elemento.",
+            "Al encargado de subunidad.",
+            "Al oficial de servicio.",
+            "Al jefe de guardia."
+          ],
+          "c": 1,
+          "e": "La obligación es reemplazar al encargado de subunidad desde el último servicio del día hasta diana. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿Cómo debe comunicar el suboficial de semana una novedad extraordinaria?",
+          "o": [
+            "Solamente al terminar la semana, aunque sea urgente.",
+            "Únicamente al auxiliar, sin informar a los responsables.",
+            "Inmediatamente al oficial de semana, al jefe de subunidad y a los demás oficiales si es necesario.",
+            "Por escrito al finalizar el mes, sin aviso inmediato."
+          ],
+          "c": 2,
+          "e": "Las novedades extraordinarias se comunican inmediatamente a los responsables indicados en el apunte. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        },
+        {
+          "tipo": "mc",
+          "p": "¿De quién depende el servicio de semana de diana a retreta y desde retreta?",
+          "o": [
+            "Del cabo de cuarto durante todo el día y toda la noche.",
+            "Del auxiliar de semana durante toda la semana.",
+            "Del sargento de cuarto de día y del cabo libre de noche.",
+            "Del jefe de subunidad de diana a retreta y directamente del oficial de servicio desde retreta."
+          ],
+          "c": 3,
+          "e": "El servicio de semana depende del jefe de subunidad de diana a retreta; desde retreta, directamente del oficial de servicio. Fuente: RFP 70-01, apunte aprobado de Teoría General de seis temas."
+        }
+      ],
+      "download": "materiales/finales/teoria-general-seis-temas.docx",
+      "sha256": "08b990267f21a833e5b25011b37c0151e7547fb8294437c2e90e4f424b062aa2"
+    }
+  ]
+}
