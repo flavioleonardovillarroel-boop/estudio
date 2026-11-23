@@ -310,10 +310,218 @@ var PICLAB = {
   "sre_lre_tablas_iv_v": "Anexo 4 · Tablas IV y V: primera indicación y acción"
 };
 
+PIC.semana_azul_tam_vadeo = "./materiales/semanas-azules/tam-vadeo.png";
+PICLAB.semana_azul_tam_vadeo = "VC TAM · Sistema de vadeo · esquema mejorado del apunte";
+
 var CONTENIDO = {
   "titulo": "Estudio · Historia y Especialidad",
   "nota": "Materias cargadas: Historia (3 unidades), Táctica (ROB 00-01), Técnica (ROP 19-01), Didáctica Especial Militar (RFD 51-03) y Logística (ROD 19-01/19-02 y RFD 20-01/21-01). Exámenes finales el 24 y 25/09/2026.",
   "temas": [
+    {
+      "id": "semana_azul_vc_tam_2026",
+      "nombre": "VC TAM · Capacidades y vadeo",
+      "desc": "Ficha del 19 de noviembre: combustibles, lubricantes, capacidades y sistema de vadeo.",
+      "secciones": [
+        {
+          "titulo": "Apunte y alcance",
+          "parrafos": [
+            "Ficha de estudio preparada a partir del material guardado en la carpeta FINALES el 19 de noviembre de 2026.",
+            "<a href=\"./materiales/semanas-azules/vc-tam.docx\" download>Descargar el apunte del VC TAM en Word</a>.",
+            "Las capacidades se presentan tal como figuran en la ficha aportada. Las cantidades señaladas como aproximadas deben estudiarse con esa condición."
+          ]
+        },
+        {
+          "titulo": "Motor combustible y refrigeración",
+          "parrafos": [
+            "<strong>Motor.</strong> Primer llenado: 58 L aproximadamente de SAE 30 HD. Cambio de aceite: 50 L aproximadamente de SAE 30 HD.",
+            "<strong>Combustible.</strong> Capacidad total aproximada: 1.080 L de gasoil.",
+            "<strong>Depósitos.</strong> I: 167 L; II: 104 L; III: 81 L; IV: 334 L; dos depósitos adicionales: aproximadamente 400 L en total.",
+            "<strong>Refrigeración.</strong> Aproximadamente 150 L de agua con líquido refrigerante o anticongelante."
+          ]
+        },
+        {
+          "titulo": "Caja y ventilación",
+          "parrafos": [
+            "<strong>Caja de cambios.</strong> Primer llenado: 110 L aproximadamente de SAE 10W HD. Cambio de aceite: 75 L aproximadamente de SAE 10W HD.",
+            "<strong>Sistema hidráulico del ventilador.</strong> Depósito de aceite: 32 L aproximadamente de SAE 30 HD.",
+            "<strong>Ventilador del recinto motopropulsor.</strong> 0,3 L aproximadamente de SAE 10W HD."
+          ]
+        },
+        {
+          "titulo": "Reductores frenos y rodamiento",
+          "parrafos": [
+            "<strong>Reductor final.</strong> 3 L de SAE 90 en cada uno.",
+            "<strong>Sistema de frenos.</strong> Aproximadamente 6 L de aceite hidráulico.",
+            "<strong>Cubos.</strong> Rueda tensora: 0,7 L de SAE 90; rodillo de apoyo: 0,39 L de SAE 90; rodillo de rodamiento: 0,55 L de SAE 90.",
+            "<strong>Amortiguadores.</strong> Aproximadamente 2 L de SAE 10W HD."
+          ]
+        },
+        {
+          "titulo": "Sistema de vadeo",
+          "pic": "semana_azul_tam_vadeo",
+          "parrafos": [
+            "<strong>Dato coincidente.</strong> Ambos gráficos indican 1,50 m sin preparación.",
+            "<strong>Diferencia entre gráficos.</strong> La fotografía original incluida en el Word indica 4 m con 45 minutos de preparación; el esquema mejorado indica 3 m con 15 minutos de preparación.",
+            "Para evitar una respuesta ambigua, confirmá con el docente cuál de las dos láminas será tomada en el examen. Las preguntas del módulo identifican expresamente el gráfico al que se refieren."
+          ]
+        }
+      ],
+      "conceptos": [
+        {"t":"Motor","d":"58 L aproximadamente en el primer llenado y 50 L aproximadamente en el cambio; SAE 30 HD."},
+        {"t":"Combustible total","d":"1.080 L aproximadamente de gasoil."},
+        {"t":"Refrigeración","d":"150 L aproximadamente de agua con líquido refrigerante o anticongelante."},
+        {"t":"Caja de cambios","d":"110 L aproximadamente en el primer llenado y 75 L aproximadamente en el cambio; SAE 10W HD."},
+        {"t":"Sistema hidráulico del ventilador","d":"Depósito de 32 L aproximadamente de SAE 30 HD."},
+        {"t":"Reductor final","d":"3 L de SAE 90 en cada uno."},
+        {"t":"Sistema de frenos","d":"6 L aproximadamente de aceite hidráulico."},
+        {"t":"Vadeo sin preparación","d":"1,50 m en los dos gráficos incluidos."},
+        {"t":"Vadeo con preparación","d":"La fotografía original indica 4 m y 45 min; el esquema mejorado indica 3 m y 15 min. Debe confirmarse la lámina válida para el examen."}
+      ],
+      "cronologia": [],
+      "preguntas": [
+        {"tipo":"mc","p":"¿Cuáles son las capacidades aproximadas del motor del VC TAM para primer llenado y cambio de aceite?","o":["58 L y 50 L","50 L y 58 L","110 L y 75 L","26 L y 21 L"],"c":0,"e":"Motor: 58 L aproximadamente en el primer llenado y 50 L aproximadamente en el cambio de aceite; SAE 30 HD."},
+        {"tipo":"mc","p":"¿Cuál es la capacidad total aproximada de combustible del VC TAM?","o":["400 L","686 L","1.080 L","1.500 L"],"c":2,"e":"La ficha indica aproximadamente 1.080 L de gasoil en total."},
+        {"tipo":"mc","p":"¿Qué capacidad aproximada tiene la instalación de refrigeración del VC TAM?","o":["55 L","75 L","110 L","150 L"],"c":3,"e":"La refrigeración requiere aproximadamente 150 L de agua con líquido refrigerante o anticongelante."},
+        {"tipo":"mc","p":"¿Cuáles son las capacidades aproximadas de la caja de cambios para primer llenado y cambio?","o":["58 L y 50 L","110 L y 75 L","75 L y 110 L","32 L y 0,3 L"],"c":1,"e":"Caja de cambios: 110 L aproximadamente en el primer llenado y 75 L aproximadamente en el cambio; SAE 10W HD."},
+        {"tipo":"mc","p":"¿Qué cantidad aproximada lleva el depósito de aceite del sistema hidráulico del ventilador?","o":["0,3 L","3 L","32 L","50 L"],"c":2,"e":"El depósito del sistema hidráulico del ventilador lleva aproximadamente 32 L de SAE 30 HD."},
+        {"tipo":"mc","p":"¿Qué cantidad aproximada lleva el ventilador del recinto motopropulsor?","o":["0,3 L","0,7 L","2 L","6 L"],"c":0,"e":"El ventilador del recinto motopropulsor lleva aproximadamente 0,3 L de SAE 10W HD."},
+        {"tipo":"mc","p":"¿Cuánto lubricante lleva cada reductor final del VC TAM y cuál es su designación?","o":["2 L de SAE 10W HD","3 L de SAE 90","6 L de aceite hidráulico","0,7 L de SAE 90"],"c":1,"e":"Cada reductor final lleva 3 L de SAE 90."},
+        {"tipo":"mc","p":"¿Qué cantidad aproximada lleva el sistema de frenos del VC TAM?","o":["3 L de SAE 90","6 L de aceite hidráulico","32 L de SAE 30 HD","75 L de SAE 10W HD"],"c":1,"e":"El sistema de frenos lleva aproximadamente 6 L de aceite hidráulico."},
+        {"tipo":"mc","p":"¿Cuánto lleva el cubo de la rueda tensora?","o":["0,39 L de SAE 90","0,55 L de SAE 90","0,7 L de SAE 90","2 L de SAE 10W HD"],"c":2,"e":"El cubo de la rueda tensora lleva aproximadamente 0,7 L de SAE 90."},
+        {"tipo":"mc","p":"¿Qué capacidad aproximada corresponde a los amortiguadores del VC TAM?","o":["0,3 L","0,7 L","2 L","6 L"],"c":2,"e":"Los amortiguadores llevan aproximadamente 2 L de SAE 10W HD."},
+        {"tipo":"mc","p":"¿Qué profundidad de vadeo sin preparación aparece en ambos gráficos del apunte?","o":["1 m","1,50 m","3 m","4 m"],"c":1,"e":"Tanto la fotografía original como el esquema mejorado indican 1,50 m sin preparación."},
+        {"tipo":"mc","p":"¿Qué valores de inmersión con preparación aparecen específicamente en el esquema mejorado del apunte?","o":["3 m y 15 minutos","3 m y 45 minutos","4 m y 15 minutos","4 m y 45 minutos"],"c":0,"e":"El esquema mejorado indica 3 m con 15 minutos de preparación. La fotografía original incluida en el mismo Word muestra 4 m y 45 minutos; por eso debe identificarse la lámina consultada."}
+      ]
+    },
+    {
+      "id": "semana_azul_sk105_2026",
+      "nombre": "SK-105 · Lubricantes y capacidades",
+      "desc": "Ficha del 19 de noviembre: motor, transmisión, combustible, refrigeración y componentes.",
+      "secciones": [
+        {
+          "titulo": "Apunte y alcance",
+          "parrafos": [
+            "Ficha de estudio preparada a partir del material guardado en la carpeta FINALES el 19 de noviembre de 2026.",
+            "<a href=\"./materiales/semanas-azules/sk-105.docx\" download>Descargar el apunte del SK-105 en Word</a>.",
+            "La ficha identifica las cantidades y los lubricantes que figuran en la hoja rotulada SK 105."
+          ]
+        },
+        {
+          "titulo": "Motor transmisión y dirección",
+          "parrafos": [
+            "<strong>Motor.</strong> Primer llenado: 26 L; cambio de aceite: 21 L; SAE 20W/40.",
+            "<strong>Mecanismo de cambio de dirección.</strong> 5 L de aceite de motor de uso universal SAE 20W/40 según MIL-L-2104 (B).",
+            "<strong>Caja de cambios.</strong> 7,5 L de aceite de motor de uso universal SAE 20W/40 según MIL-L-2104 (B).",
+            "<strong>Mecanismo de dirección parte mecánica.</strong> 8 L de aceite de motor de uso universal SAE 20W/40 según MIL-L-2104 (B).",
+            "<strong>Dirección hidrostática.</strong> 65 L de aceite hidráulico SHELL TELLUS T Oil 37.",
+            "<strong>Accionamiento hidráulico de frenos.</strong> 1 L de líquido de frenos SAE J 1703.",
+            "<strong>Contramarcha lateral.</strong> 1,25 L de SAE 90."
+          ]
+        },
+        {
+          "titulo": "Combustible y refrigeración",
+          "parrafos": [
+            "<strong>Depósito principal.</strong> 350 L de gasoil.",
+            "<strong>Depósito secundario.</strong> 50 L de gasoil.",
+            "<strong>Total de ambos depósitos.</strong> 400 L.",
+            "<strong>Instalación de refrigeración.</strong> 55 L de mezcla anticongelante; la proporción debe consultarse en la hoja original."
+          ]
+        },
+        {
+          "titulo": "Cubos de ruedas y rodillos",
+          "parrafos": [
+            "<strong>Ruedas de accionamiento.</strong> 2,5 L en cada cubo.",
+            "<strong>Ruedas motrices.</strong> 0,40 L en cada cubo.",
+            "<strong>Ruedas directrices.</strong> 0,35 L en cada cubo.",
+            "<strong>Rodillos de apoyo.</strong> 0,185 L en cada cubo."
+          ]
+        }
+      ],
+      "conceptos": [
+        {"t":"Motor","d":"26 L en el primer llenado y 21 L en el cambio; SAE 20W/40."},
+        {"t":"Aceite de motor de uso universal","d":"SAE 20W/40 según MIL-L-2104 (B), utilizado en el mecanismo de cambio de dirección, la caja de cambios y la parte mecánica del mecanismo de dirección."},
+        {"t":"Caja de cambios","d":"7,5 L de aceite de motor de uso universal SAE 20W/40 según MIL-L-2104 (B)."},
+        {"t":"Dirección hidrostática","d":"65 L de aceite hidráulico SHELL TELLUS T Oil 37."},
+        {"t":"Frenos hidráulicos","d":"1 L de líquido de frenos SAE J 1703."},
+        {"t":"Combustible","d":"350 L en el depósito principal y 50 L en el secundario; 400 L en total."},
+        {"t":"Refrigeración","d":"55 L de mezcla anticongelante."},
+        {"t":"Cubos de ruedas de accionamiento","d":"2,5 L en cada uno."},
+        {"t":"Cubos de rodillos de apoyo","d":"0,185 L en cada uno."}
+      ],
+      "cronologia": [],
+      "preguntas": [
+        {"tipo":"mc","p":"¿Cuáles son las capacidades del motor del SK-105 para primer llenado y cambio de aceite?","o":["26 L y 21 L","21 L y 26 L","58 L y 50 L","17 L y 19 L"],"c":0,"e":"El motor lleva 26 L en el primer llenado y 21 L en el cambio; SAE 20W/40."},
+        {"tipo":"mc","p":"¿Cuánto lleva el mecanismo de cambio de dirección del SK-105?","o":["1 L","5 L","7,5 L","8 L"],"c":1,"e":"El mecanismo de cambio de dirección lleva 5 L de aceite de motor de uso universal SAE 20W/40 según MIL-L-2104 (B)."},
+        {"tipo":"mc","p":"¿Qué cantidad y lubricante corresponden a la caja de cambios del SK-105?","o":["5 L de SAE 90","7,5 L de aceite universal SAE 20W/40 según MIL-L-2104 (B)","8 L de SHELL TELLUS T Oil 37","65 L de SAE J 1703"],"c":1,"e":"La caja de cambios lleva 7,5 L de aceite de motor de uso universal SAE 20W/40 según MIL-L-2104 (B)."},
+        {"tipo":"mc","p":"¿Qué cantidad lleva la dirección hidrostática y qué aceite indica la ficha?","o":["8 L de SAE 90","21 L de SAE 20W/40","55 L de mezcla anticongelante","65 L de SHELL TELLUS T Oil 37"],"c":3,"e":"La dirección hidrostática lleva 65 L de aceite hidráulico SHELL TELLUS T Oil 37."},
+        {"tipo":"mc","p":"¿Cuánto lleva el accionamiento hidráulico de frenos del SK-105?","o":["1 L de SAE J 1703","1,25 L de SAE 90","5 L de aceite universal","7,5 L de aceite universal"],"c":0,"e":"El accionamiento hidráulico de frenos lleva 1 L de líquido de frenos SAE J 1703."},
+        {"tipo":"mc","p":"¿Qué capacidad tiene el depósito principal de combustible del SK-105?","o":["50 L","350 L","400 L","1.080 L"],"c":1,"e":"El depósito principal tiene 350 L de gasoil."},
+        {"tipo":"mc","p":"¿Qué capacidad total suman los dos depósitos de combustible del SK-105?","o":["350 L","400 L","405 L","450 L"],"c":1,"e":"El depósito principal tiene 350 L y el secundario 50 L; juntos suman 400 L."},
+        {"tipo":"mc","p":"¿Qué capacidad tiene la instalación de refrigeración del SK-105?","o":["21 L","50 L","55 L","65 L"],"c":2,"e":"La instalación de refrigeración lleva 55 L de mezcla anticongelante."},
+        {"tipo":"mc","p":"¿Cuánto lleva cada cubo de las ruedas de accionamiento del SK-105?","o":["0,185 L","0,35 L","0,40 L","2,5 L"],"c":3,"e":"Cada cubo de las ruedas de accionamiento lleva 2,5 L."},
+        {"tipo":"mc","p":"¿Cuánto lleva cada cubo de las ruedas motrices del SK-105?","o":["0,185 L","0,35 L","0,40 L","2,5 L"],"c":2,"e":"Cada cubo de las ruedas motrices lleva 0,40 L."},
+        {"tipo":"mc","p":"¿Cuánto lleva cada cubo de las ruedas directrices del SK-105?","o":["0,185 L","0,35 L","0,40 L","2,5 L"],"c":1,"e":"Cada cubo de las ruedas directrices lleva 0,35 L."},
+        {"tipo":"mc","p":"¿Cuánto lleva cada cubo de los rodillos de apoyo del SK-105?","o":["0,185 L","0,35 L","0,40 L","2,5 L"],"c":0,"e":"Cada cubo de los rodillos de apoyo lleva 0,185 L."}
+      ]
+    },
+    {
+      "id": "semana_azul_m113_2026",
+      "nombre": "M113 · Datos técnicos y lubricación",
+      "desc": "Ficha del 19 de noviembre: dimensiones, pesos, capacidad y sistema de lubricación.",
+      "secciones": [
+        {
+          "titulo": "Apunte y alcance",
+          "parrafos": [
+            "Ficha de estudio preparada a partir del material guardado en la carpeta FINALES el 19 de noviembre de 2026.",
+            "<a href=\"./materiales/semanas-azules/m113.docx\" download>Descargar el apunte del M113 en Word</a>.",
+            "Las hojas fotografiadas se titulan Datos técnicos y Sistema de lubricación. En el encuadre no se lee el modelo; se agrupan como M113 por la identificación utilizada al guardar el apunte."
+          ]
+        },
+        {
+          "titulo": "Datos técnicos",
+          "parrafos": [
+            "<strong>Tripulación o capacidad indicada.</strong> 13 hombres.",
+            "<strong>Peso en orden de combate.</strong> Aproximadamente 10,397 toneladas.",
+            "<strong>Peso neto.</strong> Aproximadamente 9,080 toneladas.",
+            "<strong>Dimensiones.</strong> Largo total: 4,86 m; ancho total: 2,68 m; altura hasta el soporte AMET: 2,197 m."
+          ]
+        },
+        {
+          "titulo": "Sistema de lubricación",
+          "parrafos": [
+            "La lámina indica lubricante 15W40 para todos los componentes enumerados.",
+            "<strong>Motor.</strong> 17 L.",
+            "<strong>Diferencial.</strong> 19 L.",
+            "<strong>Reductores finales.</strong> 3 L.",
+            "<strong>Ventilador.</strong> Un cuarto de litro, equivalente a 0,25 L.",
+            "<strong>Caja de transferencia.</strong> 2,5 L."
+          ]
+        }
+      ],
+      "conceptos": [
+        {"t":"Capacidad indicada","d":"13 hombres."},
+        {"t":"Peso en orden de combate","d":"10,397 toneladas aproximadamente."},
+        {"t":"Peso neto","d":"9,080 toneladas aproximadamente."},
+        {"t":"Dimensiones","d":"4,86 m de largo; 2,68 m de ancho; 2,197 m de altura hasta el soporte AMET."},
+        {"t":"Motor","d":"17 L de 15W40."},
+        {"t":"Diferencial","d":"19 L de 15W40."},
+        {"t":"Reductores finales","d":"3 L de 15W40."},
+        {"t":"Ventilador y caja de transferencia","d":"0,25 L y 2,5 L de 15W40, respectivamente."}
+      ],
+      "cronologia": [],
+      "preguntas": [
+        {"tipo":"mc","p":"¿Qué cantidad de hombres figura como capacidad en la ficha del M113?","o":["9","10","13","15"],"c":2,"e":"La ficha indica una capacidad de 13 hombres."},
+        {"tipo":"mc","p":"¿Cuál es el peso aproximado en orden de combate indicado en la ficha?","o":["9,080 t","10,397 t","13 t","19 t"],"c":1,"e":"El peso en orden de combate indicado es de aproximadamente 10,397 toneladas."},
+        {"tipo":"mc","p":"¿Cuál es el peso neto aproximado indicado en la ficha?","o":["4,86 t","9,080 t","10,397 t","17 t"],"c":1,"e":"El peso neto indicado es de aproximadamente 9,080 toneladas."},
+        {"tipo":"mc","p":"¿Cuáles son el largo y el ancho totales indicados?","o":["4,86 m y 2,68 m","2,68 m y 4,86 m","2,197 m y 2,68 m","4,86 m y 2,197 m"],"c":0,"e":"La ficha indica 4,86 m de largo total y 2,68 m de ancho total."},
+        {"tipo":"mc","p":"¿Qué altura hasta el soporte AMET figura en la ficha?","o":["1,50 m","2,197 m","2,68 m","4,86 m"],"c":1,"e":"La altura hasta el soporte AMET indicada es de 2,197 m."},
+        {"tipo":"mc","p":"¿Qué lubricante aparece para todos los componentes de la tabla del M113?","o":["SAE 90","SAE 20W/40","15W40","SHELL TELLUS T Oil 37"],"c":2,"e":"La lámina indica 15W40 para todos los componentes enumerados."},
+        {"tipo":"mc","p":"¿Cuánto lubricante lleva el motor según la ficha del M113?","o":["3 L","17 L","19 L","2,5 L"],"c":1,"e":"El motor lleva 17 L de 15W40."},
+        {"tipo":"mc","p":"¿Cuánto lubricante lleva el diferencial según la ficha del M113?","o":["3 L","17 L","19 L","0,25 L"],"c":2,"e":"El diferencial lleva 19 L de 15W40."},
+        {"tipo":"mc","p":"¿Cuánto lubricante llevan los reductores finales según la ficha del M113?","o":["0,25 L","2,5 L","3 L","19 L"],"c":2,"e":"Los reductores finales llevan 3 L de 15W40."},
+        {"tipo":"mc","p":"¿Cuánto llevan el ventilador y la caja de transferencia, respectivamente?","o":["0,25 L y 2,5 L","2,5 L y 0,25 L","3 L y 17 L","17 L y 19 L"],"c":0,"e":"El ventilador lleva 0,25 L y la caja de transferencia 2,5 L; ambos con 15W40."}
+      ]
+    },
     {
       "id": "finales_etica_mando_2026",
       "nombre": "Ética y Mando · Final",
@@ -16056,11 +16264,14 @@ var CONTENIDO = {
   "materias": [
     {
       "id": "m_finales",
-      "nombre": "FINALES",
-      "icono": "🎓",
-      "clr": "#46536f",
-      "descripcion": "Ética y Mando y Teoría General · apuntes aprobados para los finales.",
+      "nombre": "SEMANAS AZULES",
+      "icono": "🔷",
+      "clr": "#2563a6",
+      "descripcion": "Finales de la semana · Ética y Mando, Teoría General, VC TAM, SK-105 y M113.",
       "unidades": [
+        "semana_azul_vc_tam_2026",
+        "semana_azul_sk105_2026",
+        "semana_azul_m113_2026",
         "finales_etica_mando_2026",
         "finales_teoria_general_6_temas_2026"
       ]
@@ -16898,13 +17109,13 @@ function mascaraSectorTiro(fila){
 }
 function picHTML(k, cls, marcaFila){
   if (!k || !PIC[k]) return '';
-  var esLRE = k.indexOf('lre_') === 0, esHistoria = k.indexOf('hist_repaso_') === 0, esTiro = k.indexOf('tiro_') === 0;
-  var c = cls || 'picBig';if(esLRE || esHistoria || esTiro)c=(cls==='picQ')?'picForm picFormQ':'picForm';
+  var esLRE = k.indexOf('lre_') === 0, esHistoria = k.indexOf('hist_repaso_') === 0, esTiro = k.indexOf('tiro_') === 0, esSemanaAzul = k.indexOf('semana_azul_') === 0;
+  var c = cls || 'picBig';if(esLRE || esHistoria || esTiro || esSemanaAzul)c=(cls==='picQ')?'picForm picFormQ':'picForm';
   var ocultar=esHistoria && cls==='picQ',lab=ocultar?'Esquema histórico original del material de estudio':(PICLAB[k] || k);
   var maxw=(cls==='picQ')?'760px':'900px',marcas=(k==='tiro_mote_poligono'&&Number.isInteger(marcaFila))?mascaraSectorTiro(marcaFila):'';
   return '<div class="'+c+'"><span style="display:inline-block;position:relative;width:100%;max-width:'+maxw+';line-height:0"><img src="'+PIC[k]+'" alt="'+esc(lab)+'" loading="lazy" role="button" tabindex="0" title="Tocá para ampliar" style="cursor:zoom-in" onclick="ampliarLRE(\''+k+'\','+(ocultar?'true':'false')+','+(Number.isInteger(marcaFila)?marcaFila:'null')+')" onkeydown="if(event.keyCode===13||event.keyCode===32){event.preventDefault();this.click()}">'+marcas+(ocultar?mascaraHistoria(k):'')+'</span></div>' +
     (!ocultar && PICLAB[k]?'<div class="picCap">'+esc(lab)+'</div>':'') +
-    ((esLRE || esHistoria || esTiro)?'<button type="button" class="ghost bigbtn" onclick="ampliarLRE(\''+k+'\','+(ocultar?'true':'false')+','+(Number.isInteger(marcaFila)?marcaFila:'null')+')">Ampliar imagen</button>':'');
+    ((esLRE || esHistoria || esTiro || esSemanaAzul)?'<button type="button" class="ghost bigbtn" onclick="ampliarLRE(\''+k+'\','+(ocultar?'true':'false')+','+(Number.isInteger(marcaFila)?marcaFila:'null')+')">Ampliar imagen</button>':'');
 }
 function mascaraHistoria(k){
   var regiones={hist_repaso_patagones:[61,9,24,8],hist_repaso_obligado_terreno:[1,4,94,10],hist_repaso_tuyuti:[0,0,23,8],hist_repaso_curupayti:[0,0,21,8]};
@@ -17194,6 +17405,20 @@ function quiz(t, body){
   var barajadas = barajar(t.preguntas);
   var cola = [];
   var timerActivo = false, timerIv = null;
+  var pilotoMixto = t.id === 'finales_etica_mando_2026' || t.id === 'finales_teoria_general_6_temas_2026' || t.id === 'semana_azul_vc_tam_2026' || t.id === 'semana_azul_sk105_2026' || t.id === 'semana_azul_m113_2026' || t.id === '__mat_m_finales';
+  var formatoMixto = pilotoMixto;
+  function preguntaVFDesdeSeleccion(q, posicion){
+    var firma = parseInt(hashP(q.p), 36);
+    var verdadera = firma % 2 === 0;
+    var salto = 1 + (firma % (q.o.length - 1));
+    var opcion = verdadera ? q.c : (q.c + salto) % q.o.length;
+    return Object.assign({}, q, {
+      tipo: 'vf',
+      v: verdadera,
+      enunciadoSeleccion: 'Consigna: ' + q.p + ' Respuesta propuesta: «' + q.o[opcion] + '». ¿Es correcta?',
+      e: q.e || (verdadera ? 'La afirmación coincide con la respuesta correcta.' : 'La afirmación no coincide con la respuesta correcta.')
+    });
+  }
   function prepPregunta(q){
     var tipo = q.tipo || 'mc';
     if (tipo === 'mc'){
@@ -17221,7 +17446,13 @@ function quiz(t, body){
       var n = ({ corta: 5, media: 10, larga: 15, completa: 20 })[cant];
       base = (cant === 'todas' || n === undefined) ? barajadas : barajadas.slice(0, n);
     }
-    cola = base.map(function(q){ return prepPregunta(preguntaSeleccion(q, t.preguntas)); });
+    cola = base.map(function(q, posicion){
+      var preparada;
+      if (formatoMixto && pilotoMixto && q.tipo === 'vf') preparada = q;
+      else if (formatoMixto && pilotoMixto && (!q.tipo || q.tipo === 'mc') && (posicion + 1) % 5 === 0) preparada = preguntaVFDesdeSeleccion(q, posicion);
+      else preparada = preguntaSeleccion(q, t.preguntas);
+      return prepPregunta(preparada);
+    });
     totTipo = { mc: 0, vf: 0, completar: 0, guia: 0 };
     okTipo = { mc: 0, vf: 0, completar: 0, guia: 0 };
     cola.forEach(function(c){ totTipo[c.tipo]++; });
@@ -17235,8 +17466,11 @@ function quiz(t, body){
       var nEstr = estrellasTema(t.id).length;
       var opts = [['corta', 5], ['media', 10], ['larga', 15], ['completa', 20], ['todas', barajadas.length]];
       var visuales=barajadas.filter(function(q){return q.visual === true;}).length;if(visuales)opts.push(['imagenes',visuales]);
+      var selectorFormato = pilotoMixto ? '<fieldset style="border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:12px 0"><legend style="padding:0 6px;font-weight:800">Formato de práctica</legend>' +
+        '<label style="display:flex;gap:9px;align-items:flex-start;margin:5px 0;cursor:pointer"><input type="radio" name="qFormato" value="mixto" checked><span><b>Práctica mixta (recomendada)</b><br><span class="sub">Principalmente opción múltiple, con una pregunta de verdadero/falso cada cinco.</span></span></label>' +
+        '<label style="display:flex;gap:9px;align-items:flex-start;margin:9px 0 2px;cursor:pointer"><input type="radio" name="qFormato" value="mc"><span><b>Solo opción múltiple</b><br><span class="sub">Conserva el formato anterior: cuatro opciones en todas las preguntas.</span></span></label></fieldset>' : '';
       body.innerHTML = '<div class="card"><h2>Examen · ' + t.nombre + '</h2>' +
-        '<p class="sub">Hay ' + barajadas.length + ' preguntas de opción múltiple. Elegí una respuesta por pregunta. ¿Cuántas querés responder?</p>' +
+        '<p class="sub">Hay ' + barajadas.length + ' preguntas disponibles. Elegí el formato y cuántas querés responder.</p>' + selectorFormato +
         '<div class="row" id="qOpts">' + opts.map(function(o){
           return '<button class="bigbtn" data-cant="' + o[0] + '">' + (o[0] === 'imagenes' ? 'Solo imágenes (' + o[1] + ')' : (o[0] === 'todas' ? 'Todas (' + o[1] + ')' : o[1])) + ' preguntas</button>';
         }).join('') +
@@ -17244,13 +17478,15 @@ function quiz(t, body){
         (nEstr ? '<button class="bigbtn" data-cant="estr" style="background:var(--gold)">⭐ Solo marcadas (' + nEstr + ')</button>' : '') +
         '</div>' +
         '<label style="display:flex;gap:9px;align-items:center;margin-top:14px;font-size:14px;cursor:pointer"><input type="checkbox" id="qTimerChk"> Temporizador: 1 minuto por pregunta</label>' +
-        '<div class="expl">El repaso inteligente prioriza las preguntas que más fallaste. La temporizador es opcional. En cada pregunta podés tocarla ⭐ y guardarla para repasar solo esas.</div></div>';
+        '<div class="expl">El repaso inteligente prioriza las preguntas que más fallaste. El temporizador es opcional. En cada pregunta podés tocar ⭐ y guardarla para repasar solo esas.</div></div>';
       var btns = document.getElementById('qOpts').querySelectorAll('.bigbtn');
       btns.forEach(function(b){
         b.onclick = function(){
           btns.forEach(function(x){ x.disabled = true; });
           var chk = document.getElementById('qTimerChk');
           timerActivo = !!chk && chk.checked;
+          var formato = document.querySelector('input[name="qFormato"]:checked');
+          formatoMixto = pilotoMixto && (!formato || formato.value === 'mixto');
           montar(b.dataset.cant, b.getAttribute('data-repaso') === '1');
           pintar();
         };
@@ -17269,13 +17505,20 @@ function quiz(t, body){
         return '<span style="margin-right:10px">' + (k === 'mc' ? 'Múltiple' : k === 'vf' ? 'V/F' : k === 'completar' ? 'Completar' : 'Guía') + ': ' + okTipo[k] + '/' + totTipo[k] + '</span>';
       }).join('');
       var recap = fallos.length ? '<div class="card"><h3>Para repasar</h3>' + fallos.map(function(fx){
-        return '<div class="lista-card"><b>' + esc(fx.q.p).replace(/____/g, '…') + '</b>' +
+        return '<div class="lista-card"><b>' + esc(fx.q.enunciadoSeleccion || fx.q.p).replace(/____/g, '…') + '</b>' +
           '<div class="note">Tu respuesta: ' + esc(fx.mal) + '</div>' +
           '<div class="note" style="color:var(--ok)">Correcta: ' + esc(respuestaCorrecta(fx.q)) + '</div>' +
           (fx.q.e ? '<div class="expl" style="margin-top:6px">' + fx.q.e + '</div>' : '') + '</div>';
       }).join('') + '</div>' : '<div class="msg">¡Perfecto, sin errores!</div>';
       var nomSeguro = t.nombre.replace(/["\\]/g, '');
       var med = pct >= 90 ? '🥇' : pct >= 70 ? '🥈' : pct >= 50 ? '🥉' : '💪';
+      var orientacion = pilotoMixto ? (pct >= 85 && cola.length >= 10
+        ? '<div class="msg"><b>Estado: dominado.</b> Repetí más adelante una práctica corta para mantenerlo fresco.</div>'
+        : pct >= 85
+          ? '<div class="msg"><b>Estado: buen comienzo.</b> Para considerarlo dominado, hacé una práctica de al menos 10 preguntas.</div>'
+        : pct >= 70
+          ? '<div class="msg"><b>Estado: en progreso.</b> Repasá las explicaciones y hacé el repaso inteligente.</div>'
+          : '<div class="msg"><b>Estado: a reforzar.</b> Volvé a Conceptos y después probá una práctica corta.</div>') : '';
       body.innerHTML = '<div class="card" style="text-align:center"><div class="medal">' + med + '</div>' +
         '<h2>Nota final</h2>' +
         '<div style="font-size:46px;font-weight:800;color:var(--accent);margin:4px 0">' + pct + '<span style="font-size:20px">%</span></div>' +
@@ -17287,7 +17530,7 @@ function quiz(t, body){
         (esMat ? '<button class="bigbtn" onclick="examenMateria(\'' + t.id.slice(6) + '\')">Repetir examen</button><button class="ghost bigbtn" onclick="abrirMateria(\'' + t.id.slice(6) + '\')">Volver a la materia</button>'
             : '<button class="bigbtn" onclick="vista(\'' + t.id + '\',\'quiz\')">Repetir examen</button>' +
               '<button class="ghost bigbtn" onclick="vista(\'' + t.id + '\',\'conceptos\')">Repasar conceptos</button>') +
-        '<button class="bigbtn okbtn" onclick="compartirNota(' + pct + ',\'' + nomSeguro + '\')">📤 Compartir nota</button></div>' +
+        '<button class="bigbtn okbtn" onclick="compartirNota(' + pct + ',\'' + nomSeguro + '\')">📤 Compartir nota</button></div>' + orientacion +
         '<div id="shareMsg" style="margin-top:8px"></div></div>' + recap;
       toastFrase();
       return;
