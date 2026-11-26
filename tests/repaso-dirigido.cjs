@@ -21,12 +21,8 @@ const ethics = topic.preguntas.slice(10);
 assert.equal(general.map(q => q.tipo).join(','), 'mc,mc,vf,mc,mc,mc,vf,unir,mc,mc');
 assert.equal(general[7].pares.map(p => p[1]).join(','), 'Leve,Grave,Gravísima');
 assert(general[9].o[general[9].c].includes('Profesionalismo militar, espíritu de cuerpo y patriotismo'));
-assert.equal(ethics.filter(q => q.tipo === 'completar').length, 3);
-assert.equal(ethics.filter(q => q.tipo === 'mc').length, 7);
-for (const q of ethics.filter(q => q.tipo === 'completar')) {
-  assert.equal(q.p.match(/____/g).length, 1);
-  assert.equal(q.alternativas.length, 3);
-}
+assert.equal(ethics.map(q => q.tipo).join(','), 'mc,vf,vf,mc,unir,mc,vf,mc,mc,mc');
+assert.equal(ethics[4].pares.map(p => p[1]).join(','), 'Principio,Procedimiento,Procedimiento,Principio,Procedimiento,Principio');
 const approvedTheory = temas.find(t => t.id === 'finales_teoria_general_6_temas_2026');
 const approvedEthics = temas.find(t => t.id === 'finales_etica_mando_2026');
 const definitions = approvedTheory.secciones.find(s => s.titulo.includes('Tipos de sanción')).parrafos
@@ -55,13 +51,11 @@ const server = http.createServer((req, res) => {
 });
 
 async function answerQuestion(page, q, miss = false) {
-  if (q.tipo !== 'completar') {
-    assert.equal(await page.locator('#bodyVista h2').innerText(), q.p);
-  }
+  assert.equal(await page.locator('#bodyVista h2').innerText(), q.p);
   if (q.tipo === 'unir') {
     const selects = page.locator('select.qUnir');
     const check = page.getByRole('button', { name: 'Comprobar pares', exact: true });
-    assert.equal(await selects.count(), 3);
+    assert.equal(await selects.count(), q.pares.length);
     assert(await check.isDisabled());
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     for (const [i, [, label]] of q.pares.entries()) {
@@ -69,17 +63,10 @@ async function answerQuestion(page, q, miss = false) {
     }
     await check.click();
     assert(await selects.first().isDisabled());
-    if (miss) assert((await page.locator('#qCorrec').innerText()).includes('Gravísima'));
+    if (miss) assert((await page.locator('#qCorrec').innerText()).includes(q.pares[0][1]));
   } else if (q.tipo === 'vf') {
     assert.equal(await page.locator('.qbtn').count(), 2);
     await page.getByRole('button', { name: q.v ? 'Verdadero' : 'Falso', exact: true }).click();
-  } else if (q.tipo === 'completar') {
-    const input = page.getByRole('textbox', { name: 'Respuesta para completar' });
-    assert.equal(await input.count(), 1);
-    assert.equal(await page.locator('.qbtn, .qUnir').count(), 0);
-    await input.fill(' ' + q.o.at(-1).toUpperCase() + ' ');
-    await input.press('Enter');
-    assert(await input.isDisabled());
   } else {
     assert.equal(await page.locator('.qbtn').count(), 4);
     await page.locator('.qbtn').filter({ hasText: q.o[q.c] }).click();
@@ -95,14 +82,9 @@ async function answerBlock(page, key, questions, missMatch = false) {
   }
   const score = await page.locator('#bodyVista').innerText();
   assert(score.includes(missMatch ? '90%' : '100%'));
-  if (key === 'general') {
-    assert(score.includes('V/F: 2/2'));
-    assert(score.includes(missMatch ? 'Unir: 0/1' : 'Unir: 1/1'));
-    assert(!score.includes('Completar:'));
-  } else {
-    assert(score.includes('Completar: 3/3'));
-    assert(!score.includes('V/F:') && !score.includes('Unir:'));
-  }
+  assert(score.includes(key === 'general' ? 'V/F: 2/2' : 'V/F: 3/3'));
+  assert(score.includes(missMatch ? 'Unir: 0/1' : 'Unir: 1/1'));
+  assert(!score.includes('Completar:'));
 }
 
 async function run() {
@@ -127,10 +109,10 @@ async function run() {
     await openModule();
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await page.getByRole('button', { name: 'Examen', exact: true }).click();
-    assert((await page.locator('#bodyVista').innerText()).includes('verdadero/falso y relacionar faltas'));
+    assert((await page.locator('#bodyVista').innerText()).includes('verdadero/falso y un ejercicio para relacionar'));
     await answerBlock(page, 'general', general, true);
     await page.getByRole('button', { name: 'Repetir examen', exact: true }).click();
-    await answerBlock(page, 'mando', ethics);
+    await answerBlock(page, 'mando', ethics, true);
     await page.getByRole('button', { name: '← Volver', exact: true }).click();
     assert.equal(await page.locator('#hdTitle').innerText(), 'SEMANAS AZULES');
     await context.setOffline(true);
@@ -142,9 +124,9 @@ async function run() {
     assert.equal(await download.failure(), null);
     assert.deepEqual(fs.readFileSync(await download.path()), fs.readFileSync(resources.pathFor(material)));
     await page.getByRole('button', { name: 'Examen', exact: true }).click();
-    await answerBlock(page, 'general', general);
+    await answerBlock(page, 'mando', ethics);
     assert.deepEqual(errors, []);
-    console.log('PASS: orden del temario de Teoría General, verdadero/falso, desplegables, Ética y Mando y estudio sin conexión');
+    console.log('PASS: ambas materias en el orden del temario, V/F, desplegables y práctica sin conexión');
   } finally {
     await browser.close();
   }

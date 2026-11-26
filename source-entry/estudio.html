@@ -320,14 +320,14 @@ var CONTENIDO = {
     {
       "id": "finales_repaso_temario_20261125",
       "nombre": "Repaso dirigido · Teoría General y Ética y Mando",
-      "desc": "Veinte consignas en dos bloques. Teoría General sigue el orden del temario y Ética y Mando combina opción múltiple y completar palabras.",
+      "desc": "Diez consignas por materia en el orden del temario. Opción múltiple, verdadero/falso y ejercicios para relacionar.",
       "formatoDirigido": true,
       "secciones": [
         {
           "titulo": "Apunte del final",
           "parrafos": [
             "<a href=\"./materiales/finales/repaso-rapido-eve.docx\" download>Descargar el Word breve (dos páginas)</a>.",
-            "En Examen, elegí Práctica mixta y la materia que quieras repasar. Teoría General sigue el orden del temario e incluye verdadero/falso y un ejercicio de relacionar faltas con desplegables. Ética y Mando combina opción múltiple y completar palabras."
+            "En Examen, elegí Práctica mixta y la materia que quieras repasar. En Teoría General vas a relacionar las clases de faltas. En Ética y Mando vas a distinguir principios y procedimientos. Las dos actividades usan desplegables."
           ]
         },
         {
@@ -544,30 +544,16 @@ var CONTENIDO = {
           "e": "Los tres primeros son manifestaciones de la moral. El cuarto es la eficiencia de la organización."
         },
         {
-          "tipo": "completar",
-          "p": "El mando busca obtener la obediencia ____ de los subordinados.",
-          "o": [
-            "voluntaria"
-          ],
-          "alternativas": [
-            "forzada",
-            "automática",
-            "formal"
-          ],
-          "e": "El mando procura obediencia voluntaria, confianza, respeto y cooperación leal y activa. El comando es el ejercicio de la autoridad y las responsabilidades legales."
+          "tipo": "vf",
+          "p": "El mando procura la obediencia voluntaria y la cooperación. El comando es el ejercicio de la autoridad y de las responsabilidades legales.",
+          "v": true,
+          "e": "El mando procura la obediencia voluntaria, la confianza y la cooperación. El comando es el ejercicio de la autoridad y de las responsabilidades legales propias del grado y cargo."
         },
         {
-          "tipo": "completar",
-          "p": "La conducción aplica el ____ a la solución de un problema militar.",
-          "o": [
-            "comando"
-          ],
-          "alternativas": [
-            "mando",
-            "liderazgo",
-            "procedimiento"
-          ],
-          "e": "Conducción es aplicar el comando a la solución de un problema militar."
+          "tipo": "vf",
+          "p": "La conducción es la autoridad legal derivada del grado y el cargo.",
+          "v": false,
+          "e": "Esa es la definición de comando. Conducción es aplicar el comando a la solución de un problema militar."
         },
         {
           "tipo": "mc",
@@ -582,16 +568,42 @@ var CONTENIDO = {
           "e": "El aplomo es la serenidad y el dominio de sí mismo."
         },
         {
-          "tipo": "mc",
-          "p": "¿Cuál opción indica primero un principio y después un procedimiento del mando?",
-          "o": [
-            "Dar el ejemplo / Administrar justicia con ecuanimidad.",
-            "Tener sentido de la autoridad y de la dignidad / Dar el ejemplo.",
-            "Dar el ejemplo / Tener sentido de la autoridad y de la dignidad.",
-            "Creer en la causa que se sirve / Entregarse sin limitaciones al régimen del servicio."
+          "tipo": "unir",
+          "p": "Relacioná cada enunciado con Principio o Procedimiento del mando.",
+          "pares": [
+            [
+              "Creer en la causa que se sirve y auxiliarse de la fe en Dios",
+              "Principio"
+            ],
+            [
+              "Dar el ejemplo",
+              "Procedimiento"
+            ],
+            [
+              "Crear y mantener el ascendiente",
+              "Procedimiento"
+            ],
+            [
+              "Tener sentido de la autoridad y de la dignidad",
+              "Principio"
+            ],
+            [
+              "Administrar justicia con ecuanimidad",
+              "Procedimiento"
+            ],
+            [
+              "Entregarse sin limitaciones al régimen del servicio",
+              "Principio"
+            ]
           ],
-          "c": 1,
-          "e": "Tener sentido de la autoridad y de la dignidad es un principio. Dar el ejemplo es un procedimiento."
+          "o": [
+            "Principios 1, 2 y 3 / Procedimientos 4, 5 y 6.",
+            "Principios 2, 3 y 5 / Procedimientos 1, 4 y 6.",
+            "Principios 1, 4 y 6 / Procedimientos 2, 3 y 5.",
+            "Principios 1, 3 y 4 / Procedimientos 2, 5 y 6."
+          ],
+          "c": 2,
+          "e": "Los principios orientan el ejercicio del mando. Los procedimientos se basan en esos principios y se aplican según la situación."
         },
         {
           "tipo": "mc",
@@ -606,19 +618,10 @@ var CONTENIDO = {
           "e": "Crear y mantener el ascendiente figura entre los ocho procedimientos."
         },
         {
-          "tipo": "completar",
-          "p": "Los procedimientos del mando se basan en los ____.",
-          "o": [
-            "principios",
-            "principios del mando",
-            "principios de mando"
-          ],
-          "alternativas": [
-            "indicadores",
-            "registros",
-            "grados"
-          ],
-          "e": "Los principios orientan el mando. Los procedimientos se basan en ellos y se aplican según la situación."
+          "tipo": "vf",
+          "p": "Los procedimientos se basan en los principios del mando y se aplican según la situación.",
+          "v": true,
+          "e": "Los principios sirven de fundamento para los procedimientos."
         },
         {
           "tipo": "mc",
@@ -17928,7 +17931,7 @@ function quiz(t, body){
       var visuales=barajadas.filter(function(q){return q.visual === true;}).length;if(visuales)opts.push(['imagenes',visuales]);
       var selectorFormato = pilotoMixto ? '<fieldset style="border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:12px 0"><legend style="padding:0 6px;font-weight:800">Formato de práctica</legend>' +
         '<label style="display:flex;gap:9px;align-items:flex-start;margin:5px 0;cursor:pointer"><input type="radio" name="qFormato" value="mixto" checked><span><b>Práctica mixta (recomendada)</b><br><span class="sub">' +
-        (dirigido ? 'Teoría General: opción múltiple, verdadero/falso y relacionar faltas. Ética y Mando: opción múltiple y completar palabras.' : tieneUnir ? 'Combiná opción múltiple, verdadero/falso y ejercicios para unir.' : 'Principalmente opción múltiple, con una pregunta de verdadero/falso cada cinco.') + '</span></span></label>' +
+        (dirigido ? 'Opción múltiple, verdadero/falso y un ejercicio para relacionar en cada materia.' : tieneUnir ? 'Combiná opción múltiple, verdadero/falso y ejercicios para unir.' : 'Principalmente opción múltiple, con una pregunta de verdadero/falso cada cinco.') + '</span></span></label>' +
         '<label style="display:flex;gap:9px;align-items:flex-start;margin:9px 0 2px;cursor:pointer"><input type="radio" name="qFormato" value="mc"><span><b>Solo opción múltiple</b><br><span class="sub">Conserva el formato anterior: cuatro opciones en todas las preguntas.</span></span></label></fieldset>' : '';
       body.innerHTML = '<div class="card"><h2>Examen · ' + t.nombre + '</h2>' +
         '<p class="sub">Hay ' + barajadas.length + ' preguntas disponibles. Elegí el formato y cuántas querés responder.</p>' + selectorFormato +
