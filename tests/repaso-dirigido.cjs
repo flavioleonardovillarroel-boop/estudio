@@ -18,6 +18,18 @@ assert.equal(materias.find(m => m.id === 'm_finales').unidades[0], id);
 assert.equal(topic.preguntas.length, 20);
 assert.equal(topic.preguntas.filter(q => q.tipo === 'unir').length, 2);
 assert.equal(topic.preguntas.filter(q => q.tipo === 'vf').length, 5);
+const approvedTheory = temas.find(t => t.id === 'finales_teoria_general_6_temas_2026');
+const approvedEthics = temas.find(t => t.id === 'finales_etica_mando_2026');
+const definitions = approvedTheory.secciones.find(s => s.titulo.includes('Tipos de sanción')).parrafos
+  .filter(p => /^<strong>(Leves|Graves|Gravísimas)\.<\/strong>/.test(p))
+  .map(p => p.split('</strong> ')[1]);
+assert.equal(definitions.length, 3);
+const theoryReading = topic.secciones.find(s => s.titulo === 'Teoría General').parrafos.join(' ');
+for (const definition of definitions) assert(theoryReading.includes(definition));
+const ethicsReading = topic.secciones.find(s => s.titulo === 'Ética y Mando').parrafos.join(' ');
+const approvedDefinitions = approvedEthics.secciones.find(s => s.titulo.startsWith('Mando comando')).parrafos;
+assert(ethicsReading.includes(approvedDefinitions[1]));
+assert(ethicsReading.includes(approvedDefinitions[3]));
 
 const material = 'materiales/finales/repaso-teoria-general-etica-y-mando.docx';
 const resources = pwaResources(root);
