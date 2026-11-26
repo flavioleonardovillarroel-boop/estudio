@@ -26,12 +26,15 @@ const definitions = approvedTheory.secciones.find(s => s.titulo.includes('Tipos 
 assert.equal(definitions.length, 3);
 const theoryReading = topic.secciones.find(s => s.titulo === 'Teoría General').parrafos.join(' ');
 for (const definition of definitions) assert(theoryReading.includes(definition));
+for (const expected of ['resistir y rechazar agresiones', 'Dura <strong>una semana', 'oportunidad fijada por el <strong>PON', 'un oficial de semana por elemento', 'un auxiliar de semana por subunidad']) {
+  assert(theoryReading.includes(expected));
+}
 const ethicsReading = topic.secciones.find(s => s.titulo === 'Ética y Mando').parrafos.join(' ');
 const approvedDefinitions = approvedEthics.secciones.find(s => s.titulo.startsWith('Mando comando')).parrafos;
 assert(ethicsReading.includes(approvedDefinitions[1]));
 assert(ethicsReading.includes(approvedDefinitions[3]));
 
-const material = 'materiales/finales/repaso-teoria-general-etica-y-mando.docx';
+const material = 'materiales/finales/repaso-rapido-eve.docx';
 const resources = pwaResources(root);
 assert(resources.cachedFiles.has(material));
 const server = http.createServer((req, res) => {
