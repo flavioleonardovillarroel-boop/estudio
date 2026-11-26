@@ -320,14 +320,14 @@ var CONTENIDO = {
     {
       "id": "finales_repaso_temario_20261125",
       "nombre": "Repaso dirigido · Teoría General y Ética y Mando",
-      "desc": "Temario del 25 de noviembre. Apunte breve y 20 consignas con opción múltiple, verdadero/falso y ejercicios para unir.",
+      "desc": "Temario del 25 de noviembre. Apunte breve y 20 consignas de opción múltiple y completar palabras.",
       "formatoDirigido": true,
       "secciones": [
         {
           "titulo": "Apunte del final",
           "parrafos": [
             "<a href=\"./materiales/finales/repaso-rapido-eve.docx\" download>Descargar el Word breve (dos páginas)</a>.",
-            "En Examen, elegí Práctica mixta y Todas para resolver las 20 consignas en dos bloques."
+            "En Examen, elegí Práctica mixta y la materia que quieras repasar. Podés hacer también las 20 consignas juntas. Vas a encontrar opción múltiple y palabras para completar."
           ]
         },
         {
@@ -434,10 +434,17 @@ var CONTENIDO = {
           "e": "El art. 5.001 lo define como un sistema integrado de personal y medios."
         },
         {
-          "tipo": "vf",
-          "p": "La guardia de prevención depende directamente del oficial de servicio y cumple funciones de policía interna del cuartel.",
-          "v": true,
-          "e": "Ambos rasgos figuran en el art. 5.013 del RFP 70-01."
+          "tipo": "completar",
+          "p": "La guardia de prevención depende directamente del oficial de ____.",
+          "o": [
+            "servicio"
+          ],
+          "alternativas": [
+            "semana",
+            "turno",
+            "subunidad"
+          ],
+          "e": "El art. 5.013 establece la dependencia directa del oficial de servicio y la función de policía interna."
         },
         {
           "tipo": "mc",
@@ -476,36 +483,30 @@ var CONTENIDO = {
           "e": "RFP 70-01, arts. 7.003 y 7.016."
         },
         {
-          "tipo": "vf",
-          "p": "El oficial de servicio es el superior inmediato del cabo de cuarto.",
-          "v": false,
-          "e": "El superior inmediato del cabo de cuarto es el sargento de cuarto correspondiente."
+          "tipo": "completar",
+          "p": "El superior inmediato del cabo de cuarto es el ____ de cuarto.",
+          "o": [
+            "sargento"
+          ],
+          "alternativas": [
+            "cabo",
+            "oficial",
+            "auxiliar"
+          ],
+          "e": "El superior inmediato es el sargento de cuarto correspondiente."
         },
         {
-          "tipo": "unir",
-          "p": "Uní cada clase de falta con su descripción.",
-          "pares": [
-            [
-              "Leve",
-              "Menoscabo de la disciplina que pone en peligro el cumplimiento eficiente del servicio, sin constituir una infracción más grave."
-            ],
-            [
-              "Grave",
-              "Conducta prevista como grave en la ley o análoga que causa grave menoscabo a la disciplina y dificulta el servicio."
-            ],
-            [
-              "Gravísima",
-              "Conducta prevista expresamente como gravísima por la ley, de interpretación restrictiva."
-            ]
-          ],
+          "tipo": "completar",
+          "p": "Una falta prevista expresamente por la ley y de interpretación restrictiva se clasifica como ____.",
           "o": [
-            "Leve: tipificación expresa como gravísima. Grave: menoscabo menor. Gravísima: conducta análoga.",
-            "Leve: pone en peligro el cumplimiento del servicio sin ser una infracción mayor. Grave: conducta prevista o análoga que menoscaba gravemente la disciplina y dificulta el servicio. Gravísima: previsión expresa e interpretación restrictiva.",
-            "Leve: conducta grave. Grave: tipificación gravísima. Gravísima: afecta el cumplimiento eficiente.",
-            "Leve: sin afectación disciplinaria. Grave: reprimenda escrita. Gravísima: relevo de semana."
+            "gravísima"
           ],
-          "c": 1,
-          "e": "Una falta leve puede considerarse grave según las circunstancias y sus efectos. La sanción se determina conforme a la ley."
+          "alternativas": [
+            "grave",
+            "leve",
+            "análoga"
+          ],
+          "e": "Las faltas gravísimas están previstas expresamente. Una falta leve afecta la disciplina y pone en peligro el cumplimiento eficiente del servicio, siempre que no constituya una infracción más grave. Una grave puede estar prevista como tal o ser análoga con grave menoscabo de la disciplina y dificultad para el servicio."
         },
         {
           "tipo": "mc",
@@ -544,16 +545,30 @@ var CONTENIDO = {
           "e": "Los tres primeros son manifestaciones de la moral. El cuarto es la eficiencia de la organización."
         },
         {
-          "tipo": "vf",
-          "p": "El mando procura la obediencia voluntaria y la cooperación. El comando es el ejercicio de la autoridad y de las responsabilidades legales.",
-          "v": true,
-          "e": "El manual presenta ambas definiciones en la Introducción V."
+          "tipo": "completar",
+          "p": "El mando busca obtener la obediencia ____ de los subordinados.",
+          "o": [
+            "voluntaria"
+          ],
+          "alternativas": [
+            "forzada",
+            "automática",
+            "formal"
+          ],
+          "e": "El mando procura obediencia voluntaria, confianza, respeto y cooperación leal y activa. El comando es el ejercicio de la autoridad y las responsabilidades legales."
         },
         {
-          "tipo": "vf",
-          "p": "La conducción es la autoridad legal derivada del grado y el cargo.",
-          "v": false,
-          "e": "Esa es la definición de comando. Conducción es aplicar el comando a la solución de un problema militar."
+          "tipo": "completar",
+          "p": "La conducción aplica el ____ a la solución de un problema militar.",
+          "o": [
+            "comando"
+          ],
+          "alternativas": [
+            "mando",
+            "liderazgo",
+            "procedimiento"
+          ],
+          "e": "Conducción es aplicar el comando a la solución de un problema militar."
         },
         {
           "tipo": "mc",
@@ -568,34 +583,16 @@ var CONTENIDO = {
           "e": "El aplomo es la serenidad y el dominio de sí mismo."
         },
         {
-          "tipo": "unir",
-          "p": "Uní cada enunciado con la categoría que le corresponde.",
-          "pares": [
-            [
-              "Creer en la causa que se sirve y auxiliarse de la fe en Dios",
-              "Principio"
-            ],
-            [
-              "Dar el ejemplo",
-              "Procedimiento"
-            ],
-            [
-              "Tener sentido de la autoridad y de la dignidad",
-              "Principio"
-            ],
-            [
-              "Administrar justicia con ecuanimidad",
-              "Procedimiento"
-            ]
-          ],
+          "tipo": "mc",
+          "p": "¿Cuál opción indica primero un principio y después un procedimiento del mando?",
           "o": [
-            "Todos son principios.",
-            "Los dos primeros son principios y los dos últimos son procedimientos.",
-            "Primero y tercero son principios. Segundo y cuarto son procedimientos.",
-            "Primero y tercero son procedimientos. Segundo y cuarto son principios."
+            "Dar el ejemplo / Administrar justicia con ecuanimidad.",
+            "Tener sentido de la autoridad y de la dignidad / Dar el ejemplo.",
+            "Dar el ejemplo / Tener sentido de la autoridad y de la dignidad.",
+            "Creer en la causa que se sirve / Entregarse sin limitaciones al régimen del servicio."
           ],
-          "c": 2,
-          "e": "Los principios orientan el ejercicio del mando. Los procedimientos se aplican según la situación."
+          "c": 1,
+          "e": "Tener sentido de la autoridad y de la dignidad es un principio. Dar el ejemplo es un procedimiento."
         },
         {
           "tipo": "mc",
@@ -610,10 +607,19 @@ var CONTENIDO = {
           "e": "Crear y mantener el ascendiente figura entre los ocho procedimientos."
         },
         {
-          "tipo": "vf",
-          "p": "Los procedimientos se basan en los principios del mando y se aplican según la situación.",
-          "v": true,
-          "e": "Los principios sirven de fundamento para los procedimientos."
+          "tipo": "completar",
+          "p": "Los procedimientos del mando se basan en los ____.",
+          "o": [
+            "principios",
+            "principios del mando",
+            "principios de mando"
+          ],
+          "alternativas": [
+            "indicadores",
+            "registros",
+            "grados"
+          ],
+          "e": "Los principios orientan el mando. Los procedimientos se basan en ellos y se aplican según la situación."
         },
         {
           "tipo": "mc",
@@ -17786,6 +17792,7 @@ function opcionCanonica(q){
 }
 function normalizarOpcion(s){ return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim(); }
 function opcionesAlternativas(q, correcta){
+  if(q.tipo==='completar' && Array.isArray(q.alternativas)) return q.alternativas;
   var p=normalizarOpcion(q.p);
   if(q.tipo==='completar' && /^\d{4}$/.test(correcta)){var n=Number(correcta);return [String(n-1),String(n+1),String(n+5)];}
   if(q.tipo==='completar' && /^\d+$/.test(correcta)){var n=Number(correcta);return [String(n+1),String(n+2),String(n+3)];}
@@ -17901,7 +17908,7 @@ function quiz(t, body){
     }
     cola = base.map(function(q, posicion){
       var preparada;
-      if (formatoMixto && (q.tipo === 'vf' || q.tipo === 'unir')) preparada = q;
+      if (formatoMixto && (q.tipo === 'vf' || q.tipo === 'unir' || (dirigido && q.tipo === 'completar'))) preparada = q;
       else if (formatoMixto && !dirigido && (!q.tipo || q.tipo === 'mc') && (posicion + 1) % 5 === 0) preparada = preguntaVFDesdeSeleccion(q, posicion);
       else preparada = preguntaSeleccion(q, t.preguntas);
       return prepPregunta(preparada);
@@ -17922,7 +17929,7 @@ function quiz(t, body){
       var visuales=barajadas.filter(function(q){return q.visual === true;}).length;if(visuales)opts.push(['imagenes',visuales]);
       var selectorFormato = pilotoMixto ? '<fieldset style="border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:12px 0"><legend style="padding:0 6px;font-weight:800">Formato de práctica</legend>' +
         '<label style="display:flex;gap:9px;align-items:flex-start;margin:5px 0;cursor:pointer"><input type="radio" name="qFormato" value="mixto" checked><span><b>Práctica mixta (recomendada)</b><br><span class="sub">' +
-        (tieneUnir ? 'Combiná opción múltiple, verdadero/falso y ejercicios para unir.' : 'Principalmente opción múltiple, con una pregunta de verdadero/falso cada cinco.') + '</span></span></label>' +
+        (dirigido ? 'Opción múltiple y completar palabras.' : tieneUnir ? 'Combiná opción múltiple, verdadero/falso y ejercicios para unir.' : 'Principalmente opción múltiple, con una pregunta de verdadero/falso cada cinco.') + '</span></span></label>' +
         '<label style="display:flex;gap:9px;align-items:flex-start;margin:9px 0 2px;cursor:pointer"><input type="radio" name="qFormato" value="mc"><span><b>Solo opción múltiple</b><br><span class="sub">Conserva el formato anterior: cuatro opciones en todas las preguntas.</span></span></label></fieldset>' : '';
       body.innerHTML = '<div class="card"><h2>Examen · ' + t.nombre + '</h2>' +
         '<p class="sub">Hay ' + barajadas.length + ' preguntas disponibles. Elegí el formato y cuántas querés responder.</p>' + selectorFormato +
@@ -17960,7 +17967,7 @@ function quiz(t, body){
       if (!esMat) LS.set(KEYU2L(t.id), pct);
       else LS.set(KEYU2L(t.id.slice(6)), pct);
       var nombresTipo = { mc: 'Múltiple', vf: 'V/F', completar: 'Completar', guia: 'Guía', unir: 'Unir' };
-      var detalle = Object.keys(nombresTipo).filter(function(k){ return k !== 'unir' || totTipo[k]; }).map(function(k){
+      var detalle = Object.keys(nombresTipo).filter(function(k){ return dirigido ? totTipo[k] > 0 : k !== 'unir' || totTipo[k]; }).map(function(k){
         return '<span style="margin-right:10px">' + nombresTipo[k] + ': ' + okTipo[k] + '/' + totTipo[k] + '</span>';
       }).join('');
       var recap = fallos.length ? '<div class="card"><h3>Para repasar</h3>' + fallos.map(function(fx){

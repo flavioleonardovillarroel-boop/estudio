@@ -16,8 +16,14 @@ const id = 'finales_repaso_temario_20261125';
 const topic = temas.find(t => t.id === id);
 assert.equal(materias.find(m => m.id === 'm_finales').unidades[0], id);
 assert.equal(topic.preguntas.length, 20);
-assert.equal(topic.preguntas.filter(q => q.tipo === 'unir').length, 2);
-assert.equal(topic.preguntas.filter(q => q.tipo === 'vf').length, 5);
+for (const questions of [topic.preguntas.slice(0, 10), topic.preguntas.slice(10)]) {
+  assert.equal(questions.filter(q => q.tipo === 'completar').length, 3);
+  assert.equal(questions.filter(q => q.tipo === 'mc').length, 7);
+  for (const q of questions.filter(q => q.tipo === 'completar')) {
+    assert.equal(q.p.match(/____/g).length, 1);
+    assert.equal(q.alternativas.length, 3);
+  }
+}
 const approvedTheory = temas.find(t => t.id === 'finales_teoria_general_6_temas_2026');
 const approvedEthics = temas.find(t => t.id === 'finales_etica_mando_2026');
 const definitions = approvedTheory.secciones.find(s => s.titulo.includes('Tipos de sanción')).parrafos
@@ -45,33 +51,31 @@ const server = http.createServer((req, res) => {
   res.end(fs.readFileSync(resources.pathFor(entry)));
 });
 
-async function answerBlock(page, key, questions, missMatch) {
+async function answerBlock(page, key, questions, missWord) {
   await page.locator('[data-cant="' + key + '"]').click();
   for (const q of questions) {
-    assert.equal(await page.locator('#bodyVista h2').innerText(), q.p);
-    if (q.tipo === 'unir') {
-      const fields = page.locator('.qUnir');
-      const submit = page.getByRole('button', { name: 'Comprobar pares', exact: true });
-      assert.equal(await fields.count(), q.pares.length);
-      assert(await submit.isDisabled());
-      for (const [i, [, solution]] of q.pares.entries()) {
-        const label = missMatch && i === 0 ? q.pares[1][1] : solution;
-        await fields.nth(i).selectOption({ label });
-      }
-      await submit.click();
-      assert.equal(await fields.first().isDisabled(), true);
-      if (missMatch) assert((await page.locator('#qCorrec').innerText()).includes(q.pares[0][1]));
-    } else if (q.tipo === 'vf') {
-      await page.getByRole('button', { name: q.v ? 'Verdadero' : 'Falso', exact: true }).click();
+    const misses = q.tipo === 'completar' && q.o[0] === missWord;
+    if (q.tipo === 'completar') {
+      const input = page.getByRole('textbox', { name: 'Respuesta para completar' });
+      assert.equal(await input.count(), 1);
+      assert.equal(await page.locator('.qbtn, .qUnir').count(), 0);
+      const solution = q.o[0] === 'gravísima' ? ' GRAVISIMA ' : q.o.at(-1);
+      await input.fill(misses ? q.alternativas[0] : solution);
+      await input.press('Enter');
+      assert(await input.isDisabled());
+      if (misses) assert((await page.locator('#qCorrec').innerText()).includes(q.o[0]));
     } else {
+      assert.equal(await page.locator('#bodyVista h2').innerText(), q.p);
+      assert.equal(await page.locator('.qbtn').count(), 4);
       await page.locator('.qbtn').filter({ hasText: q.o[q.c] }).click();
     }
-    assert.match(await page.locator('#qFdb').innerText(), q.tipo === 'unir' && missMatch ? /Incorrecto/ : /Correcto/);
+    assert.match(await page.locator('#qFdb').innerText(), misses ? /Incorrecto/ : /Correcto/);
     await page.locator('#qNext').click();
   }
   const score = await page.locator('#bodyVista').innerText();
-  assert(score.includes(missMatch ? '90%' : '100%'));
-  assert(score.includes(missMatch ? 'Unir: 0/1' : 'Unir: 1/1'));
+  assert(score.includes(missWord ? '90%' : '100%'));
+  assert(score.includes(missWord ? 'Completar: 2/3' : 'Completar: 3/3'));
+  assert(!score.includes('V/F:') && !score.includes('Unir:'));
 }
 
 async function run() {
@@ -96,9 +100,10 @@ async function run() {
     await openModule();
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await page.getByRole('button', { name: 'Examen', exact: true }).click();
-    await answerBlock(page, 'general', topic.preguntas.slice(0, 10), true);
+    assert((await page.locator('#bodyVista').innerText()).includes('Opción múltiple y completar palabras.'));
+    await answerBlock(page, 'general', topic.preguntas.slice(0, 10), 'sargento');
     await page.getByRole('button', { name: 'Repetir examen', exact: true }).click();
-    await answerBlock(page, 'mando', topic.preguntas.slice(10), false);
+    await answerBlock(page, 'mando', topic.preguntas.slice(10));
     await page.getByRole('button', { name: '← Volver', exact: true }).click();
     assert.equal(await page.locator('#hdTitle').innerText(), 'SEMANAS AZULES');
     await context.setOffline(true);
@@ -109,8 +114,17 @@ async function run() {
     const [download] = await Promise.all([page.waitForEvent('download'), page.locator('#secs a[download]').click()]);
     assert.equal(await download.failure(), null);
     assert.deepEqual(fs.readFileSync(await download.path()), fs.readFileSync(resources.pathFor(material)));
+    await page.getByRole('button', { name: 'Examen', exact: true }).click();
+    await page.locator('[data-cant="general"]').click();
+    for (const q of topic.preguntas.slice(0, 2)) {
+      await page.locator('.qbtn').filter({ hasText: q.o[q.c] }).click();
+      await page.locator('#qNext').click();
+    }
+    await page.locator('#qBlank').fill('servicio');
+    await page.getByRole('button', { name: 'Responder', exact: true }).click();
+    assert.match(await page.locator('#qFdb').innerText(), /Correcto/);
     assert.deepEqual(errors, []);
-    console.log('PASS: 20 consignas, formatos dirigidos, correcciones, navegación móvil y Word sin conexión');
+    console.log('PASS: 20 consignas de opción múltiple y completar, correcciones, navegación móvil y estudio sin conexión');
   } finally {
     await browser.close();
   }
