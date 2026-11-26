@@ -16,9 +16,10 @@ const old=JSON.parse(JSON.stringify(current.data));old.materias=old.materias.fil
 assert.deepEqual(old,baseline.data,'All existing subjects/modules/progress IDs must be preserved exactly');
 assert.equal(current.data.materias[0].id,fixture.materia);
 assert.equal(current.data.materias[0].nombre,'SEMANAS AZULES');
-assert.deepEqual(current.data.materias[0].unidades.slice(0,3),['semana_azul_vc_tam_2026','semana_azul_sk105_2026','semana_azul_m113_2026']);
-assert.deepEqual(current.data.materias[0].unidades.slice(3,5),fixture.topics.map(t=>t.id));
-assert.equal(current.data.materias[0].unidades[5],'semana_azul_mecanica_automotriz_2026');
+const inherited = weekIds.filter(id=>id!=='finales_repaso_temario_20261125');
+assert.deepEqual(inherited.slice(0,3),['semana_azul_vc_tam_2026','semana_azul_sk105_2026','semana_azul_m113_2026']);
+assert.deepEqual(inherited.slice(3,5),fixture.topics.map(t=>t.id));
+assert.equal(inherited[5],'semana_azul_mecanica_automotriz_2026');
 const configurations=[pwaResources(root),pwaResources(root,{sourceMode:true})];
 const totalQuestions=weekIds.reduce((sum,id)=>sum+current.data.temas.find(t=>t.id===id).preguntas.length,0);
 for(const f of fixture.topics){
@@ -67,7 +68,7 @@ async function completeMixedPilot(page,questions){
   await page.locator('#nuevoNom').fill('Finales prueba '+mode);await page.locator('#nuevoPin').fill('1234');await page.getByRole('button',{name:'Crear y entrar',exact:true}).click();
   assert((await page.locator('.materia').first().textContent()).includes('SEMANAS AZULES'));
   const preserved=await page.evaluate(()=>{const k=KEYQ('log_villar');LS.set(k,77);return {key:k,value:localStorage.getItem(k)};});
-  await page.locator('.materia').filter({hasText:'SEMANAS AZULES'}).click();assert.equal(await page.locator('.tema').count(),6);assert((await page.locator('#view').textContent()).includes(totalQuestions+' preguntas'));
+  await page.locator('.materia').filter({hasText:'SEMANAS AZULES'}).click();assert.equal(await page.locator('.tema').count(),weekIds.length);assert((await page.locator('#view').textContent()).includes(totalQuestions+' preguntas'));
   for(const f of fixture.topics){
    await page.locator('.tema').filter({hasText:f.nombre}).click();
    assert.deepEqual(await page.locator('#secs .sec-blk h3').allTextContents(),['Apunte del final',...f.headings]);
@@ -80,7 +81,7 @@ async function completeMixedPilot(page,questions){
    await page.getByRole('button',{name:'Cronología',exact:true}).click();const item=page.locator('#tlWrap .tl div[role=button]').first();await item.click();assert((await item.getAttribute('class')).includes('abierta'));
    await page.evaluate(()=>{barajar=x=>x.slice();});await page.getByRole('button',{name:'Examen',exact:true}).click();await completeExam(page,f.questions);
    if(mode===0&&f===fixture.topics[0]){await page.getByRole('button',{name:'Repetir examen',exact:true}).click();await completeMixedPilot(page,f.questions);}
-   await page.getByRole('button',{name:'← Volver',exact:true}).click();assert.equal(await page.locator('.tema').count(),6);assert.equal(await page.locator('#hdTitle').textContent(),'SEMANAS AZULES');
+   await page.getByRole('button',{name:'← Volver',exact:true}).click();assert.equal(await page.locator('.tema').count(),weekIds.length);assert.equal(await page.locator('#hdTitle').textContent(),'SEMANAS AZULES');
   }
   await page.getByRole('button',{name:'📝 Examen de la materia ('+totalQuestions+' preguntas)',exact:true}).click();assert((await page.locator('#bodyEx').textContent()).includes(totalQuestions+' preguntas'));await page.getByRole('button',{name:'← Materia',exact:true}).click();
   assert.equal(await page.evaluate(k=>localStorage.getItem(k),preserved.key),preserved.value);
@@ -89,7 +90,7 @@ async function completeMixedPilot(page,questions){
   for(const f of fixture.topics){
    await page.locator('.tema').filter({hasText:f.nombre}).click();assert((await page.locator('#secs').textContent()).includes(f.expected[1]));await download(page,f,'offline-'+mode);
    await page.getByRole('button',{name:'Examen',exact:true}).click();await page.locator('[data-cant="corta"]').click();await page.locator('.qbtn').first().click();assert(await page.locator('#qNext').isVisible());
-   await page.getByRole('button',{name:'← Volver',exact:true}).click();assert.equal(await page.locator('.tema').count(),6);
+   await page.getByRole('button',{name:'← Volver',exact:true}).click();assert.equal(await page.locator('.tema').count(),weekIds.length);
   }
   const cached=await page.evaluate(async name=>(await(await caches.open(name)).keys()).map(r=>new URL(r.url).pathname),resources.cache);for(const f of fixture.topics)assert(cached.some(p=>p.endsWith('/'+f.download)));
   assert.equal(await page.evaluate(k=>localStorage.getItem(k),preserved.key),preserved.value);assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
